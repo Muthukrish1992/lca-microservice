@@ -1,19 +1,46 @@
 {
-    "Furniture": ["Cupboards & Cabinets", "Shelving & Racking", "Storage Boxes & Containers", "Kitchenware", "Personal Protective Equipment", "Industrial Supplies and Tools", "Sports Goods"],
-    "Dinning Chairs": ["Office Cupboards & Cabinets", "Mobile Shelving", "Plastic Storage Boxes", "Cutlery", "Masks", "Chain Slings", "Archery"],
-    "Office Chairs": ["Metal Cupboards & Cabinets", "Light Duty Shelving", "Storage Bins", "Glassware", "Ear Protection", "Hand Tools", "Athletics"],
-    "Conference Chairs": ["Stainless Steel Cabinets", "Medium Duty Shelving", "Wire Baskets", "Cookware", "Eye Protection", "Locks and Latches", "Badminton"],
-    "Plastic Chairs": ["Drawer Cabinets", "Heavy Duty Shelving", "Folding Containers", "Bakeware", "Gloves", "Measuring and Inspection Tools", "Baseball"],
-    "Foldable Chairs": ["Wall Mounted Shelving", "Mobile Containers", "Tableware", "Goggles and Glasses", "Pneumatic Tools", "Boxing and Fight"],
-    "Office Desks": ["Cantilever Racking", "Kitchen Utensils", "Helmets", "Power Tools", "Football"],
-    "Office Accessories": ["Shelving & Racking Accessories", "Food Storage", "Protective Work Clothing", "Tool Storage", "High Jump"],
-    "Benches": ["Drinkware", "Foot Protection", "Adhesive Tapes and Sealants", "Hockey"],
-    "Stools": ["Cutting Boards", "Workbenches and Tables", "Rugby"],
-    "School Tables and Chairs": ["Kitchen Trolleys", "Fasteners and Fixings", "Swimming"],
-    "Metal Tables and Chairs": ["Bambooware", "Plastic Tool Box", "Table Tennis"],
-    "Restaurant Tables and Chairs": ["Stoneware", "Work Table", "Cycle and Accessories"],
-    "Leather Furniture": ["Melamineware"],
-    "Panel Furniture": ["Serving & Display Ware"],
-    "Mirrors": ["Measuring & Timing Tools"]
+    "Office Furniture": [
+      "Desks",
+      "Chairs",
+      "Shelving Units",
+      "Conference Tables",
+      "Storage Cabinets",
+      "Ergonomic Furniture"
+    ],
+    "Home Furniture": [
+      "Sofas",
+      "Beds",
+      "Dining Tables",
+      "Wardrobes",
+      "Coffee Tables",
+      "Bookshelves"
+    ],
+    "Outdoor Furniture": [
+      "Patio Sets",
+      "Garden Chairs",
+      "Outdoor Sofas",
+      "Picnic Tables",
+      "Lounge Chairs"
+    ],
+    "Commercial Furniture": [
+      "Restaurant Furniture",
+      "Hotel Furniture",
+      "Bar Stools",
+      "Reception Desks",
+      "Banquet Tables"
+    ],
+    "Accessories": [
+      "Cushions",
+      "Curtains",
+      "Rugs",
+      "Decorative Items",
+      "Wall Art"
+    ],
+    "Packaging": [
+      "Flat-Pack Packaging",
+      "Protective Foam",
+      "Cardboard Boxes",
+      "Recycled Packaging Materials"
+    ]
   }
   

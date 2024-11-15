@@ -27,27 +27,24 @@ app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 const productRoutes = require('./routes/productRoutes');
 app.use('/api/products', productRoutes);
 
-// Function to format the product categories as a string for the prompt
-const formatCategoriesList = (categories) => {
-    return Object.entries(categories)
-        .map(([category, subcategories]) => `- ${category}: ${subcategories.join(', ')}`)
-        .join('\n');
-};
 
-// Endpoint to classify product based on product details
 app.post('/api/classify-product', async (req, res) => {
     const { productCode, description, name } = req.body;
 
-    if (!productCode || !description || !name) {
+    if ( !name) {
         return res.status(400).json({ error: 'Product code, description, and name are required.' });
     }
 
     try {
         // Dynamically generate categories list for the prompt
-        const categoriesList = formatCategoriesList(productCategories);
+        const categoriesList = Object.entries(productCategories)
+            .map(([category, subcategories]) => 
+                `${category}:\n  - ${subcategories.join("\n  - ")}`
+            )
+            .join("\n\n");
 
         // Construct prompt for classification
-        const prompt = `Classify the following product into a category and subcategory, choosing only from the provided list:
+        const prompt = `Classify the following product into a category and subcategory. Ensure the subcategory is chosen strictly from the correct category listed below.
 
 Product Code: ${productCode}
 Product Name: ${name}
@@ -60,13 +57,15 @@ Return the result in this format:
 {
     "category": "<category>",
     "subcategory": "<subcategory>"
-}`;
+}
+
+Ensure that the subcategory belongs to the category.`;
 
         // Send the prompt to OpenAI API
         const response = await axios.post(
             'https://api.openai.com/v1/chat/completions',
             {
-                model: "gpt-3.5-turbo", // or another model if desired
+                model: "gpt-4o", // Updated model to "gpt-4o"
                 messages: [{ role: "user", content: prompt }]
             },
             {
@@ -77,9 +76,25 @@ Return the result in this format:
             }
         );
 
-        // Parse the response
+        // Parse the response safely, ensuring clean JSON format
         const chatCompletion = response.data.choices[0].message.content;
-        const result = JSON.parse(chatCompletion); // Ensure response is valid JSON
+
+        // Clean the response to remove markdown or any extraneous characters
+        const cleanedResponse = chatCompletion.replace(/```json|```/g, '').trim();
+
+        // Parse the cleaned response
+        let result;
+        try {
+            result = JSON.parse(cleanedResponse);  // Parse the clean JSON string
+        } catch (error) {
+            return res.status(500).json({ error: 'Invalid response format from AI.' });
+        }
+
+        // Validate the subcategory within the chosen category
+        const validSubcategories = productCategories[result.category] || [];
+        if (!validSubcategories.includes(result.subcategory)) {
+            return res.status(400).json({ error: 'Invalid subcategory for the given category.' });
+        }
 
         res.json(result);
     } catch (error) {
@@ -87,6 +102,7 @@ Return the result in this format:
         res.status(500).json({ error: 'An error occurred while processing your request.' });
     }
 });
+
 
 // Endpoint for classification of manufacturing process
 app.post('/api/classify-manufacturing-process', async (req, res) => {
@@ -245,5 +261,11 @@ app.get('/api/subcategories', (req, res) => {
     }
 
     res.json(subcategories);
+});
+
+// Endpoint to return subcategories based on the given category
+app.get('/api/productCategories', (req, res) => {
+
+    res.json(productCategories);
 });
 
