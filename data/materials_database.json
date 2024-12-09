@@ -1,0 +1,548 @@
+[
+    {
+        "countryOfOrigin": "CN",
+        "materialClass": "Wood",
+        "specificMaterial": "Oak",
+        "EmissionFactor": 0.75
+    },
+    {
+        "countryOfOrigin": "CN",
+        "materialClass": "Wood",
+        "specificMaterial": "Maple",
+        "EmissionFactor": 0.7
+    },
+    {
+        "countryOfOrigin": "CN",
+        "materialClass": "Wood",
+        "specificMaterial": "Cherry",
+        "EmissionFactor": 0.7
+    },
+    {
+        "countryOfOrigin": "CN",
+        "materialClass": "Wood",
+        "specificMaterial": "Walnut",
+        "EmissionFactor": 0.8
+    },
+    {
+        "countryOfOrigin": "CN",
+        "materialClass": "Wood",
+        "specificMaterial": "Beech",
+        "EmissionFactor": 0.6
+    },
+    {
+        "countryOfOrigin": "CN",
+        "materialClass": "Wood",
+        "specificMaterial": "Mahogany",
+        "EmissionFactor": 0.8
+    },
+    {
+        "countryOfOrigin": "CN",
+        "materialClass": "Wood",
+        "specificMaterial": "Pine",
+        "EmissionFactor": 0.5
+    },
+    {
+        "countryOfOrigin": "CN",
+        "materialClass": "Wood",
+        "specificMaterial": "Birch",
+        "EmissionFactor": 0.7
+    },
+    {
+        "countryOfOrigin": "CN",
+        "materialClass": "Wood",
+        "specificMaterial": "Teak",
+        "EmissionFactor": 0.85
+    },
+    {
+        "countryOfOrigin": "CN",
+        "materialClass": "Wood",
+        "specificMaterial": "Ash",
+        "EmissionFactor": 0.65
+    },
+    {
+        "countryOfOrigin": "CN",
+        "materialClass": "Wood",
+        "specificMaterial": "Alder",
+        "EmissionFactor": 0.6
+    },
+    {
+        "countryOfOrigin": "CN",
+        "materialClass": "Wood",
+        "specificMaterial": "Rubberwood",
+        "EmissionFactor": 0.5
+    },
+    {
+        "countryOfOrigin": "CN",
+        "materialClass": "Wood",
+        "specificMaterial": "Rosewood",
+        "EmissionFactor": 0.85
+    },
+    {
+        "countryOfOrigin": "CN",
+        "materialClass": "Wood",
+        "specificMaterial": "Poplar",
+        "EmissionFactor": 0.55
+    },
+    {
+        "countryOfOrigin": "CN",
+        "materialClass": "Wood",
+        "specificMaterial": "Bamboo",
+        "EmissionFactor": 0.25
+    },
+    {
+        "countryOfOrigin": "CN",
+        "materialClass": "Wood",
+        "specificMaterial": "MDF",
+        "EmissionFactor": 1.2
+    },
+    {
+        "countryOfOrigin": "Vietnam",
+        "materialClass": "Wood",
+        "specificMaterial": "Oak",
+        "EmissionFactor": 0.7
+    },
+    {
+        "countryOfOrigin": "Vietnam",
+        "materialClass": "Wood",
+        "specificMaterial": "Maple",
+        "EmissionFactor": 0.65
+    },
+    {
+        "countryOfOrigin": "Vietnam",
+        "materialClass": "Wood",
+        "specificMaterial": "Cherry",
+        "EmissionFactor": 0.65
+    },
+    {
+        "countryOfOrigin": "Vietnam",
+        "materialClass": "Wood",
+        "specificMaterial": "Walnut",
+        "EmissionFactor": 0.75
+    },
+    {
+        "countryOfOrigin": "Vietnam",
+        "materialClass": "Wood",
+        "specificMaterial": "Beech",
+        "EmissionFactor": 0.55
+    },
+    {
+        "countryOfOrigin": "Vietnam",
+        "materialClass": "Wood",
+        "specificMaterial": "Mahogany",
+        "EmissionFactor": 0.75
+    },
+    {
+        "countryOfOrigin": "Vietnam",
+        "materialClass": "Wood",
+        "specificMaterial": "Pine",
+        "EmissionFactor": 0.45
+    },
+    {
+        "countryOfOrigin": "Vietnam",
+        "materialClass": "Wood",
+        "specificMaterial": "Birch",
+        "EmissionFactor": 0.65
+    },
+    {
+        "countryOfOrigin": "Vietnam",
+        "materialClass": "Wood",
+        "specificMaterial": "Teak",
+        "EmissionFactor": 0.8
+    },
+    {
+        "countryOfOrigin": "Vietnam",
+        "materialClass": "Wood",
+        "specificMaterial": "Ash",
+        "EmissionFactor": 0.6
+    },
+    {
+        "countryOfOrigin": "Vietnam",
+        "materialClass": "Wood",
+        "specificMaterial": "Alder",
+        "EmissionFactor": 0.55
+    },
+    {
+        "countryOfOrigin": "Vietnam",
+        "materialClass": "Wood",
+        "specificMaterial": "Rubberwood",
+        "EmissionFactor": 0.45
+    },
+    {
+        "countryOfOrigin": "Vietnam",
+        "materialClass": "Wood",
+        "specificMaterial": "Rosewood",
+        "EmissionFactor": 0.8
+    },
+    {
+        "countryOfOrigin": "Vietnam",
+        "materialClass": "Wood",
+        "specificMaterial": "Poplar",
+        "EmissionFactor": 0.5
+    },
+    {
+        "countryOfOrigin": "Vietnam",
+        "materialClass": "Wood",
+        "specificMaterial": "Bamboo",
+        "EmissionFactor": 0.22
+    },
+    {
+        "countryOfOrigin": "Vietnam",
+        "materialClass": "Wood",
+        "specificMaterial": "MDF",
+        "EmissionFactor": 1.1
+    },
+    {
+        "countryOfOrigin": "Global",
+        "materialClass": "Wood",
+        "specificMaterial": "Oak",
+        "EmissionFactor": 0.65
+    },
+    {
+        "countryOfOrigin": "Global",
+        "materialClass": "Wood",
+        "specificMaterial": "Maple",
+        "EmissionFactor": 0.6
+    },
+    {
+        "countryOfOrigin": "Global",
+        "materialClass": "Wood",
+        "specificMaterial": "Cherry",
+        "EmissionFactor": 0.6
+    },
+    {
+        "countryOfOrigin": "Global",
+        "materialClass": "Wood",
+        "specificMaterial": "Walnut",
+        "EmissionFactor": 0.7
+    },
+    {
+        "countryOfOrigin": "Global",
+        "materialClass": "Wood",
+        "specificMaterial": "Beech",
+        "EmissionFactor": 0.5
+    },
+    {
+        "countryOfOrigin": "Global",
+        "materialClass": "Wood",
+        "specificMaterial": "Mahogany",
+        "EmissionFactor": 0.65
+    },
+    {
+        "countryOfOrigin": "Global",
+        "materialClass": "Wood",
+        "specificMaterial": "Pine",
+        "EmissionFactor": 0.4
+    },
+    {
+        "countryOfOrigin": "Global",
+        "materialClass": "Wood",
+        "specificMaterial": "Birch",
+        "EmissionFactor": 0.6
+    },
+    {
+        "countryOfOrigin": "Global",
+        "materialClass": "Wood",
+        "specificMaterial": "Teak",
+        "EmissionFactor": 0.75
+    },
+    {
+        "countryOfOrigin": "Global",
+        "materialClass": "Wood",
+        "specificMaterial": "Ash",
+        "EmissionFactor": 0.55
+    },
+    {
+        "countryOfOrigin": "Global",
+        "materialClass": "Wood",
+        "specificMaterial": "Alder",
+        "EmissionFactor": 0.5
+    },
+    {
+        "countryOfOrigin": "Global",
+        "materialClass": "Wood",
+        "specificMaterial": "Rubberwood",
+        "EmissionFactor": 0.4
+    },
+    {
+        "countryOfOrigin": "Global",
+        "materialClass": "Wood",
+        "specificMaterial": "Rosewood",
+        "EmissionFactor": 0.75
+    },
+    {
+        "countryOfOrigin": "Global",
+        "materialClass": "Wood",
+        "specificMaterial": "Poplar",
+        "EmissionFactor": 0.45
+    },
+    {
+        "countryOfOrigin": "Global",
+        "materialClass": "Wood",
+        "specificMaterial": "Bamboo",
+        "EmissionFactor": 0.2
+    },
+    {
+        "countryOfOrigin": "Global",
+        "materialClass": "Wood",
+        "specificMaterial": "MDF",
+        "EmissionFactor": 1.0
+    },
+    {
+        "countryOfOrigin": "CN",
+        "materialClass": "Metal",
+        "specificMaterial": "Steel",
+        "EmissionFactor": 2.7
+    },
+    {
+        "countryOfOrigin": "CN",
+        "materialClass": "Fabric",
+        "specificMaterial": "Nylon",
+        "EmissionFactor": 9.5
+    },
+    {
+        "countryOfOrigin": "CN",
+        "materialClass": "Leather",
+        "specificMaterial": "Genuine Leather",
+        "EmissionFactor": 10.5
+    },
+    {
+        "countryOfOrigin": "CN",
+        "materialClass": "Foam",
+        "specificMaterial": "Polyurethane Foam",
+        "EmissionFactor": 5.8 
+    },
+    {
+        "countryOfOrigin": "CN",
+        "materialClass": "Plastic",
+        "specificMaterial": "Polyurethane (PU)",
+        "EmissionFactor": 5.7
+    },
+    {
+        "countryOfOrigin": "CN",
+        "materialClass": "Metal",
+        "specificMaterial": "Stainless Steel",
+        "EmissionFactor": 7.0
+    },
+    {
+        "countryOfOrigin": "CN",
+        "materialClass": "Metal",
+        "specificMaterial": "Aluminum",
+        "EmissionFactor": 12.5
+    },
+    {
+        "countryOfOrigin": "CN",
+        "materialClass": "Metal",
+        "specificMaterial": "Chromed Steel",
+        "EmissionFactor": 3.2
+    },
+    {
+        "countryOfOrigin": "CN",
+        "materialClass": "Metal",
+        "specificMaterial": "Wrought Iron",
+        "EmissionFactor": 2.1
+    },
+    {
+        "countryOfOrigin": "CN",
+        "materialClass": "Metal",
+        "specificMaterial": "Cast Iron",
+        "EmissionFactor": 3.5
+    },
+    {
+        "countryOfOrigin": "CN",
+        "materialClass": "Metal",
+        "specificMaterial": "Brass",
+        "EmissionFactor": 6.0
+    },
+    {
+        "countryOfOrigin": "CN",
+        "materialClass": "Metal",
+        "specificMaterial": "Copper",
+        "EmissionFactor": 5.0
+    },
+    {
+        "countryOfOrigin": "CN",
+        "materialClass": "Metal",
+        "specificMaterial": "Zinc",
+        "EmissionFactor": 5.5
+    },
+    {
+        "countryOfOrigin": "CN",
+        "materialClass": "Metal",
+        "specificMaterial": "Titanium",
+        "EmissionFactor": 13.0
+    },
+    {
+        "countryOfOrigin": "CN",
+        "materialClass": "Metal",
+        "specificMaterial": "Mild Steel",
+        "EmissionFactor": 2.5
+    },
+    {
+        "countryOfOrigin": "CN",
+        "materialClass": "Metal",
+        "specificMaterial": "Galvanized Steel",
+        "EmissionFactor": 3.3
+    },
+    {
+        "countryOfOrigin": "CN",
+        "materialClass": "Metal",
+        "specificMaterial": "Nickel",
+        "EmissionFactor": 10.5
+    },
+    {
+        "countryOfOrigin": "Vietnam",
+        "materialClass": "Metal",
+        "specificMaterial": "Steel",
+        "EmissionFactor": 2.5
+    },
+    {
+        "countryOfOrigin": "Vietnam",
+        "materialClass": "Metal",
+        "specificMaterial": "Stainless Steel",
+        "EmissionFactor": 6.5
+    },
+    {
+        "countryOfOrigin": "Vietnam",
+        "materialClass": "Metal",
+        "specificMaterial": "Aluminum",
+        "EmissionFactor": 11.8
+    },
+    {
+        "countryOfOrigin": "Vietnam",
+        "materialClass": "Metal",
+        "specificMaterial": "Chromed Steel",
+        "EmissionFactor": 3.0
+    },
+    {
+        "countryOfOrigin": "Vietnam",
+        "materialClass": "Metal",
+        "specificMaterial": "Wrought Iron",
+        "EmissionFactor": 2.0
+    },
+    {
+        "countryOfOrigin": "Vietnam",
+        "materialClass": "Metal",
+        "specificMaterial": "Cast Iron",
+        "EmissionFactor": 3.3
+    },
+    {
+        "countryOfOrigin": "Vietnam",
+        "materialClass": "Metal",
+        "specificMaterial": "Brass",
+        "EmissionFactor": 5.5
+    },
+    {
+        "countryOfOrigin": "Vietnam",
+        "materialClass": "Metal",
+        "specificMaterial": "Copper",
+        "EmissionFactor": 4.7
+    },
+    {
+        "countryOfOrigin": "Vietnam",
+        "materialClass": "Metal",
+        "specificMaterial": "Zinc",
+        "EmissionFactor": 5.2
+    },
+    {
+        "countryOfOrigin": "Vietnam",
+        "materialClass": "Metal",
+        "specificMaterial": "Titanium",
+        "EmissionFactor": 12.0
+    },
+    {
+        "countryOfOrigin": "Vietnam",
+        "materialClass": "Metal",
+        "specificMaterial": "Mild Steel",
+        "EmissionFactor": 2.3
+    },
+    {
+        "countryOfOrigin": "Vietnam",
+        "materialClass": "Metal",
+        "specificMaterial": "Galvanized Steel",
+        "EmissionFactor": 3.1
+    },
+    {
+        "countryOfOrigin": "Vietnam",
+        "materialClass": "Metal",
+        "specificMaterial": "Nickel",
+        "EmissionFactor": 9.8
+    },
+    {
+        "countryOfOrigin": "Global",
+        "materialClass": "Metal",
+        "specificMaterial": "Steel",
+        "EmissionFactor": 2.3
+    },
+    {
+        "countryOfOrigin": "Global",
+        "materialClass": "Metal",
+        "specificMaterial": "Stainless Steel",
+        "EmissionFactor": 6.15
+    },
+    {
+        "countryOfOrigin": "Global",
+        "materialClass": "Metal",
+        "specificMaterial": "Aluminum",
+        "EmissionFactor": 11.2
+    },
+    {
+        "countryOfOrigin": "Global",
+        "materialClass": "Metal",
+        "specificMaterial": "Chromed Steel",
+        "EmissionFactor": 2.8
+    },
+    {
+        "countryOfOrigin": "Global",
+        "materialClass": "Metal",
+        "specificMaterial": "Wrought Iron",
+        "EmissionFactor": 1.8
+    },
+    {
+        "countryOfOrigin": "Global",
+        "materialClass": "Metal",
+        "specificMaterial": "Cast Iron",
+        "EmissionFactor": 3.0
+    },
+    {
+        "countryOfOrigin": "Global",
+        "materialClass": "Metal",
+        "specificMaterial": "Brass",
+        "EmissionFactor": 5.2
+    },
+    {
+        "countryOfOrigin": "Global",
+        "materialClass": "Metal",
+        "specificMaterial": "Copper",
+        "EmissionFactor": 4.2
+    },
+    {
+        "countryOfOrigin": "Global",
+        "materialClass": "Metal",
+        "specificMaterial": "Zinc",
+        "EmissionFactor": 4.7
+    },
+    {
+        "countryOfOrigin": "Global",
+        "materialClass": "Metal",
+        "specificMaterial": "Titanium",
+        "EmissionFactor": 11.0
+    },
+    {
+        "countryOfOrigin": "Global",
+        "materialClass": "Metal",
+        "specificMaterial": "Mild Steel",
+        "EmissionFactor": 2.0
+    },
+    {
+        "countryOfOrigin": "Global",
+        "materialClass": "Metal",
+        "specificMaterial": "Galvanized Steel",
+        "EmissionFactor": 2.8
+    },
+    {
+        "countryOfOrigin": "Global",
+        "materialClass": "Metal",
+        "specificMaterial": "Nickel",
+        "EmissionFactor": 9.0
+    }
+]
