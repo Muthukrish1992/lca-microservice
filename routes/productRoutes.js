@@ -30,7 +30,8 @@ router.post('/', async (req, res) => {
             brandName,
             supplierName,
             materials,
-            images, // Include the images field
+            images, 
+            productManufacturingProcess,
         } = req.body;
 
         // Calculate CO2 Emission
@@ -65,6 +66,7 @@ router.post('/', async (req, res) => {
             modifiedDate: new Date(),
             createdDate: new Date(),
             co2Emission,
+            productManufacturingProcess,
         });
 
         // Save the new product

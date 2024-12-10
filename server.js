@@ -162,6 +162,7 @@ Return the result in this format:
   {
     "materialClass": "<materialClass>",
     "specificMaterial": "<specificMaterial>",
+    "weight": <weight>,
     "manufacturingProcesses": [
       {
         "category": "<category1>",
@@ -187,6 +188,7 @@ Example Output:
   {
     "materialClass": "Metal",
     "specificMaterial": "Steel",
+    "weight": 10,
     "manufacturingProcesses": [
       {
         "category": "Metal",

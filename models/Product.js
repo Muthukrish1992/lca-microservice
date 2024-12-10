@@ -1,67 +1,92 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const ProductSchema = new mongoose.Schema({
-    code: {
-        type: String,
+  code: {
+    type: String,
+    required: true,
+  },
+  name: {
+    type: String,
+    required: true,
+  },
+  description: {
+    type: String,
+  },
+  images: {
+    type: [String], // Array of binary data to hold multiple images
+  },
+  weight: {
+    type: String,
+  },
+  countryOfOrigin: {
+    type: String,
+  },
+  category: {
+    type: String,
+  },
+  subCategory: {
+    type: String,
+  },
+  brandName: {
+    type: String,
+  },
+  supplierName: {
+    type: String,
+  },
+  modifiedDate: {
+    type: Date,
+  },
+  createdDate: {
+    type: Date,
+  },
+  co2Emission: {
+    type: String,
+  },
+  materials: [
+    {
+      materialClass: {
+        type: String, // Class of material (e.g., "Wood", "Metal")
         required: true,
-    },
-    name: {
-        type: String,
+      },
+      specificMaterial: {
+        type: String, // Specific material (e.g., "Oak", "Steel")
         required: true,
+      },
+      weight: {
+        type: Number, // Weight of the material
+        required: true,
+      },
+      unit: {
+        type: String, // Unit of weight (e.g., "kg", "m3")
+        required: true,
+      },
     },
-    description: {
+  ],
+  productManufacturingProcess: [
+    {
+      materialClass: {
         type: String,
-    },
-    images: {
-        type: [String], // Array of binary data to hold multiple images
-    },
-    weight: {
+      },
+      specificMaterial: {
         type: String,
-    },
-    countryOfOrigin: {
-        type: String,
-    },
-    category: {
-        type: String,
-    },
-    subCategory: {
-        type: String,
-    },
-    brandName: {
-        type: String,
-    },
-    supplierName: {
-        type: String,
-    },
-    modifiedDate: {
-        type: Date,
-    },
-    createdDate: {
-        type: Date,
-    },
-    co2Emission: {
-        type: String,
-    },
-    materials: [
+      },
+      weight: {
+        type: Number, 
+      },
+      manufacturingProcesses: [
         {
-            materialClass: {
-                type: String, // Class of material (e.g., "Wood", "Metal")
-                required: true,
+          category: {
+            type: String,
+          },
+          processes: [
+            {
+              type: String,
             },
-            specificMaterial: {
-                type: String, // Specific material (e.g., "Oak", "Steel")
-                required: true,
-            },
-            weight: {
-                type: Number, // Weight of the material
-                required: true,
-            },
-            unit: {
-                type: String, // Unit of weight (e.g., "kg", "m3")
-                required: true,
-            },
+          ],
         },
-    ],
+      ],
+    },
+  ],
 });
 
-module.exports = mongoose.model('Product', ProductSchema);
+module.exports = mongoose.model("Product", ProductSchema);
