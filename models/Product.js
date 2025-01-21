@@ -42,6 +42,12 @@ const ProductSchema = new mongoose.Schema({
   co2Emission: {
     type: String,
   },
+  co2EmissionRawMaterials: {
+    type: String,
+  },
+  co2EmissionFromProcesses: {
+    type: String,
+  },
   materials: [
     {
       materialClass: {
@@ -60,6 +66,10 @@ const ProductSchema = new mongoose.Schema({
         type: String, // Unit of weight (e.g., "kg", "m3")
         required: true,
       },
+      emissionFactor: {
+        type: Number, // Emission factor for this material
+        required: true,
+      },
     },
   ],
   productManufacturingProcess: [
@@ -72,6 +82,10 @@ const ProductSchema = new mongoose.Schema({
       },
       weight: {
         type: Number, 
+      },
+      emissionFactor: {
+        type: Number, // Emission factor for this material
+        required: true,
       },
       manufacturingProcesses: [
         {

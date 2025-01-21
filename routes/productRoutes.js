@@ -2,6 +2,7 @@ const express = require('express');
 const Product = require('../models/Product');
 const router = express.Router();
 const emissionData = require("../data/materials_database.json");
+const processing_database = require("../data/processing_database.json");
 
 router.delete('/', async (req, res) => {
     try {
@@ -35,7 +36,7 @@ router.post('/', async (req, res) => {
         } = req.body;
 
         // Calculate CO2 Emission
-        const co2Emission = materials.reduce((total, material) => {
+        let co2EmissionRawMaterials = materials.reduce((total, material) => {
             const emissionFactorData = emissionData.find(data =>
                 data.countryOfOrigin === countryOfOrigin &&
                 data.materialClass === material.materialClass &&
@@ -47,8 +48,32 @@ router.post('/', async (req, res) => {
             }
 
             // Calculate emission for this material and add to the total
+            material.emissionFactor = emissionFactorData.EmissionFactor * material.weight;
             return total + (emissionFactorData.EmissionFactor * material.weight);
         }, 0);
+
+        const co2EmissionFromProcesses = productManufacturingProcess.reduce((total, materialProcess) => {
+            return total + materialProcess.manufacturingProcesses.reduce((processTotal, processGroup) => {
+                return processTotal + processGroup.processes.reduce((innerTotal, processName) => {
+                    const processData = processing_database.find(data =>
+                        data.Category === processGroup.category &&
+                        data.SubType === processName
+                    );
+        
+                    if (!processData) {
+                        throw new Error(`Emission factor not found for process: ${processName} in category: ${processGroup.category} for material: ${materialProcess.specificMaterial}`);
+                    }
+
+                    materialProcess.emissionFactor = processData.Value * materialProcess.weight;
+        
+                    // Calculate emission for this process and add to the inner total
+                    return innerTotal + (processData.Value * materialProcess.weight);
+                }, 0);
+            }, 0);
+        }, 0);
+        
+        let co2Emission = co2EmissionRawMaterials + co2EmissionFromProcesses;
+
 
         // Create a new Product document
         const newProduct = new Product({
@@ -65,7 +90,9 @@ router.post('/', async (req, res) => {
             images, // Add the images field to the document
             modifiedDate: new Date(),
             createdDate: new Date(),
-            co2Emission,
+            co2Emission: co2Emission,
+            co2EmissionRawMaterials : co2EmissionRawMaterials,
+            co2EmissionFromProcesses : co2EmissionFromProcesses,
             productManufacturingProcess,
         });
 
