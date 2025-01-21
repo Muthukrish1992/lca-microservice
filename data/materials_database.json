@@ -367,6 +367,12 @@
     {
         "countryOfOrigin": "CN",
         "materialClass": "Plastic",
+        "specificMaterial": "Polyurethane",
+        "EmissionFactor": 5.7
+    },
+    {
+        "countryOfOrigin": "CN",
+        "materialClass": "Plastic",
         "specificMaterial": "Acrylic (PMMA)",
         "EmissionFactor": 4.3
     },
