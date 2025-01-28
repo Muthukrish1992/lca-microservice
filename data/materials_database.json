@@ -995,6 +995,12 @@
         "EmissionFactor": 8
     },
     {
+        "countryOfOrigin": "CN",
+        "materialClass": "Fabric",
+        "specificMaterial": "Nylon",
+        "EmissionFactor": 8
+    },
+    {
         "countryOfOrigin": "Global",
         "materialClass": "Fabric",
         "specificMaterial": "Mesh (Polyester)",
