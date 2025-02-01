@@ -1,0 +1,19 @@
+{
+    "China": ["Port of Shanghai", "Port of Ningbo-Zhoushan", "Port of Shenzhen", "Port of Guangzhou", "Port of Qingdao", "Port of Tianjin", "Port of Xiamen", "Port of Dalian"],
+    "Netherlands": ["Port of Rotterdam"],
+    "Belgium": ["Port of Antwerp", "Port of Zeebrugge"],
+    "Germany": ["Port of Hamburg", "Port of Bremerhaven"],
+    "Spain": ["Port of Valencia", "Port of Algeciras", "Port of Barcelona"],
+    "France": ["Port of Le Havre", "Port of Marseille-Fos"],
+    "Italy": ["Port of Genoa", "Port of Trieste", "Port of Gioia Tauro"],
+    "Romania": ["Port of Constanța"],
+    "Poland": ["Port of Gdańsk"],
+    "Greece": ["Port of Piraeus"],
+    "Slovenia": ["Port of Koper"],
+    "Sweden": ["Port of Gothenburg"],
+    "Portugal": ["Port of Lisbon"],
+    "Lithuania": ["Port of Klaipeda"],
+    "United Kingdom": ["Port of Felixstowe"],
+    "Vietnam": ["Port of Ho Chi Minh City", "Port of Hai Phong"]
+  }
+  

@@ -4,6 +4,7 @@ const router = express.Router();
 const emissionData = require("../data/materials_database.json");
 const processing_database = require("../data/processing_database.json");
 
+
 router.delete('/', async (req, res) => {
     try {
         const result = await Product.deleteMany({});
@@ -148,5 +149,7 @@ router.delete('/:id', async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 });
+
+
 
 module.exports = router;
