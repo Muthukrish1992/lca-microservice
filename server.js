@@ -445,3 +445,53 @@ app.get('/api/distance', (req, res) => {
 
   res.json({ origin, destination, distance_in_km: distance });
 });
+
+app.post('/api/calculate-transport-emission', (req, res) => {
+  const EMISSION_FACTORS = {
+    SeaFreight: 0.01,
+    RoadFreight: 0.16,
+    RailFreight: 0.05,
+    AirFreight: 0.85
+};
+
+  try {
+      const { weightKg, transportMode, transportKm } = req.body;
+
+      // Input validation
+      if (!weightKg || !transportMode || !transportKm) {
+          return res.status(400).json({
+              error: 'Missing required parameters'
+          });
+      }
+
+      if (!EMISSION_FACTORS[transportMode]) {
+          return res.status(400).json({
+              error: 'Invalid transport mode'
+          });
+      }
+
+      // Convert weight to tons
+      const weightTon = weightKg / 1000;
+
+      // Calculate emission
+      const emissionFactor = EMISSION_FACTORS[transportMode];
+      const totalEmission = weightTon * transportKm * emissionFactor;
+
+      return res.json({
+          transportEmissions: totalEmission.toFixed(2),
+          unit: 'kg CO₂eq/unit',
+          calculationMetadata: {
+              weightTon,
+              transportMode,
+              transportKm,
+              emissionFactor
+          }
+      });
+
+  } catch (error) {
+      return res.status(500).json({
+          error: 'Calculation error',
+          details: error.message
+      });
+  }
+});
