@@ -30,8 +30,13 @@ const openaiApiKey = process.env.OPENAI_API_KEY;
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
+//product route
 const productRoutes = require("./routes/productRoutes");
 app.use("/api/products", productRoutes);
+
+//project route
+const projectRoutes = require('./routes/projectRoutes');
+app.use('/api/projects', projectRoutes);
 
 app.post("/api/classify-product", async (req, res) => {
   const { productCode, description, name } = req.body;
