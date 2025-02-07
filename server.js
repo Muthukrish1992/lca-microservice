@@ -34,12 +34,12 @@ const productRoutes = require("./routes/productRoutes");
 app.use("/api/products", productRoutes);
 
 app.post("/api/classify-product", async (req, res) => {
-  const { productCode, description, name } = req.body;
+  const { productCode, description, name ,images } = req.body;
 
-  if (!name) {
+  if (!name || !description)  {
     return res
       .status(400)
-      .json({ error: "Product code, description, and name are required." });
+      .json({ error: "Product  name is required." });
   }
 
   try {
@@ -57,6 +57,7 @@ app.post("/api/classify-product", async (req, res) => {
 Product Code: ${productCode}
 Product Name: ${name}
 Product Description: ${description}
+Images:${images?.join("\n")}
 
 Categories and Subcategories:
 ${categoriesList}
@@ -74,7 +75,10 @@ Ensure that the subcategory belongs to the category.`;
       "https://api.openai.com/v1/chat/completions",
       {
         model: "gpt-4o", // Updated model to "gpt-4o"
-        messages: [{ role: "user", content: prompt }],
+        messages: [{ role: "user", content: [
+          { type: "text", text: prompt },
+          ...images.map((img) => ({ type: "image_url", image_url: { url: img } })), 
+        ], }],
       },
       {
         headers: {
@@ -119,7 +123,7 @@ Ensure that the subcategory belongs to the category.`;
 
 // Endpoint for classification of manufacturing process
 app.post("/api/classify-manufacturing-process", async (req, res) => {
-  const { productCode, name, description, bom } = req.body;
+  const { productCode, name, description, bom , images} = req.body;
 
   if (!productCode || !name || !description || !bom) {
     return res
@@ -156,6 +160,7 @@ Classify the following product into manufacturing processes strictly based on th
 Product Code: ${productCode}
 Product Name: ${name}
 Product Description: ${description}
+Images:${images?.join("\n")}
 
 Bill of Materials (BoM):
 ${formattedBoM}
@@ -220,8 +225,11 @@ Example Output:
     const response = await axios.post(
       "https://api.openai.com/v1/chat/completions",
       {
-        model: "gpt-3.5-turbo",
-        messages: [{ role: "user", content: prompt }],
+        model: "gpt-4o",
+        messages: [{ role: "user",  content: [
+          { type: "text", text: prompt },
+          ...images.map((img) => ({ type: "image_url", image_url: { url: img } })), 
+         ] }],
       },
       {
         headers: {
@@ -254,7 +262,7 @@ const formatBOMList = (bom) => {
 };
 
 app.post("/api/classify-bom", async (req, res) => {
-  const { productCode, name, description, weight } = req.body;
+  const { productCode, name, description, weight , images } = req.body;
 
   if (!productCode || !name || !description || weight === undefined) {
     return res
@@ -277,6 +285,7 @@ Product Details:
 - Name: ${name}
 - Description: ${description}
 - Total Weight: ${weight} kg
+- Images:${images?.join("\n")}
 
 Available Materials:
 ${bomList}
@@ -308,7 +317,11 @@ Now, classify the product and provide the result.
       "https://api.openai.com/v1/chat/completions",
       {
         model: "gpt-4o",
-        messages: [{ role: "user", content: prompt }],
+        messages: [{ role: "user", content: [
+          { type: "text", text: prompt },
+          ...images.map((img) => ({ type: "image_url", image_url: { url: img } })), 
+         ], }],
+
       },
       {
         headers: {
