@@ -1,155 +1,237 @@
-const express = require('express');
-const Product = require('../models/Product');
+const express = require("express");
+const productSchema = require("../models/product_schema");
 const router = express.Router();
+const {
+  HTTP_STATUS,
+  getModel,
+  validateAccount,
+  getAccount,
+} = require("../utils/utils");
 const emissionData = require("../data/materials_database.json");
 const processing_database = require("../data/processing_database.json");
 
+const getProductModel = async (req) => {
+  const account = getAccount(req);
+  return getModel(account, productSchema, "Product");
+};
 
-router.delete('/', async (req, res) => {
-    try {
-        const result = await Product.deleteMany({});
-        res.status(200).json({
-            message: 'All products have been deleted successfully.',
-            deletedCount: result.deletedCount,
-        });
-    } catch (error) {
-        res.status(500).json({ message: error.message });
+const createProduct = async (req, res) => {
+  try {
+    const Product = await getProductModel(req);
+
+    const {
+      code,
+      name,
+      description,
+      weight,
+      countryOfOrigin,
+      category,
+      subCategory,
+      brandName,
+      supplierName,
+      materials,
+      images,
+      productManufacturingProcess,
+    } = req.body;
+
+    const emissionMap = new Map(
+      emissionData.map((data) => [
+        `${data.countryOfOrigin}-${data.materialClass}-${data.specificMaterial}`,
+        data.EmissionFactor,
+      ])
+    );
+    const processingMap = new Map(
+      processing_database.map((data) => [
+        `${data.Category}-${data.SubType}`,
+        data.Value,
+      ])
+    );
+
+    let co2EmissionRawMaterials = materials.reduce((total, material) => {
+      let key = `${countryOfOrigin}-${material.materialClass}-${material.specificMaterial}`;
+      material.emissionFactor = (emissionMap.get(key) || 10) * material.weight;
+      return total + material.emissionFactor;
+    }, 0);
+
+    const co2EmissionFromProcesses = productManufacturingProcess.reduce(
+      (total, materialProcess) => {
+        return (
+          total +
+          materialProcess.manufacturingProcesses.reduce(
+            (processTotal, processGroup) => {
+              return (
+                processTotal +
+                processGroup.processes.reduce((innerTotal, processName) => {
+                  let key = `${processGroup.category}-${processName}`;
+                  materialProcess.emissionFactor =
+                    (processingMap.get(key) || 10) * materialProcess.weight;
+                  return innerTotal + materialProcess.emissionFactor;
+                }, 0)
+              );
+            },
+            0
+          )
+        );
+      },
+      0
+    );
+
+    let co2Emission = co2EmissionRawMaterials + co2EmissionFromProcesses;
+
+    const newProduct = new Product({
+      code,
+      name,
+      description,
+      weight,
+      countryOfOrigin,
+      category,
+      subCategory,
+      brandName,
+      supplierName,
+      materials,
+      images,
+      modifiedDate: new Date(),
+      createdDate: new Date(),
+      co2Emission,
+      co2EmissionRawMaterials,
+      co2EmissionFromProcesses,
+      productManufacturingProcess,
+    });
+
+    const savedProduct = await newProduct.save();
+    res.status(HTTP_STATUS.CREATED).json({ success: true, data: savedProduct });
+  } catch (error) {
+    res
+      .status(HTTP_STATUS.INTERNAL_SERVER_ERROR)
+      .json({
+        success: false,
+        message: `Failed to create product: ${error.message}`,
+      });
+  }
+};
+
+const getAllProducts = async (req, res) => {
+  try {
+    const Product = await getProductModel(req);
+    const products = await Product.find().lean();
+    res.status(HTTP_STATUS.OK).json({ success: true, data: products });
+  } catch (error) {
+    res
+      .status(HTTP_STATUS.INTERNAL_SERVER_ERROR)
+      .json({
+        success: false,
+        message: `Failed to fetch products: ${error.message}`,
+      });
+  }
+};
+
+const getProductById = async (req, res) => {
+  try {
+    const Product = await getProductModel(req);
+    const product = await Product.findById(req.params.id);
+
+    if (!product) {
+      return res
+        .status(HTTP_STATUS.NOT_FOUND)
+        .json({ success: false, message: "Product not found" });
     }
-});
 
+    res.status(HTTP_STATUS.OK).json({ success: true, data: product });
+  } catch (error) {
+    res
+      .status(HTTP_STATUS.INTERNAL_SERVER_ERROR)
+      .json({
+        success: false,
+        message: `Failed to fetch product: ${error.message}`,
+      });
+  }
+};
 
-// Create Product
-router.post('/', async (req, res) => {
-    try {
-        const {
-            code,
-            name,
-            description,
-            weight,
-            countryOfOrigin,
-            category,
-            subCategory,
-            brandName,
-            supplierName,
-            materials,
-            images, 
-            productManufacturingProcess,
-        } = req.body;
+const updateProduct = async (req, res) => {
+  try {
+    const Product = await getProductModel(req);
+    const updatedProduct = await Product.findByIdAndUpdate(
+      req.params.id,
+      { ...req.body, modifiedDate: new Date() },
+      { new: true, runValidators: true }
+    );
 
-        // Calculate CO2 Emission
-        let co2EmissionRawMaterials = materials.reduce((total, material) => {
-            let emissionFactorData = emissionData.find(data =>
-                data.countryOfOrigin === countryOfOrigin &&
-                data.materialClass === material.materialClass &&
-                data.specificMaterial === material.specificMaterial
-            );
-
-            if (!emissionFactorData) {
-                const randomValue = Math.random() * 10; // Random number between 0 and 110
-                emissionFactorData = { EmissionFactor: randomValue };
-                //throw new Error(`Emission factor not found for material: ${material.specificMaterial} in ${countryOfOrigin}`);
-            }
-
-            // Calculate emission for this material and add to the total
-            material.emissionFactor = emissionFactorData.EmissionFactor * material.weight;
-            return total + (emissionFactorData.EmissionFactor * material.weight);
-        }, 0);
-
-        const co2EmissionFromProcesses = productManufacturingProcess.reduce((total, materialProcess) => {
-            return total + materialProcess.manufacturingProcesses.reduce((processTotal, processGroup) => {
-                return processTotal + processGroup.processes.reduce((innerTotal, processName) => {
-                    let processData = processing_database.find(data =>
-                        data.Category === processGroup.category &&
-                        data.SubType === processName
-                    );
-        
-                    if (!processData) {
-                        const randomValue = Math.random() * 10; // Random number between 0 and 110
-                        processData = { Value: randomValue };
-                        //throw new Error(`Emission factor not found for process: ${processName} in category: ${processGroup.category} for material: ${materialProcess.specificMaterial}`);
-                    }
-
-                    materialProcess.emissionFactor = processData.Value * materialProcess.weight;
-        
-                    // Calculate emission for this process and add to the inner total
-                    return innerTotal + (processData.Value * materialProcess.weight);
-                }, 0);
-            }, 0);
-        }, 0);
-        
-        let co2Emission = co2EmissionRawMaterials + co2EmissionFromProcesses;
-
-
-        // Create a new Product document
-        const newProduct = new Product({
-            code,
-            name,
-            description,
-            weight,
-            countryOfOrigin,
-            category,
-            subCategory,
-            brandName,
-            supplierName,
-            materials,
-            images, // Add the images field to the document
-            modifiedDate: new Date(),
-            createdDate: new Date(),
-            co2Emission: co2Emission,
-            co2EmissionRawMaterials : co2EmissionRawMaterials,
-            co2EmissionFromProcesses : co2EmissionFromProcesses,
-            productManufacturingProcess,
-        });
-
-        // Save the new product
-        const savedProduct = await newProduct.save();
-        res.status(201).json(savedProduct);
-    } catch (error) {
-        res.status(500).json({ message: error.message });
+    if (!updatedProduct) {
+      return res
+        .status(HTTP_STATUS.NOT_FOUND)
+        .json({ success: false, message: "Product not found" });
     }
-});
 
-// Read all Products
-router.get('/', async (req, res) => {
-    try {
-        const products = await Product.find();
-        res.json(products);
-    } catch (error) {
-        res.status(500).json({ message: error.message });
+    res.status(HTTP_STATUS.OK).json({ success: true, data: updatedProduct });
+  } catch (error) {
+    res
+      .status(HTTP_STATUS.INTERNAL_SERVER_ERROR)
+      .json({
+        success: false,
+        message: `Failed to update product: ${error.message}`,
+      });
+  }
+};
+
+const deleteProduct = async (req, res) => {
+  try {
+    const Product = await getProductModel(req);
+    const deletedProduct = await Product.findByIdAndDelete(req.params.id);
+
+    if (!deletedProduct) {
+      return res
+        .status(HTTP_STATUS.NOT_FOUND)
+        .json({ success: false, message: "Product not found" });
     }
-});
 
-// Read Product by ID
-router.get('/:id', async (req, res) => {
-    try {
-        const product = await Product.findById(req.params.id);
-        if (product) res.json(product);
-        else res.status(404).json({ message: 'Product not found' });
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
-});
+    res
+      .status(HTTP_STATUS.OK)
+      .json({ success: true, message: "Product deleted successfully" });
+  } catch (error) {
+    res
+      .status(HTTP_STATUS.INTERNAL_SERVER_ERROR)
+      .json({
+        success: false,
+        message: `Failed to delete product: ${error.message}`,
+      });
+  }
+};
 
-// Update Product
-router.put('/:id', async (req, res) => {
-    try {
-        const updatedProduct = await Product.findByIdAndUpdate(req.params.id, req.body, { new: true });
-        res.json(updatedProduct);
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
-});
+const deleteAllProducts = async (req, res) => {
+  try {
+    const Product = await getProductModel(req);
+    const result = await Product.deleteMany({});
 
-// Delete Product
-router.delete('/:id', async (req, res) => {
-    try {
-        await Product.findByIdAndDelete(req.params.id);
-        res.json({ message: 'Product deleted' });
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
-});
+    res
+      .status(HTTP_STATUS.OK)
+      .json({
+        success: true,
+        message: "All products have been deleted successfully",
+        deletedCount: result.deletedCount,
+      });
+  } catch (error) {
+    res
+      .status(HTTP_STATUS.INTERNAL_SERVER_ERROR)
+      .json({
+        success: false,
+        message: `Failed to delete products: ${error.message}`,
+      });
+  }
+};
 
+// Routes
+router.use(validateAccount);
 
+router
+  .route("/")
+  .post(createProduct)
+  .get(getAllProducts)
+  .delete(deleteAllProducts);
+
+router
+  .route("/:id")
+  .get(getProductById)
+  .put(updateProduct)
+  .delete(deleteProduct);
 
 module.exports = router;

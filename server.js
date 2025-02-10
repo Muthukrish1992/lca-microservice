@@ -1,6 +1,5 @@
 const dotenv = require("dotenv");
 const express = require("express");
-const connectDB = require("./config/db");
 const cors = require("cors");
 const axios = require("axios");
 const manufacturingProcesses = require("./data/manufacturingProcesses.json");
@@ -12,8 +11,6 @@ const portDistances = require("./data/port_distances.json");
 dotenv.config();
 const app = express();
 
-// Connect to MongoDB
-connectDB();
 
 // Middleware to parse JSON
 app.use(express.json());
