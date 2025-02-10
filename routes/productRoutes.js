@@ -1,4 +1,7 @@
 const express = require("express");
+const multer = require('multer');
+const XLSX = require('xlsx');
+
 const productSchema = require("../models/product_schema");
 const router = express.Router();
 const {
@@ -27,7 +30,6 @@ const createProduct = async (req, res) => {
       countryOfOrigin,
       category,
       subCategory,
-      brandName,
       supplierName,
       materials,
       images,
@@ -86,7 +88,6 @@ const createProduct = async (req, res) => {
       countryOfOrigin,
       category,
       subCategory,
-      brandName,
       supplierName,
       materials,
       images,
@@ -218,6 +219,31 @@ const deleteAllProducts = async (req, res) => {
       });
   }
 };
+
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
+
+const bulkUploadProducts = async (req, res) => {
+    try {
+        if (!req.file) {
+            return res.status(HTTP_STATUS.BAD_REQUEST).json({ success: false, message: 'No file uploaded' });
+        }
+
+        const Product = await getProductModel(req);
+        const workbook = XLSX.read(req.file.buffer, { type: 'buffer' });
+        const sheetName = workbook.SheetNames[0];
+        const sheet = workbook.Sheets[sheetName];
+        const products = XLSX.utils.sheet_to_json(sheet);
+
+        const savedProducts = await Product.insertMany(products);
+        res.status(HTTP_STATUS.CREATED).json({ success: true, data: savedProducts });
+    } catch (error) {
+        console.error(error);
+        res.status(HTTP_STATUS.INTERNAL_SERVER_ERROR).json({ success: false, message: `Failed to upload products: ${error.message}` });
+    }
+};
+
+router.post('/bulk-upload', upload.single('file'), bulkUploadProducts);
 
 // Routes
 router.use(validateAccount);

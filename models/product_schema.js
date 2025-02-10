@@ -9,7 +9,6 @@ const ProductSchema = new mongoose.Schema({
   countryOfOrigin: { type: String },
   category: { type: String  ,index: true},
   subCategory: { type: String ,index: true},
-  brandName: { type: String },
   supplierName: { type: String },
   modifiedDate: { type: Date },
   createdDate: { type: Date },
