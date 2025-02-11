@@ -4,6 +4,10 @@ const XLSX = require('xlsx');
 
 const productSchema = require("../models/product_schema");
 const router = express.Router();
+
+const {classifyProduct} = require("../utils/chatGPTUtils");
+const { ObjectId } = require('mongodb'); 
+
 const {
   HTTP_STATUS,
   getModel,
@@ -235,13 +239,63 @@ const bulkUploadProducts = async (req, res) => {
         const sheet = workbook.Sheets[sheetName];
         const products = XLSX.utils.sheet_to_json(sheet);
 
+        // Insert products into MongoDB
         const savedProducts = await Product.insertMany(products);
+
+        // Process each product in the background
+        savedProducts.forEach(async (product) => {
+            try {
+                // Wait for classification result
+                const result = await classifyProduct(product.code, product.name, product.description);
+                
+                // Ensure result exists before updating
+                if (result?.category && result?.subcategory) {
+                    await Product.updateOne(
+                        { _id: product._id },
+                        { $set: { category: result.category, subCategory: result.subcategory } }
+                    );
+
+                    console.log(`✅ Product ${product.code} updated with category: ${result.category}, subcategory: ${result.subcategory}`);
+                } else {
+                    console.warn(`⚠️ Product ${product.code} classification failed, skipping update.`);
+                }
+            } catch (error) {
+                console.error(`❌ Failed to classify and update product ${product.code}:`, error.message);
+            }
+        });
+
+        // Send response immediately while classification happens in the background
         res.status(HTTP_STATUS.CREATED).json({ success: true, data: savedProducts });
     } catch (error) {
         console.error(error);
         res.status(HTTP_STATUS.INTERNAL_SERVER_ERROR).json({ success: false, message: `Failed to upload products: ${error.message}` });
     }
 };
+
+router.get("/test-insert", async (req, res) => {
+    const Product = await getProductModel(req);
+    const newProduct = new Product({
+        code: "TEST123",
+        name: "Test Product",
+        description: "This is a test product",
+        category: "test"
+    });
+
+    const savedProduct = await newProduct.save();
+    console.log("Test route");
+});
+
+router.get("/test", async (req, res) => {
+    const Product = await getProductModel(req);
+    const result = await Product.updateOne(
+        { _id: new ObjectId("67aadc5cf9f7a9ca451838f8") },
+        { $set: { category: "test11", subCategory: "test22" } }
+    );
+
+    console.log("Test route");
+});
+
+
 
 router.post('/bulk-upload', upload.single('file'), bulkUploadProducts);
 

@@ -7,10 +7,10 @@ const billOfMaterials = require("./data/billOfMaterials.json");
 const productCategories = require("./data/productCategories.json");
 const transportDatabase = require("./data/transport_database.json");
 const portDistances = require("./data/port_distances.json");
+const { classifyProduct } = require("./utils/chatGPTUtils");
 
 dotenv.config();
 const app = express();
-
 
 // Middleware to parse JSON
 app.use(express.json());
@@ -35,87 +35,14 @@ app.use("/api/products", productRoutes);
 const projectRoutes = require('./routes/projectRoutes');
 app.use('/api/projects', projectRoutes);
 
+// API Route
 app.post("/api/classify-product", async (req, res) => {
-  const { productCode, description, name } = req.body;
-
-  if (!name) {
-    return res
-      .status(400)
-      .json({ error: "Product code, description, and name are required." });
-  }
-
   try {
-    // Dynamically generate categories list for the prompt
-    const categoriesList = Object.entries(productCategories)
-      .map(
-        ([category, subcategories]) =>
-          `${category}:\n  - ${subcategories.join("\n  - ")}`
-      )
-      .join("\n\n");
-
-    // Construct prompt for classification
-    const prompt = `Classify the following product into a category and subcategory. Ensure the subcategory is chosen strictly from the correct category listed below.
-
-Product Code: ${productCode}
-Product Name: ${name}
-Product Description: ${description}
-
-Categories and Subcategories:
-${categoriesList}
-
-Return the result in this format:
-{
-    "category": "<category>",
-    "subcategory": "<subcategory>"
-}
-
-Ensure that the subcategory belongs to the category.`;
-
-    // Send the prompt to OpenAI API
-    const response = await axios.post(
-      "https://api.openai.com/v1/chat/completions",
-      {
-        model: "gpt-4o", // Updated model to "gpt-4o"
-        messages: [{ role: "user", content: prompt }],
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${openaiApiKey}`,
-          "Content-Type": "application/json",
-        },
-      }
-    );
-
-    // Parse the response safely, ensuring clean JSON format
-    const chatCompletion = response.data.choices[0].message.content;
-
-    // Clean the response to remove markdown or any extraneous characters
-    const cleanedResponse = chatCompletion.replace(/```json|```/g, "").trim();
-
-    // Parse the cleaned response
-    let result;
-    try {
-      result = JSON.parse(cleanedResponse); // Parse the clean JSON string
-    } catch (error) {
-      return res
-        .status(500)
-        .json({ error: "Invalid response format from AI." });
-    }
-
-    // Validate the subcategory within the chosen category
-    const validSubcategories = productCategories[result.category] || [];
-    if (!validSubcategories.includes(result.subcategory)) {
-      return res
-        .status(400)
-        .json({ error: "Invalid subcategory for the given category." });
-    }
-
+    const { productCode, description, name } = req.body;
+    const result = await classifyProduct(productCode, name, description);
     res.json(result);
   } catch (error) {
-    console.error("Error:", error.response?.data || error.message);
-    res
-      .status(500)
-      .json({ error: "An error occurred while processing your request." });
+    res.status(400).json({ error: error.message });
   }
 });
 
@@ -497,3 +424,7 @@ app.post('/api/calculate-transport-emission', (req, res) => {
       });
   }
 });
+
+module.exports = {
+  classifyProduct,
+}
