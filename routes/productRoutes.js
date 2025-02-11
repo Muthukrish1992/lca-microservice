@@ -117,6 +117,7 @@ const createProduct = async (req, res) => {
 
 const getAllProducts = async (req, res) => {
   try {
+    console.log("Get all products");
     const Product = await getProductModel(req);
     const products = await Product.find().lean();
     res.status(HTTP_STATUS.OK).json({ success: true, data: products });
