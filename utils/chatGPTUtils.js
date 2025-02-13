@@ -1,21 +1,96 @@
-const productCategories = require("../data/productCategories.json");
 const axios = require("axios");
+require("dotenv").config();
 
-const classifyProduct = async (productCode, name, description) => {
-    if (!name) {
-      throw new Error("Product code, description, and name are required.");
-    }
-  
-    // Dynamically generate categories list for the prompt
-    const categoriesList = Object.entries(productCategories)
-      .map(
-        ([category, subcategories]) =>
-          `${category}:\n  - ${subcategories.join("\n  - ")}`
-      )
-      .join("\n\n");
-  
-    // Construct prompt for classification
-    const prompt = `Classify the following product into a category and subcategory. Ensure the subcategory is chosen strictly from the correct category listed below.
+const productCategories = require("../data/productCategories.json");
+const billOfMaterials = require("../data/billOfMaterials.json");
+const manufacturingProcesses = require("../data/manufacturingProcesses.json");
+
+const OpenAI = require("openai");
+const { zodResponseFormat } = require("openai/helpers/zod");
+const { z } = require("zod");
+const Fuse = require("fuse.js");
+
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+});
+
+// Define the Zod schema for structured output validation
+const ClassificationSchema = z.object({
+  category: z.string(),
+  subcategory: z.string(),
+});
+
+// Define the Zod schema for BOM classification output
+const BOMItemSchema = z.object({
+  materialClass: z.string(),
+  specificMaterial: z.string(),
+  weight: z.number(),
+});
+
+const BOMSchema = z.object({
+  bom: z.array(BOMItemSchema), // Wrap the array inside a "bom" key
+});
+
+// Define the schema for the manufacturing process response
+const ManufacturingProcessSchema = z.object({
+  materialClass: z.string(),
+  specificMaterial: z.string(),
+  weight: z.number(),
+  manufacturingProcesses: z.array(
+    z.object({
+      category: z.string(),
+      processes: z.array(z.string()),
+    })
+  ),
+});
+
+const ManufacturingSchema = z.object({
+  processes: z.array(ManufacturingProcessSchema), // Wrap in an object key
+});
+
+// Format manufacturing processes as a string for the prompt
+const formatManufacturingProcesses = () => {
+  return Object.entries(manufacturingProcesses)
+    .map(
+      ([category, processes]) =>
+        `- ${category}: ${
+          processes.join(", ") || "No specific processes listed"
+        }`
+    )
+    .join("\n");
+};
+
+/**
+ * Finds the closest match from a list using Fuse.js for fuzzy matching.
+ */
+function findClosestMatch(input, validOptions) {
+  const fuse = new Fuse(validOptions, { threshold: 0.4 });
+  const result = fuse.search(input);
+  return result.length > 0 ? result[0].item : validOptions[0]; // Default to first valid option
+}
+
+// Function to format the BOM data as a string for the prompt
+const formatBOMList = () => {
+  return Object.entries(billOfMaterials)
+    .map(([category, materials]) => `- ${category}: ${materials.join(", ")}`)
+    .join("\n");
+};
+
+async function classifyProduct(productCode, name, description) {
+  if (!name || !description) {
+    throw new Error("Product code, name, and description are required.");
+  }
+
+  // Construct categories list for the prompt
+  const categoriesList = Object.entries(productCategories)
+    .map(
+      ([category, subcategories]) =>
+        `${category}:\n  - ${subcategories.join("\n  - ")}`
+    )
+    .join("\n\n");
+
+  // Prompt for classification
+  const prompt = `Classify the following product into a category and subcategory from the given list.
   
   Product Code: ${productCode}
   Product Name: ${name}
@@ -24,51 +99,200 @@ const classifyProduct = async (productCode, name, description) => {
   Categories and Subcategories:
   ${categoriesList}
   
-  Return the result in this format:
+  Return the result in JSON format:
   {
       "category": "<category>",
       "subcategory": "<subcategory>"
   }
   
-  Ensure that the subcategory belongs to the category.`;
-  
-    try {
-      // Send the prompt to OpenAI API
-      const response = await axios.post(
-        "https://api.openai.com/v1/chat/completions",
-        {
-          model: "gpt-4o",
-          messages: [{ role: "user", content: prompt }],
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
-            "Content-Type": "application/json",
-          },
-        }
-      );
-  
-      // Parse and clean the response
-      const chatCompletion = response.data.choices[0].message.content;
-      const cleanedResponse = chatCompletion.replace(/```json|```/g, "").trim();
-  
-      // Convert response to JSON
-      const result = JSON.parse(cleanedResponse);
-  
-      // Validate the subcategory within the chosen category
-      const validSubcategories = productCategories[result.category] || [];
-      if (!validSubcategories.includes(result.subcategory)) {
-        console.log("Invalid subcategory for the given category.");
-      }
-  
-      return result;
-    } catch (error) {
-      console.error("Classification Error:", error.response?.data || error.message);
-      console.log("An error occurred while classifying the product.");
-    }
-  };
+  Ensure the subcategory belongs to the category. If no exact match is found, return the closest valid subcategory.`;
 
-  module.exports = {
-    classifyProduct,
-    
+  try {
+    const completion = await openai.beta.chat.completions.parse({
+      model: "gpt-4o-mini-2024-07-18", // Ensure model supports structured outputs
+      messages: [{ role: "user", content: prompt }],
+      response_format: zodResponseFormat(
+        ClassificationSchema,
+        "classification"
+      ),
+    });
+
+    let result = completion.choices[0].message.parsed;
+
+    // Validate the category and subcategory
+    if (!productCategories[result.category]) {
+      result.category = findClosestMatch(
+        result.category,
+        Object.keys(productCategories)
+      );
+    }
+    if (!productCategories[result.category].includes(result.subcategory)) {
+      result.subcategory = findClosestMatch(
+        result.subcategory,
+        productCategories[result.category]
+      );
+    }
+
+    return result;
+  } catch (error) {
+    console.error(`❌ Classification failed: ${error.message}`);
+    return { category: "Uncategorized", subcategory: "Other" }; // Default fallback
+  }
+}
+
+const classifyBOM = async (productCode, name, description, weight) => {
+  const bomList = formatBOMList();
+  const prompt = `
+You are an assistant tasked with classifying products based on their description and distributing a given weight across identified materials.
+
+Product Details:
+- Code: ${productCode}
+- Name: ${name}
+- Description: ${description}
+- Total Weight: ${weight} kg
+
+Available Materials:
+${bomList}
+
+Your task:
+1. Identify relevant materials from the list.
+2. Distribute the total weight (${weight} kg) across these materials proportionally based on the description.
+3. Ensure that the total weight of all materials adds up exactly to ${weight} kg.
+4. Return the result as a flat list in the following JSON format:
+
+[
+    {
+        "materialClass": "<category>",
+        "specificMaterial": "<material>",
+        "weight": <weight>
+    }
+]
+
+Important:
+- Do not include any text, explanation, or extra characters outside of the JSON array.
+- Ensure the result is strictly valid JSON.
+- Ensure the total weight equals ${weight} kg.
+
+Now, classify the product and provide the result.
+`;
+
+  try {
+    const response = await openai.beta.chat.completions.parse({
+      model: "gpt-4o",
+      messages: [{ role: "user", content: prompt }],
+      response_format: zodResponseFormat(BOMSchema, "bom"),
+    });
+
+    const result = response.choices[0].message.parsed.bom; // Access the 'bom' array
+
+    // Validate and adjust the material categories and weights
+    result.forEach((item) => {
+      // Example of validating or adjusting the category/subcategory if needed
+      if (!billOfMaterials[item.materialClass]) {
+        item.materialClass = findClosestMatch(
+          item.materialClass,
+          Object.keys(billOfMaterials)
+        );
+      }
+    });
+
+    // Validate if the total weight is correct
+    const totalWeight = result.reduce((sum, item) => sum + item.weight, 0);
+    if (Math.abs(totalWeight - weight) > 0.01) {
+      throw new Error(
+        `Total weight mismatch: expected ${weight} kg, but got ${totalWeight} kg.`
+      );
+    }
+
+    return result;
+  } catch (error) {
+    console.error(
+      "Error classifying BOM:",
+      error.response?.data || error.message
+    );
+    throw new Error("An error occurred while classifying the BOM.");
+  }
+};
+
+const classifyManufacturingProcess = async (
+  productCode,
+  name,
+  description,
+  bom
+) => {
+  const formattedProcesses = formatManufacturingProcesses();
+
+  const formattedBoM = bom
+    .map(
+      (item) =>
+        `- Material Class: ${item.materialClass}, Specific Material: ${item.specificMaterial}, Weight: ${item.weight}kg`
+    )
+    .join("\n");
+
+  const prompt = `
+Classify the following product into manufacturing processes strictly based on the materials provided in the Bill of Materials (BoM). Ensure that every material listed in the BoM is included in the response. Each material must have at least one manufacturing process. If no specific process applies, assign a general process like "General Processing."
+
+Product Code: ${productCode}
+Product Name: ${name}
+Product Description: ${description}
+
+Bill of Materials (BoM):
+${formattedBoM}
+
+Categories and Processes:
+${formattedProcesses}
+
+Return the result in this format:
+{
+  "processes": [
+    {
+      "materialClass": "<materialClass>",
+      "specificMaterial": "<specificMaterial>",
+      "weight": <weight>,
+      "manufacturingProcesses": [
+        {
+          "category": "<category1>",
+          "processes": ["<process1>", "..."]
+        }
+      ]
+    }
+  ]
+}
+
+Rules:
+1. Every material in the BoM must be included in the response, and each must have at least one manufacturing process.
+2. If no specific processes apply, assign a general process like "General Processing."
+3. Use only the categories and processes provided above.
+4. Do not include any materialClass or specificMaterial that is not listed in the Bill of Materials (BoM).
+
+Important:
+- Do not include any text, explanation, or extra characters outside of the JSON object.
+- Ensure the result is strictly valid JSON.
+`;
+
+  try {
+    const response = await openai.beta.chat.completions.parse({
+      model: "gpt-4o",
+      messages: [{ role: "user", content: prompt }],
+      response_format: zodResponseFormat(ManufacturingSchema, "processes"),
+    });
+
+    const result = response.choices[0].message.parsed.processes; // Access the 'processes' array
+
+    return result;
+  } catch (error) {
+    console.error(
+      "Error classifying manufacturing process:",
+      error.response?.data || error.message
+    );
+    throw new Error(
+      "An error occurred while classifying the manufacturing process."
+    );
+  }
+};
+
+module.exports = {
+  classifyProduct,
+  classifyBOM,
+  classifyManufacturingProcess,
 };
