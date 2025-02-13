@@ -2,6 +2,13 @@ const express = require("express");
 const multer = require("multer");
 const XLSX = require("xlsx");
 
+const extract = require("extract-zip");
+const Unrar = require("node-unrar-js");
+const fs = require("fs-extra");
+const path = require("path");
+const axios = require("axios");
+const FormData = require('form-data');
+
 const productSchema = require("../models/product_schema");
 const router = express.Router();
 
@@ -17,6 +24,8 @@ const {
   getModel,
   validateAccount,
   getAccount,
+  getOriginUrl,
+  getAuthorizationKey,
 } = require("../utils/utils");
 const emissionData = require("../data/materials_database.json");
 const processing_database = require("../data/processing_database.json");
@@ -43,7 +52,6 @@ const calculateRawMaterialEmissions = (materials, countryOfOrigin) => {
   }, 0);
 };
 
-
 const calculateProcessEmissions = (productManufacturingProcess) => {
   const processingMap = new Map(
     processing_database.map((data) => [
@@ -59,10 +67,8 @@ const calculateProcessEmissions = (productManufacturingProcess) => {
           (innerSum, processName) => {
             const key = `${processGroup.category}-${processName}`;
             materialProcess.emissionFactor =
-                    (processingMap.get(key) || 10) * materialProcess.weight;
-            return (
-              innerSum + materialProcess.emissionFactor
-            );
+              (processingMap.get(key) || 10) * materialProcess.weight;
+            return innerSum + materialProcess.emissionFactor;
           },
           0
         );
@@ -137,6 +143,12 @@ const createProduct = async (req, res) => {
 const getAllProducts = async (req, res) => {
   try {
     console.log("Get all products");
+    let test = getOriginUrl(req);
+    console.log("Host: ", test);
+    const account = getAccount(req);
+    console.log("Account: ", account);
+    const authorizationKey = getAuthorizationKey(req);
+    console.log("Authorization Key: ", authorizationKey);
     const Product = await getProductModel(req);
     const products = await Product.find().lean();
     res.status(HTTP_STATUS.OK).json({ success: true, data: products });
@@ -368,8 +380,154 @@ router.get("/test", async (req, res) => {
   console.log("Test route");
 });
 
-router.post("/bulk-upload", upload.single("file"), bulkUploadProducts);
+// Utility function to extract ZIP files
+const extractZipFile = async (filePath, outputPath) => {
+  await extract(filePath, { dir: outputPath });
+};
 
+// Utility function to extract RAR files
+const extractRarFile = async (filePath, outputPath) => {
+  const data = fs.readFileSync(filePath);
+  const extractor = Unrar.createExtractorFromData(data);
+  const extracted = extractor.extract();
+  if (extracted[0].state === "SUCCESS") {
+    extracted[1].files.forEach((file) => {
+      const filePath = path.join(outputPath, file.fileHeader.name);
+      fs.outputFileSync(filePath, file.extract()[1]);
+    });
+  }
+};
+
+function generateUUID() {
+  var d = new Date().getTime();
+  var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+      var r = (d + Math.random() * 16) % 16 | 0;
+      d = Math.floor(d / 16);
+      return (c == 'x' ? r : (r & 0x7 | 0x8)).toString(16);
+  });
+  return uuid;
+}
+
+function addQSToURL(url, qs) {
+  let result = url.includes("?") ? url : url + "?";
+  let qsArray = Object.entries(qs).map(([key, value]) => `${key}=${value}`);
+  return result + qsArray.join("&");
+}
+
+async function uploadImageToExternalAPI(url, filePath) {
+  const formData = new FormData();
+  
+  
+  // Create a read stream instead of reading the entire file into memory
+  formData.append('file', fs.createReadStream(filePath));
+
+  try {
+    const response = await axios.post(url, formData, {
+      headers: {
+        //Authorization: apiKey,
+       ...formData.getHeaders()
+      },
+      // Add timeout and max content length configs
+      timeout: 30000,
+      maxContentLength: Infinity
+    });
+
+    console.log(`Uploaded ${path.basename(filePath)} for product :`, response.data);
+    return response.data;
+  } catch (error) {
+    // More detailed error logging
+    console.error(`Error uploading ${filePath}:`, {
+      message: error.message,
+      status: error.response?.status,
+      statusText: error.response?.statusText,
+      responseData: error.response?.data
+    });
+    
+    // Re-throw the error or return an error object
+    throw error;
+  }
+}
+
+const bulkImageUpload = async (req, res) => {
+  if (!req.file) {
+    return res.status(400).json({ error: "No file uploaded" });
+  }
+  const account = getAccount(req);
+  const tempDir = path.join(__dirname, "temp", account);
+  const uploadedFilePath = path.join(tempDir, req.file.originalname);
+
+  try {
+    const Product = await getProductModel(req);
+
+    // Ensure temp directory exists
+    fs.ensureDirSync(tempDir);
+
+    // Save uploaded file
+    fs.writeFileSync(uploadedFilePath, req.file.buffer);
+
+    // Create extraction directory
+    const extractionDir = path.join(tempDir, path.parse(req.file.originalname).name);
+    fs.ensureDirSync(extractionDir);
+
+    // Extract based on file type
+    const fileExt = path.extname(req.file.originalname).toLowerCase();
+    if (fileExt === ".zip") {
+      await extractZipFile(uploadedFilePath, tempDir);
+    } else if (fileExt === ".rar") {
+      await extractRarFile(uploadedFilePath, extractionDir);
+    } else {
+      throw new Error("Unsupported file type. Only ZIP and RAR are allowed.");
+    }
+
+    // Process extracted folders
+    const productFolders = fs.readdirSync(extractionDir);
+    for (const productCode of productFolders) {
+      let imageUploadedPaths = [];
+
+      const productPath = path.join(extractionDir, productCode);
+      if (fs.statSync(productPath).isDirectory()) {
+        console.log(`Processing images for product: ${productCode}`);
+
+        const images = fs.readdirSync(productPath).filter(file => /\.(jpg|jpeg|png|gif)$/i.test(file));
+        for (const image of images) {
+          const imagePath = path.join(productPath, image);
+          if (fs.statSync(imagePath).isFile()) {
+            let name = `file-${generateUUID()}${path.extname(imagePath)}`;
+            //let hostURL = getOriginUrl(req);
+            let hostURL = "http://127.0.0.1:5000";
+            let baseUrl = `${hostURL}/uploadcontent/notes/uploads/images/`;
+            let url = addQSToURL(baseUrl, { filename: name });
+
+           
+            await uploadImageToExternalAPI(url, imagePath);
+            let downloadUrl = hostURL + '/content/notes/uploads/images/'  + name;
+            imageUploadedPaths.push(downloadUrl);
+
+            
+             await Product.updateOne(
+              { code: productCode },
+              { $push: { images: downloadUrl } }
+            );
+
+            console.log(`Uploaded: ${downloadUrl}`);
+          }
+        }
+      }
+    }
+
+    res.json({ message: "Files uploaded and processed successfully" });
+  } catch (error) {
+    console.error("Error:", error);
+    res.status(500).json({ error: error.message });
+  } finally {
+    // Cleanup temporary files
+    //fs.removeSync(extractionDir);
+    //fs.unlinkSync(uploadedFilePath);
+  }
+};
+
+router.post("/bulk-upload", upload.single("file"), bulkUploadProducts);
+router.post("/bulk-image-upload", upload.single("file"), bulkImageUpload);
 // Routes
 router.use(validateAccount);
 

@@ -119,6 +119,17 @@ const getAccount = (req) => {
     return account;
 }
 
+const getOriginUrl = (req) => {
+    const protocol = req.protocol; // http or https
+    const host = req.get('host'); // localhost:3000 or example.com
+    return `${protocol}://${host}`;
+}
+
+const getAuthorizationKey = (req) => {
+    const authorizationKey = req.headers['authorization'];
+    return authorizationKey;
+}
+
 module.exports = {
     HTTP_STATUS,
     getModel,
@@ -130,4 +141,6 @@ module.exports = {
     formatError,
     validateAccount,
     getAccount,
+    getOriginUrl,
+    getAuthorizationKey
 };
