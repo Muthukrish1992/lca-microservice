@@ -31,6 +31,10 @@ app.use("/api/products", productRoutes);
 const projectRoutes = require("./routes/projectRoutes");
 app.use("/api/projects", projectRoutes);
 
+//product-project mapping route
+const projectProductRoutes = require('./routes/project_product_routes');
+app.use('/api/project-product-mapping', projectProductRoutes);
+
 // API Route
 app.post("/api/classify-product", async (req, res) => {
   try {
