@@ -1,22 +1,30 @@
-const express = require('express');
-const Project = require('../models/Project');
+const express = require("express");
 const router = express.Router();
+const projectSchema = require("../models/project_schema");
+const { getModel, getAccount } = require("../utils/utils");
+
+const getProjectModel = async (req) => {
+  const account = getAccount(req);
+  return getModel(account, projectSchema, "Project");
+};
 
 // Create Project
-router.post('/', async (req, res) => {
-    try {
-        const { code, name } = req.body;
+router.post("/", async (req, res) => {
+  try {
+    const { code, name } = req.body;
 
-        const newProject = new Project({
-            code,
-            name,
-        });
+    const Project = await getProjectModel(req);
 
-        const savedProject = await newProject.save();
-        res.status(201).json(savedProject);
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
+    const newProject = new Project({
+      code,
+      name,
+    });
+
+    const savedProject = await newProject.save();
+    res.status(201).json(savedProject);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 });
 
 // // GET endpoint to fetch all projects
@@ -24,7 +32,7 @@ router.post('/', async (req, res) => {
 //     try {
 //         const projects = await Project.find({})
 //             .sort({ createdDate: -1 });
-            
+
 //         // Transform the data to match the expected format
 //         const transformedProjects = projects.map(project => ({
 //             projectCode: project.code,
@@ -35,7 +43,7 @@ router.post('/', async (req, res) => {
 //             totalTransportationImpact: project.totalTransportationImpact || 0,
 //             products: project.products || []
 //         }));
-        
+
 //         res.json(transformedProjects);
 //     } catch (error) {
 //         res.status(500).json({ message: error.message });
@@ -46,7 +54,7 @@ router.post('/', async (req, res) => {
 // router.post('/:projectId/products/:productId/impact', async (req, res) => {
 //     try {
 //         const { projectId, productId } = req.params;
-//         const { 
+//         const {
 //             productImage,
 //             totalImpact,
 //             impactByMaterials,
@@ -55,7 +63,7 @@ router.post('/', async (req, res) => {
 //         } = req.body;
 
 //         const project = await Project.findById(projectId);
-        
+
 //         if (!project) {
 //             return res.status(404).json({ message: 'Project not found' });
 //         }
@@ -97,7 +105,7 @@ router.post('/', async (req, res) => {
 // router.get('/:projectId/impacts', async (req, res) => {
 //     try {
 //         const { projectId } = req.params;
-        
+
 //         const project = await Project.findById(projectId)
 //             .populate('products.productId', 'name code'); // Populate product details
 
@@ -136,4 +144,4 @@ router.post('/', async (req, res) => {
 //     }
 // });
 
-module.exports = router; 
+module.exports = router;
