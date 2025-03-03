@@ -140,25 +140,33 @@ async function classifyProduct(productCode, name, description) {
   }
 }
 
-const classifyBOM = async (productCode, name, description, weight) => {
+const cacheClassifyBOM = new Map();
+
+const classifyBOM = async (productCode, name, description, weight, imageUrl) => {
+  const keyClassifyBOM = JSON.stringify({ productCode, name, description, weight, imageUrl });
+
+  if (cacheClassifyBOM.has(keyClassifyBOM)) {
+    return cacheClassifyBOM.get(keyClassifyBOM);
+  }
+
   const bomList = formatBOMList();
   const prompt = `
-You are an assistant tasked with classifying products based on their description and distributing a given weight across identified materials.
+You are an assistant tasked with classifying products based on their description and analyzing an image to determine the composition of materials. 
 
-Product Details:
-- Code: ${productCode}
-- Name: ${name}
-- Description: ${description}
-- Total Weight: ${weight} kg
+### **Product Details**:
+- **Code**: ${productCode}
+- **Name**: ${name}
+- **Description**: ${description}
+- **Total Weight**: ${weight} kg
 
-Available Materials:
+### **Available Materials**:
 ${bomList}
 
-Your task:
-1. Identify relevant materials from the list.
-2. Distribute the total weight (${weight} kg) across these materials proportionally based on the description.
-3. Ensure that the total weight of all materials adds up exactly to ${weight} kg.
-4. Return the result as a flat list in the following JSON format:
+### **Your Task**:
+1. Analyze the text description and image (if provided) to determine relevant materials.
+2. Distribute the total weight (${weight} kg) proportionally across these materials.
+3. Ensure the total weight of all materials adds up **exactly** to ${weight} kg.
+4. Return the result **strictly as a valid JSON array** in the following format:
 
 [
     {
@@ -168,26 +176,33 @@ Your task:
     }
 ]
 
-Important:
-- Do not include any text, explanation, or extra characters outside of the JSON array.
-- Ensure the result is strictly valid JSON.
-- Ensure the total weight equals ${weight} kg.
 
-Now, classify the product and provide the result.
+### **Important Rules**:
+- If an image is provided, use it to refine material classification.
+- The total weight must match exactly **${weight} kg**.
+- Do **not** include any explanation, extra text, or formatting outside the JSON array.
 `;
 
   try {
-    const response = await openai.beta.chat.completions.parse({
-      model: "gpt-4o",
-      messages: [{ role: "user", content: prompt }],
+    const messages = [
+      { type: "text", text: prompt },
+    ];
+
+    if (imageUrl) {
+      messages.push({ type: "image_url", image_url: { url: imageUrl } }); // ✅ Fixed structure
+    }
+
+    const response = await openai.chat.completions.create({
+      model: "gpt-4o",  // Supports text + image analysis
+      messages: [{ role: "user", content: messages }],
       response_format: zodResponseFormat(BOMSchema, "bom"),
+      temperature: 0,
     });
 
-    const result = response.choices[0].message.parsed.bom; // Access the 'bom' array
+    const result =  JSON.parse(response.choices[0].message.content).bom ; // ✅ Fixed response parsing
 
-    // Validate and adjust the material categories and weights
+    // Validate and adjust material categories
     result.forEach((item) => {
-      // Example of validating or adjusting the category/subcategory if needed
       if (!billOfMaterials[item.materialClass]) {
         item.materialClass = findClosestMatch(
           item.materialClass,
@@ -196,7 +211,7 @@ Now, classify the product and provide the result.
       }
     });
 
-    // Validate if the total weight is correct
+    // Validate total weight
     const totalWeight = result.reduce((sum, item) => sum + item.weight, 0);
     if (Math.abs(totalWeight - weight) > 0.01) {
       throw new Error(
@@ -204,15 +219,15 @@ Now, classify the product and provide the result.
       );
     }
 
+    cacheClassifyBOM.set(keyClassifyBOM, result);
     return result;
   } catch (error) {
-    console.error(
-      "Error classifying BOM:",
-      error.response?.data || error.message
-    );
+    console.error("Error classifying BOM:", error.response?.data || error.message);
     throw new Error("An error occurred while classifying the BOM.");
   }
 };
+
+
 
 const classifyManufacturingProcess = async (
   productCode,
