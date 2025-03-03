@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const projectSchema = require("../models/project_schema");
-const projectProductMapSchema = require("../models/project_product_map_schema");
+const projectProductMapSchema = require('../models/project_product_map_schema');
 const productSchema = require("../models/product_schema");
 
 const { getModel, getAccount } = require("../utils/utils");
@@ -19,6 +19,16 @@ const HTTP_STATUS = {
 const getProjectModel = async (req) => {
   const account = getAccount(req);
   return getModel(account, projectSchema, "Project");
+};
+
+const getProjectProductMapModel = async (req) => {
+  const account = getAccount(req);
+  return getModel(account, projectProductMapSchema, "ProjectProductMap");
+};
+
+const getProductModel = async (req) => {
+  const account = getAccount(req);
+  return getModel(account, productSchema, "Product");
 };
 
 // Create Project
@@ -130,13 +140,10 @@ router.post("/:projectId/products/:productId/impact", async (req, res) => {
 router.post("/impacts", async (req, res) => {
   try {
     const { projectId } = req.body;
-    const account = getAccount(req);
+
     const Project = await getProjectModel(req);
-    const ProjectProductMap = await getModel(
-        account,
-      projectProductMapSchema,
-      "ProjectProductMap"
-    );
+    const ProjectProductMap = await getProjectProductMapModel(req);
+    const Product = await getProductModel(req); // must declaration DONT remove
     
 
     // Find the project
@@ -148,11 +155,12 @@ router.post("/impacts", async (req, res) => {
     // Find all product mappings related to the project
     const productMappings = await ProjectProductMap.find({
       projectID: projectId,
-    }).populate(
-      "productID",
-      "name code images co2Emission co2EmissionRawMaterials co2EmissionFromProcesses"
-    );
-
+    }).populate({
+      path: "productID",
+      model: "Product", // Explicitly specify the model name
+      select: "name code images co2Emission co2EmissionRawMaterials co2EmissionFromProcesses materials productManufacturingProcess"
+    });
+    
     // Compute total impacts
     let totalProjectImpact = 0;
     let totalMaterialsImpact = 0;
@@ -165,6 +173,7 @@ router.post("/impacts", async (req, res) => {
       totalMaterialsImpact += product.co2EmissionRawMaterials || 0;
       totalManufacturingImpact += product.co2EmissionFromProcesses || 0;
       totalTransportationImpact += mapping.totalTransportationEmission || 0;
+
       totalProjectImpact +=
         totalMaterialsImpact +
         totalManufacturingImpact +
@@ -173,6 +182,14 @@ router.post("/impacts", async (req, res) => {
       return {
         productName: product.name,
         productCode: product.code,
+        materials : product.materials,
+        productManufacturingProcess: product.productManufacturingProcess,
+        co2EmissionRawMaterials : product.co2EmissionRawMaterials,
+        co2EmissionFromProcesses : product.co2EmissionFromProcesses,
+        transportationEmission : mapping.totalTransportationEmission,
+        transportationLegs : mapping.transportationLegs,
+        packagingWeight : mapping.packagingWeight,
+        palletWeight : mapping.palletWeight,
         productImage: product.images.length > 0 ? product.images[0] : null,
         impacts: {
           materialsImpact: product.co2EmissionRawMaterials || 0,
