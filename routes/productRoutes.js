@@ -244,29 +244,29 @@ const deleteAllProducts = async (req, res) => {
   }
 };
 
-const deleteProductByCode = async (req, res) => {
+const deleteProductByID = async (req, res) => {
   try {
-    const { code } = req.params;
-    if (!code) {
+    const { _id } = req.body;
+    if (!_id) {
       return res.status(400).json({
         success: false,
-        message: "Product code is required",
+        message: "Product _id is required",
       });
     }
 
     const Product = await getProductModel(req);
-    const result = await Product.deleteOne({ code });
+    const result = await Product.deleteOne({ _id });
 
     if (result.deletedCount === 0) {
       return res.status(404).json({
         success: false,
-        message: `No product found with code: ${code}`,
+        message: `No product found with code: ${_id}`,
       });
     }
 
     res.status(200).json({
       success: true,
-      message: `Product with code ${code} deleted successfully`,
+      message: `Product with code ${_id} deleted successfully`,
     });
   } catch (error) {
     res.status(500).json({
@@ -564,7 +564,7 @@ const bulkImageUpload = async (req, res) => {
 
 router.post("/bulk-upload", upload.single("file"), bulkUploadProducts);
 router.post("/bulk-image-upload", upload.single("file"), bulkImageUpload);
-router.delete("/products/:code", deleteProductByCode);
+router.post("/delete-product-by-id", deleteProductByID);
 // Routes
 router.use(validateAccount);
 
