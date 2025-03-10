@@ -247,9 +247,9 @@ app.get("/api/transportDB", (req, res) => {
 });
 
 // Endpoint to get distance
-app.get("/api/distance", (req, res) => {
+app.post("/api/distance", (req, res) => {
   try {
-    const { origin, destination } = req.query;
+    const { origin, destination } = req.body;
 
     if (!origin || !destination) {
       return res.status(HTTP_STATUS.BAD_REQUEST).json({
