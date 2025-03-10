@@ -150,7 +150,7 @@ const getAllProducts = async (req, res) => {
     const authorizationKey = getAuthorizationKey(req);
     console.log("Authorization Key: ", authorizationKey);
     const Product = await getProductModel(req);
-    const products = await Product.find().lean();
+    let products = await Product.find().lean();
     products = products.map((product) => ({
       ...product,
       co2Emission: product.co2Emission
