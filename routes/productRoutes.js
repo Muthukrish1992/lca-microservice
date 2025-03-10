@@ -151,6 +151,13 @@ const getAllProducts = async (req, res) => {
     console.log("Authorization Key: ", authorizationKey);
     const Product = await getProductModel(req);
     const products = await Product.find().lean();
+    products = products.map(product => ({
+      ...product,
+      co2Emission: product.co2Emission
+        ? parseFloat(product.co2Emission.toFixed(2))
+        : product.co2Emission,
+    }));
+    
     res.status(HTTP_STATUS.OK).json({ success: true, data: products });
   } catch (error) {
     res.status(HTTP_STATUS.INTERNAL_SERVER_ERROR).json({
