@@ -7,7 +7,7 @@ const Unrar = require("node-unrar-js");
 const fs = require("fs-extra");
 const path = require("path");
 const axios = require("axios");
-const FormData = require('form-data');
+const FormData = require("form-data");
 
 const productSchema = require("../models/product_schema");
 const router = express.Router();
@@ -151,13 +151,19 @@ const getAllProducts = async (req, res) => {
     console.log("Authorization Key: ", authorizationKey);
     const Product = await getProductModel(req);
     const products = await Product.find().lean();
-    products = products.map(product => ({
+    products = products.map((product) => ({
       ...product,
       co2Emission: product.co2Emission
         ? parseFloat(product.co2Emission.toFixed(2))
         : product.co2Emission,
+      co2EmissionRawMaterials: product.co2EmissionRawMaterials
+        ? parseFloat(product.co2EmissionRawMaterials.toFixed(2))
+        : product.co2EmissionRawMaterials,
+      co2EmissionFromProcesses: product.co2EmissionFromProcesses
+        ? parseFloat(product.co2EmissionFromProcesses.toFixed(2))
+        : product.co2EmissionFromProcesses,
     }));
-    
+
     res.status(HTTP_STATUS.OK).json({ success: true, data: products });
   } catch (error) {
     res.status(HTTP_STATUS.INTERNAL_SERVER_ERROR).json({
@@ -285,7 +291,6 @@ const deleteProductByID = async (req, res) => {
 
 // Add this route in your express router
 // router.delete("/products/:code", deleteProductByCode);
-
 
 const retry = async (fn, args, retries = 1, delay = 1000) => {
   for (let attempt = 0; attempt <= retries; attempt++) {
@@ -443,11 +448,14 @@ const extractRarFile = async (filePath, outputPath) => {
 
 function generateUUID() {
   var d = new Date().getTime();
-  var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+  var uuid = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(
+    /[xy]/g,
+    function (c) {
       var r = (d + Math.random() * 16) % 16 | 0;
       d = Math.floor(d / 16);
-      return (c == 'x' ? r : (r & 0x7 | 0x8)).toString(16);
-  });
+      return (c == "x" ? r : (r & 0x7) | 0x8).toString(16);
+    }
+  );
   return uuid;
 }
 
@@ -459,23 +467,25 @@ function addQSToURL(url, qs) {
 
 async function uploadImageToExternalAPI(url, filePath) {
   const formData = new FormData();
-  
-  
+
   // Create a read stream instead of reading the entire file into memory
-  formData.append('file', fs.createReadStream(filePath));
+  formData.append("file", fs.createReadStream(filePath));
 
   try {
     const response = await axios.post(url, formData, {
       headers: {
         //Authorization: apiKey,
-       ...formData.getHeaders()
+        ...formData.getHeaders(),
       },
       // Add timeout and max content length configs
       timeout: 30000,
-      maxContentLength: Infinity
+      maxContentLength: Infinity,
     });
 
-    console.log(`Uploaded ${path.basename(filePath)} for product :`, response.data);
+    console.log(
+      `Uploaded ${path.basename(filePath)} for product :`,
+      response.data
+    );
     return response.data;
   } catch (error) {
     // More detailed error logging
@@ -483,9 +493,9 @@ async function uploadImageToExternalAPI(url, filePath) {
       message: error.message,
       status: error.response?.status,
       statusText: error.response?.statusText,
-      responseData: error.response?.data
+      responseData: error.response?.data,
     });
-    
+
     // Re-throw the error or return an error object
     throw error;
   }
@@ -509,7 +519,10 @@ const bulkImageUpload = async (req, res) => {
     fs.writeFileSync(uploadedFilePath, req.file.buffer);
 
     // Create extraction directory
-    const extractionDir = path.join(tempDir, path.parse(req.file.originalname).name);
+    const extractionDir = path.join(
+      tempDir,
+      path.parse(req.file.originalname).name
+    );
     fs.ensureDirSync(extractionDir);
 
     // Extract based on file type
@@ -531,7 +544,9 @@ const bulkImageUpload = async (req, res) => {
       if (fs.statSync(productPath).isDirectory()) {
         console.log(`Processing images for product: ${productCode}`);
 
-        const images = fs.readdirSync(productPath).filter(file => /\.(jpg|jpeg|png|gif)$/i.test(file));
+        const images = fs
+          .readdirSync(productPath)
+          .filter((file) => /\.(jpg|jpeg|png|gif)$/i.test(file));
         for (const image of images) {
           const imagePath = path.join(productPath, image);
           if (fs.statSync(imagePath).isFile()) {
@@ -541,13 +556,11 @@ const bulkImageUpload = async (req, res) => {
             let baseUrl = `${hostURL}/uploadcontent/notes/uploads/images/`;
             let url = addQSToURL(baseUrl, { filename: name });
 
-           
             await uploadImageToExternalAPI(url, imagePath);
-            let downloadUrl = hostURL + '/content/notes/uploads/images/'  + name;
+            let downloadUrl = hostURL + "/content/notes/uploads/images/" + name;
             imageUploadedPaths.push(downloadUrl);
 
-            
-             await Product.updateOne(
+            await Product.updateOne(
               { code: productCode },
               { $push: { images: downloadUrl } }
             );
