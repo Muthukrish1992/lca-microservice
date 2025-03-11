@@ -1,192 +1,192 @@
 [
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Wood",
         "specificMaterial": "Oak",
         "EmissionFactor": 0.036874
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Wood",
         "specificMaterial": "Maple",
         "EmissionFactor": 0.7
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Wood",
         "specificMaterial": "Cherry",
         "EmissionFactor": 0.7
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Wood",
         "specificMaterial": "Walnut",
         "EmissionFactor": 0.8
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Wood",
         "specificMaterial": "Beech",
         "EmissionFactor": 0.036874
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Wood",
         "specificMaterial": "Mahogany",
         "EmissionFactor": 0.8
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Wood",
         "specificMaterial": "Pine",
         "EmissionFactor": 0.036874
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Wood",
         "specificMaterial": "Birch",
         "EmissionFactor": 0.0308
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Wood",
         "specificMaterial": "Teak",
         "EmissionFactor": 0.85
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Wood",
         "specificMaterial": "Ash",
         "EmissionFactor": 0.65
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Wood",
         "specificMaterial": "Alder",
         "EmissionFactor": 0.6
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Wood",
         "specificMaterial": "Rubberwood",
         "EmissionFactor": 0.5
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Wood",
         "specificMaterial": "Rosewood",
         "EmissionFactor": 0.85
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Wood",
         "specificMaterial": "Poplar",
         "EmissionFactor": 0.55
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Wood",
         "specificMaterial": "Bamboo",
         "EmissionFactor": 0.645
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Wood",
         "specificMaterial": "MDF",
         "EmissionFactor": 1.156
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Wood",
         "specificMaterial": "Oak",
         "EmissionFactor": 0.7
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Wood",
         "specificMaterial": "Maple",
         "EmissionFactor": 0.65
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Wood",
         "specificMaterial": "Cherry",
         "EmissionFactor": 0.65
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Wood",
         "specificMaterial": "Walnut",
         "EmissionFactor": 0.75
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Wood",
         "specificMaterial": "Beech",
         "EmissionFactor": 0.022
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Wood",
         "specificMaterial": "Mahogany",
         "EmissionFactor": 0.75
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Wood",
         "specificMaterial": "Pine",
         "EmissionFactor": 0.45
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Wood",
         "specificMaterial": "Birch",
         "EmissionFactor": 0.65
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Wood",
         "specificMaterial": "Teak",
         "EmissionFactor": 0.8
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Wood",
         "specificMaterial": "Ash",
         "EmissionFactor": 0.6
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Wood",
         "specificMaterial": "Alder",
         "EmissionFactor": 0.55
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Wood",
         "specificMaterial": "Rubberwood",
         "EmissionFactor": 0.45
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Wood",
         "specificMaterial": "Rosewood",
         "EmissionFactor": 0.8
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Wood",
         "specificMaterial": "Poplar",
         "EmissionFactor": 0.5
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Wood",
         "specificMaterial": "Bamboo",
         "EmissionFactor": 0.478
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Wood",
         "specificMaterial": "MDF",
         "EmissionFactor": 1.156
@@ -288,157 +288,157 @@
         "EmissionFactor": 1.156
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Metal",
         "specificMaterial": "Steel",
         "EmissionFactor": 5.0717
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Metal",
         "specificMaterial": "Stainless Steel",
         "EmissionFactor": 5.04
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Metal",
         "specificMaterial": "Aluminum",
         "EmissionFactor": 23.545
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Metal",
         "specificMaterial": "Chromed Steel",
         "EmissionFactor": 5.04
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Metal",
         "specificMaterial": "Wrought Iron",
         "EmissionFactor": 2.1
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Metal",
         "specificMaterial": "Cast Iron",
         "EmissionFactor": 1.916
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Metal",
         "specificMaterial": "Brass",
         "EmissionFactor": 5.7417
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Metal",
         "specificMaterial": "Copper",
         "EmissionFactor": 3.72
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Metal",
         "specificMaterial": "Zinc",
         "EmissionFactor": 2.5404
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Metal",
         "specificMaterial": "Titanium",
         "EmissionFactor": 46.5280424
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Metal",
         "specificMaterial": "Mild Steel",
         "EmissionFactor": 2.04
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Metal",
         "specificMaterial": "Galvanized Steel",
         "EmissionFactor": 3.3
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Metal",
         "specificMaterial": "Nickel",
         "EmissionFactor": 34.233
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Metal",
         "specificMaterial": "Steel",
         "EmissionFactor": 0.207
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Metal",
         "specificMaterial": "Stainless Steel",
         "EmissionFactor": 5.04
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Metal",
         "specificMaterial": "Aluminum",
         "EmissionFactor": 21.847
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Metal",
         "specificMaterial": "Chromed Steel",
         "EmissionFactor": 5.04
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Metal",
         "specificMaterial": "Wrought Iron",
         "EmissionFactor": 2.0
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Metal",
         "specificMaterial": "Cast Iron",
         "EmissionFactor": 1.86
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Metal",
         "specificMaterial": "Brass",
         "EmissionFactor": 5.92
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Metal",
         "specificMaterial": "Copper",
         "EmissionFactor": 3.72
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Metal",
         "specificMaterial": "Zinc",
         "EmissionFactor": 5.2
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Metal",
         "specificMaterial": "Titanium",
         "EmissionFactor": 46.5280424
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Metal",
         "specificMaterial": "Mild Steel",
         "EmissionFactor": 2.04
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Metal",
         "specificMaterial": "Galvanized Steel",
         "EmissionFactor": 3.1
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Metal",
         "specificMaterial": "Nickel",
         "EmissionFactor": 9.8
@@ -522,169 +522,169 @@
         "EmissionFactor": 18.057
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Plastic",
         "specificMaterial": "Polypropylene (PP)",
         "EmissionFactor": 3.16
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Plastic",
         "specificMaterial": "Acrylonitrile Butadiene Styrene (ABS)",
         "EmissionFactor": 4.85
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Plastic",
         "specificMaterial": "Polyvinyl Chloride (PVC)",
         "EmissionFactor": 2.45
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Plastic",
         "specificMaterial": "Polycarbonate (PC)",
         "EmissionFactor": 6.31
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Plastic",
         "specificMaterial": "High-Density Polyethylene (HDPE)",
         "EmissionFactor": 2.94
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Plastic",
         "specificMaterial": "Polyurethane (PU)",
         "EmissionFactor": 6.23
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Plastic",
         "specificMaterial": "Acrylic (PMMA)",
         "EmissionFactor": 8.6791
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Plastic",
         "specificMaterial": "Nylon (Polyamide)",
         "EmissionFactor": 9.89
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Plastic",
         "specificMaterial": "Polyethylene Terephthalate (PET)",
         "EmissionFactor": 3.66
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Plastic",
         "specificMaterial": "Expanded Polystyrene (EPS)",
         "EmissionFactor": 3.537
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Plastic",
         "specificMaterial": "Low-Density Polyethylene (LDPE)",
         "EmissionFactor": 3.07
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Plastic",
         "specificMaterial": "Melamine-Formaldehyde (MF)",
         "EmissionFactor": 6.15
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Plastic",
         "specificMaterial": "Polyvinyl Butyral (PVB)",
         "EmissionFactor": 4.2
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Plastic",
         "specificMaterial": "Thermoplastic Elastomers (TPE)",
         "EmissionFactor": 5.23
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Plastic",
         "specificMaterial": "Polypropylene (PP)",
         "EmissionFactor": 3.16
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Plastic",
         "specificMaterial": "Acrylonitrile Butadiene Styrene (ABS)",
         "EmissionFactor": 4.85
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Plastic",
         "specificMaterial": "Polyvinyl Chloride (PVC)",
         "EmissionFactor": 2.45
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Plastic",
         "specificMaterial": "Polycarbonate (PC)",
         "EmissionFactor": 7.2
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Plastic",
         "specificMaterial": "High-Density Polyethylene (HDPE)",
         "EmissionFactor": 2.94
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Plastic",
         "specificMaterial": "Polyurethane (PU)",
         "EmissionFactor": 6.23
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Plastic",
         "specificMaterial": "Acrylic (PMMA)",
         "EmissionFactor": 4.0
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Plastic",
         "specificMaterial": "Nylon (Polyamide)",
         "EmissionFactor": 9.89
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Plastic",
         "specificMaterial": "Polyethylene Terephthalate (PET)",
         "EmissionFactor": 3.66
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Plastic",
         "specificMaterial": "Expanded Polystyrene (EPS)",
         "EmissionFactor": 3.5
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Plastic",
         "specificMaterial": "Low-Density Polyethylene (LDPE)",
         "EmissionFactor": 3.07
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Plastic",
         "specificMaterial": "Melamine-Formaldehyde (MF)",
         "EmissionFactor": 6.15
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Plastic",
         "specificMaterial": "Polyvinyl Butyral (PVB)",
         "EmissionFactor": 4.0
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Plastic",
         "specificMaterial": "Thermoplastic Elastomers (TPE)",
         "EmissionFactor": 5.23
@@ -774,145 +774,145 @@
         "EmissionFactor": 5.23
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Glass",
         "specificMaterial": "Tempered Glass",
         "EmissionFactor": 0.181
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Glass",
         "specificMaterial": "Laminated Glass",
         "EmissionFactor": 1.85
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Glass",
         "specificMaterial": "Frosted Glass",
         "EmissionFactor": 2.1
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Glass",
         "specificMaterial": "Clear Float Glass",
         "EmissionFactor": 1.27
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Glass",
         "specificMaterial": "Tinted Glass",
         "EmissionFactor": 2.3
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Glass",
         "specificMaterial": "Low-Iron Glass",
         "EmissionFactor": 1.14
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Glass",
         "specificMaterial": "Patterned or Textured Glass",
         "EmissionFactor": 2.2
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Glass",
         "specificMaterial": "Acid-Etched Glass",
         "EmissionFactor": 3.0
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Glass",
         "specificMaterial": "Smart Glass",
         "EmissionFactor": 4.5
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Glass",
         "specificMaterial": "Insulated Glass Units (IGUs)",
         "EmissionFactor": 4.0
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Glass",
         "specificMaterial": "Colored Glass",
         "EmissionFactor": 2.8
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Glass",
         "specificMaterial": "Mirrored Glass",
         "EmissionFactor": 2.5
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Glass",
         "specificMaterial": "Tempered Glass",
         "EmissionFactor": 0.181
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Glass",
         "specificMaterial": "Laminated Glass",
         "EmissionFactor": 1.85
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Glass",
         "specificMaterial": "Frosted Glass",
         "EmissionFactor": 2.0
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Glass",
         "specificMaterial": "Clear Float Glass",
         "EmissionFactor": 1.27
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Glass",
         "specificMaterial": "Tinted Glass",
         "EmissionFactor": 2.1
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Glass",
         "specificMaterial": "Low-Iron Glass",
         "EmissionFactor": 1.14
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Glass",
         "specificMaterial": "Patterned or Textured Glass",
         "EmissionFactor": 2.0
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Glass",
         "specificMaterial": "Acid-Etched Glass",
         "EmissionFactor": 2.7
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Glass",
         "specificMaterial": "Smart Glass",
         "EmissionFactor": 4.2
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Glass",
         "specificMaterial": "Insulated Glass Units (IGUs)",
         "EmissionFactor": 3.8
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Glass",
         "specificMaterial": "Colored Glass",
         "EmissionFactor": 2.6
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Glass",
         "specificMaterial": "Mirrored Glass",
         "EmissionFactor": 2.3
@@ -990,181 +990,181 @@
         "EmissionFactor": 2.1
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Fabric",
         "specificMaterial": "Polyester",
         "EmissionFactor": 4.9694
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Fabric",
         "specificMaterial": "Nylon",
         "EmissionFactor": 8.2296
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Fabric",
         "specificMaterial": "Mesh (Polyester)",
         "EmissionFactor": 4.9694
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Fabric",
         "specificMaterial": "Leather (Genuine)",
         "EmissionFactor": 10.5
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Fabric",
         "specificMaterial": "Faux Leather (PU)",
         "EmissionFactor": 3.2
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Fabric",
         "specificMaterial": "Vinyl",
         "EmissionFactor": 3.37
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Fabric",
         "specificMaterial": "Acrylic",
         "EmissionFactor": 4.9137
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Fabric",
         "specificMaterial": "Wool",
         "EmissionFactor": 0.0902
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Fabric",
         "specificMaterial": "Cotton",
         "EmissionFactor": 10.813
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Fabric",
         "specificMaterial": "Rayon (Viscose)",
         "EmissionFactor": 2.15
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Fabric",
         "specificMaterial": "Linen",
         "EmissionFactor": 2.7
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Fabric",
         "specificMaterial": "Velvet",
         "EmissionFactor": 5.8
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Fabric",
         "specificMaterial": "Tweed",
         "EmissionFactor": 4.8
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Fabric",
         "specificMaterial": "Microfiber",
         "EmissionFactor": 6.5
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Fabric",
         "specificMaterial": "Canvas",
         "EmissionFactor": 2.5
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Fabric",
         "specificMaterial": "Polyester",
         "EmissionFactor": 6.16
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Fabric",
         "specificMaterial": "Nylon",
         "EmissionFactor": 8.8
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Fabric",
         "specificMaterial": "Mesh (Polyester)",
         "EmissionFactor": 3.6
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Fabric",
         "specificMaterial": "Leather (Genuine)",
         "EmissionFactor": 9.8
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Fabric",
         "specificMaterial": "Faux Leather (PU)",
         "EmissionFactor": 3.0
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Fabric",
         "specificMaterial": "Vinyl",
         "EmissionFactor": 3.37
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Fabric",
         "specificMaterial": "Acrylic",
         "EmissionFactor": 4.3
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Fabric",
         "specificMaterial": "Wool",
         "EmissionFactor": 0.0902
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Fabric",
         "specificMaterial": "Cotton",
         "EmissionFactor": 2.0
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Fabric",
         "specificMaterial": "Rayon (Viscose)",
         "EmissionFactor": 2.15
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Fabric",
         "specificMaterial": "Linen",
         "EmissionFactor": 2.5
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Fabric",
         "specificMaterial": "Velvet",
         "EmissionFactor": 5.4
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Fabric",
         "specificMaterial": "Tweed",
         "EmissionFactor": 4.5
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Fabric",
         "specificMaterial": "Microfiber",
         "EmissionFactor": 6.0
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Fabric",
         "specificMaterial": "Canvas",
         "EmissionFactor": 2.3
@@ -1260,169 +1260,169 @@
         "EmissionFactor": 2.0
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Leather",
         "specificMaterial": "Genuine Leather",
         "EmissionFactor": 11.0
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Leather",
         "specificMaterial": "Full-Grain Leather",
         "EmissionFactor": 12.0
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Leather",
         "specificMaterial": "Top-Grain Leather",
         "EmissionFactor": 10.0
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Leather",
         "specificMaterial": "Bonded Leather",
         "EmissionFactor": 6.5
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Leather",
         "specificMaterial": "Faux Leather (PU Leather)",
         "EmissionFactor": 3.3
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Leather",
         "specificMaterial": "Vinyl Leather",
         "EmissionFactor": 4.0
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Leather",
         "specificMaterial": "Aniline Leather",
         "EmissionFactor": 12.75949367
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Leather",
         "specificMaterial": "Semi-Aniline Leather",
         "EmissionFactor": 11.5
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Leather",
         "specificMaterial": "Pigmented Leather",
         "EmissionFactor": 8.8
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Leather",
         "specificMaterial": "Nubuck Leather",
         "EmissionFactor": 10.5
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Leather",
         "specificMaterial": "Suede Leather",
         "EmissionFactor": 9.5
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Leather",
         "specificMaterial": "Patent Leather",
         "EmissionFactor": 8.5
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Leather",
         "specificMaterial": "Recycled Leather",
         "EmissionFactor": 6.0
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Leather",
         "specificMaterial": "Oiled Leather",
         "EmissionFactor": 8.5
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Leather",
         "specificMaterial": "Genuine Leather",
         "EmissionFactor": 10.5
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Leather",
         "specificMaterial": "Full-Grain Leather",
         "EmissionFactor": 11.5
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Leather",
         "specificMaterial": "Top-Grain Leather",
         "EmissionFactor": 9.5
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Leather",
         "specificMaterial": "Bonded Leather",
         "EmissionFactor": 6.0
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Leather",
         "specificMaterial": "Faux Leather (PU Leather)",
         "EmissionFactor": 3.1
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Leather",
         "specificMaterial": "Vinyl Leather",
         "EmissionFactor": 3.7
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Leather",
         "specificMaterial": "Aniline Leather",
         "EmissionFactor": 12.75949367
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Leather",
         "specificMaterial": "Semi-Aniline Leather",
         "EmissionFactor": 10.8
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Leather",
         "specificMaterial": "Pigmented Leather",
         "EmissionFactor": 8.3
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Leather",
         "specificMaterial": "Nubuck Leather",
         "EmissionFactor": 10.0
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Leather",
         "specificMaterial": "Suede Leather",
         "EmissionFactor": 9.0
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Leather",
         "specificMaterial": "Patent Leather",
         "EmissionFactor": 8.0
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Leather",
         "specificMaterial": "Recycled Leather",
         "EmissionFactor": 5.5
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Leather",
         "specificMaterial": "Oiled Leather",
         "EmissionFactor": 8.0
@@ -1512,169 +1512,169 @@
         "EmissionFactor": 7.0
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Laminate",
         "specificMaterial": "High-Pressure Laminate (HPL)",
         "EmissionFactor": 3.2
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Laminate",
         "specificMaterial": "Low-Pressure Laminate (LPL)",
         "EmissionFactor": 2.7
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Laminate",
         "specificMaterial": "Thermally Fused Laminate (TFL)",
         "EmissionFactor": 3.2
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Laminate",
         "specificMaterial": "Post-Formed Laminate",
         "EmissionFactor": 2.6
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Laminate",
         "specificMaterial": "Textured Laminate",
         "EmissionFactor": 3.1
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Laminate",
         "specificMaterial": "Glossy Laminate",
         "EmissionFactor": 2.8
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Laminate",
         "specificMaterial": "Matte Laminate",
         "EmissionFactor": 2.8
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Laminate",
         "specificMaterial": "Solid Color Laminate",
         "EmissionFactor": 2.3
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Laminate",
         "specificMaterial": "Antimicrobial Laminate",
         "EmissionFactor": 3.3
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Laminate",
         "specificMaterial": "Fire-Retardant Laminate",
         "EmissionFactor": 4.0
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Laminate",
         "specificMaterial": "Chemical-Resistant Laminate",
         "EmissionFactor": 3.8
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Laminate",
         "specificMaterial": "Writable Laminate (Markerboard)",
         "EmissionFactor": 3.4
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Laminate",
         "specificMaterial": "Digital Laminate",
         "EmissionFactor": 4.0
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Laminate",
         "specificMaterial": "Eco-Friendly Laminate",
         "EmissionFactor": 2.5
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Laminate",
         "specificMaterial": "High-Pressure Laminate (HPL)",
         "EmissionFactor": 3.0
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Laminate",
         "specificMaterial": "Low-Pressure Laminate (LPL)",
         "EmissionFactor": 2.5
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Laminate",
         "specificMaterial": "Thermally Fused Laminate (TFL)",
         "EmissionFactor": 3.0
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Laminate",
         "specificMaterial": "Post-Formed Laminate",
         "EmissionFactor": 2.4
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Laminate",
         "specificMaterial": "Textured Laminate",
         "EmissionFactor": 2.9
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Laminate",
         "specificMaterial": "Glossy Laminate",
         "EmissionFactor": 2.6
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Laminate",
         "specificMaterial": "Matte Laminate",
         "EmissionFactor": 2.6
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Laminate",
         "specificMaterial": "Solid Color Laminate",
         "EmissionFactor": 2.1
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Laminate",
         "specificMaterial": "Antimicrobial Laminate",
         "EmissionFactor": 3.0
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Laminate",
         "specificMaterial": "Fire-Retardant Laminate",
         "EmissionFactor": 3.7
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Laminate",
         "specificMaterial": "Chemical-Resistant Laminate",
         "EmissionFactor": 3.5
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Laminate",
         "specificMaterial": "Writable Laminate (Markerboard)",
         "EmissionFactor": 3.2
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Laminate",
         "specificMaterial": "Digital Laminate",
         "EmissionFactor": 3.7
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Laminate",
         "specificMaterial": "Eco-Friendly Laminate",
         "EmissionFactor": 2.3
@@ -1764,181 +1764,181 @@
         "EmissionFactor": 2.0
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Mesh",
         "specificMaterial": "Nylon Mesh",
         "EmissionFactor": 6.5
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Mesh",
         "specificMaterial": "Polyester Mesh",
         "EmissionFactor": 3.8
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Mesh",
         "specificMaterial": "PVC-Coated Mesh",
         "EmissionFactor": 4.8
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Mesh",
         "specificMaterial": "Elastomeric Mesh",
         "EmissionFactor": 5.0
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Mesh",
         "specificMaterial": "Fiberglass Mesh",
         "EmissionFactor": 3.3
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Mesh",
         "specificMaterial": "Metal Mesh",
         "EmissionFactor": 4.2
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Mesh",
         "specificMaterial": "Knitted Mesh",
         "EmissionFactor": 4.0
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Mesh",
         "specificMaterial": "Spacer Mesh (3D Mesh)",
         "EmissionFactor": 4.5
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Mesh",
         "specificMaterial": "Air Mesh",
         "EmissionFactor": 3.0
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Mesh",
         "specificMaterial": "Monofilament Mesh",
         "EmissionFactor": 4.4
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Mesh",
         "specificMaterial": "Polypropylene Mesh",
         "EmissionFactor": 3.3
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Mesh",
         "specificMaterial": "Acrylic Mesh",
         "EmissionFactor": 4.0
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Mesh",
         "specificMaterial": "Conductive Mesh",
         "EmissionFactor": 6.8
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Mesh",
         "specificMaterial": "Micro-Mesh",
         "EmissionFactor": 3.3
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Mesh",
         "specificMaterial": "Hybrid Mesh",
         "EmissionFactor": 5.2
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Mesh",
         "specificMaterial": "Nylon Mesh",
         "EmissionFactor": 6.0
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Mesh",
         "specificMaterial": "Polyester Mesh",
         "EmissionFactor": 3.6
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Mesh",
         "specificMaterial": "PVC-Coated Mesh",
         "EmissionFactor": 4.5
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Mesh",
         "specificMaterial": "Elastomeric Mesh",
         "EmissionFactor": 4.7
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Mesh",
         "specificMaterial": "Fiberglass Mesh",
         "EmissionFactor": 3.1
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Mesh",
         "specificMaterial": "Metal Mesh",
         "EmissionFactor": 4.0
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Mesh",
         "specificMaterial": "Knitted Mesh",
         "EmissionFactor": 3.8
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Mesh",
         "specificMaterial": "Spacer Mesh (3D Mesh)",
         "EmissionFactor": 4.3
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Mesh",
         "specificMaterial": "Air Mesh",
         "EmissionFactor": 2.8
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Mesh",
         "specificMaterial": "Monofilament Mesh",
         "EmissionFactor": 4.2
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Mesh",
         "specificMaterial": "Polypropylene Mesh",
         "EmissionFactor": 3.1
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Mesh",
         "specificMaterial": "Acrylic Mesh",
         "EmissionFactor": 3.7
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Mesh",
         "specificMaterial": "Conductive Mesh",
         "EmissionFactor": 6.5
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Mesh",
         "specificMaterial": "Micro-Mesh",
         "EmissionFactor": 3.0
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Mesh",
         "specificMaterial": "Hybrid Mesh",
         "EmissionFactor": 4.9
@@ -2034,169 +2034,169 @@
         "EmissionFactor": 4.5
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Foam",
         "specificMaterial": "Polyurethane Foam",
         "EmissionFactor": 7.1507
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Foam",
         "specificMaterial": "Memory Foam",
         "EmissionFactor": 6.0
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Foam",
         "specificMaterial": "Latex Foam",
         "EmissionFactor": 2.6744
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Foam",
         "specificMaterial": "High-Density Foam",
         "EmissionFactor": 4.6
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Foam",
         "specificMaterial": "Low-Density Foam",
         "EmissionFactor": 3.3
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Foam",
         "specificMaterial": "Gel-Infused Foam",
         "EmissionFactor": 6.3
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Foam",
         "specificMaterial": "Egg Crate Foam",
         "EmissionFactor": 4.1
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Foam",
         "specificMaterial": "Rebond Foam",
         "EmissionFactor": 4.8
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Foam",
         "specificMaterial": "Convoluted Foam",
         "EmissionFactor": 3.8
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Foam",
         "specificMaterial": "Open-Cell Foam",
         "EmissionFactor": 4.2
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Foam",
         "specificMaterial": "Closed-Cell Foam",
         "EmissionFactor": 4.5
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Foam",
         "specificMaterial": "Microbead Foam",
         "EmissionFactor": 5.0
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Foam",
         "specificMaterial": "Polyethylene Foam",
         "EmissionFactor": 6.64
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Foam",
         "specificMaterial": "Sculpted Foam",
         "EmissionFactor": 4.7
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Foam",
         "specificMaterial": "Polyurethane Foam",
         "EmissionFactor": 6.64
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Foam",
         "specificMaterial": "Memory Foam",
         "EmissionFactor": 5.6
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Foam",
         "specificMaterial": "Latex Foam",
         "EmissionFactor": 2.8
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Foam",
         "specificMaterial": "High-Density Foam",
         "EmissionFactor": 4.3
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Foam",
         "specificMaterial": "Low-Density Foam",
         "EmissionFactor": 3.0
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Foam",
         "specificMaterial": "Gel-Infused Foam",
         "EmissionFactor": 5.8
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Foam",
         "specificMaterial": "Egg Crate Foam",
         "EmissionFactor": 3.8
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Foam",
         "specificMaterial": "Rebond Foam",
         "EmissionFactor": 4.4
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Foam",
         "specificMaterial": "Convoluted Foam",
         "EmissionFactor": 3.5
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Foam",
         "specificMaterial": "Open-Cell Foam",
         "EmissionFactor": 3.9
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Foam",
         "specificMaterial": "Closed-Cell Foam",
         "EmissionFactor": 4.2
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Foam",
         "specificMaterial": "Microbead Foam",
         "EmissionFactor": 4.6
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Foam",
         "specificMaterial": "Polyethylene Foam",
         "EmissionFactor": 3.3
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Foam",
         "specificMaterial": "Sculpted Foam",
         "EmissionFactor": 4.4
@@ -2286,145 +2286,145 @@
         "EmissionFactor": 4.0
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Stone",
         "specificMaterial": "Marble",
         "EmissionFactor": 1.8
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Stone",
         "specificMaterial": "Granite",
         "EmissionFactor": 2.4
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Stone",
         "specificMaterial": "Quartz",
         "EmissionFactor": 2.8
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Stone",
         "specificMaterial": "Limestone",
         "EmissionFactor": 0.0727
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Stone",
         "specificMaterial": "Soapstone",
         "EmissionFactor": 2.2
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Stone",
         "specificMaterial": "Onyx",
         "EmissionFactor": 2.7
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Stone",
         "specificMaterial": "Slate",
         "EmissionFactor": 2.0
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Stone",
         "specificMaterial": "Travertine",
         "EmissionFactor": 2.3
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Stone",
         "specificMaterial": "Concrete",
         "EmissionFactor": 0.107233864
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Stone",
         "specificMaterial": "Terrazzo",
         "EmissionFactor": 2.6
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Stone",
         "specificMaterial": "Basalt",
         "EmissionFactor": 0.0095112
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Stone",
         "specificMaterial": "Jasper",
         "EmissionFactor": 2.6
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Stone",
         "specificMaterial": "Marble",
         "EmissionFactor": 1.6
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Stone",
         "specificMaterial": "Granite",
         "EmissionFactor": 2.2
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Stone",
         "specificMaterial": "Quartz",
         "EmissionFactor": 2.6
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Stone",
         "specificMaterial": "Limestone",
         "EmissionFactor": 0.0727
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Stone",
         "specificMaterial": "Soapstone",
         "EmissionFactor": 2.0
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Stone",
         "specificMaterial": "Onyx",
         "EmissionFactor": 2.5
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Stone",
         "specificMaterial": "Slate",
         "EmissionFactor": 1.8
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Stone",
         "specificMaterial": "Travertine",
         "EmissionFactor": 2.1
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Stone",
         "specificMaterial": "Concrete",
         "EmissionFactor": 0.9
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Stone",
         "specificMaterial": "Terrazzo",
         "EmissionFactor": 2.3
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Stone",
         "specificMaterial": "Basalt",
         "EmissionFactor": 1.5
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Stone",
         "specificMaterial": "Jasper",
         "EmissionFactor": 2.4
@@ -2502,133 +2502,133 @@
         "EmissionFactor": 2.2
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Bamboo",
         "specificMaterial": "Moso Bamboo",
         "EmissionFactor": 0.667
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Bamboo",
         "specificMaterial": "Thin Bamboo",
         "EmissionFactor": 0.667
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Bamboo",
         "specificMaterial": "Giant Bamboo",
         "EmissionFactor": 0.667
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Bamboo",
         "specificMaterial": "Chinese Bamboo",
         "EmissionFactor": 0.667
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Bamboo",
         "specificMaterial": "Bamboo Plyboard",
         "EmissionFactor": 0.667
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Bamboo",
         "specificMaterial": "Vertical Grain Bamboo",
         "EmissionFactor": 0.667
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Bamboo",
         "specificMaterial": "Horizontal Grain Bamboo",
         "EmissionFactor": 0.667
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Bamboo",
         "specificMaterial": "Strand-Woven Bamboo",
         "EmissionFactor": 0.726
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Bamboo",
         "specificMaterial": "Carbonized Bamboo",
         "EmissionFactor": 0.32
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Bamboo",
         "specificMaterial": "Reed Bamboo",
         "EmissionFactor": 0.667
     },
     {
-        "countryOfOrigin": "CN",
+        "countryOfOrigin": "China",
         "materialClass": "Bamboo",
         "specificMaterial": "Fused Bamboo",
         "EmissionFactor": 0.667
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Bamboo",
         "specificMaterial": "Moso Bamboo",
         "EmissionFactor": 0.478
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Bamboo",
         "specificMaterial": "Thin Bamboo",
         "EmissionFactor": 0.478
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Bamboo",
         "specificMaterial": "Giant Bamboo",
         "EmissionFactor": 0.478
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Bamboo",
         "specificMaterial": "Chinese Bamboo",
         "EmissionFactor": 0.478
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Bamboo",
         "specificMaterial": "Bamboo Plyboard",
         "EmissionFactor": 0.478
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Bamboo",
         "specificMaterial": "Vertical Grain Bamboo",
         "EmissionFactor": 0.478
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Bamboo",
         "specificMaterial": "Horizontal Grain Bamboo",
         "EmissionFactor": 0.478
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Bamboo",
         "specificMaterial": "Strand-Woven Bamboo",
         "EmissionFactor": 0.319
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Bamboo",
         "specificMaterial": "Carbonized Bamboo",
         "EmissionFactor": 0.478
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Bamboo",
         "specificMaterial": "Reed Bamboo",
         "EmissionFactor": 0.478
     },
     {
-        "countryOfOrigin": "VN",
+        "countryOfOrigin": "Vietnam",
         "materialClass": "Bamboo",
         "specificMaterial": "Fused Bamboo",
         "EmissionFactor": 0.478
