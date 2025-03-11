@@ -291,7 +291,7 @@ app.post("/api/distance", (req, res) => {
 
 app.post("/api/calculate-transport-emission", (req, res) => {
   const EMISSION_FACTORS = {
-    SeaFreight: 0.01,
+    SeaFreight: 0.0104,
     RoadFreight: 0.16,
     RailFreight: 0.05,
     AirFreight: 0.85,
