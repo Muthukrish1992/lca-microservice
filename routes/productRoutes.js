@@ -151,6 +151,7 @@ const getAllProducts = async (req, res) => {
     console.log("Authorization Key: ", authorizationKey);
     const Product = await getProductModel(req);
     let products = await Product.find().lean();
+    products.sort((a, b) => new Date(b.createdDate) - new Date(a.createdDate));
     products = products.map((product) => ({
       ...product,
       co2Emission: product.co2Emission
