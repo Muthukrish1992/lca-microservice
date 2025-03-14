@@ -165,7 +165,9 @@ const getAllProducts = async (req, res) => {
         : product.co2EmissionFromProcesses,
     }));
 
-    res.status(HTTP_STATUS.OK).json({ success: true, data: products });
+    const plan = await getAccountPlan(req);
+
+    res.status(HTTP_STATUS.OK).json({ success: true, data: {products : products , plan : plan} });
   } catch (error) {
     res.status(HTTP_STATUS.INTERNAL_SERVER_ERROR).json({
       success: false,

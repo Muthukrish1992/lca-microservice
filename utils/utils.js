@@ -1,6 +1,7 @@
 // utils/commonUtils.js
 
 const getDBConnection = require('../config/dbManager');
+const accountPlanSchema = require('../models/account_plan_schema');
 
 // Constants that will be used across different routes
 const HTTP_STATUS = {
@@ -119,6 +120,18 @@ const getAccount = (req) => {
     return account;
 }
 
+const getAccountPlanModel = async (req) => {
+    const account = getAccount(req);
+    return getModel(account, accountPlanSchema, "AccountPlan");
+};
+
+const getAccountPlan = async (req) => {
+    const account = getAccount(req);
+    const AccountPlan = await getAccountPlanModel(req);
+    const entry = await AccountPlan.findOne({account_id : account});
+    return entry ?? 'expert';
+}
+
 const getOriginUrl = (req) => {
     const protocol = req.protocol; // http or https
     const host = req.get('host'); // localhost:3000 or example.com
@@ -142,5 +155,6 @@ module.exports = {
     validateAccount,
     getAccount,
     getOriginUrl,
-    getAuthorizationKey
+    getAuthorizationKey,
+    getAccountPlan
 };

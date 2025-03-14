@@ -1,0 +1,77 @@
+[
+    {
+        "Category": "WoodProcessing",
+        "SubType": "Woodworking",
+        "Value": 1.50
+    },
+    {
+        "Category": "WoodProcessing",
+        "SubType": "CNC Machining",
+        "Value": 4.00
+    },
+    {
+        "Category": "WoodProcessing",
+        "SubType": "Laminating/Pressing",
+        "Value": 3.00
+    },
+    {
+        "Category": "WoodProcessing",
+        "SubType": "Steam Bending",
+        "Value": 2.00
+    },
+    {
+        "Category": "WoodProcessing",
+        "SubType": "Assembly Processes",
+        "Value": 1.00
+    },
+    {
+        "Category": "MetalProcessing",
+        "SubType": "Metalworking",
+        "Value": 4.00
+    },
+    {
+        "Category": "MetalProcessing",
+        "SubType": "CNC Machining",
+        "Value": 5.00
+    },
+    {
+        "Category": "MetalProcessing",
+        "SubType": "3D Printing",
+        "Value": 10.00
+    },
+    {
+        "Category": "MetalProcessing",
+        "SubType": "Casting",
+        "Value": 6.00
+    },
+    {
+        "Category": "PlasticProcessing",
+        "SubType": "Plastic Molding",
+        "Value": 2.50
+    },
+    {
+        "Category": "PlasticProcessing",
+        "SubType": "3D Printing",
+        "Value": 7.50
+    },
+    {
+        "Category": "FabricProcessing",
+        "SubType": "Upholstery",
+        "Value": 1.50
+    },
+    {
+        "Category": "LeatherProcessing",
+        "SubType": "Upholstery",
+        "Value": 2.00
+    },
+    {
+        "Category": "PlasticProcessing",
+        "SubType": "Upholstery",
+        "Value": 1.80
+    },
+    {
+        "Category": "BambooProcessing",
+        "SubType": "Bamboo Work",
+        "Value": 2.00
+    }
+]

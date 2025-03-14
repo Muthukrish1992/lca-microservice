@@ -12,11 +12,13 @@ const transportDatabase = require("./data/transport_database.json");
 const portDistances = require("./data/port_distances.json");
 const {
   classifyProduct,
+  classifyBOMBasic,
   classifyBOM,
   classifyManufacturingProcess,
+  classifyManufacturingProcessBasic,
 } = require("./utils/chatGPTUtils");
 
-const { HTTP_STATUS } = require("./utils/utils");
+const { HTTP_STATUS,getAccountPlan } = require("./utils/utils");
 
 dotenv.config();
 const app = express();
@@ -46,6 +48,10 @@ app.use("/api/projects", projectRoutes);
 const projectProductRoutes = require("./routes/project_product_routes");
 app.use("/api/project-product-mapping", projectProductRoutes);
 
+//product-project mapping route
+const accountPlanRoutes = require("./routes/account_plan_routes");
+app.use("/api/account-plan", accountPlanRoutes);
+
 // API Route
 app.post("/api/classify-product", async (req, res) => {
   try {
@@ -73,12 +79,27 @@ app.post("/api/classify-manufacturing-process", async (req, res) => {
       });
     }
 
-    const result = await classifyManufacturingProcess(
+    const plan = await getAccountPlan(req);
+
+    let result = {};
+    if(plan.plan == "basic"){
+
+     result = await classifyManufacturingProcessBasic(
       productCode,
       name,
       description,
       bom
     );
+  }
+  else
+  {
+    result = await classifyManufacturingProcess(
+      productCode,
+      name,
+      description,
+      bom
+    );
+  }
     res.status(HTTP_STATUS.OK).json({ success: true, data: result });
   } catch (error) {
     console.log(error);
@@ -101,13 +122,27 @@ app.post("/api/classify-bom", async (req, res) => {
       });
     }
 
-    const result = await classifyBOM(
-      productCode,
-      name,
-      description,
-      weight,
-      imageUrl
-    );
+    const plan = await getAccountPlan(req);
+
+    let result = {};
+    if(plan.plan == "basic"){
+      result = await classifyBOMBasic(
+        productCode,
+        name,
+        description,
+        weight,
+        imageUrl
+      );
+    }
+    else{
+      result = await classifyBOM(
+        productCode,
+        name,
+        description,
+        weight,
+        imageUrl
+      );
+    }
 
     const totalWeightCalculated = result.reduce(
       (sum, material) => sum + material.weight,
@@ -121,7 +156,9 @@ app.post("/api/classify-bom", async (req, res) => {
       });
     }
 
-    res.status(HTTP_STATUS.OK).json({ success: true, data: result });
+    
+
+    res.status(HTTP_STATUS.OK).json({ success: true, data: { plan : plan.plan , bom : result } });
   } catch (error) {
     console.log(error);
     res.status(HTTP_STATUS.INTERNAL_SERVER_ERROR).json({
