@@ -4,11 +4,12 @@ const cors = require("cors");
 
 const { getModel, getAccount } = require("./utils/utils");
 const productSchema = require("./models/product_schema");
-const projectProductMapSchema = require('./models/project_product_map_schema');
+const projectProductMapSchema = require("./models/project_product_map_schema");
 const projectSchema = require("./models/project_schema");
 
 const productCategories = require("./data/productCategories.json");
 const transportDatabase = require("./data/transport_database.json");
+const transportDatabaseBasic = require("./data/country_distances.json");
 const portDistances = require("./data/port_distances.json");
 const {
   classifyProduct,
@@ -18,7 +19,7 @@ const {
   classifyManufacturingProcessBasic,
 } = require("./utils/chatGPTUtils");
 
-const { HTTP_STATUS,getAccountPlan } = require("./utils/utils");
+const { HTTP_STATUS, getAccountPlan } = require("./utils/utils");
 
 dotenv.config();
 const app = express();
@@ -82,25 +83,22 @@ app.post("/api/classify-manufacturing-process", async (req, res) => {
     const plan = await getAccountPlan(req);
 
     let result = {};
-    if(plan.plan == "basic"){
-
-     result = await classifyManufacturingProcessBasic(
-      productCode,
-      name,
-      description,
-      bom
-    );
-  }
-  else
-  {
-    result = await classifyManufacturingProcess(
-      productCode,
-      name,
-      description,
-      bom
-    );
-  }
-    res.status(HTTP_STATUS.OK).json({ success: true, data: result });
+    if (plan.plan == "basic") {
+      result = await classifyManufacturingProcessBasic(
+        productCode,
+        name,
+        description,
+        bom
+      );
+    } else {
+      result = await classifyManufacturingProcess(
+        productCode,
+        name,
+        description,
+        bom
+      );
+    }
+    res.status(HTTP_STATUS.OK).json({ success: true, data: { manufacturingProcess : result , plan : plan } });
   } catch (error) {
     console.log(error);
     res.status(HTTP_STATUS.INTERNAL_SERVER_ERROR).json({
@@ -125,7 +123,7 @@ app.post("/api/classify-bom", async (req, res) => {
     const plan = await getAccountPlan(req);
 
     let result = {};
-    if(plan.plan == "basic"){
+    if (plan.plan == "basic") {
       result = await classifyBOMBasic(
         productCode,
         name,
@@ -133,8 +131,7 @@ app.post("/api/classify-bom", async (req, res) => {
         weight,
         imageUrl
       );
-    }
-    else{
+    } else {
       result = await classifyBOM(
         productCode,
         name,
@@ -156,9 +153,9 @@ app.post("/api/classify-bom", async (req, res) => {
       });
     }
 
-    
-
-    res.status(HTTP_STATUS.OK).json({ success: true, data: { plan : plan.plan , bom : result } });
+    res
+      .status(HTTP_STATUS.OK)
+      .json({ success: true, data: { plan: plan.plan, bom: result } });
   } catch (error) {
     console.log(error);
     res.status(HTTP_STATUS.INTERNAL_SERVER_ERROR).json({
@@ -227,53 +224,27 @@ app.get("/api/productCategories", (req, res) => {
   }
 });
 
-// Endpoint to return all countries
-app.get("/api/countries", (req, res) => {
+app.get("/api/transportDB", async (req, res) => {
   try {
-    const countries = Object.keys(transportDatabase); // Extract all countries
-    res.status(HTTP_STATUS.OK).json({ success: true, data: countries });
-  } catch (error) {
-    console.log(error);
-    res.status(HTTP_STATUS.INTERNAL_SERVER_ERROR).json({
-      success: false,
-      error: "An error occurred while retrieving countries.",
-    });
-  }
-});
-
-app.get("/api/ports", (req, res) => {
-  try {
-    const { country } = req.query;
-
-    if (!country) {
-      return res.status(HTTP_STATUS.BAD_REQUEST).json({
-        success: false,
-        error: "Country is required as a query parameter.",
-      });
+    const plan = await getAccountPlan(req);
+    if (plan.plan === "basic") {
+      res
+        .status(HTTP_STATUS.OK)
+        .json({
+          success: true,
+          data: {
+            transportDatabase: Object.keys(transportDatabaseBasic),
+            plan: plan,
+          },
+        });
+    } else {
+      res
+        .status(HTTP_STATUS.OK)
+        .json({
+          success: true,
+          data: { transportDatabase: transportDatabase, plan: plan },
+        });
     }
-
-    const ports = transportDatabase[country];
-
-    if (!ports) {
-      return res.status(HTTP_STATUS.NOT_FOUND).json({
-        success: false,
-        error: "Country not found or has no ports.",
-      });
-    }
-
-    res.status(HTTP_STATUS.OK).json({ success: true, data: ports });
-  } catch (error) {
-    console.log(error);
-    res.status(HTTP_STATUS.INTERNAL_SERVER_ERROR).json({
-      success: false,
-      error: "An error occurred while retrieving ports.",
-    });
-  }
-});
-
-app.get("/api/transportDB", (req, res) => {
-  try {
-    res.status(HTTP_STATUS.OK).json({ success: true, data: transportDatabase });
   } catch (error) {
     console.log(error);
     res.status(HTTP_STATUS.INTERNAL_SERVER_ERROR).json({
@@ -284,33 +255,34 @@ app.get("/api/transportDB", (req, res) => {
 });
 
 // Endpoint to get distance
-app.post("/api/distance", (req, res) => {
+app.post("/api/distance", async (req, res) => {
   try {
     const { origin, destination } = req.body;
 
-    if (!origin || !destination) {
-      return res.status(HTTP_STATUS.BAD_REQUEST).json({
-        success: false,
-        error: "Please provide both origin and destination ports.",
-      });
-    }
+    const plan = await getAccountPlan(req);
 
-    const originDistances = portDistances[origin];
+    let distance;
 
-    if (!originDistances) {
-      return res.status(HTTP_STATUS.NOT_FOUND).json({
-        success: false,
-        error: `Origin port '${origin}' not found.`,
-      });
-    }
+    if (plan.plan == "basic") {
+      distance = transportDatabaseBasic[origin][destination];
+    } else {
+      const originDistances = portDistances[origin];
 
-    const distance = originDistances[destination];
+      if (!originDistances) {
+        return res.status(HTTP_STATUS.NOT_FOUND).json({
+          success: false,
+          error: `Origin port '${origin}' not found.`,
+        });
+      }
 
-    if (distance === undefined) {
-      return res.status(HTTP_STATUS.NOT_FOUND).json({
-        success: false,
-        error: `Destination port '${destination}' not found for origin '${origin}'.`,
-      });
+       distance = originDistances[destination];
+
+      if (distance === undefined) {
+        return res.status(HTTP_STATUS.NOT_FOUND).json({
+          success: false,
+          error: `Destination port '${destination}' not found for origin '${origin}'.`,
+        });
+      }
     }
 
     res.status(HTTP_STATUS.OK).json({
@@ -391,7 +363,7 @@ app.get("/api/home", async (req, res) => {
     // Fetch dynamic values from the database
     const totalProducts = await Product.countDocuments();
     const totalImpact = await ProjectProductMap.countDocuments();
-    const totalProjects = await Project.countDocuments();;
+    const totalProjects = await Project.countDocuments();
     const totalCredits = Math.floor(Math.random() * (5000 - 1000 + 1)) + 1000;
 
     return res.status(200).json({
@@ -405,7 +377,9 @@ app.get("/api/home", async (req, res) => {
     });
   } catch (error) {
     console.error("Error fetching data:", error);
-    return res.status(500).json({ success: false, message: "Internal Server Error" });
+    return res
+      .status(500)
+      .json({ success: false, message: "Internal Server Error" });
   }
 });
 

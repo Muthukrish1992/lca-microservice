@@ -5,7 +5,7 @@ const projectSchema = require("../models/project_schema");
 const projectProductMapSchema = require('../models/project_product_map_schema');
 const productSchema = require("../models/product_schema");
 
-const { getModel, getAccount } = require("../utils/utils");
+const { getModel, getAccount ,getAccountPlan} = require("../utils/utils");
 
 // Constants that will be used across different routes
 const HTTP_STATUS = {
@@ -67,6 +67,8 @@ router.get("/", async (req, res) => {
     const Project = await getProjectModel(req);
     const projects = await Project.find({}).sort({ createdDate: -1 });
 
+    const plan = await getAccountPlan(req);
+
     // Transform the data to match the expected format
     const transformedProjects = projects.map((project) => ({
       _id: project._id,
@@ -79,7 +81,7 @@ router.get("/", async (req, res) => {
       products: project.products || [],
     }));
 
-    res.status(201).json({ success: true, data: transformedProjects });
+    res.status(201).json({ success: true, data: { projects : transformedProjects , plan : plan} });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
