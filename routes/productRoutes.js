@@ -26,6 +26,7 @@ const {
   getAccount,
   getOriginUrl,
   getAuthorizationKey,
+  getAccountPlan,
 } = require("../utils/utils");
 const emissionData = require("../data/materials_database.json");
 const processing_database = require("../data/processing_database.json");
