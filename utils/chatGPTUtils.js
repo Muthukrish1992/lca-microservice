@@ -7,6 +7,8 @@ const manufacturingProcesses = require("../data/manufacturingProcesses.json");
 const materialsDatabaseBasic = require("../data/materials_database_basic.json");
 const manufacturingProcessesBasic = require("../data/manufacturingProcesses_basic.json");
 
+const { updateAITokens } = require("../utils/utils");
+
 const OpenAI = require("openai");
 const { zodResponseFormat } = require("openai/helpers/zod");
 const { z } = require("zod");
@@ -115,7 +117,7 @@ const formatBOMList = () => {
     .join("\n");
 };
 
-async function classifyProduct(productCode, name, description) {
+async function classifyProduct(productCode, name, description, req) {
   if (!name || !description) {
     throw new Error("Product code, name, and description are required.");
   }
@@ -158,6 +160,8 @@ async function classifyProduct(productCode, name, description) {
 
     let result = completion.choices[0].message.parsed;
 
+    updateAITokens(req, completion.usage.total_tokens);
+
     // Validate the category and subcategory
     if (!productCategories[result.category]) {
       result.category = findClosestMatch(
@@ -184,15 +188,25 @@ const cacheClassifyBOM = new Map();
 // Function to format the materials database basic data as a string for the prompt
 const formatMaterialsDatabaseBasic = () => {
   return materialsDatabaseBasic
-    .map(
-      (material) =>
-        `- ${material.materialClass}`
-    )
+    .map((material) => `- ${material.materialClass}`)
     .join("\n");
 };
 
-const classifyBOMBasic = async (productCode, name, description, weight, imageUrl) => {
-  const keyClassifyBOM = JSON.stringify({ productCode, name, description, weight, imageUrl });
+const classifyBOMBasic = async (
+  productCode,
+  name,
+  description,
+  weight,
+  imageUrl,
+  req
+) => {
+  const keyClassifyBOM = JSON.stringify({
+    productCode,
+    name,
+    description,
+    weight,
+    imageUrl,
+  });
 
   if (cacheClassifyBOM.has(keyClassifyBOM)) {
     return cacheClassifyBOM.get(keyClassifyBOM);
@@ -232,29 +246,33 @@ ${materialsList}
 `;
 
   try {
-    const messages = [
-      { type: "text", text: prompt },
-    ];
+    const messages = [{ type: "text", text: prompt }];
 
     if (imageUrl) {
       messages.push({ type: "image_url", image_url: { url: imageUrl } }); // ✅ Fixed structure
     }
 
     const response = await openai.chat.completions.create({
-      model: "gpt-4o",  // Supports text + image analysis
+      model: "gpt-4o", // Supports text + image analysis
       messages: [{ role: "user", content: messages }],
       response_format: zodResponseFormat(BOMSchemaBasic, "bom"),
       temperature: 0,
     });
 
-    const result =  JSON.parse(response.choices[0].message.content).bom ; // ✅ Fixed response parsing
+    const result = JSON.parse(response.choices[0].message.content).bom; // ✅ Fixed response parsing
+
+    updateAITokens(req, response.usage.total_tokens);
 
     // Validate and adjust material categories
     result.forEach((item) => {
-      if (!materialsDatabaseBasic.some(material => material.materialClass === item.materialClass)) {
+      if (
+        !materialsDatabaseBasic.some(
+          (material) => material.materialClass === item.materialClass
+        )
+      ) {
         item.materialClass = findClosestMatch(
           item.materialClass,
-          materialsDatabaseBasic.map(material => material.materialClass)
+          materialsDatabaseBasic.map((material) => material.materialClass)
         );
       }
     });
@@ -270,13 +288,29 @@ ${materialsList}
     cacheClassifyBOM.set(keyClassifyBOM, result);
     return result;
   } catch (error) {
-    console.error("Error classifying BOM:", error.response?.data || error.message);
+    console.error(
+      "Error classifying BOM:",
+      error.response?.data || error.message
+    );
     throw new Error("An error occurred while classifying the BOM.");
   }
 };
 
-const classifyBOM = async (productCode, name, description, weight, imageUrl) => {
-  const keyClassifyBOM = JSON.stringify({ productCode, name, description, weight, imageUrl });
+const classifyBOM = async (
+  productCode,
+  name,
+  description,
+  weight,
+  imageUrl,
+  req
+) => {
+  const keyClassifyBOM = JSON.stringify({
+    productCode,
+    name,
+    description,
+    weight,
+    imageUrl,
+  });
 
   if (cacheClassifyBOM.has(keyClassifyBOM)) {
     return cacheClassifyBOM.get(keyClassifyBOM);
@@ -317,22 +351,22 @@ ${bomList}
 `;
 
   try {
-    const messages = [
-      { type: "text", text: prompt },
-    ];
+    const messages = [{ type: "text", text: prompt }];
 
     if (imageUrl) {
       messages.push({ type: "image_url", image_url: { url: imageUrl } }); // ✅ Fixed structure
     }
 
     const response = await openai.chat.completions.create({
-      model: "gpt-4o",  // Supports text + image analysis
+      model: "gpt-4o", // Supports text + image analysis
       messages: [{ role: "user", content: messages }],
       response_format: zodResponseFormat(BOMSchema, "bom"),
       temperature: 0,
     });
 
-    const result =  JSON.parse(response.choices[0].message.content).bom ; // ✅ Fixed response parsing
+    const result = JSON.parse(response.choices[0].message.content).bom; // ✅ Fixed response parsing
+
+    updateAITokens(req, response.usage.total_tokens);
 
     // Validate and adjust material categories
     result.forEach((item) => {
@@ -355,7 +389,10 @@ ${bomList}
     cacheClassifyBOM.set(keyClassifyBOM, result);
     return result;
   } catch (error) {
-    console.error("Error classifying BOM:", error.response?.data || error.message);
+    console.error(
+      "Error classifying BOM:",
+      error.response?.data || error.message
+    );
     throw new Error("An error occurred while classifying the BOM.");
   }
 };
@@ -364,7 +401,8 @@ const classifyManufacturingProcess = async (
   productCode,
   name,
   description,
-  bom
+  bom,
+  req
 ) => {
   const formattedProcesses = formatManufacturingProcesses();
 
@@ -425,6 +463,8 @@ Important:
 
     const result = response.choices[0].message.parsed.processes; // Access the 'processes' array
 
+    updateAITokens(req, response.usage.total_tokens);
+
     return result;
   } catch (error) {
     console.error(
@@ -441,7 +481,8 @@ const classifyManufacturingProcessBasic = async (
   productCode,
   name,
   description,
-  bom
+  bom,
+  req
 ) => {
   const formattedProcesses = formatManufacturingProcessesBasic();
 
@@ -500,6 +541,8 @@ Important:
     });
 
     const result = response.choices[0].message.parsed.processes; // Access the 'processes' array
+
+    updateAITokens(req, completion.usage.total_tokens);
 
     return result;
   } catch (error) {

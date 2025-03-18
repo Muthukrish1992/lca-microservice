@@ -2,7 +2,6 @@ const dotenv = require("dotenv");
 const express = require("express");
 const cors = require("cors");
 
-const { getModel, getAccount } = require("./utils/utils");
 const productSchema = require("./models/product_schema");
 const projectProductMapSchema = require("./models/project_product_map_schema");
 const projectSchema = require("./models/project_schema");
@@ -19,7 +18,13 @@ const {
   classifyManufacturingProcessBasic,
 } = require("./utils/chatGPTUtils");
 
-const { HTTP_STATUS, getAccountPlan } = require("./utils/utils");
+const {
+  HTTP_STATUS,
+  getAccountPlan,
+  getAccountAITokens,
+  getAccount,
+  getModel,
+} = require("./utils/utils");
 
 dotenv.config();
 const app = express();
@@ -57,7 +62,8 @@ app.use("/api/account-plan", accountPlanRoutes);
 app.post("/api/classify-product", async (req, res) => {
   try {
     const { productCode, description, name } = req.body;
-    const result = await classifyProduct(productCode, name, description);
+
+    const result = await classifyProduct(productCode, name, description, req);
     res.status(HTTP_STATUS.OK).json({ success: true, data: result });
   } catch (error) {
     console.log(error);
@@ -88,17 +94,22 @@ app.post("/api/classify-manufacturing-process", async (req, res) => {
         productCode,
         name,
         description,
-        bom
+        bom,
+        req
       );
     } else {
       result = await classifyManufacturingProcess(
         productCode,
         name,
         description,
-        bom
+        bom,
+        req
       );
     }
-    res.status(HTTP_STATUS.OK).json({ success: true, data: { manufacturingProcess : result , plan : plan } });
+    res.status(HTTP_STATUS.OK).json({
+      success: true,
+      data: { manufacturingProcess: result, plan: plan },
+    });
   } catch (error) {
     console.log(error);
     res.status(HTTP_STATUS.INTERNAL_SERVER_ERROR).json({
@@ -129,7 +140,8 @@ app.post("/api/classify-bom", async (req, res) => {
         name,
         description,
         weight,
-        imageUrl
+        imageUrl,
+        req
       );
     } else {
       result = await classifyBOM(
@@ -137,7 +149,8 @@ app.post("/api/classify-bom", async (req, res) => {
         name,
         description,
         weight,
-        imageUrl
+        imageUrl,
+        req
       );
     }
 
@@ -228,22 +241,18 @@ app.get("/api/transportDB", async (req, res) => {
   try {
     const plan = await getAccountPlan(req);
     if (plan.plan === "basic") {
-      res
-        .status(HTTP_STATUS.OK)
-        .json({
-          success: true,
-          data: {
-            transportDatabase: Object.keys(transportDatabaseBasic),
-            plan: plan,
-          },
-        });
+      res.status(HTTP_STATUS.OK).json({
+        success: true,
+        data: {
+          transportDatabase: Object.keys(transportDatabaseBasic),
+          plan: plan,
+        },
+      });
     } else {
-      res
-        .status(HTTP_STATUS.OK)
-        .json({
-          success: true,
-          data: { transportDatabase: transportDatabase, plan: plan },
-        });
+      res.status(HTTP_STATUS.OK).json({
+        success: true,
+        data: { transportDatabase: transportDatabase, plan: plan },
+      });
     }
   } catch (error) {
     console.log(error);
@@ -275,7 +284,7 @@ app.post("/api/distance", async (req, res) => {
         });
       }
 
-       distance = originDistances[destination];
+      distance = originDistances[destination];
 
       if (distance === undefined) {
         return res.status(HTTP_STATUS.NOT_FOUND).json({
@@ -364,7 +373,10 @@ app.get("/api/home", async (req, res) => {
     const totalProducts = await Product.countDocuments();
     const totalImpact = await ProjectProductMap.countDocuments();
     const totalProjects = await Project.countDocuments();
-    const totalCredits = Math.floor(Math.random() * (5000 - 1000 + 1)) + 1000;
+
+    const accountAIToken = await getAccountAITokens(req);
+
+    const totalCredits = accountAIToken;
 
     return res.status(200).json({
       success: true,
