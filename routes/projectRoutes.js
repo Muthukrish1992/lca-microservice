@@ -2,10 +2,10 @@ const express = require("express");
 const router = express.Router();
 
 const projectSchema = require("../models/project_schema");
-const projectProductMapSchema = require('../models/project_product_map_schema');
+const projectProductMapSchema = require("../models/project_product_map_schema");
 const productSchema = require("../models/product_schema");
 
-const { getModel, getAccount ,getAccountPlan} = require("../utils/utils");
+const { getModel, getAccount, getAccountPlan } = require("../utils/utils");
 
 // Constants that will be used across different routes
 const HTTP_STATUS = {
@@ -81,7 +81,12 @@ router.get("/", async (req, res) => {
       products: project.products || [],
     }));
 
-    res.status(201).json({ success: true, data: { projects : transformedProjects , plan : plan} });
+    res
+      .status(201)
+      .json({
+        success: true,
+        data: { projects: transformedProjects, plan: plan },
+      });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -146,7 +151,7 @@ router.post("/impacts", async (req, res) => {
     const Project = await getProjectModel(req);
     const ProjectProductMap = await getProjectProductMapModel(req);
     const Product = await getProductModel(req); // must declaration DONT remove
-    
+
     // Find the project
     const project = await Project.findById(projectId);
     if (!project) {
@@ -159,9 +164,10 @@ router.post("/impacts", async (req, res) => {
     }).populate({
       path: "productID",
       model: "Product", // Explicitly specify the model name
-      select: "name code images co2Emission co2EmissionRawMaterials co2EmissionFromProcesses materials productManufacturingProcess"
+      select:
+        "name code images co2Emission co2EmissionRawMaterials co2EmissionFromProcesses materials productManufacturingProcess",
     });
-    
+
     // Initialize totals
     let totalMaterialsImpact = 0;
     let totalManufacturingImpact = 0;
@@ -190,12 +196,12 @@ router.post("/impacts", async (req, res) => {
           },
         };
       }
-      
+
       const product = mapping.productID;
       const materialsImpact = product.co2EmissionRawMaterials || 0;
       const manufacturingImpact = product.co2EmissionFromProcesses || 0;
       const transportationImpact = mapping.totalTransportationEmission || 0;
-      
+
       // Add to running totals
       totalMaterialsImpact += materialsImpact;
       totalManufacturingImpact += manufacturingImpact;
@@ -212,21 +218,33 @@ router.post("/impacts", async (req, res) => {
         transportationLegs: mapping.transportationLegs || [],
         packagingWeight: mapping.packagingWeight || 0,
         palletWeight: mapping.palletWeight || 0,
-        productImage: product.images && product.images.length > 0 ? product.images[0] : null,
+        productImage:
+          product.images && product.images.length > 0
+            ? product.images[0]
+            : null,
         impacts: {
           materialsImpact,
           manufacturingImpact,
           transportationImpact,
-          totalImpact: materialsImpact + manufacturingImpact + transportationImpact,
+          totalImpact:
+            materialsImpact + manufacturingImpact + transportationImpact,
         },
       };
     });
 
     // Calculate total project impact AFTER processing all products
-    const totalProjectImpact = totalMaterialsImpact + totalManufacturingImpact + totalTransportationImpact;
+    const totalProjectImpact = (
+      totalMaterialsImpact +
+      totalManufacturingImpact +
+      totalTransportationImpact
+    ).toFixed(2);
 
-    res.status(HTTP_STATUS.OK).json({ 
-      success: true, 
+    totalMaterialsImpact = totalMaterialsImpact.toFixed(2);
+    totalManufacturingImpact = totalManufacturingImpact.toFixed(2);
+    totalTransportationImpact = totalTransportationImpact.toFixed(2);
+
+    res.status(HTTP_STATUS.OK).json({
+      success: true,
       data: {
         projectCode: project.code,
         projectName: project.name,
@@ -235,7 +253,7 @@ router.post("/impacts", async (req, res) => {
         totalManufacturingImpact,
         totalTransportationImpact,
         products,
-      } 
+      },
     });
   } catch (error) {
     res.status(500).json({ message: error.message });
