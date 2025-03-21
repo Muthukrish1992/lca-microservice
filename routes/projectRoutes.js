@@ -92,6 +92,27 @@ router.get("/", async (req, res) => {
   }
 });
 
+// DELETE endpoint to remove all projects
+router.delete("/", async (req, res) => {
+  try {
+    const Project = await getProjectModel(req);
+    const ProjectProductMap = await getProjectProductMapModel(req);
+    
+    // First, delete all project-product mappings
+    await ProjectProductMap.deleteMany({});
+    
+    // Then, delete all projects
+    const result = await Project.deleteMany({});
+    
+    res.status(HTTP_STATUS.OK).json({ 
+      success: true, 
+      message: `Successfully deleted ${result.deletedCount} projects and all associated product mappings` 
+    });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+});
+
 // Add product impact to project
 router.post("/:projectId/products/:productId/impact", async (req, res) => {
   try {
