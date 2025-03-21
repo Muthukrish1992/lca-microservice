@@ -147,7 +147,6 @@ router.post("/impacts", async (req, res) => {
     const ProjectProductMap = await getProjectProductMapModel(req);
     const Product = await getProductModel(req); // must declaration DONT remove
     
-
     // Find the project
     const project = await Project.findById(projectId);
     if (!project) {
@@ -163,49 +162,72 @@ router.post("/impacts", async (req, res) => {
       select: "name code images co2Emission co2EmissionRawMaterials co2EmissionFromProcesses materials productManufacturingProcess"
     });
     
-    // Compute total impacts
-    let totalProjectImpact = 0;
+    // Initialize totals
     let totalMaterialsImpact = 0;
     let totalManufacturingImpact = 0;
     let totalTransportationImpact = 0;
 
     const products = productMappings.map((mapping) => {
+      // Check if productID exists
+      if (!mapping.productID) {
+        return {
+          productName: "Unknown",
+          productCode: "Unknown",
+          materials: [],
+          productManufacturingProcess: [],
+          co2EmissionRawMaterials: 0,
+          co2EmissionFromProcesses: 0,
+          transportationEmission: 0,
+          transportationLegs: [],
+          packagingWeight: mapping.packagingWeight || 0,
+          palletWeight: mapping.palletWeight || 0,
+          productImage: null,
+          impacts: {
+            materialsImpact: 0,
+            manufacturingImpact: 0,
+            transportationImpact: 0,
+            totalImpact: 0,
+          },
+        };
+      }
+      
       const product = mapping.productID;
-
-      totalMaterialsImpact += product.co2EmissionRawMaterials || 0;
-      totalManufacturingImpact += product.co2EmissionFromProcesses || 0;
-      totalTransportationImpact += mapping.totalTransportationEmission || 0;
-
-      totalProjectImpact +=
-        totalMaterialsImpact +
-        totalManufacturingImpact +
-        totalTransportationImpact;
+      const materialsImpact = product.co2EmissionRawMaterials || 0;
+      const manufacturingImpact = product.co2EmissionFromProcesses || 0;
+      const transportationImpact = mapping.totalTransportationEmission || 0;
+      
+      // Add to running totals
+      totalMaterialsImpact += materialsImpact;
+      totalManufacturingImpact += manufacturingImpact;
+      totalTransportationImpact += transportationImpact;
 
       return {
         productName: product.name,
         productCode: product.code,
-        materials : product.materials,
-        productManufacturingProcess: product.productManufacturingProcess,
-        co2EmissionRawMaterials : product.co2EmissionRawMaterials,
-        co2EmissionFromProcesses : product.co2EmissionFromProcesses,
-        transportationEmission : mapping.totalTransportationEmission,
-        transportationLegs : mapping.transportationLegs,
-        packagingWeight : mapping.packagingWeight,
-        palletWeight : mapping.palletWeight,
-        productImage: product.images.length > 0 ? product.images[0] : null,
+        materials: product.materials || [],
+        productManufacturingProcess: product.productManufacturingProcess || [],
+        co2EmissionRawMaterials: materialsImpact,
+        co2EmissionFromProcesses: manufacturingImpact,
+        transportationEmission: transportationImpact,
+        transportationLegs: mapping.transportationLegs || [],
+        packagingWeight: mapping.packagingWeight || 0,
+        palletWeight: mapping.palletWeight || 0,
+        productImage: product.images && product.images.length > 0 ? product.images[0] : null,
         impacts: {
-          materialsImpact: product.co2EmissionRawMaterials || 0,
-          manufacturingImpact: product.co2EmissionFromProcesses || 0,
-          transportationImpact: mapping.totalTransportationEmission || 0,
-          totalImpact:
-            (product.co2EmissionRawMaterials || 0) +
-            (product.co2EmissionFromProcesses || 0) +
-            (mapping.totalTransportationEmission || 0),
+          materialsImpact,
+          manufacturingImpact,
+          transportationImpact,
+          totalImpact: materialsImpact + manufacturingImpact + transportationImpact,
         },
       };
     });
 
-    res.status(HTTP_STATUS.OK).json({ success: true, data: {
+    // Calculate total project impact AFTER processing all products
+    const totalProjectImpact = totalMaterialsImpact + totalManufacturingImpact + totalTransportationImpact;
+
+    res.status(HTTP_STATUS.OK).json({ 
+      success: true, 
+      data: {
         projectCode: project.code,
         projectName: project.name,
         totalProjectImpact,
@@ -213,7 +235,8 @@ router.post("/impacts", async (req, res) => {
         totalManufacturingImpact,
         totalTransportationImpact,
         products,
-      } });
+      } 
+    });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
