@@ -314,6 +314,9 @@ const retry = async (fn, args, retries = 1, delay = 1000) => {
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
+// Updated bulkUploadProducts function to handle both Excel and CSV files
+// with case-insensitive field mapping
+
 const bulkUploadProducts = async (req, res) => {
   try {
     if (!req.file) {
@@ -323,13 +326,101 @@ const bulkUploadProducts = async (req, res) => {
     }
 
     const Product = await getProductModel(req);
-    const workbook = XLSX.read(req.file.buffer, { type: "buffer" });
-    const sheetName = workbook.SheetNames[0];
-    const sheet = workbook.Sheets[sheetName];
-    const products = XLSX.utils.sheet_to_json(sheet);
+    const fileExtension = req.file.originalname.split('.').pop().toLowerCase();
+    let products = [];
+
+    if (fileExtension === 'csv') {
+      // Parse CSV file
+      const csvContent = req.file.buffer.toString('utf8');
+      const Papa = require('papaparse');
+      const parseResult = Papa.parse(csvContent, {
+        header: true,
+        skipEmptyLines: true,
+        transformHeader: header => header.trim()
+      });
+      
+      if (parseResult.errors && parseResult.errors.length > 0) {
+        return res.status(HTTP_STATUS.BAD_REQUEST).json({
+          success: false,
+          message: "CSV parsing error",
+          errors: parseResult.errors
+        });
+      }
+      
+      products = parseResult.data;
+    } else {
+      // Parse Excel file
+      const workbook = XLSX.read(req.file.buffer, { type: "buffer" });
+      const sheetName = workbook.SheetNames[0];
+      const sheet = workbook.Sheets[sheetName];
+      products = XLSX.utils.sheet_to_json(sheet);
+    }
+
+    if (!products || products.length === 0) {
+      return res.status(HTTP_STATUS.BAD_REQUEST).json({
+        success: false,
+        message: "No products found in the uploaded file"
+      });
+    }
+
+    // Normalize field names to lowercase to handle case-insensitivity
+    const normalizedProducts = products.map(product => {
+      const normalizedProduct = {};
+      
+      // Map of expected field names (lowercase) to schema field names
+      const fieldMap = {
+        'code': 'code',
+        'name': 'name',
+        'description': 'description',
+        'weight': 'weight',
+        'country of origin': 'countryOfOrigin',
+        'countryoforigin': 'countryOfOrigin',
+        'supplier name': 'supplierName',
+        'suppliername': 'supplierName',
+        'category': 'category',
+        'subcategory': 'subCategory',
+        'price': 'price'
+      };
+      
+      // Process each field in the product
+      Object.keys(product).forEach(key => {
+        // Find the corresponding field in our schema
+        const normalizedKey = key.toLowerCase().replace(/\s+/g, '');
+        const schemaField = fieldMap[normalizedKey] || normalizedKey;
+        
+        // If the field exists in our schema, add it to the normalized product
+        normalizedProduct[schemaField] = product[key];
+      });
+      
+      // Add creation date and modified date
+      normalizedProduct.createdDate = new Date();
+      normalizedProduct.modifiedDate = new Date();
+      
+      return normalizedProduct;
+    });
+
+    // Validate required fields
+    const validationErrors = {};
+    const requiredFields = ['code', 'name', 'description'];
+    
+    normalizedProducts.forEach((product, index) => {
+      requiredFields.forEach(field => {
+        if (!product[field]) {
+          validationErrors[`Row ${index + 2}, ${field}`] = 'is required';
+        }
+      });
+    });
+
+    if (Object.keys(validationErrors).length > 0) {
+      return res.status(HTTP_STATUS.BAD_REQUEST).json({
+        success: false,
+        message: "Validation failed",
+        validationErrors
+      });
+    }
 
     // Insert products into MongoDB
-    const savedProducts = await Product.insertMany(products);
+    const savedProducts = await Product.insertMany(normalizedProducts);
 
     // Process each product in the background
     savedProducts.forEach(async (product) => {
@@ -337,17 +428,17 @@ const bulkUploadProducts = async (req, res) => {
         // Wait for classification result
         const classifyResult = await retry(
           classifyProduct,
-          [product.code, product.name, product.description,req],
+          [product.code, product.name, product.description, req],
           1
         );
         const classifyBOMResult = await retry(
           classifyBOM,
-          [product.code, product.name, product.description, product.weight,req],
+          [product.code, product.name, product.description, product.weight, req],
           1
         );
         const classifyManufacturingProcessResult = await retry(
           classifyManufacturingProcess,
-          [product.code, product.name, product.description, classifyBOMResult,req],
+          [product.code, product.name, product.description, classifyBOMResult, req],
           1
         );
 
@@ -401,7 +492,7 @@ const bulkUploadProducts = async (req, res) => {
       .status(HTTP_STATUS.CREATED)
       .json({ success: true, data: savedProducts });
   } catch (error) {
-    console.error(error);
+    console.error("Product upload error:", error);
     res.status(HTTP_STATUS.INTERNAL_SERVER_ERROR).json({
       success: false,
       message: `Failed to upload products: ${error.message}`,

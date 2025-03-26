@@ -118,10 +118,14 @@ const formatBOMList = () => {
 };
 
 async function classifyProduct(productCode, name, description, req) {
+  console.log(`🚀 Starting classification for product: ${productCode}`);
+  
   if (!name || !description) {
+    console.log(`❌ Missing required fields for product: ${productCode}`);
     throw new Error("Product code, name, and description are required.");
   }
 
+  console.log(`📋 Preparing categories list for prompt`);
   // Construct categories list for the prompt
   const categoriesList = Object.entries(productCategories)
     .map(
@@ -130,6 +134,7 @@ async function classifyProduct(productCode, name, description, req) {
     )
     .join("\n\n");
 
+  console.log(`📝 Building classification prompt`);
   // Prompt for classification
   const prompt = `Classify the following product into a category and subcategory from the given list.
   
@@ -149,6 +154,7 @@ async function classifyProduct(productCode, name, description, req) {
   Ensure the subcategory belongs to the category. If no exact match is found, return the closest valid subcategory.`;
 
   try {
+    console.log(`🤖 Sending request to AI model for product: ${productCode}`);
     const completion = await openai.beta.chat.completions.parse({
       model: "gpt-4o-mini-2024-07-18", // Ensure model supports structured outputs
       messages: [{ role: "user", content: prompt }],
@@ -159,26 +165,35 @@ async function classifyProduct(productCode, name, description, req) {
     });
 
     let result = completion.choices[0].message.parsed;
+    console.log(`✅ Received AI classification response: ${JSON.stringify(result)}`);
 
     updateAITokens(req, completion.usage.total_tokens);
+    console.log(`📊 Updated token usage: ${completion.usage.total_tokens} tokens`);
 
     // Validate the category and subcategory
     if (!productCategories[result.category]) {
+      console.log(`⚠️ Invalid category "${result.category}". Finding closest match...`);
       result.category = findClosestMatch(
         result.category,
         Object.keys(productCategories)
       );
+      console.log(`🔄 Adjusted category to: ${result.category}`);
     }
+    
     if (!productCategories[result.category].includes(result.subcategory)) {
+      console.log(`⚠️ Invalid subcategory "${result.subcategory}" for category "${result.category}". Finding closest match...`);
       result.subcategory = findClosestMatch(
         result.subcategory,
         productCategories[result.category]
       );
+      console.log(`🔄 Adjusted subcategory to: ${result.subcategory}`);
     }
 
+    console.log(`✅ Final classification for ${productCode}: Category=${result.category}, Subcategory=${result.subcategory}`);
     return result;
   } catch (error) {
-    console.error(`❌ Classification failed: ${error.message}`);
+    console.error(`❌ Classification failed for ${productCode}: ${error.message}`);
+    console.log(`⚠️ Using default fallback classification for ${productCode}`);
     return { category: "Uncategorized", subcategory: "Other" }; // Default fallback
   }
 }
