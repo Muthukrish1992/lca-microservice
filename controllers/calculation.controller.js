@@ -2,6 +2,7 @@ const logger = require('../utils/logger');
 const { HTTP_STATUS, formatResponse } = require('../utils/http');
 const { getAccountPlan } = require('../services/account.service');
 const productCategories = require('../data/productCategories.json');
+const billOfMaterials = require('../data/billOfMaterials.json');
 const transportDatabase = require('../data/transport_database.json');
 const transportDatabaseBasic = require('../data/country_distances.json');
 const portDistances = require('../data/port_distances.json');
@@ -391,6 +392,44 @@ const getAllProductCategories = (req, res) => {
   }
 };
 
+/**
+ * Get bill of materials
+ * @route GET /api/bill-of-materials
+ */
+const getBillOfMaterials = (req, res) => {
+  try {
+    // Get the category parameter from query string if it exists
+    const category = req.query.category;
+    
+    if (category) {
+      // If a specific category is requested
+      if (!billOfMaterials[category]) {
+        return res.status(HTTP_STATUS.NOT_FOUND).json(formatResponse(
+          false,
+          null,
+          `Category '${category}' not found in bill of materials.`
+        ));
+      }
+      
+      // Return materials for the requested category
+      return res.status(HTTP_STATUS.OK).json(formatResponse(
+        true, 
+        { category, materials: billOfMaterials[category] }
+      ));
+    }
+    
+    // If no category specified, return the full structure
+    res.status(HTTP_STATUS.OK).json(formatResponse(true, billOfMaterials));
+  } catch (error) {
+    logger.error('Error retrieving bill of materials:', error);
+    res.status(HTTP_STATUS.INTERNAL_SERVER_ERROR).json(formatResponse(
+      false,
+      null,
+      "An error occurred while retrieving bill of materials."
+    ));
+  }
+};
+
 module.exports = {
   classifyProductController,
   classifyManufacturingProcessController,
@@ -400,5 +439,6 @@ module.exports = {
   calculateTransportEmission,
   getAllCategories,
   getSubcategories,
-  getAllProductCategories
+  getAllProductCategories,
+  getBillOfMaterials
 };

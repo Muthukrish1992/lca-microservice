@@ -21,4 +21,7 @@ router.get('/categories', calculationController.getAllCategories);
 router.get('/subcategories', calculationController.getSubcategories);
 router.get('/productCategories', calculationController.getAllProductCategories);
 
+// Bill of Materials route
+router.get('/bill-of-materials', calculationController.getBillOfMaterials);
+
 module.exports = router;
