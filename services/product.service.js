@@ -26,9 +26,32 @@ const calculateRawMaterialEmissions = (materials, countryOfOrigin) => {
   );
 
   return materials.reduce((total, material) => {
-    const key = `${countryOfOrigin}-${material.materialClass}-${material.specificMaterial}`;
-    const emissionFactor = emissionMap.get(key) || 10; // Default value if not found
+    // Try with specific country first
+    const specificKey = `${countryOfOrigin}-${material.materialClass}-${material.specificMaterial}`;
+    
+    // If not found, try with GLO (Global)
+    const globalKey = `GLO-${material.materialClass}-${material.specificMaterial}`;
+    
+    // If still not found, try with RoW (Rest of World)
+    const rowKey = `RoW-${material.materialClass}-${material.specificMaterial}`;
+    
+    // Get the emission factor with fallbacks
+    const emissionFactor = 
+      emissionMap.get(specificKey) || 
+      emissionMap.get(globalKey) || 
+      emissionMap.get(rowKey) || 
+      0; // Default to 0 if all lookups fail
+    
+    // Store the emission factor on the material for reference
     material.emissionFactor = emissionFactor * material.weight;
+    
+    // Log when using fallbacks for debugging (optional)
+    if (!emissionMap.get(specificKey) && (emissionMap.get(globalKey) || emissionMap.get(rowKey))) {
+      logger.debug(`Using fallback emission factor for ${material.materialClass}-${material.specificMaterial} from ${
+        emissionMap.get(globalKey) ? 'GLO' : 'RoW'
+      }`);
+    }
+    
     return total + material.emissionFactor;
   }, 0);
 };
@@ -37,6 +60,7 @@ const calculateRawMaterialEmissions = (materials, countryOfOrigin) => {
  * Calculate emissions from manufacturing processes
  */
 const calculateProcessEmissions = (productManufacturingProcess) => {
+  // Group processing data by Category and SubType for faster lookup
   const processingMap = new Map(
     processing_database.map((data) => [
       `${data.Category}-${data.SubType}`,
@@ -44,15 +68,62 @@ const calculateProcessEmissions = (productManufacturingProcess) => {
     ])
   );
 
+  // Create separate maps for global and ROW fallbacks
+  const processingByCategory = {};
+  
+  // Organize processing by category for fallback lookups
+  processing_database.forEach(data => {
+    if (!processingByCategory[data.Category]) {
+      processingByCategory[data.Category] = {
+        global: {},
+        row: {}
+      };
+    }
+    
+    // If this is a global or RoW entry, store it for potential fallback
+    if (data.Category === 'GLO' || data.Category.includes('Global')) {
+      processingByCategory[data.Category].global[data.SubType] = data.Value;
+    } else if (data.Category === 'RoW' || data.Category.includes('Rest')) {
+      processingByCategory[data.Category].row[data.SubType] = data.Value;
+    }
+  });
+
   return productManufacturingProcess.reduce((total, materialProcess) => {
     const processTotal = materialProcess.manufacturingProcesses.reduce(
       (sum, processGroup) => {
         const groupTotal = processGroup.processes.reduce(
           (innerSum, processName) => {
-            const key = `${processGroup.category}-${processName}`;
-            materialProcess.emissionFactor =
-              (processingMap.get(key) || 10) * materialProcess.weight;
-            return innerSum + materialProcess.emissionFactor;
+            // Try specific category first
+            const specificKey = `${processGroup.category}-${processName}`;
+            let emissionValue = processingMap.get(specificKey);
+            
+            // If not found, try fallbacks (if available)
+            if (emissionValue === undefined) {
+              // Try global fallback
+              const globalValue = 
+                (processingByCategory['GLO'] && processingByCategory['GLO'].global[processName]) ||
+                (processingByCategory['Global'] && processingByCategory['Global'].global[processName]);
+                
+              // Try ROW fallback
+              const rowValue = 
+                (processingByCategory['RoW'] && processingByCategory['RoW'].row[processName]) ||
+                (processingByCategory['Rest of World'] && processingByCategory['Rest of World'].row[processName]);
+                
+              emissionValue = globalValue || rowValue || 0;
+              
+              // Log fallback usage (optional)
+              if (globalValue || rowValue) {
+                logger.debug(`Using fallback emission factor for ${processGroup.category}-${processName} from ${
+                  globalValue ? 'Global' : 'RoW'
+                }`);
+              }
+            }
+            
+            // Calculate and store the emission factor
+            const calculatedEmission = emissionValue * materialProcess.weight;
+            materialProcess.emissionFactor = calculatedEmission;
+            
+            return innerSum + calculatedEmission;
           },
           0
         );

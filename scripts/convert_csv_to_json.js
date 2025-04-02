@@ -95,35 +95,72 @@ function convertCsvToJson() {
   const inputFile = path.join(dataDir, 'Eco Solutise Database - Ongoing V3 28.03.2025.xlsx - EF Database - V3.csv');
   const outputFile = path.join(dataDir, 'eco_solutise_materials.json');
 
-  // Country codes mapping (example mapping - expand as needed)
+  // Country codes mapping
   const regionToCountryCode = {
-    'Rest-of-World (RoW)': 'RoW',
+    'RoW': 'RoW',
     'ROW': 'RoW',
     'Row': 'RoW',
-    'Germany (DE)': 'DE',
-    'Sweden (SE)': 'SE',
-    'China (CN)': 'CN',
+    'Rest-of-World': 'RoW',
+    'Rest of World': 'RoW',
+    'Germany': 'DE',
+    'Sweden': 'SE',
     'China': 'CN',
     'Global (GLO)': 'GLO',
     'Global Average': 'GLO',
-    'Global': 'GLO'
-    // Add more mappings as needed
+    'Global': 'GLO',
+    'GLO': 'GLO'
   };
 
   try {
     // Read CSV file
     const csvContent = fs.readFileSync(inputFile, 'utf8');
     
-    // Parse CSV
-    const rows = parseCSV(csvContent, { skipLines: 2 });
+    // Parse CSV - no need to skip lines since format changed
+    const rows = parseCSV(csvContent, { skipLines: 0 });
+    
+    console.log(`Read ${rows.length} rows from CSV`);
+    
+    if (rows.length === 0) {
+      throw new Error('No data found in CSV file');
+    }
+    
+    // Display a sample row to debug
+    console.log('Sample row:', JSON.stringify(rows[0], null, 2));
     
     // Process data to match materials_database.json format
     const results = rows
-      .filter(row => row['Region'] && row['Material Category'] && row['Material Subtype'])
+      .filter(row => {
+        // Filter out rows without essential data
+        const hasData = row['Region'] && row['Material Category'] && row['Material Subtype'] && row['kg CO2-Eq'];
+        if (!hasData) {
+          console.warn(`Skipping row with missing data: ${JSON.stringify(row)}`);
+        }
+        return hasData;
+      })
       .map(row => {
         // Extract country code from region
         const regionName = row['Region'] || '';
-        const countryOfOrigin = regionToCountryCode[regionName] || regionName.split(' ')[0].replace(/[()]/g, '');
+        
+        // Clean up the region name to handle different formats
+        let countryOfOrigin;
+        
+        // Check if it's in our mapping
+        if (regionToCountryCode[regionName]) {
+          countryOfOrigin = regionToCountryCode[regionName];
+        } else {
+          // Try to extract from patterns like "Global (GLO)" or "China (CN)"
+          const matches = regionName.match(/\(([^)]+)\)/);
+          if (matches && matches[1]) {
+            countryOfOrigin = matches[1];
+          } else {
+            // Default to first word
+            countryOfOrigin = regionName.split(' ')[0].replace(/[()]/g, '');
+          }
+        }
+        
+        // Normalize country code
+        if (countryOfOrigin.toLowerCase() === 'global') countryOfOrigin = 'GLO';
+        if (countryOfOrigin.toLowerCase() === 'row' || countryOfOrigin.toLowerCase() === 'rest') countryOfOrigin = 'RoW';
         
         // Parse emission factor
         let emissionFactor = 0;
@@ -131,15 +168,17 @@ function convertCsvToJson() {
           emissionFactor = parseFloat(row['kg CO2-Eq']);
           if (isNaN(emissionFactor)) emissionFactor = 0;
         } catch (e) {
-          console.warn(`Warning: Could not parse emission factor for ${row['Material Subtype']}`);
+          console.warn(`Warning: Could not parse emission factor for ${row['Material Subtype']}: ${row['kg CO2-Eq']}`);
         }
         
-        // Create entry in the format of materials_database.json
+        // Create entry in the format of materials_database.json with additional fields
         return {
           "countryOfOrigin": countryOfOrigin,
           "materialClass": row['Material Category'] || '',
           "specificMaterial": row['Material Subtype'] || '',
-          "EmissionFactor": emissionFactor
+          "EmissionFactor": emissionFactor,
+          "EF_Source": row['EF Source'] || '',
+          "Source_Dataset_Name": row['Source Dataset Name'] || ''
         };
       });
     

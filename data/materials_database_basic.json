@@ -1,167 +1,57 @@
 [
-    {
-        "countryOfOrigin": "CN",
-        "materialClass": "Wood",
-        "EmissionFactor": 0.68
-    },
-    {
-        "countryOfOrigin": "CN",
-        "materialClass": "Metal",
-        "EmissionFactor": 5.71
-    },
-    {
-        "countryOfOrigin": "CN",
-        "materialClass": "Plastic",
-        "EmissionFactor": 4.55
-    },
-    {
-        "countryOfOrigin": "CN",
-        "materialClass": "Glass",
-        "EmissionFactor": 2.71
-    },
-    {
-        "countryOfOrigin": "CN",
-        "materialClass": "Fabric",
-        "EmissionFactor": 5.10
-    },
-    {
-        "countryOfOrigin": "CN",
-        "materialClass": "Leather",
-        "EmissionFactor": 8.88
-    },
-    {
-        "countryOfOrigin": "CN",
-        "materialClass": "Laminate",
-        "EmissionFactor": 3.14
-    },
-    {
-        "countryOfOrigin": "CN",
-        "materialClass": "Mesh",
-        "EmissionFactor": 4.48
-    },
-    {
-        "countryOfOrigin": "CN",
-        "materialClass": "Foam",
-        "EmissionFactor": 4.61
-    },
-    {
-        "countryOfOrigin": "CN",
-        "materialClass": "Stone",
-        "EmissionFactor": 2.14
-    },
-    {
-        "countryOfOrigin": "CN",
-        "materialClass": "Bamboo",
-        "EmissionFactor": 0.29
-    },
-    {
-        "countryOfOrigin": "VN",
-        "materialClass": "Wood",
-        "EmissionFactor": 0.63
-    },
-    {
-        "countryOfOrigin": "VN",
-        "materialClass": "Metal",
-        "EmissionFactor": 5.34
-    },
-    {
-        "countryOfOrigin": "VN",
-        "materialClass": "Plastic",
-        "EmissionFactor": 4.25
-    },
-    {
-        "countryOfOrigin": "VN",
-        "materialClass": "Glass",
-        "EmissionFactor": 2.51
-    },
-    {
-        "countryOfOrigin": "VN",
-        "materialClass": "Fabric",
-        "EmissionFactor": 4.78
-    },
-    {
-        "countryOfOrigin": "VN",
-        "materialClass": "Leather",
-        "EmissionFactor": 8.39
-    },
-    {
-        "countryOfOrigin": "VN",
-        "materialClass": "Laminate",
-        "EmissionFactor": 2.88
-    },
-    {
-        "countryOfOrigin": "VN",
-        "materialClass": "Mesh",
-        "EmissionFactor": 4.24
-    },
-    {
-        "countryOfOrigin": "VN",
-        "materialClass": "Foam",
-        "EmissionFactor": 4.31
-    },
-    {
-        "countryOfOrigin": "VN",
-        "materialClass": "Stone",
-        "EmissionFactor": 1.94
-    },
-    {
-        "countryOfOrigin": "VN",
-        "materialClass": "Bamboo",
-        "EmissionFactor": 0.26
-    },
-    {
-        "countryOfOrigin": "Global",
-        "materialClass": "Wood",
-        "EmissionFactor": 0.58
-    },
-    {
-        "countryOfOrigin": "Global",
-        "materialClass": "Metal",
-        "EmissionFactor": 4.93
-    },
-    {
-        "countryOfOrigin": "Global",
-        "materialClass": "Plastic",
-        "EmissionFactor": 3.95
-    },
-    {
-        "countryOfOrigin": "Global",
-        "materialClass": "Glass",
-        "EmissionFactor": 2.27
-    },
-    {
-        "countryOfOrigin": "Global",
-        "materialClass": "Fabric",
-        "EmissionFactor": 4.36
-    },
-    {
-        "countryOfOrigin": "Global",
-        "materialClass": "Leather",
-        "EmissionFactor": 7.53
-    },
-    {
-        "countryOfOrigin": "Global",
-        "materialClass": "Laminate",
-        "EmissionFactor": 2.50
-    },
-    {
-        "countryOfOrigin": "Global",
-        "materialClass": "Mesh",
-        "EmissionFactor": 3.86
-    },
-    {
-        "countryOfOrigin": "Global",
-        "materialClass": "Foam",
-        "EmissionFactor": 3.96
-    },
-    {
-        "countryOfOrigin": "Global",
-        "materialClass": "Stone",
-        "EmissionFactor": 1.78
-    },
-    {
-        "countryOfOrigin": "Global",
-        "materialClass": "Bamboo",
-        "EmissionFactor": 0.23
-    }
+  {
+    "materialClass": "Wood",
+    "EmissionFactor": 0.2285,
+    "EF_Source": "Ecoinvent"
+  },
+  {
+    "materialClass": "Metal",
+    "EmissionFactor": 4.3432,
+    "EF_Source": "Ecoinvent"
+  },
+  {
+    "materialClass": "Plastic",
+    "EmissionFactor": 4.8398,
+    "EF_Source": "Ecoinvent"
+  },
+  {
+    "materialClass": "Glass",
+    "EmissionFactor": 1.1103,
+    "EF_Source": "Ecoinvent"
+  },
+  {
+    "materialClass": "Fabric",
+    "EmissionFactor": 7.7732,
+    "EF_Source": "Ecoinvent"
+  },
+  {
+    "materialClass": "Leather",
+    "EmissionFactor": 12.7595,
+    "EF_Source": "EPD"
+  },
+  {
+    "materialClass": "Laminate",
+    "EmissionFactor": 8.9829,
+    "EF_Source": "EPD"
+  },
+  {
+    "materialClass": "Mesh",
+    "EmissionFactor": 5.097,
+    "EF_Source": "EPD"
+  },
+  {
+    "materialClass": "Foam",
+    "EmissionFactor": 6.8954,
+    "EF_Source": "Ecoinvent"
+  },
+  {
+    "materialClass": "Stone",
+    "EmissionFactor": 0.0631,
+    "EF_Source": "EPD"
+  },
+  {
+    "materialClass": "Bamboo",
+    "EmissionFactor": 0.478,
+    "EF_Source": "Ecoinvent"
+  }
 ]

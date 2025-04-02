@@ -1,974 +1,1178 @@
 [
     {
         "countryOfOrigin": "RoW",
-        "materialClass": "Wood",
-        "specificMaterial": "Oak",
-        "EmissionFactor": 0.0387
-    },
-    {
-        "countryOfOrigin": "DE",
-        "materialClass": "Wood",
-        "specificMaterial": "Oak",
-        "EmissionFactor": 0.0364
-    },
-    {
-        "countryOfOrigin": "GLO",
-        "materialClass": "Wood",
-        "specificMaterial": "Maple",
-        "EmissionFactor": 0.2285
-    },
-    {
-        "countryOfOrigin": "GLO",
-        "materialClass": "Wood",
-        "specificMaterial": "Cherry",
-        "EmissionFactor": 0.2285
-    },
-    {
-        "countryOfOrigin": "GLO",
-        "materialClass": "Wood",
-        "specificMaterial": "Walnut",
-        "EmissionFactor": 0.2285
-    },
-    {
-        "countryOfOrigin": "RoW",
-        "materialClass": "Wood",
-        "specificMaterial": "Beech",
-        "EmissionFactor": 0.0401
-    },
-    {
-        "countryOfOrigin": "DE",
-        "materialClass": "Wood",
-        "specificMaterial": "Beech",
-        "EmissionFactor": 0.0378
-    },
-    {
-        "countryOfOrigin": "GLO",
-        "materialClass": "Wood",
-        "specificMaterial": "Mahogany",
-        "EmissionFactor": 0.2285
-    },
-    {
-        "countryOfOrigin": "RoW",
-        "materialClass": "Wood",
-        "specificMaterial": "Pine",
-        "EmissionFactor": 0.0369
-    },
-    {
-        "countryOfOrigin": "SE",
-        "materialClass": "Wood",
-        "specificMaterial": "Birch",
-        "EmissionFactor": 0.0315
-    },
-    {
-        "countryOfOrigin": "RoW",
-        "materialClass": "Wood",
-        "specificMaterial": "Birch",
-        "EmissionFactor": 0.0349
-    },
-    {
-        "countryOfOrigin": "GLO",
-        "materialClass": "Wood",
-        "specificMaterial": "Teak",
-        "EmissionFactor": 0.2285
-    },
-    {
-        "countryOfOrigin": "GLO",
-        "materialClass": "Wood",
-        "specificMaterial": "Ash",
-        "EmissionFactor": 0.2285
-    },
-    {
-        "countryOfOrigin": "GLO",
-        "materialClass": "Wood",
-        "specificMaterial": "Alder",
-        "EmissionFactor": 0.2285
-    },
-    {
-        "countryOfOrigin": "GLO",
-        "materialClass": "Wood",
-        "specificMaterial": "Rubberwood",
-        "EmissionFactor": 0.2285
-    },
-    {
-        "countryOfOrigin": "GLO",
-        "materialClass": "Wood",
-        "specificMaterial": "Rosewood",
-        "EmissionFactor": 0.2285
-    },
-    {
-        "countryOfOrigin": "GLO",
-        "materialClass": "Wood",
-        "specificMaterial": "Poplar",
-        "EmissionFactor": 0.2285
-    },
-    {
-        "countryOfOrigin": "CN",
-        "materialClass": "Wood",
-        "specificMaterial": "Bamboo",
-        "EmissionFactor": 0.645
-    },
-    {
-        "countryOfOrigin": "RoW",
         "materialClass": "Metal",
         "specificMaterial": "Steel",
-        "EmissionFactor": 5.0717
+        "EmissionFactor": 5.0717,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "steel production, electric, chromium steel 18/8"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Metal",
         "specificMaterial": "Stainless Steel",
-        "EmissionFactor": 5.04
+        "EmissionFactor": 5.04,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for steel, chromium steel 18/8"
     },
     {
         "countryOfOrigin": "CN",
         "materialClass": "Metal",
         "specificMaterial": "Aluminum",
-        "EmissionFactor": 22.0453
+        "EmissionFactor": 22.0453,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "aluminium production, primary, ingot"
     },
     {
         "countryOfOrigin": "RoW",
         "materialClass": "Metal",
         "specificMaterial": "Aluminum",
-        "EmissionFactor": 21.8372
+        "EmissionFactor": 21.8372,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "aluminium production, primary, ingot"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Metal",
         "specificMaterial": "Chromed Steel",
-        "EmissionFactor": 5.04
+        "EmissionFactor": 5.04,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for steel, chromium steel 18/8"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Metal",
         "specificMaterial": "Wrought Iron",
-        "EmissionFactor": 4.3432
+        "EmissionFactor": 4.3432,
+        "EF_Source": "Ecoinvent Average",
+        "Source_Dataset_Name": "Ecoinvent Average"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Metal",
         "specificMaterial": "Cast Iron",
-        "EmissionFactor": 1.8626
+        "EmissionFactor": 1.8626,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for cast iron"
     },
     {
         "countryOfOrigin": "RoW",
         "materialClass": "Metal",
         "specificMaterial": "Brass",
-        "EmissionFactor": 5.9188
+        "EmissionFactor": 5.9188,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for brass"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Metal",
         "specificMaterial": "Copper",
-        "EmissionFactor": 3.8083
+        "EmissionFactor": 3.8083,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for copper cake"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Metal",
         "specificMaterial": "Zinc",
-        "EmissionFactor": 3.0407
+        "EmissionFactor": 3.0407,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for Zinc"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Metal",
         "specificMaterial": "Titanium",
-        "EmissionFactor": 47.1875
+        "EmissionFactor": 47.1875,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for titanium"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Metal",
         "specificMaterial": "Mild Steel",
-        "EmissionFactor": 2.0664
+        "EmissionFactor": 2.0664,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for steel, low-alloyed"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Metal",
         "specificMaterial": "Galvanized Steel",
-        "EmissionFactor": 4.3432
+        "EmissionFactor": 4.3432,
+        "EF_Source": "Ecoinvent Average",
+        "Source_Dataset_Name": "Ecoinvent Average"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Metal",
         "specificMaterial": "Nickel",
-        "EmissionFactor": 5.04
+        "EmissionFactor": 5.04,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for steel, chromium steel 18/8"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Plastic",
         "specificMaterial": "Polypropylene (PP)",
-        "EmissionFactor": 3.16
+        "EmissionFactor": 3.16,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for polypropylene, granulate"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Plastic",
         "specificMaterial": "Acrylonitrile Butadiene Styrene (ABS)",
-        "EmissionFactor": 4.85
+        "EmissionFactor": 4.85,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for acrylonitrile-butadiene-styrene copolymer"
     },
     {
         "countryOfOrigin": "RoW",
         "materialClass": "Plastic",
         "specificMaterial": "Polyvinyl Chloride (PVC)",
-        "EmissionFactor": 2.45
+        "EmissionFactor": 2.45,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for polyvinyl chloride, emulsion polymerised"
     },
     {
         "countryOfOrigin": "RoW",
         "materialClass": "Plastic",
         "specificMaterial": "Polycarbonate (PC)",
-        "EmissionFactor": 6.31
+        "EmissionFactor": 6.31,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for polycarbonate"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Plastic",
         "specificMaterial": "High-Density Polyethylene (HDPE)",
-        "EmissionFactor": 2.94
+        "EmissionFactor": 2.94,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for polyethylene, high density, granulat"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Plastic",
         "specificMaterial": "Polyurethane (PU)",
-        "EmissionFactor": 6.23
+        "EmissionFactor": 6.23,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for polyurethane, rigid foam"
     },
     {
         "countryOfOrigin": "RoW",
         "materialClass": "Plastic",
         "specificMaterial": "Acrylic (PMMA)",
-        "EmissionFactor": 8.58
+        "EmissionFactor": 8.58,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "polymethyl methacrylate production, sheet"
     },
     {
         "countryOfOrigin": "RoW",
         "materialClass": "Plastic",
         "specificMaterial": "Nylon (Polyamide)",
-        "EmissionFactor": 9.89
+        "EmissionFactor": 9.89,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for nylon 6"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Plastic",
         "specificMaterial": "Polyethylene Terephthalate (PET)",
-        "EmissionFactor": 3.66
+        "EmissionFactor": 3.66,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for polyethylene terephthalate, granulate, bottle grade"
     },
     {
         "countryOfOrigin": "RoW",
         "materialClass": "Plastic",
         "specificMaterial": "Expanded Polystyrene (EPS)",
-        "EmissionFactor": 3.537
+        "EmissionFactor": 3.537,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "polystyrene production, expandable"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Plastic",
         "specificMaterial": "Low-Density Polyethylene (LDPE)",
-        "EmissionFactor": 3.07
+        "EmissionFactor": 3.07,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for polyethylene, low density, granulate"
     },
     {
         "countryOfOrigin": "RoW",
         "materialClass": "Plastic",
         "specificMaterial": "Melamine-Formaldehyde (MF)",
-        "EmissionFactor": 6.15
+        "EmissionFactor": 6.15,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for melamine formaldehyde resin"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Plastic",
         "specificMaterial": "Melamine-Formaldehyde (MF)",
-        "EmissionFactor": 5.7828
+        "EmissionFactor": 5.7828,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for melamine formaldehyde resin"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Plastic",
         "specificMaterial": "Polyvinyl Butyral (PVB)",
-        "EmissionFactor": 2.4935
+        "EmissionFactor": 2.4935,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "Global (GLO)"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Plastic",
         "specificMaterial": "Thermoplastic Elastomers (TPE)",
-        "EmissionFactor": 3.4935
+        "EmissionFactor": 3.4935,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "Global (GLO)"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Glass",
         "specificMaterial": "Tempered Glass",
-        "EmissionFactor": 0.181
+        "EmissionFactor": 0.181,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for tempering, flat glass"
+    },
+    {
+        "countryOfOrigin": "GLO",
+        "materialClass": "Glass",
+        "specificMaterial": "Laminated Glass",
+        "EmissionFactor": 1.85,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for glazing, double, U<1.1 W/m2K, laminated safety glass"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Glass",
         "specificMaterial": "Frosted Glass",
-        "EmissionFactor": 1.1642
+        "EmissionFactor": 1.1642,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Patterned Glass (referred for)"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Glass",
         "specificMaterial": "Clear Float Glass",
-        "EmissionFactor": 1.27
+        "EmissionFactor": 1.27,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for flat glass, coated"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Glass",
         "specificMaterial": "Tinted Glass",
-        "EmissionFactor": 3.016
+        "EmissionFactor": 0,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Body-tinted glass"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Glass",
         "specificMaterial": "Low-Iron Glass",
-        "EmissionFactor": 1.14
+        "EmissionFactor": 1.14,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "solar glass production, low-iron"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Glass",
         "specificMaterial": "Patterned or Textured Glass",
-        "EmissionFactor": 1.1642
+        "EmissionFactor": 1.1642,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Patterned Glass"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Glass",
         "specificMaterial": "Acid-Etched Glass",
-        "EmissionFactor": 2.2141
+        "EmissionFactor": 2.2141,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "acid-etched glass in four finishes: Satinlite, Satin, Velour, Opaque."
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Glass",
         "specificMaterial": "Smart Glass",
-        "EmissionFactor": 6.576
+        "EmissionFactor": 0,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "smart dynamic glass"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Glass",
         "specificMaterial": "Insulated Glass Units (IGUs)",
-        "EmissionFactor": 23.9085
+        "EmissionFactor": 0,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Insulated glass"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Glass",
         "specificMaterial": "Colored Glass",
-        "EmissionFactor": 1.8857
+        "EmissionFactor": 0,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Clear and colored flat glass"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Glass",
         "specificMaterial": "Mirrored Glass",
-        "EmissionFactor": 1.2058
+        "EmissionFactor": 1.2058,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Mirror"
     },
     {
         "countryOfOrigin": "RoW",
         "materialClass": "Fabric",
         "specificMaterial": "Polyester",
-        "EmissionFactor": 4.9694
+        "EmissionFactor": 4.9694,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "RoW"
     },
     {
         "countryOfOrigin": "RoW",
         "materialClass": "Fabric",
         "specificMaterial": "Nylon",
-        "EmissionFactor": 8.2296
+        "EmissionFactor": 8.2296,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "RoW"
     },
     {
         "countryOfOrigin": "RoW",
         "materialClass": "Fabric",
         "specificMaterial": "Mesh (Polyester)",
-        "EmissionFactor": 4.9694
+        "EmissionFactor": 4.9694,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "RoW"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Fabric",
         "specificMaterial": "Leather (Genuine)",
-        "EmissionFactor": 28
+        "EmissionFactor": 28,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "PURE-ANILINE/NUBUCK LEATHER"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Fabric",
         "specificMaterial": "Faux Leather (PU)",
-        "EmissionFactor": 10.13
+        "EmissionFactor": 0,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "synthetic leathers through the coating of PVC and PU,"
     },
     {
         "countryOfOrigin": "RoW",
         "materialClass": "Fabric",
         "specificMaterial": "Vinyl",
-        "EmissionFactor": 3.37
+        "EmissionFactor": 3.37,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "RoW"
     },
     {
         "countryOfOrigin": "RoW",
         "materialClass": "Fabric",
         "specificMaterial": "Acrylic",
-        "EmissionFactor": 4.9137
+        "EmissionFactor": 4.9137,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "RoW"
     },
     {
         "countryOfOrigin": "RoW",
         "materialClass": "Fabric",
         "specificMaterial": "Wool",
-        "EmissionFactor": 0.0902
+        "EmissionFactor": 0.0902,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "RoW"
     },
     {
         "countryOfOrigin": "RoW",
         "materialClass": "Fabric",
         "specificMaterial": "Cotton",
-        "EmissionFactor": 10.813
+        "EmissionFactor": 10.813,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "RoW"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Fabric",
         "specificMaterial": "Rayon (Viscose)",
-        "EmissionFactor": 2.15
+        "EmissionFactor": 2.15,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "Global (GLO)"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Fabric",
         "specificMaterial": "Linen",
-        "EmissionFactor": 7.25
+        "EmissionFactor": 7.25,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Cotton Linen Yarn"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Fabric",
         "specificMaterial": "Velvet",
-        "EmissionFactor": 5.2065
+        "EmissionFactor": 0,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Crepe, Dobby, Jacquard, Knit, Plain Weave, Velvet"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Fabric",
         "specificMaterial": "Tweed",
-        "EmissionFactor": 10.9594
+        "EmissionFactor": 0,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Trident Tweed"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Fabric",
         "specificMaterial": "Microfiber",
-        "EmissionFactor": 7.7732
+        "EmissionFactor": 5.7504,
+        "EF_Source": "Ecoinvent Average",
+        "Source_Dataset_Name": "Ecoinvent Average"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Fabric",
         "specificMaterial": "Canvas",
-        "EmissionFactor": 7.7732
+        "EmissionFactor": 5.7504,
+        "EF_Source": "Ecoinvent Average",
+        "Source_Dataset_Name": "Ecoinvent Average"
+    },
+    {
+        "countryOfOrigin": "GLO",
+        "materialClass": "Leather",
+        "specificMaterial": "Genuine Leather",
+        "EmissionFactor": 12.7595,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Referred PURE-ANILINE"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Leather",
         "specificMaterial": "Full-Grain Leather",
-        "EmissionFactor": 12.7595
+        "EmissionFactor": 12.7595,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Referred PURE-ANILINE"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Leather",
         "specificMaterial": "Top-Grain Leather",
-        "EmissionFactor": 12.7595
+        "EmissionFactor": 12.7595,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Referred PURE-ANILINE"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Leather",
         "specificMaterial": "Bonded Leather",
-        "EmissionFactor": 12.7595
+        "EmissionFactor": 12.7595,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Referred PURE-ANILINE"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Leather",
         "specificMaterial": "Faux Leather (PU Leather)",
-        "EmissionFactor": 12.7595
+        "EmissionFactor": 12.7595,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Referred PURE-ANILINE"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Leather",
         "specificMaterial": "Vinyl Leather",
-        "EmissionFactor": 12.7595
+        "EmissionFactor": 12.7595,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Referred PURE-ANILINE"
+    },
+    {
+        "countryOfOrigin": "GLO",
+        "materialClass": "Leather",
+        "specificMaterial": "Aniline Leather",
+        "EmissionFactor": 12.7595,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "PURE-ANILINE"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Leather",
         "specificMaterial": "Semi-Aniline Leather",
-        "EmissionFactor": 12.7595
+        "EmissionFactor": 12.7595,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Referred PURE-ANILINE"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Leather",
         "specificMaterial": "Pigmented Leather",
-        "EmissionFactor": 12.7595
+        "EmissionFactor": 12.7595,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Referred PURE-ANILINE"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Leather",
         "specificMaterial": "Nubuck Leather",
-        "EmissionFactor": 12.7595
+        "EmissionFactor": 12.7595,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Referred PURE-ANILINE"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Leather",
         "specificMaterial": "Suede Leather",
-        "EmissionFactor": 12.7595
+        "EmissionFactor": 12.7595,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Referred PURE-ANILINE"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Leather",
         "specificMaterial": "Patent Leather",
-        "EmissionFactor": 12.7595
+        "EmissionFactor": 12.7595,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Referred PURE-ANILINE"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Leather",
         "specificMaterial": "Recycled Leather",
-        "EmissionFactor": 4.23
+        "EmissionFactor": 0,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Eco Recycled Leather Yarn"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Leather",
         "specificMaterial": "Oiled Leather",
-        "EmissionFactor": 12.7595
+        "EmissionFactor": 12.7595,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Referred PURE-ANILINE"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Laminate",
         "specificMaterial": "High-Pressure Laminate (HPL)",
-        "EmissionFactor": 8.9829
+        "EmissionFactor": 0,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "High Pressure Laminates"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Laminate",
         "specificMaterial": "Low-Pressure Laminate (LPL)",
-        "EmissionFactor": 8.9829
+        "EmissionFactor": 8.9829,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Reffered: High Pressure Laminates"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Laminate",
         "specificMaterial": "Thermally Fused Laminate (TFL)",
-        "EmissionFactor": 8.9829
+        "EmissionFactor": 8.9829,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Reffered: High Pressure Laminates"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Laminate",
         "specificMaterial": "Post-Formed Laminate",
-        "EmissionFactor": 8.9829
+        "EmissionFactor": 8.9829,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Reffered: High Pressure Laminates"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Laminate",
         "specificMaterial": "Textured Laminate",
-        "EmissionFactor": 8.9829
+        "EmissionFactor": 8.9829,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Reffered: High Pressure Laminates"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Laminate",
         "specificMaterial": "Glossy Laminate",
-        "EmissionFactor": 8.9829
+        "EmissionFactor": 8.9829,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Reffered: High Pressure Laminates"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Laminate",
         "specificMaterial": "Matte Laminate",
-        "EmissionFactor": 8.9829
+        "EmissionFactor": 8.9829,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Reffered: High Pressure Laminates"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Laminate",
         "specificMaterial": "Solid Color Laminate",
-        "EmissionFactor": 8.9829
+        "EmissionFactor": 8.9829,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Reffered: High Pressure Laminates"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Laminate",
         "specificMaterial": "Antimicrobial Laminate",
-        "EmissionFactor": 8.9829
+        "EmissionFactor": 8.9829,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Reffered: High Pressure Laminates"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Laminate",
         "specificMaterial": "Fire-Retardant Laminate",
-        "EmissionFactor": 8.9829
+        "EmissionFactor": 8.9829,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Reffered: High Pressure Laminates"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Laminate",
         "specificMaterial": "Chemical-Resistant Laminate",
-        "EmissionFactor": 8.9829
+        "EmissionFactor": 8.9829,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Reffered: High Pressure Laminates"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Laminate",
         "specificMaterial": "Writable Laminate (Markerboard)",
-        "EmissionFactor": 8.9829
+        "EmissionFactor": 8.9829,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Reffered: High Pressure Laminates"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Laminate",
         "specificMaterial": "Digital Laminate",
-        "EmissionFactor": 8.9829
+        "EmissionFactor": 8.9829,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Reffered: High Pressure Laminates"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Laminate",
         "specificMaterial": "Eco-Friendly Laminate",
-        "EmissionFactor": 8.9829
+        "EmissionFactor": 8.9829,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Reffered: High Pressure Laminates"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Mesh",
         "specificMaterial": "Nylon Mesh",
-        "EmissionFactor": 5.097
+        "EmissionFactor": 0,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "NYLON"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Mesh",
         "specificMaterial": "Polyester Mesh",
-        "EmissionFactor": 5.097
+        "EmissionFactor": 5.097,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Referred NYLON"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Mesh",
         "specificMaterial": "PVC-Coated Mesh",
-        "EmissionFactor": 5.097
+        "EmissionFactor": 5.097,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Referred NYLON"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Mesh",
         "specificMaterial": "Elastomeric Mesh",
-        "EmissionFactor": 5.097
+        "EmissionFactor": 5.097,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Referred NYLON"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Mesh",
         "specificMaterial": "Fiberglass Mesh",
-        "EmissionFactor": 5.097
+        "EmissionFactor": 5.097,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Referred NYLON"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Mesh",
         "specificMaterial": "Metal Mesh",
-        "EmissionFactor": 5.097
+        "EmissionFactor": 5.097,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Referred NYLON"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Mesh",
         "specificMaterial": "Knitted Mesh",
-        "EmissionFactor": 5.097
+        "EmissionFactor": 5.097,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Referred NYLON"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Mesh",
         "specificMaterial": "Spacer Mesh (3D Mesh)",
-        "EmissionFactor": 5.097
+        "EmissionFactor": 5.097,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Referred NYLON"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Mesh",
         "specificMaterial": "Air Mesh",
-        "EmissionFactor": 5.097
+        "EmissionFactor": 5.097,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Referred NYLON"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Mesh",
         "specificMaterial": "Monofilament Mesh",
-        "EmissionFactor": 5.097
+        "EmissionFactor": 5.097,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Referred NYLON"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Mesh",
         "specificMaterial": "Polypropylene Mesh",
-        "EmissionFactor": 5.097
+        "EmissionFactor": 5.097,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Referred NYLON"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Mesh",
         "specificMaterial": "Acrylic Mesh",
-        "EmissionFactor": 5.097
+        "EmissionFactor": 5.097,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Referred NYLON"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Mesh",
         "specificMaterial": "Conductive Mesh",
-        "EmissionFactor": 5.097
+        "EmissionFactor": 5.097,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Referred NYLON"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Mesh",
         "specificMaterial": "Micro-Mesh",
-        "EmissionFactor": 5.097
+        "EmissionFactor": 5.097,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Referred NYLON"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Mesh",
         "specificMaterial": "Hybrid Mesh",
-        "EmissionFactor": 5.097
+        "EmissionFactor": 5.097,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Referred NYLON"
     },
     {
         "countryOfOrigin": "RoW",
         "materialClass": "Foam",
         "specificMaterial": "Polyurethane Foam",
-        "EmissionFactor": 7.1507
+        "EmissionFactor": 7.1507,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "polyurethane production, flexible foam, TDI-based, high density"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Foam",
         "specificMaterial": "Memory Foam",
-        "EmissionFactor": 6.8954
+        "EmissionFactor": 0.399,
+        "EF_Source": "Ecoinvent Average",
+        "Source_Dataset_Name": "Ecoinvent Average"
     },
     {
         "countryOfOrigin": "RoW",
         "materialClass": "Foam",
         "specificMaterial": "Latex Foam",
-        "EmissionFactor": 6.8954
+        "EmissionFactor": 0.399,
+        "EF_Source": "Ecoinvent Average",
+        "Source_Dataset_Name": "Ecoinvent Average"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Foam",
         "specificMaterial": "High-Density Foam",
-        "EmissionFactor": 6.8954
+        "EmissionFactor": 0.399,
+        "EF_Source": "Ecoinvent Average",
+        "Source_Dataset_Name": "Ecoinvent Average"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Foam",
         "specificMaterial": "Low-Density Foam",
-        "EmissionFactor": 6.8954
+        "EmissionFactor": 0.399,
+        "EF_Source": "Ecoinvent Average",
+        "Source_Dataset_Name": "Ecoinvent Average"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Foam",
         "specificMaterial": "Gel-Infused Foam",
-        "EmissionFactor": 6.8954
+        "EmissionFactor": 0.399,
+        "EF_Source": "Ecoinvent Average",
+        "Source_Dataset_Name": "Ecoinvent Average"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Foam",
         "specificMaterial": "Egg Crate Foam",
-        "EmissionFactor": 6.8954
+        "EmissionFactor": 0.399,
+        "EF_Source": "Ecoinvent Average",
+        "Source_Dataset_Name": "Ecoinvent Average"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Foam",
         "specificMaterial": "Rebond Foam",
-        "EmissionFactor": 6.8954
+        "EmissionFactor": 0.399,
+        "EF_Source": "Ecoinvent Average",
+        "Source_Dataset_Name": "Ecoinvent Average"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Foam",
         "specificMaterial": "Convoluted Foam",
-        "EmissionFactor": 6.8954
+        "EmissionFactor": 0.399,
+        "EF_Source": "Ecoinvent Average",
+        "Source_Dataset_Name": "Ecoinvent Average"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Foam",
         "specificMaterial": "Open-Cell Foam",
-        "EmissionFactor": 6.8954
+        "EmissionFactor": 0.399,
+        "EF_Source": "Ecoinvent Average",
+        "Source_Dataset_Name": "Ecoinvent Average"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Foam",
         "specificMaterial": "Closed-Cell Foam",
-        "EmissionFactor": 6.8954
+        "EmissionFactor": 0.399,
+        "EF_Source": "Ecoinvent Average",
+        "Source_Dataset_Name": "Ecoinvent Average"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Foam",
         "specificMaterial": "Microbead Foam",
-        "EmissionFactor": 6.8954
+        "EmissionFactor": 0.399,
+        "EF_Source": "Ecoinvent Average",
+        "Source_Dataset_Name": "Ecoinvent Average"
     },
     {
         "countryOfOrigin": "RoW",
         "materialClass": "Foam",
         "specificMaterial": "Polyethylene Foam",
-        "EmissionFactor": 6.64
+        "EmissionFactor": 6.64,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for polyurethane, flexible foa"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Foam",
         "specificMaterial": "Sculpted Foam",
-        "EmissionFactor": 6.8954
+        "EmissionFactor": 0.399,
+        "EF_Source": "Ecoinvent Average",
+        "Source_Dataset_Name": "Ecoinvent Average"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Stone",
         "specificMaterial": "Marble",
-        "EmissionFactor": 0.327
+        "EmissionFactor": 0.327,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Marble Block Stone from Norwegian Rose Quarry - China"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Stone",
         "specificMaterial": "Granite",
-        "EmissionFactor": 0.072
+        "EmissionFactor": 0.072,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Natural stone products of granite and limestone –"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Stone",
         "specificMaterial": "Quartz",
-        "EmissionFactor": 0.0135
+        "EmissionFactor": 0,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Quartz stone products"
     },
     {
         "countryOfOrigin": "RoW",
         "materialClass": "Stone",
         "specificMaterial": "Limestone",
-        "EmissionFactor": 0.0727
+        "EmissionFactor": 0.0727,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "row"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Stone",
         "specificMaterial": "Soapstone",
-        "EmissionFactor": 0.072
+        "EmissionFactor": 0.072,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Referred to : Natural stone products of granite and limestone –"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Stone",
         "specificMaterial": "Onyx",
-        "EmissionFactor": 0.072
+        "EmissionFactor": 0.072,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Referred to : Natural stone products of granite and limestone –"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Stone",
         "specificMaterial": "Slate",
-        "EmissionFactor": 0.2034
+        "EmissionFactor": 0,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Slate stone pieces"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Stone",
         "specificMaterial": "Travertine",
-        "EmissionFactor": 0.072
+        "EmissionFactor": 0.072,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Referred to : Natural stone products of granite and limestone –"
     },
     {
         "countryOfOrigin": "RoW",
         "materialClass": "Stone",
         "specificMaterial": "Concrete",
-        "EmissionFactor": 0.1072
+        "EmissionFactor": 0.1072,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for concrete, 20MPa"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Stone",
         "specificMaterial": "Terrazzo",
-        "EmissionFactor": 1.072
+        "EmissionFactor": 1.0720,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Terrazzoplatta 12 mm"
     },
     {
         "countryOfOrigin": "RoW",
         "materialClass": "Stone",
         "specificMaterial": "Basalt",
-        "EmissionFactor": 0.0095
+        "EmissionFactor": 0.0095,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "RoW"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Stone",
         "specificMaterial": "Jasper",
-        "EmissionFactor": 0.072
+        "EmissionFactor": 0.072,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Referred to : Natural stone products of granite and limestone –"
     },
     {
         "countryOfOrigin": "CN",
         "materialClass": "Bamboo",
         "specificMaterial": "Moso Bamboo",
-        "EmissionFactor": 0.667
+        "EmissionFactor": 0.667,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for flattened bamboo"
     },
     {
         "countryOfOrigin": "CN",
         "materialClass": "Bamboo",
         "specificMaterial": "Thin Bamboo",
-        "EmissionFactor": 0.667
+        "EmissionFactor": 0.667,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for flattened bamboo"
     },
     {
         "countryOfOrigin": "CN",
         "materialClass": "Bamboo",
         "specificMaterial": "Giant Bamboo",
-        "EmissionFactor": 0.667
+        "EmissionFactor": 0.667,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for flattened bamboo"
     },
     {
         "countryOfOrigin": "CN",
         "materialClass": "Bamboo",
         "specificMaterial": "Chinese Bamboo",
-        "EmissionFactor": 0.667
+        "EmissionFactor": 0.667,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for flattened bamboo"
     },
     {
         "countryOfOrigin": "CN",
         "materialClass": "Bamboo",
         "specificMaterial": "Bamboo Plyboard",
-        "EmissionFactor": 0.667
+        "EmissionFactor": 0.667,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for flattened bamboo"
     },
     {
         "countryOfOrigin": "CN",
         "materialClass": "Bamboo",
         "specificMaterial": "Vertical Grain Bamboo",
-        "EmissionFactor": 0.667
+        "EmissionFactor": 0.667,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for flattened bamboo"
     },
     {
         "countryOfOrigin": "CN",
         "materialClass": "Bamboo",
         "specificMaterial": "Horizontal Grain Bamboo",
-        "EmissionFactor": 0.667
+        "EmissionFactor": 0.667,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for flattened bamboo"
     },
     {
         "countryOfOrigin": "CN",
         "materialClass": "Bamboo",
         "specificMaterial": "Strand-Woven Bamboo",
-        "EmissionFactor": 0.726
+        "EmissionFactor": 0.726,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for flattened bamboo"
     },
     {
         "countryOfOrigin": "CN",
         "materialClass": "Bamboo",
         "specificMaterial": "Carbonized Bamboo",
-        "EmissionFactor": 1.7478
+        "EmissionFactor": 1.7478,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Strand woven bamboo"
     },
     {
         "countryOfOrigin": "CN",
         "materialClass": "Bamboo",
         "specificMaterial": "Reed Bamboo",
-        "EmissionFactor": 0.667
+        "EmissionFactor": 0.667,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for flattened bamboo"
     },
     {
         "countryOfOrigin": "CN",
         "materialClass": "Bamboo",
         "specificMaterial": "Fused Bamboo",
-        "EmissionFactor": 0.667
+        "EmissionFactor": 0.667,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for flattened bamboo"
     },
     {
         "countryOfOrigin": "RoW",
         "materialClass": "Bamboo",
         "specificMaterial": "Moso Bamboo",
-        "EmissionFactor": 0.478
+        "EmissionFactor": 0.478,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for flattened bamboo"
     },
     {
         "countryOfOrigin": "RoW",
         "materialClass": "Bamboo",
         "specificMaterial": "Thin Bamboo",
-        "EmissionFactor": 0.478
+        "EmissionFactor": 0.478,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for flattened bamboo"
     },
     {
         "countryOfOrigin": "RoW",
         "materialClass": "Bamboo",
         "specificMaterial": "Giant Bamboo",
-        "EmissionFactor": 0.478
+        "EmissionFactor": 0.478,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for flattened bamboo"
     },
     {
         "countryOfOrigin": "RoW",
         "materialClass": "Bamboo",
         "specificMaterial": "Chinese Bamboo",
-        "EmissionFactor": 0.478
+        "EmissionFactor": 0.478,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for flattened bamboo"
     },
     {
         "countryOfOrigin": "RoW",
         "materialClass": "Bamboo",
         "specificMaterial": "Bamboo Plyboard",
-        "EmissionFactor": 0.478
+        "EmissionFactor": 0.478,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for flattened bamboo"
     },
     {
         "countryOfOrigin": "RoW",
         "materialClass": "Bamboo",
         "specificMaterial": "Vertical Grain Bamboo",
-        "EmissionFactor": 0.478
+        "EmissionFactor": 0.478,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for flattened bamboo"
     },
     {
         "countryOfOrigin": "RoW",
         "materialClass": "Bamboo",
         "specificMaterial": "Horizontal Grain Bamboo",
-        "EmissionFactor": 0.478
+        "EmissionFactor": 0.478,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for woven bamboo mat"
     },
     {
         "countryOfOrigin": "RoW",
         "materialClass": "Bamboo",
         "specificMaterial": "Strand-Woven Bamboo",
-        "EmissionFactor": 0.319
+        "EmissionFactor": 0.319,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for flattened bamboo"
     },
     {
         "countryOfOrigin": "RoW",
         "materialClass": "Bamboo",
         "specificMaterial": "Carbonized Bamboo",
-        "EmissionFactor": 0.478
+        "EmissionFactor": 0.478,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for flattened bamboo"
     },
     {
         "countryOfOrigin": "RoW",
         "materialClass": "Bamboo",
         "specificMaterial": "Reed Bamboo",
-        "EmissionFactor": 0.478
+        "EmissionFactor": 0.478,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for flattened bamboo"
     },
     {
         "countryOfOrigin": "RoW",
         "materialClass": "Bamboo",
         "specificMaterial": "Fused Bamboo",
-        "EmissionFactor": 0.478
+        "EmissionFactor": 0.478,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for flattened bamboo"
     }
 ]
