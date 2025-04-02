@@ -1,0 +1,451 @@
+countryOfOrigin,materialClass,specificMaterial,EmissionFactor
+CN,Wood,Oak,0.036874
+CN,Wood,Maple,0.7
+CN,Wood,Cherry,0.7
+CN,Wood,Walnut,0.8
+CN,Wood,Beech,0.036874
+CN,Wood,Mahogany,0.8
+CN,Wood,Pine,0.036874
+CN,Wood,Birch,0.0308
+CN,Wood,Teak,0.85
+CN,Wood,Ash,0.65
+CN,Wood,Alder,0.6
+CN,Wood,Rubberwood,0.5
+CN,Wood,Rosewood,0.85
+CN,Wood,Poplar,0.55
+CN,Wood,Bamboo,0.645
+CN,Wood,MDF,1.156
+VN,Wood,Oak,0.7
+VN,Wood,Maple,0.65
+VN,Wood,Cherry,0.65
+VN,Wood,Walnut,0.75
+VN,Wood,Beech,0.022
+VN,Wood,Mahogany,0.75
+VN,Wood,Pine,0.45
+VN,Wood,Birch,0.65
+VN,Wood,Teak,0.8
+VN,Wood,Ash,0.6
+VN,Wood,Alder,0.55
+VN,Wood,Rubberwood,0.45
+VN,Wood,Rosewood,0.8
+VN,Wood,Poplar,0.5
+VN,Wood,Bamboo,0.478
+VN,Wood,MDF,1.156
+Global,Wood,Oak,0.65
+Global,Wood,Maple,0.6
+Global,Wood,Cherry,0.6
+Global,Wood,Walnut,0.7
+Global,Wood,Beech,0.022
+Global,Wood,Mahogany,0.65
+Global,Wood,Pine,1.447272727
+Global,Wood,Birch,0.0308
+Global,Wood,Teak,0.75
+Global,Wood,Ash,0.55
+Global,Wood,Alder,0.5
+Global,Wood,Rubberwood,0.4
+Global,Wood,Rosewood,0.75
+Global,Wood,Poplar,0.45
+Global,Wood,Bamboo,0.478
+Global,Wood,MDF,1.156
+CN,Metal,Steel,5.0717
+CN,Metal,Stainless Steel,5.04
+CN,Metal,Aluminum,23.545
+CN,Metal,Chromed Steel,5.04
+CN,Metal,Wrought Iron,2.1
+CN,Metal,Cast Iron,1.916
+CN,Metal,Brass,5.7417
+CN,Metal,Copper,3.72
+CN,Metal,Zinc,2.5404
+CN,Metal,Titanium,46.5280424
+CN,Metal,Mild Steel,2.04
+CN,Metal,Galvanized Steel,3.3
+CN,Metal,Nickel,34.233
+VN,Metal,Steel,0.207
+VN,Metal,Stainless Steel,5.04
+VN,Metal,Aluminum,21.847
+VN,Metal,Chromed Steel,5.04
+VN,Metal,Wrought Iron,2
+VN,Metal,Cast Iron,1.86
+VN,Metal,Brass,5.92
+VN,Metal,Copper,3.72
+VN,Metal,Zinc,5.2
+VN,Metal,Titanium,46.5280424
+VN,Metal,Mild Steel,2.04
+VN,Metal,Galvanized Steel,3.1
+VN,Metal,Nickel,9.8
+Global,Metal,Steel,5.0696
+Global,Metal,Stainless Steel,5.04
+Global,Metal,Aluminum,19.624
+Global,Metal,Chromed Steel,5.0696
+Global,Metal,Wrought Iron,1.8
+Global,Metal,Cast Iron,1.9259
+Global,Metal,Brass,5.92
+Global,Metal,Copper,6.1568
+Global,Metal,Zinc,2.5923
+Global,Metal,Titanium,49.04
+Global,Metal,Mild Steel,2.04
+Global,Metal,Galvanized Steel,2.8
+Global,Metal,Nickel,18.057
+CN,Plastic,Polypropylene (PP),3.16
+CN,Plastic,Acrylonitrile Butadiene Styrene (ABS),4.85
+CN,Plastic,Polyvinyl Chloride (PVC),2.45
+CN,Plastic,Polycarbonate (PC),6.31
+CN,Plastic,High-Density Polyethylene (HDPE),2.94
+CN,Plastic,Polyurethane (PU),6.23
+CN,Plastic,Acrylic (PMMA),8.6791
+CN,Plastic,Nylon (Polyamide),9.89
+CN,Plastic,Polyethylene Terephthalate (PET),3.66
+CN,Plastic,Expanded Polystyrene (EPS),3.537
+CN,Plastic,Low-Density Polyethylene (LDPE),3.07
+CN,Plastic,Melamine-Formaldehyde (MF),6.15
+CN,Plastic,Polyvinyl Butyral (PVB),4.2
+CN,Plastic,Thermoplastic Elastomers (TPE),5.23
+VN,Plastic,Polypropylene (PP),3.16
+VN,Plastic,Acrylonitrile Butadiene Styrene (ABS),4.85
+VN,Plastic,Polyvinyl Chloride (PVC),2.45
+VN,Plastic,Polycarbonate (PC),7.2
+VN,Plastic,High-Density Polyethylene (HDPE),2.94
+VN,Plastic,Polyurethane (PU),6.23
+VN,Plastic,Acrylic (PMMA),4
+VN,Plastic,Nylon (Polyamide),9.89
+VN,Plastic,Polyethylene Terephthalate (PET),3.66
+VN,Plastic,Expanded Polystyrene (EPS),3.5
+VN,Plastic,Low-Density Polyethylene (LDPE),3.07
+VN,Plastic,Melamine-Formaldehyde (MF),6.15
+VN,Plastic,Polyvinyl Butyral (PVB),4
+VN,Plastic,Thermoplastic Elastomers (TPE),5.23
+Global,Plastic,Polypropylene (PP),3.16
+Global,Plastic,Acrylonitrile Butadiene Styrene (ABS),4.85
+Global,Plastic,Polyvinyl Chloride (PVC),2.45
+Global,Plastic,Polycarbonate (PC),6.31
+Global,Plastic,High-Density Polyethylene (HDPE),2.94
+Global,Plastic,Polyurethane (PU),6.23
+Global,Plastic,Acrylic (PMMA),8.7591
+Global,Plastic,Nylon (Polyamide),9.89
+Global,Plastic,Polyethylene Terephthalate (PET),3.66
+Global,Plastic,Expanded Polystyrene (EPS),3.6239
+Global,Plastic,Low-Density Polyethylene (LDPE),3.07
+Global,Plastic,Melamine-Formaldehyde (MF),6.15
+Global,Plastic,Polyvinyl Butyral (PVB),3.7
+Global,Plastic,Thermoplastic Elastomers (TPE),5.23
+CN,Glass,Tempered Glass,0.181
+CN,Glass,Laminated Glass,1.85
+CN,Glass,Frosted Glass,2.1
+CN,Glass,Clear Float Glass,1.27
+CN,Glass,Tinted Glass,2.3
+CN,Glass,Low-Iron Glass,1.14
+CN,Glass,Patterned or Textured Glass,2.2
+CN,Glass,Acid-Etched Glass,3
+CN,Glass,Smart Glass,4.5
+CN,Glass,Insulated Glass Units (IGUs),4
+CN,Glass,Colored Glass,2.8
+CN,Glass,Mirrored Glass,2.5
+VN,Glass,Tempered Glass,0.181
+VN,Glass,Laminated Glass,1.85
+VN,Glass,Frosted Glass,2
+VN,Glass,Clear Float Glass,1.27
+VN,Glass,Tinted Glass,2.1
+VN,Glass,Low-Iron Glass,1.14
+VN,Glass,Patterned or Textured Glass,2
+VN,Glass,Acid-Etched Glass,2.7
+VN,Glass,Smart Glass,4.2
+VN,Glass,Insulated Glass Units (IGUs),3.8
+VN,Glass,Colored Glass,2.6
+VN,Glass,Mirrored Glass,2.3
+Global,Glass,Tempered Glass,0.181
+Global,Glass,Laminated Glass,1.85
+Global,Glass,Frosted Glass,1.8
+Global,Glass,Clear Float Glass,1.27
+Global,Glass,Tinted Glass,1.8
+Global,Glass,Low-Iron Glass,1.14
+Global,Glass,Patterned or Textured Glass,1.7
+Global,Glass,Acid-Etched Glass,2.5
+Global,Glass,Smart Glass,3.8
+Global,Glass,Insulated Glass Units (IGUs),3.5
+Global,Glass,Colored Glass,2.3
+Global,Glass,Mirrored Glass,2.1
+CN,Fabric,Polyester,4.9694
+CN,Fabric,Nylon,8.2296
+CN,Fabric,Mesh (Polyester),4.9694
+CN,Fabric,Leather (Genuine),10.5
+CN,Fabric,Faux Leather (PU),3.2
+CN,Fabric,Vinyl,3.37
+CN,Fabric,Acrylic,4.9137
+CN,Fabric,Wool,0.0902
+CN,Fabric,Cotton,10.813
+CN,Fabric,Rayon (Viscose),2.15
+CN,Fabric,Linen,2.7
+CN,Fabric,Velvet,5.8
+CN,Fabric,Tweed,4.8
+CN,Fabric,Microfiber,6.5
+CN,Fabric,Canvas,2.5
+VN,Fabric,Polyester,6.16
+VN,Fabric,Nylon,8.8
+VN,Fabric,Mesh (Polyester),3.6
+VN,Fabric,Leather (Genuine),9.8
+VN,Fabric,Faux Leather (PU),3
+VN,Fabric,Vinyl,3.37
+VN,Fabric,Acrylic,4.3
+VN,Fabric,Wool,0.0902
+VN,Fabric,Cotton,2
+VN,Fabric,Rayon (Viscose),2.15
+VN,Fabric,Linen,2.5
+VN,Fabric,Velvet,5.4
+VN,Fabric,Tweed,4.5
+VN,Fabric,Microfiber,6
+VN,Fabric,Canvas,2.3
+Global,Fabric,Polyester,4.969
+Global,Fabric,Nylon,8
+Global,Fabric,Mesh (Polyester),4.969
+Global,Fabric,Leather (Genuine),9
+Global,Fabric,Faux Leather (PU),2.7
+Global,Fabric,Vinyl,3.37
+Global,Fabric,Acrylic,4.6526
+Global,Fabric,Wool,0.0902
+Global,Fabric,Cotton,10.987
+Global,Fabric,Rayon (Viscose),3.3218
+Global,Fabric,Linen,2.2
+Global,Fabric,Velvet,5
+Global,Fabric,Tweed,4.2
+Global,Fabric,Microfiber,5.5
+Global,Fabric,Canvas,2
+CN,Leather,Genuine Leather,11
+CN,Leather,Full-Grain Leather,12
+CN,Leather,Top-Grain Leather,10
+CN,Leather,Bonded Leather,6.5
+CN,Leather,Faux Leather (PU Leather),3.3
+CN,Leather,Vinyl Leather,4
+CN,Leather,Aniline Leather,12.75949367
+CN,Leather,Semi-Aniline Leather,11.5
+CN,Leather,Pigmented Leather,8.8
+CN,Leather,Nubuck Leather,10.5
+CN,Leather,Suede Leather,9.5
+CN,Leather,Patent Leather,8.5
+CN,Leather,Recycled Leather,6
+CN,Leather,Oiled Leather,8.5
+VN,Leather,Genuine Leather,10.5
+VN,Leather,Full-Grain Leather,11.5
+VN,Leather,Top-Grain Leather,9.5
+VN,Leather,Bonded Leather,6
+VN,Leather,Faux Leather (PU Leather),3.1
+VN,Leather,Vinyl Leather,3.7
+VN,Leather,Aniline Leather,12.75949367
+VN,Leather,Semi-Aniline Leather,10.8
+VN,Leather,Pigmented Leather,8.3
+VN,Leather,Nubuck Leather,10
+VN,Leather,Suede Leather,9
+VN,Leather,Patent Leather,8
+VN,Leather,Recycled Leather,5.5
+VN,Leather,Oiled Leather,8
+Global,Leather,Genuine Leather,9.5
+Global,Leather,Full-Grain Leather,10
+Global,Leather,Top-Grain Leather,8.5
+Global,Leather,Bonded Leather,5.5
+Global,Leather,Faux Leather (PU Leather),2.8
+Global,Leather,Vinyl Leather,3.3
+Global,Leather,Aniline Leather,12.75949367
+Global,Leather,Semi-Aniline Leather,9.5
+Global,Leather,Pigmented Leather,7.5
+Global,Leather,Nubuck Leather,9
+Global,Leather,Suede Leather,8
+Global,Leather,Patent Leather,7.5
+Global,Leather,Recycled Leather,5
+Global,Leather,Oiled Leather,7
+CN,Laminate,High-Pressure Laminate (HPL),3.2
+CN,Laminate,Low-Pressure Laminate (LPL),2.7
+CN,Laminate,Thermally Fused Laminate (TFL),3.2
+CN,Laminate,Post-Formed Laminate,2.6
+CN,Laminate,Textured Laminate,3.1
+CN,Laminate,Glossy Laminate,2.8
+CN,Laminate,Matte Laminate,2.8
+CN,Laminate,Solid Color Laminate,2.3
+CN,Laminate,Antimicrobial Laminate,3.3
+CN,Laminate,Fire-Retardant Laminate,4
+CN,Laminate,Chemical-Resistant Laminate,3.8
+CN,Laminate,Writable Laminate (Markerboard),3.4
+CN,Laminate,Digital Laminate,4
+CN,Laminate,Eco-Friendly Laminate,2.5
+VN,Laminate,High-Pressure Laminate (HPL),3
+VN,Laminate,Low-Pressure Laminate (LPL),2.5
+VN,Laminate,Thermally Fused Laminate (TFL),3
+VN,Laminate,Post-Formed Laminate,2.4
+VN,Laminate,Textured Laminate,2.9
+VN,Laminate,Glossy Laminate,2.6
+VN,Laminate,Matte Laminate,2.6
+VN,Laminate,Solid Color Laminate,2.1
+VN,Laminate,Antimicrobial Laminate,3
+VN,Laminate,Fire-Retardant Laminate,3.7
+VN,Laminate,Chemical-Resistant Laminate,3.5
+VN,Laminate,Writable Laminate (Markerboard),3.2
+VN,Laminate,Digital Laminate,3.7
+VN,Laminate,Eco-Friendly Laminate,2.3
+Global,Laminate,High-Pressure Laminate (HPL),2.5
+Global,Laminate,Low-Pressure Laminate (LPL),2
+Global,Laminate,Thermally Fused Laminate (TFL),2.5
+Global,Laminate,Post-Formed Laminate,2
+Global,Laminate,Textured Laminate,2.5
+Global,Laminate,Glossy Laminate,2.3
+Global,Laminate,Matte Laminate,2.3
+Global,Laminate,Solid Color Laminate,1.8
+Global,Laminate,Antimicrobial Laminate,2.6
+Global,Laminate,Fire-Retardant Laminate,3.2
+Global,Laminate,Chemical-Resistant Laminate,3
+Global,Laminate,Writable Laminate (Markerboard),2.7
+Global,Laminate,Digital Laminate,3.2
+Global,Laminate,Eco-Friendly Laminate,2
+CN,Mesh,Nylon Mesh,6.5
+CN,Mesh,Polyester Mesh,3.8
+CN,Mesh,PVC-Coated Mesh,4.8
+CN,Mesh,Elastomeric Mesh,5
+CN,Mesh,Fiberglass Mesh,3.3
+CN,Mesh,Metal Mesh,4.2
+CN,Mesh,Knitted Mesh,4
+CN,Mesh,Spacer Mesh (3D Mesh),4.5
+CN,Mesh,Air Mesh,3
+CN,Mesh,Monofilament Mesh,4.4
+CN,Mesh,Polypropylene Mesh,3.3
+CN,Mesh,Acrylic Mesh,4
+CN,Mesh,Conductive Mesh,6.8
+CN,Mesh,Micro-Mesh,3.3
+CN,Mesh,Hybrid Mesh,5.2
+VN,Mesh,Nylon Mesh,6
+VN,Mesh,Polyester Mesh,3.6
+VN,Mesh,PVC-Coated Mesh,4.5
+VN,Mesh,Elastomeric Mesh,4.7
+VN,Mesh,Fiberglass Mesh,3.1
+VN,Mesh,Metal Mesh,4
+VN,Mesh,Knitted Mesh,3.8
+VN,Mesh,Spacer Mesh (3D Mesh),4.3
+VN,Mesh,Air Mesh,2.8
+VN,Mesh,Monofilament Mesh,4.2
+VN,Mesh,Polypropylene Mesh,3.1
+VN,Mesh,Acrylic Mesh,3.7
+VN,Mesh,Conductive Mesh,6.5
+VN,Mesh,Micro-Mesh,3
+VN,Mesh,Hybrid Mesh,4.9
+Global,Mesh,Nylon Mesh,5.5
+Global,Mesh,Polyester Mesh,3.2
+Global,Mesh,PVC-Coated Mesh,4.1
+Global,Mesh,Elastomeric Mesh,4.3
+Global,Mesh,Fiberglass Mesh,2.8
+Global,Mesh,Metal Mesh,3.6
+Global,Mesh,Knitted Mesh,3.5
+Global,Mesh,Spacer Mesh (3D Mesh),4
+Global,Mesh,Air Mesh,2.5
+Global,Mesh,Monofilament Mesh,3.8
+Global,Mesh,Polypropylene Mesh,2.8
+Global,Mesh,Acrylic Mesh,3.4
+Global,Mesh,Conductive Mesh,6
+Global,Mesh,Micro-Mesh,2.7
+Global,Mesh,Hybrid Mesh,4.5
+CN,Foam,Polyurethane Foam,7.1507
+CN,Foam,Memory Foam,6
+CN,Foam,Latex Foam,2.6744
+CN,Foam,High-Density Foam,4.6
+CN,Foam,Low-Density Foam,3.3
+CN,Foam,Gel-Infused Foam,6.3
+CN,Foam,Egg Crate Foam,4.1
+CN,Foam,Rebond Foam,4.8
+CN,Foam,Convoluted Foam,3.8
+CN,Foam,Open-Cell Foam,4.2
+CN,Foam,Closed-Cell Foam,4.5
+CN,Foam,Microbead Foam,5
+CN,Foam,Polyethylene Foam,6.64
+CN,Foam,Sculpted Foam,4.7
+VN,Foam,Polyurethane Foam,6.64
+VN,Foam,Memory Foam,5.6
+VN,Foam,Latex Foam,2.8
+VN,Foam,High-Density Foam,4.3
+VN,Foam,Low-Density Foam,3
+VN,Foam,Gel-Infused Foam,5.8
+VN,Foam,Egg Crate Foam,3.8
+VN,Foam,Rebond Foam,4.4
+VN,Foam,Convoluted Foam,3.5
+VN,Foam,Open-Cell Foam,3.9
+VN,Foam,Closed-Cell Foam,4.2
+VN,Foam,Microbead Foam,4.6
+VN,Foam,Polyethylene Foam,3.3
+VN,Foam,Sculpted Foam,4.4
+Global,Foam,Polyurethane Foam,6.64
+Global,Foam,Memory Foam,5.2
+Global,Foam,Latex Foam,2.5
+Global,Foam,High-Density Foam,4
+Global,Foam,Low-Density Foam,2.8
+Global,Foam,Gel-Infused Foam,5.5
+Global,Foam,Egg Crate Foam,3.5
+Global,Foam,Rebond Foam,4
+Global,Foam,Convoluted Foam,3.2
+Global,Foam,Open-Cell Foam,3.6
+Global,Foam,Closed-Cell Foam,3.8
+Global,Foam,Microbead Foam,4.2
+Global,Foam,Polyethylene Foam,3
+Global,Foam,Sculpted Foam,4
+CN,Stone,Marble,1.8
+CN,Stone,Granite,2.4
+CN,Stone,Quartz,2.8
+CN,Stone,Limestone,0.0727
+CN,Stone,Soapstone,2.2
+CN,Stone,Onyx,2.7
+CN,Stone,Slate,2
+CN,Stone,Travertine,2.3
+CN,Stone,Concrete,0.107233864
+CN,Stone,Terrazzo,2.6
+CN,Stone,Basalt,0.0095112
+CN,Stone,Jasper,2.6
+VN,Stone,Marble,1.6
+VN,Stone,Granite,2.2
+VN,Stone,Quartz,2.6
+VN,Stone,Limestone,0.0727
+VN,Stone,Soapstone,2
+VN,Stone,Onyx,2.5
+VN,Stone,Slate,1.8
+VN,Stone,Travertine,2.1
+VN,Stone,Concrete,0.9
+VN,Stone,Terrazzo,2.3
+VN,Stone,Basalt,1.5
+VN,Stone,Jasper,2.4
+Global,Stone,Marble,1.5
+Global,Stone,Granite,2
+Global,Stone,Quartz,2.5
+Global,Stone,Limestone,0.0727
+Global,Stone,Soapstone,1.8
+Global,Stone,Onyx,2.3
+Global,Stone,Slate,1.6
+Global,Stone,Travertine,1.9
+Global,Stone,Concrete,0.093227158
+Global,Stone,Terrazzo,2.1
+Global,Stone,Basalt,0.016782
+Global,Stone,Jasper,2.2
+CN,Bamboo,Moso Bamboo,0.667
+CN,Bamboo,Thin Bamboo,0.667
+CN,Bamboo,Giant Bamboo,0.667
+CN,Bamboo,Chinese Bamboo,0.667
+CN,Bamboo,Bamboo Plyboard,0.667
+CN,Bamboo,Vertical Grain Bamboo,0.667
+CN,Bamboo,Horizontal Grain Bamboo,0.667
+CN,Bamboo,Strand-Woven Bamboo,0.726
+CN,Bamboo,Carbonized Bamboo,0.32
+CN,Bamboo,Reed Bamboo,0.667
+CN,Bamboo,Fused Bamboo,0.667
+VN,Bamboo,Moso Bamboo,0.478
+VN,Bamboo,Thin Bamboo,0.478
+VN,Bamboo,Giant Bamboo,0.478
+VN,Bamboo,Chinese Bamboo,0.478
+VN,Bamboo,Bamboo Plyboard,0.478
+VN,Bamboo,Vertical Grain Bamboo,0.478
+VN,Bamboo,Horizontal Grain Bamboo,0.478
+VN,Bamboo,Strand-Woven Bamboo,0.319
+VN,Bamboo,Carbonized Bamboo,0.478
+VN,Bamboo,Reed Bamboo,0.478
+VN,Bamboo,Fused Bamboo,0.478
+Global,Bamboo,Moso Bamboo,0.478
+Global,Bamboo,Thin Bamboo,0.478
+Global,Bamboo,Giant Bamboo,0.478
+Global,Bamboo,Chinese Bamboo,0.478
+Global,Bamboo,Bamboo Plyboard,0.478
+Global,Bamboo,Vertical Grain Bamboo,0.478
+Global,Bamboo,Horizontal Grain Bamboo,0.478
+Global,Bamboo,Strand-Woven Bamboo,0.319
+Global,Bamboo,Carbonized Bamboo,0.25
+Global,Bamboo,Reed Bamboo,0.478
+Global,Bamboo,Fused Bamboo,0.478

@@ -1,0 +1,42 @@
+Category,SubType,Value
+WoodProcessing,Sawing,0.15
+WoodProcessing,Milling,0.3
+WoodProcessing,Jointing and Assembling,0.2
+WoodProcessing,Turning,0.4
+WoodProcessing,Veneering,0.3
+WoodProcessing,Laminating,0.5
+WoodProcessing,Sanding,0.15
+WoodProcessing,Staining,0.23
+WoodProcessing,Painting and Lacquering,0.5
+WoodProcessing,Precision Cutting,0.3
+WoodProcessing,Routing and Engraving,0.4
+WoodProcessing,Cold Pressing,0.5
+WoodProcessing,Hot Pressing,1.25
+WoodProcessing,Steam Bending,1
+MetalProcessing,Cutting,0.23
+MetalProcessing,Bending,0.15
+MetalProcessing,Welding,1
+MetalProcessing,Powder Coating,0.5
+MetalProcessing,Precision Cutting,0.5
+MetalProcessing,Routing and Engraving,0.6
+MetalProcessing,3D Printing,6
+MetalProcessing,Sand Casting,1.75
+MetalProcessing,Die Casting,2.5
+PlasticProcessing,Injection Molding,1.25
+PlasticProcessing,Blow Molding,1
+PlasticProcessing,Thermoforming,0.65
+PlasticProcessing,Precision Cutting,0.4
+PlasticProcessing,3D Printing,3
+GlassProcessing,Blow Molding,1
+FabricProcessing,Cutting and Sewing,0.08
+FabricProcessing,Tacking and Stapling,0.04
+LeatherProcessing,Cutting and Sewing,0.13
+LeatherProcessing,Tacking and Stapling,0.08
+LaminateProcessing,Cold Pressing,0.5
+LaminateProcessing,Hot Pressing,1.25
+FoamProcessing,Foam Molding,0.6
+BambooProcessing,Weaving,0.3
+BambooProcessing,Bamboo Work,0.23
+All MaterialsAssembly,Manual Assembly,0.08
+All MaterialsAssembly,Flat-Pack Assembly,0.15
+All MaterialsAssembly,Automated Assembly,0.4
