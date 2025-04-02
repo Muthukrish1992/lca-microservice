@@ -319,6 +319,7 @@ const classifyBOM = async (
   imageUrl,
   req
 ) => {
+  try {
   const keyClassifyBOM = JSON.stringify({
     productCode,
     name,
@@ -365,7 +366,7 @@ ${bomList}
 - Do **not** include any explanation, extra text, or formatting outside the JSON array.
 `;
 
-  try {
+  
     const messages = [{ type: "text", text: prompt }];
 
     if (imageUrl) {
