@@ -1,4 +1,22 @@
 {
+  "Wood": [
+    "Alder",
+    "Ash",
+    "Bamboo",
+    "Beech",
+    "Birch",
+    "Cherry",
+    "MDF",
+    "Mahogany",
+    "Maple",
+    "Oak",
+    "Pine",
+    "Poplar",
+    "Rosewood",
+    "Rubberwood",
+    "Teak",
+    "Walnut"
+  ],
   "Metal": [
     "Aluminum",
     "Brass",
@@ -152,23 +170,5 @@
     "Strand-Woven Bamboo",
     "Thin Bamboo",
     "Vertical Grain Bamboo"
-  ],
-  "Wood": [
-    "Oak",
-    "Maple",
-    "Cherry",
-    "Walnut",
-    "Beech",
-    "Mahogany",
-    "Pine",
-    "Birch",
-    "Teak",
-    "Ash",
-    "Alder",
-    "Rubberwood",
-    "Rosewood",
-    "Poplar",
-    "Bamboo",
-    "MDF"
   ]
 }

@@ -1,4 +1,20 @@
 Region,Material ID,Material Category,Material Subtype,Per Unit,kg CO2-Eq,EF Source,Source Dataset Name
+Rest-of-World (RoW),MAT-Wood-0001,Wood,Oak,kg,0.0387,Ecoinvent,"cleft timber, measured as dry mass"
+Global (GLO),MAT-Wood-0003,Wood,Maple,kg,0.2285,Ecoinvent Average,Ecoinvent Average
+Global (GLO),MAT-Wood-0004,Wood,Cherry,kg,0.2285,Ecoinvent Average,Ecoinvent Average
+Global (GLO),MAT-Wood-0005,Wood,Walnut,kg,0.2285,Ecoinvent Average,Ecoinvent Average
+Rest-of-World (RoW),MAT-Wood-0006,Wood,Beech,kg,0.0401,Ecoinvent,"cleft timber, measured as dry mass"
+Global (GLO),MAT-Wood-0008,Wood,Mahogany,kg,0.2285,Ecoinvent Average,Ecoinvent Average
+RoW,MAT-Wood-0009,Wood,Pine,kg,0.0369,Ecoinvent,"hardwood forestry, oak, sustainable forest management"
+Rest-of-World (RoW),MAT-Wood-0011,Wood,Birch,kg,0.0349,Ecoinvent,"cleft timber, measured as dry mass"
+Global (GLO),MAT-Wood-0012,Wood,Teak,kg,0.2285,Ecoinvent Average,Ecoinvent Average
+Global (GLO),MAT-Wood-0013,Wood,Ash,kg,0.2285,Ecoinvent Average,Ecoinvent Average
+Global (GLO),MAT-Wood-0014,Wood,Alder,kg,0.2285,Ecoinvent Average,Ecoinvent Average
+Global (GLO),MAT-Wood-0015,Wood,Rubberwood,kg,0.2285,Ecoinvent Average,Ecoinvent Average
+Global (GLO),MAT-Wood-0016,Wood,Rosewood,kg,0.2285,Ecoinvent Average,Ecoinvent Average
+Global (GLO),MAT-Wood-0017,Wood,Poplar,kg,0.2285,Ecoinvent Average,Ecoinvent Average
+China,MAT-Wood-0018,Wood,Bamboo,kg,0.6450,Ecoinvent,market for flattened bamboo
+ROW,MAT-Wood-0019,Wood,MDF,kg,1.1557,Ecoinvent,market for medium density fibreboard
 RoW,MAT-Metal-0001,Metal,Steel,kg,5.0717,Ecoinvent,"steel production, electric, chromium steel 18/8"
 Global (GLO),MAT-Metal-0002,Metal,Stainless Steel,kg,5.0400,Ecoinvent,"market for steel, chromium steel 18/8"
 China,MAT-Metal-0003,Metal,Aluminum,kg,22.0453,Ecoinvent,"aluminium production, primary, ingot"
@@ -36,7 +52,7 @@ Global (GLO),MAT-Glass-0005,Glass,Tinted Glass,kg,0.0000,EPD,Body-tinted glass
 Global (GLO),MAT-Glass-0006,Glass,Low-Iron Glass,kg,1.1400,Ecoinvent,"solar glass production, low-iron"
 Global (GLO),MAT-Glass-0007,Glass,Patterned or Textured Glass,kg,1.1642,EPD,Patterned Glass
 Global (GLO),MAT-Glass-0008,Glass,Acid-Etched Glass,kg,2.2141,EPD,"acid-etched glass in four finishes: Satinlite, Satin, Velour, Opaque."
-Global (GLO),MAT-Glass-0009,Glass,Smart Glass,kg,0.0000,EPD,smart dynamic glass
+Global (GLO),MAT-Glass-0009,Glass,Smart Glass,kg,0.3278,EPD,smart dynamic glass
 Global (GLO),MAT-Glass-0010,Glass,Insulated Glass Units (IGUs),kg,0.0000,EPD,Insulated glass
 Global (GLO),MAT-Glass-0011,Glass,Colored Glass,kg,0.0000,EPD,Clear and colored flat glass
 Global (GLO),MAT-Glass-0012,Glass,Mirrored Glass,kg,1.2058,EPD,Mirror
@@ -99,26 +115,26 @@ Global (GLO),MAT-Mesh-0013,Mesh,Conductive Mesh,kg,5.0970,EPD,Referred NYLON
 Global (GLO),MAT-Mesh-0014,Mesh,Micro-Mesh,kg,5.0970,EPD,Referred NYLON
 Global (GLO),MAT-Mesh-0015,Mesh,Hybrid Mesh,kg,5.0970,EPD,Referred NYLON
 RoW,MAT-Foam-0001,Foam,Polyurethane Foam,kg,7.1507,Ecoinvent,"polyurethane production, flexible foam, TDI-based, high density"
-Global (GLO),MAT-Foam-0002,Foam,Memory Foam,kg,0.3990,Ecoinvent Average,Ecoinvent Average
-RoW,MAT-Foam-0003,Foam,Latex Foam,kg,0.3990,Ecoinvent Average,Ecoinvent Average
-Global (GLO),MAT-Foam-0004,Foam,High-Density Foam,kg,0.3990,Ecoinvent Average,Ecoinvent Average
-Global (GLO),MAT-Foam-0005,Foam,Low-Density Foam,kg,0.3990,Ecoinvent Average,Ecoinvent Average
-Global (GLO),MAT-Foam-0006,Foam,Gel-Infused Foam,kg,0.3990,Ecoinvent Average,Ecoinvent Average
-Global (GLO),MAT-Foam-0007,Foam,Egg Crate Foam,kg,0.3990,Ecoinvent Average,Ecoinvent Average
-Global (GLO),MAT-Foam-0008,Foam,Rebond Foam,kg,0.3990,Ecoinvent Average,Ecoinvent Average
-Global (GLO),MAT-Foam-0009,Foam,Convoluted Foam,kg,0.3990,Ecoinvent Average,Ecoinvent Average
-Global (GLO),MAT-Foam-0010,Foam,Open-Cell Foam,kg,0.3990,Ecoinvent Average,Ecoinvent Average
-Global (GLO),MAT-Foam-0011,Foam,Closed-Cell Foam,kg,0.3990,Ecoinvent Average,Ecoinvent Average
-Global (GLO),MAT-Foam-0012,Foam,Microbead Foam,kg,0.3990,Ecoinvent Average,Ecoinvent Average
+Global (GLO),MAT-Foam-0002,Foam,Memory Foam,kg,#REF!,Ecoinvent Average,Ecoinvent Average
+RoW,MAT-Foam-0003,Foam,Latex Foam,kg,#REF!,Ecoinvent Average,Ecoinvent Average
+Global (GLO),MAT-Foam-0004,Foam,High-Density Foam,kg,#REF!,Ecoinvent Average,Ecoinvent Average
+Global (GLO),MAT-Foam-0005,Foam,Low-Density Foam,kg,#REF!,Ecoinvent Average,Ecoinvent Average
+Global (GLO),MAT-Foam-0006,Foam,Gel-Infused Foam,kg,#REF!,Ecoinvent Average,Ecoinvent Average
+Global (GLO),MAT-Foam-0007,Foam,Egg Crate Foam,kg,#REF!,Ecoinvent Average,Ecoinvent Average
+Global (GLO),MAT-Foam-0008,Foam,Rebond Foam,kg,#REF!,Ecoinvent Average,Ecoinvent Average
+Global (GLO),MAT-Foam-0009,Foam,Convoluted Foam,kg,#REF!,Ecoinvent Average,Ecoinvent Average
+Global (GLO),MAT-Foam-0010,Foam,Open-Cell Foam,kg,#REF!,Ecoinvent Average,Ecoinvent Average
+Global (GLO),MAT-Foam-0011,Foam,Closed-Cell Foam,kg,#REF!,Ecoinvent Average,Ecoinvent Average
+Global (GLO),MAT-Foam-0012,Foam,Microbead Foam,kg,#REF!,Ecoinvent Average,Ecoinvent Average
 ROW,MAT-Foam-0013,Foam,Polyethylene Foam,kg,6.6400,Ecoinvent,"market for polyurethane, flexible foa"
-Global (GLO),MAT-Foam-0014,Foam,Sculpted Foam,kg,0.3990,Ecoinvent Average,Ecoinvent Average
+Global (GLO),MAT-Foam-0014,Foam,Sculpted Foam,kg,#REF!,Ecoinvent Average,Ecoinvent Average
 Global (GLO),MAT-Stone-0001,Stone,Marble,kg,0.3270,EPD,Marble Block Stone from Norwegian Rose Quarry - China
 Global (GLO),MAT-Stone-0002,Stone,Granite,kg,0.0720,EPD,Natural stone products of granite and limestone –
 Global (GLO),MAT-Stone-0003,Stone,Quartz,kg,0.0000,EPD,Quartz stone products
 Row,MAT-Stone-0004,Stone,Limestone,kg,0.0727,Ecoinvent,row
 Global (GLO),MAT-Stone-0005,Stone,Soapstone,kg,0.0720,EPD,Referred to : Natural stone products of granite and limestone –
 Global (GLO),MAT-Stone-0006,Stone,Onyx,kg,0.0720,EPD,Referred to : Natural stone products of granite and limestone –
-Global (GLO),MAT-Stone-0007,Stone,Slate,kg,0.0000,EPD,Slate stone pieces
+Global (GLO),MAT-Stone-0007,Stone,Slate,kg,33.1301,EPD,Slate stone pieces
 Global (GLO),MAT-Stone-0008,Stone,Travertine,kg,0.0720,EPD,Referred to : Natural stone products of granite and limestone –
 RoW,MAT-Stone-0009,Stone,Concrete,kg,0.1072,Ecoinvent,"market for concrete, 20MPa"
 Global (GLO),MAT-Stone-0010,Stone,Terrazzo,kg,0.0000,EPD,Terrazzoplatta 12 mm

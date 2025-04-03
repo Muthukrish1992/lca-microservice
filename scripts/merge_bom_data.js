@@ -8,21 +8,14 @@ function mergeBomData() {
   // Paths
   const dataDir = path.join(__dirname, '..', 'data');
   const materialsDbPath = path.join(dataDir, 'materials_database.json');
-  const ecoSolutiseDbPath = path.join(dataDir, 'eco_solutise_materials.json');
-  const existingBomPath = path.join(dataDir, 'billOfMaterials.json');
   const outputPath = path.join(dataDir, 'billOfMaterials_updated.json');
 
   try {
     // Read source files
     const materialsDb = JSON.parse(fs.readFileSync(materialsDbPath, 'utf8'));
     let ecoSolutiseDb = [];
-    try {
-      ecoSolutiseDb = JSON.parse(fs.readFileSync(ecoSolutiseDbPath, 'utf8'));
-    } catch (error) {
-      console.warn('Eco Solutise database not found, continuing without it');
-    }
     
-    const existingBom = JSON.parse(fs.readFileSync(existingBomPath, 'utf8'));
+    
     
     // Combine both material sources
     const allMaterials = [...materialsDb, ...ecoSolutiseDb];
@@ -51,16 +44,16 @@ function mergeBomData() {
     
     // Merge with existing data
     // Keep existing categories not in the materials database
-    for (const [materialClass, materials] of Object.entries(existingBom)) {
-      if (!result[materialClass]) {
-        result[materialClass] = materials;
-      } else {
-        // Add existing materials not in the database
-        const existingSet = new Set(result[materialClass]);
-        materials.forEach(material => existingSet.add(material));
-        result[materialClass] = Array.from(existingSet).sort();
-      }
-    }
+    // for (const [materialClass, materials] of Object.entries(existingBom)) {
+    //   if (!result[materialClass]) {
+    //     result[materialClass] = materials;
+    //   } else {
+    //     // Add existing materials not in the database
+    //     const existingSet = new Set(result[materialClass]);
+    //     materials.forEach(material => existingSet.add(material));
+    //     result[materialClass] = Array.from(existingSet).sort();
+    //   }
+    // }
     
     // Write result to a new file
     fs.writeFileSync(

@@ -1,6 +1,134 @@
 [
     {
         "countryOfOrigin": "RoW",
+        "materialClass": "Wood",
+        "specificMaterial": "Oak",
+        "EmissionFactor": 0.0387,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "cleft timber, measured as dry mass"
+    },
+    {
+        "countryOfOrigin": "GLO",
+        "materialClass": "Wood",
+        "specificMaterial": "Maple",
+        "EmissionFactor": 0.2285,
+        "EF_Source": "Ecoinvent Average",
+        "Source_Dataset_Name": "Ecoinvent Average"
+    },
+    {
+        "countryOfOrigin": "GLO",
+        "materialClass": "Wood",
+        "specificMaterial": "Cherry",
+        "EmissionFactor": 0.2285,
+        "EF_Source": "Ecoinvent Average",
+        "Source_Dataset_Name": "Ecoinvent Average"
+    },
+    {
+        "countryOfOrigin": "GLO",
+        "materialClass": "Wood",
+        "specificMaterial": "Walnut",
+        "EmissionFactor": 0.2285,
+        "EF_Source": "Ecoinvent Average",
+        "Source_Dataset_Name": "Ecoinvent Average"
+    },
+    {
+        "countryOfOrigin": "RoW",
+        "materialClass": "Wood",
+        "specificMaterial": "Beech",
+        "EmissionFactor": 0.0401,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "cleft timber, measured as dry mass"
+    },
+    {
+        "countryOfOrigin": "GLO",
+        "materialClass": "Wood",
+        "specificMaterial": "Mahogany",
+        "EmissionFactor": 0.2285,
+        "EF_Source": "Ecoinvent Average",
+        "Source_Dataset_Name": "Ecoinvent Average"
+    },
+    {
+        "countryOfOrigin": "RoW",
+        "materialClass": "Wood",
+        "specificMaterial": "Pine",
+        "EmissionFactor": 0.0369,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "hardwood forestry, oak, sustainable forest management"
+    },
+    {
+        "countryOfOrigin": "RoW",
+        "materialClass": "Wood",
+        "specificMaterial": "Birch",
+        "EmissionFactor": 0.0349,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "cleft timber, measured as dry mass"
+    },
+    {
+        "countryOfOrigin": "GLO",
+        "materialClass": "Wood",
+        "specificMaterial": "Teak",
+        "EmissionFactor": 0.2285,
+        "EF_Source": "Ecoinvent Average",
+        "Source_Dataset_Name": "Ecoinvent Average"
+    },
+    {
+        "countryOfOrigin": "GLO",
+        "materialClass": "Wood",
+        "specificMaterial": "Ash",
+        "EmissionFactor": 0.2285,
+        "EF_Source": "Ecoinvent Average",
+        "Source_Dataset_Name": "Ecoinvent Average"
+    },
+    {
+        "countryOfOrigin": "GLO",
+        "materialClass": "Wood",
+        "specificMaterial": "Alder",
+        "EmissionFactor": 0.2285,
+        "EF_Source": "Ecoinvent Average",
+        "Source_Dataset_Name": "Ecoinvent Average"
+    },
+    {
+        "countryOfOrigin": "GLO",
+        "materialClass": "Wood",
+        "specificMaterial": "Rubberwood",
+        "EmissionFactor": 0.2285,
+        "EF_Source": "Ecoinvent Average",
+        "Source_Dataset_Name": "Ecoinvent Average"
+    },
+    {
+        "countryOfOrigin": "GLO",
+        "materialClass": "Wood",
+        "specificMaterial": "Rosewood",
+        "EmissionFactor": 0.2285,
+        "EF_Source": "Ecoinvent Average",
+        "Source_Dataset_Name": "Ecoinvent Average"
+    },
+    {
+        "countryOfOrigin": "GLO",
+        "materialClass": "Wood",
+        "specificMaterial": "Poplar",
+        "EmissionFactor": 0.2285,
+        "EF_Source": "Ecoinvent Average",
+        "Source_Dataset_Name": "Ecoinvent Average"
+    },
+    {
+        "countryOfOrigin": "CN",
+        "materialClass": "Wood",
+        "specificMaterial": "Bamboo",
+        "EmissionFactor": 0.645,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for flattened bamboo"
+    },
+    {
+        "countryOfOrigin": "RoW",
+        "materialClass": "Wood",
+        "specificMaterial": "MDF",
+        "EmissionFactor": 1.1557,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for medium density fibreboard"
+    },
+    {
+        "countryOfOrigin": "RoW",
         "materialClass": "Metal",
         "specificMaterial": "Steel",
         "EmissionFactor": 5.0717,
@@ -299,7 +427,7 @@
         "countryOfOrigin": "GLO",
         "materialClass": "Glass",
         "specificMaterial": "Smart Glass",
-        "EmissionFactor": 0,
+        "EmissionFactor": 0.3278,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "smart dynamic glass"
     },
@@ -803,7 +931,7 @@
         "countryOfOrigin": "GLO",
         "materialClass": "Foam",
         "specificMaterial": "Memory Foam",
-        "EmissionFactor": 0.399,
+        "EmissionFactor": 0,
         "EF_Source": "Ecoinvent Average",
         "Source_Dataset_Name": "Ecoinvent Average"
     },
@@ -811,7 +939,7 @@
         "countryOfOrigin": "RoW",
         "materialClass": "Foam",
         "specificMaterial": "Latex Foam",
-        "EmissionFactor": 0.399,
+        "EmissionFactor": 0,
         "EF_Source": "Ecoinvent Average",
         "Source_Dataset_Name": "Ecoinvent Average"
     },
@@ -819,7 +947,7 @@
         "countryOfOrigin": "GLO",
         "materialClass": "Foam",
         "specificMaterial": "High-Density Foam",
-        "EmissionFactor": 0.399,
+        "EmissionFactor": 0,
         "EF_Source": "Ecoinvent Average",
         "Source_Dataset_Name": "Ecoinvent Average"
     },
@@ -827,7 +955,7 @@
         "countryOfOrigin": "GLO",
         "materialClass": "Foam",
         "specificMaterial": "Low-Density Foam",
-        "EmissionFactor": 0.399,
+        "EmissionFactor": 0,
         "EF_Source": "Ecoinvent Average",
         "Source_Dataset_Name": "Ecoinvent Average"
     },
@@ -835,7 +963,7 @@
         "countryOfOrigin": "GLO",
         "materialClass": "Foam",
         "specificMaterial": "Gel-Infused Foam",
-        "EmissionFactor": 0.399,
+        "EmissionFactor": 0,
         "EF_Source": "Ecoinvent Average",
         "Source_Dataset_Name": "Ecoinvent Average"
     },
@@ -843,7 +971,7 @@
         "countryOfOrigin": "GLO",
         "materialClass": "Foam",
         "specificMaterial": "Egg Crate Foam",
-        "EmissionFactor": 0.399,
+        "EmissionFactor": 0,
         "EF_Source": "Ecoinvent Average",
         "Source_Dataset_Name": "Ecoinvent Average"
     },
@@ -851,7 +979,7 @@
         "countryOfOrigin": "GLO",
         "materialClass": "Foam",
         "specificMaterial": "Rebond Foam",
-        "EmissionFactor": 0.399,
+        "EmissionFactor": 0,
         "EF_Source": "Ecoinvent Average",
         "Source_Dataset_Name": "Ecoinvent Average"
     },
@@ -859,7 +987,7 @@
         "countryOfOrigin": "GLO",
         "materialClass": "Foam",
         "specificMaterial": "Convoluted Foam",
-        "EmissionFactor": 0.399,
+        "EmissionFactor": 0,
         "EF_Source": "Ecoinvent Average",
         "Source_Dataset_Name": "Ecoinvent Average"
     },
@@ -867,7 +995,7 @@
         "countryOfOrigin": "GLO",
         "materialClass": "Foam",
         "specificMaterial": "Open-Cell Foam",
-        "EmissionFactor": 0.399,
+        "EmissionFactor": 0,
         "EF_Source": "Ecoinvent Average",
         "Source_Dataset_Name": "Ecoinvent Average"
     },
@@ -875,7 +1003,7 @@
         "countryOfOrigin": "GLO",
         "materialClass": "Foam",
         "specificMaterial": "Closed-Cell Foam",
-        "EmissionFactor": 0.399,
+        "EmissionFactor": 0,
         "EF_Source": "Ecoinvent Average",
         "Source_Dataset_Name": "Ecoinvent Average"
     },
@@ -883,7 +1011,7 @@
         "countryOfOrigin": "GLO",
         "materialClass": "Foam",
         "specificMaterial": "Microbead Foam",
-        "EmissionFactor": 0.399,
+        "EmissionFactor": 0,
         "EF_Source": "Ecoinvent Average",
         "Source_Dataset_Name": "Ecoinvent Average"
     },
@@ -899,7 +1027,7 @@
         "countryOfOrigin": "GLO",
         "materialClass": "Foam",
         "specificMaterial": "Sculpted Foam",
-        "EmissionFactor": 0.399,
+        "EmissionFactor": 0,
         "EF_Source": "Ecoinvent Average",
         "Source_Dataset_Name": "Ecoinvent Average"
     },
@@ -955,7 +1083,7 @@
         "countryOfOrigin": "GLO",
         "materialClass": "Stone",
         "specificMaterial": "Slate",
-        "EmissionFactor": 0,
+        "EmissionFactor": 33.1301,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Slate stone pieces"
     },
@@ -979,7 +1107,7 @@
         "countryOfOrigin": "GLO",
         "materialClass": "Stone",
         "specificMaterial": "Terrazzo",
-        "EmissionFactor": 1.0720,
+        "EmissionFactor": 0,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Terrazzoplatta 12 mm"
     },
