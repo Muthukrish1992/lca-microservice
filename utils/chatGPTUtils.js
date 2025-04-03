@@ -187,6 +187,45 @@ function findClosestMatch(input, validOptions, options = {}) {
       .trim();                  // Remove leading/trailing spaces
   };
   
+  // Map of common alternative material names to their standard names
+  const commonAlternativeNames = {
+    // Wood alternatives
+    'fibreboard': 'mdf',
+    'fiberboard': 'mdf',
+    'medium density fibreboard': 'mdf',
+    'medium density fiberboard': 'mdf',
+    'particleboard': 'mdf',
+    'chipboard': 'mdf',
+    'plywood': 'mdf',
+    'osb': 'mdf', // Oriented Strand Board
+    'hardboard': 'mdf',
+    // Metal alternatives
+    'stainless': 'stainless steel',
+    'inox': 'stainless steel',
+    'ss': 'stainless steel',
+    'aluminium': 'aluminum',
+    'chrome': 'chromed steel',
+    'iron': 'cast iron',
+    // Plastic alternatives
+    'abs': 'acrylonitrile butadiene styrene (abs)',
+    'pmma': 'acrylic (pmma)',
+    'acrylic': 'acrylic (pmma)',
+    'polyethylene': 'high-density polyethylene (hdpe)', // Default to HDPE if not specified
+    'polypropylene': 'polypropylene (pp)',
+    'polyurethane': 'polyurethane (pu)',
+    'pvc': 'polyvinyl chloride (pvc)',
+    // Glass alternatives
+    'tempered': 'tempered glass',
+    'toughened': 'tempered glass',
+    'safety glass': 'tempered glass',
+    // Leather alternatives
+    'genuine leather': 'full-grain leather',
+    'faux leather': 'faux leather (pu)',
+    'synthetic leather': 'faux leather (pu)',
+    'pu leather': 'faux leather (pu)',
+    'vegan leather': 'faux leather (pu)'
+  };
+
   // Extract key terms from descriptive inputs like "Solid Oak" -> "Oak"
   const extractKeyTerms = (input) => {
     // Common descriptive prefixes to strip
@@ -211,13 +250,42 @@ function findClosestMatch(input, validOptions, options = {}) {
     return terms.join(' ');
   };
   
+  // Check for common alternative names and map to standard names
+  const mapCommonAlternatives = (input) => {
+    const lowerInput = input.toLowerCase().trim();
+    
+    // Check for direct matches in our mapping
+    if (commonAlternativeNames[lowerInput]) {
+      return commonAlternativeNames[lowerInput];
+    }
+    
+    // Check for partial matches (e.g., "fibreboard panel" should match "fibreboard")
+    for (const [alt, standard] of Object.entries(commonAlternativeNames)) {
+      // If the alternative name is found as a word in the input
+      if (new RegExp(`\\b${alt}\\b`).test(lowerInput)) {
+        return standard;
+      }
+    }
+    
+    return input;
+  };
+  
   // Normalize input if needed
   const cleanInput = normalize(input);
   const normalizedInput = ignoreCase ? cleanInput.toLowerCase() : cleanInput;
   
+  // Try with common alternative names mapping (like "Fibreboard" -> "MDF")
+  const mappedInput = mapCommonAlternatives(cleanInput);
+  const normalizedMappedInput = ignoreCase ? mappedInput.toLowerCase() : mappedInput;
+  
   // Also try with extracted key terms (for descriptive inputs like "Solid Oak" -> "Oak")
   const extractedInput = extractKeyTerms(cleanInput);
   const normalizedExtractedInput = ignoreCase ? extractedInput.toLowerCase() : extractedInput;
+  
+  // Log if we found a common alternative mapping
+  if (mappedInput.toLowerCase() !== cleanInput.toLowerCase()) {
+    logger(`🔄 Mapped alternative material name "${input}" to standard name "${mappedInput}"`);
+  }
   
   // Check for exact match first (case-insensitive if ignoreCase is true)
   const exactMatchIndex = optionStrings.findIndex(option => {
@@ -227,14 +295,23 @@ function findClosestMatch(input, validOptions, options = {}) {
       : normalizedOption === cleanInput;
   });
   
-  // Also check if any option contains the input exactly
-  const containsMatchIndex = exactMatchIndex === -1 ? optionStrings.findIndex(option => {
-    const normalizedOption = normalize(option).toLowerCase();
-    return normalizedInput.length > 2 && normalizedOption.includes(normalizedInput);
+  // Check if mapped input (like "MDF" for "Fibreboard") matches exactly
+  const mappedMatchIndex = exactMatchIndex === -1 ? optionStrings.findIndex(option => {
+    const normalizedOption = normalize(option);
+    return ignoreCase 
+      ? normalizedOption.toLowerCase() === normalizedMappedInput 
+      : normalizedOption === mappedInput;
   }) : -1;
   
+  // Also check if any option contains the input exactly
+  const containsMatchIndex = (exactMatchIndex === -1 && mappedMatchIndex === -1) ? 
+    optionStrings.findIndex(option => {
+      const normalizedOption = normalize(option).toLowerCase();
+      return normalizedInput.length > 2 && normalizedOption.includes(normalizedInput);
+    }) : -1;
+  
   // Also check if our extracted key term matches exactly
-  const keyTermMatchIndex = (exactMatchIndex === -1 && containsMatchIndex === -1) ? 
+  const keyTermMatchIndex = (exactMatchIndex === -1 && mappedMatchIndex === -1 && containsMatchIndex === -1) ? 
     optionStrings.findIndex(option => {
       const normalizedOption = normalize(option);
       return ignoreCase 
@@ -242,27 +319,38 @@ function findClosestMatch(input, validOptions, options = {}) {
         : normalizedOption === extractedInput;
     }) : -1;
   
-  // If we have any exact match or key term match, use it
-  if (exactMatchIndex !== -1 || containsMatchIndex !== -1 || keyTermMatchIndex !== -1) {
+  // If we have any exact match or alternative match, use it
+  if (exactMatchIndex !== -1 || mappedMatchIndex !== -1 || containsMatchIndex !== -1 || keyTermMatchIndex !== -1) {
     const matchIndex = exactMatchIndex !== -1 ? exactMatchIndex : 
-                      (containsMatchIndex !== -1 ? containsMatchIndex : keyTermMatchIndex);
+                      (mappedMatchIndex !== -1 ? mappedMatchIndex :
+                      (containsMatchIndex !== -1 ? containsMatchIndex : keyTermMatchIndex));
                       
     const matchValue = isWeightedOptions 
       ? validOptions[matchIndex].value 
       : optionStrings[matchIndex];
       
     const matchType = exactMatchIndex !== -1 ? "exact" : 
-                     (containsMatchIndex !== -1 ? "contains" : "keyTerm");
+                     (mappedMatchIndex !== -1 ? "mapped" :
+                     (containsMatchIndex !== -1 ? "contains" : "keyTerm"));
       
-    logger(`✓ Found ${matchType} match for "${input}": "${matchValue}"`);
+    const matchTypeDisplay = {
+      'exact': 'exact',
+      'mapped': 'mapped alternative',
+      'contains': 'partial',
+      'keyTerm': 'key term'
+    };
+      
+    logger(`✓ Found ${matchTypeDisplay[matchType]} match for "${input}": "${matchValue}"`);
     
     return returnDetails 
       ? { 
           match: matchValue, 
-          score: matchType === "exact" ? 1 : 0.95, 
+          score: matchType === "exact" ? 1 : (matchType === "mapped" ? 0.98 : 0.95), 
           isExact: matchType === "exact", 
           matchIndex: matchIndex,
-          matchType: matchType
+          matchType: matchType,
+          originalInput: input,
+          mappedInput: matchType === "mapped" ? mappedInput : undefined
         } 
       : matchValue;
   }
@@ -286,38 +374,102 @@ function findClosestMatch(input, validOptions, options = {}) {
   // Try to find the best search term to use
   let searchTerm = cleanInput;
   let usingExtractedTerm = false;
+  let usingMappedTerm = false;
   
-  // If input contains multiple words and seems descriptive (like "Solid Oak"), 
-  // also try with the extracted key term (might match "Oak" better than "Solid Oak")
+  // Try multiple search strategies and pick the best one
+  // 1. Start with original cleaned input
+  const initialResult = fuse.search(cleanInput);
+  
+  // 2. Try with mapped alternative if available (e.g., "fibreboard" -> "mdf")
+  let mappedResult = [];
+  if (normalizedMappedInput !== normalizedInput) {
+    mappedResult = fuse.search(mappedInput);
+  }
+  
+  // 3. Try with extracted key term (e.g., "Solid Oak" -> "Oak")
+  let extractedResult = [];
   if (normalizedExtractedInput !== normalizedInput) {
-    const initialResult = fuse.search(cleanInput);
-    const extractedResult = fuse.search(extractedInput);
-    
-    // If the extracted term gives better results, use it
-    if (extractedResult.length > 0 && 
-        (initialResult.length === 0 || extractedResult[0].score < initialResult[0].score)) {
-      searchTerm = extractedInput;
-      usingExtractedTerm = true;
-      logger(`🔍 Using extracted key term "${extractedInput}" instead of "${cleanInput}" for better matching`);
-    }
+    extractedResult = fuse.search(extractedInput);
+  }
+  
+  // Compare all results and pick the best one
+  let bestScore = initialResult.length > 0 ? initialResult[0].score : 1;
+  
+  // Check if mapped term gives better results
+  if (mappedResult.length > 0 && (initialResult.length === 0 || mappedResult[0].score < bestScore)) {
+    searchTerm = mappedInput;
+    bestScore = mappedResult[0].score;
+    usingMappedTerm = true;
+  }
+  
+  // Check if extracted term gives better results
+  if (extractedResult.length > 0 && (bestScore === 1 || extractedResult[0].score < bestScore)) {
+    searchTerm = extractedInput;
+    bestScore = extractedResult[0].score;
+    usingExtractedTerm = true;
+    usingMappedTerm = false;
+  }
+  
+  // Log which search term we're using
+  if (usingMappedTerm) {
+    logger(`🔍 Using mapped alternative "${mappedInput}" instead of "${cleanInput}" for better matching`);
+  } else if (usingExtractedTerm) {
+    logger(`🔍 Using extracted key term "${extractedInput}" instead of "${cleanInput}" for better matching`);
   }
   
   // Perform fuzzy search with the best search term
-  const result = fuse.search(searchTerm);
+  const result = usingMappedTerm ? mappedResult : 
+                usingExtractedTerm ? extractedResult : 
+                initialResult;
   
   // Handle no matches
   if (result.length === 0 || (result[0].score && result[0].score > (1 - minScore))) {
-    // If we haven't tried the extracted term yet and it's different, try it now as a fallback
+    // Try all our fallback strategies
+    
+    // 1. Try mapped alternative as fallback if it wasn't already tried
+    if (!usingMappedTerm && normalizedMappedInput !== normalizedInput) {
+      const newMappedResult = mappedResult.length > 0 ? mappedResult : fuse.search(mappedInput);
+      if (newMappedResult.length > 0 && newMappedResult[0].score < (1 - minScore)) {
+        // We got a reasonable match with the mapped term
+        logger(`🔍 Falling back to mapped alternative "${mappedInput}" - found match`);
+        return findClosestMatch(mappedInput, validOptions, options);
+      }
+    }
+    
+    // 2. Try extracted term as fallback if it wasn't already tried
     if (!usingExtractedTerm && normalizedExtractedInput !== normalizedInput) {
-      const extractedResult = fuse.search(extractedInput);
-      if (extractedResult.length > 0 && extractedResult[0].score < (1 - minScore)) {
+      const newExtractedResult = extractedResult.length > 0 ? extractedResult : fuse.search(extractedInput);
+      if (newExtractedResult.length > 0 && newExtractedResult[0].score < (1 - minScore)) {
         // We got a reasonable match with the extracted term
         logger(`🔍 Falling back to extracted key term "${extractedInput}" - found match`);
         return findClosestMatch(extractedInput, validOptions, options);
       }
     }
     
-    // Try to find a default that might be reasonable
+    // 3. Special handling for "Fibreboard" specifically
+    if (normalizedInput.includes('fibreboard') || normalizedInput.includes('fiberboard') || 
+        normalizedInput.includes('particleboard') || normalizedInput.includes('chipboard')) {
+      // Look specifically for MDF in the options
+      const mdfIndex = optionStrings.findIndex(opt => 
+        normalize(opt).toLowerCase() === 'mdf');
+      
+      if (mdfIndex !== -1) {
+        const mdfValue = isWeightedOptions ? validOptions[mdfIndex].value : optionStrings[mdfIndex];
+        logger(`🔍 Found special case match for "${input}": "${mdfValue}" (fibreboard-type material)`);
+        
+        return returnDetails 
+          ? { 
+              match: mdfValue, 
+              score: 0.9, 
+              isExact: false, 
+              isSpecialCase: true,
+              originalInput: input
+            } 
+          : mdfValue;
+      }
+    }
+    
+    // 4. Try to find a default that might be reasonable
     // If we're looking for "Solid Oak", prioritize finding "Oak" in the options
     const inputTerms = input.toLowerCase().split(/\s+/);
     const lastTerm = inputTerms[inputTerms.length - 1];
@@ -343,7 +495,7 @@ function findClosestMatch(input, validOptions, options = {}) {
       }
     }
     
-    // No match found, use the first option as default
+    // 5. No match found, use the first option as default
     const defaultOption = isWeightedOptions ? validOptions[0].value : optionStrings[0];
     
     logger(`⚠️ No good match found for "${input}". Using default: "${defaultOption}"`);
@@ -465,7 +617,13 @@ async function classifyProduct(productCode, name, description, req) {
       "subcategory": "<subcategory>"
   }
   
-  Ensure the subcategory belongs to the category. If no exact match is found, return the closest valid subcategory.`;
+  CRITICAL RULES:
+  1. You MUST ONLY select a category and subcategory EXACTLY as they appear in the list above.
+  2. The category MUST be one of these exact values: ${Object.keys(productCategories).join(', ')}
+  3. The subcategory MUST belong to the selected category.
+  4. DO NOT invent or modify any categories or subcategories.
+  5. DO NOT add any descriptive terms to categories or subcategories.
+  6. If no exact match is found, select the closest valid subcategory from the list.`;
 
   try {
     console.log(`🤖 Sending request to AI model for product: ${productCode}`);
@@ -662,16 +820,38 @@ ${materialsList}
       }
     });
 
+    // Combine duplicate materials (e.g., if both "Fibreboard" and "Particleboard" map to "MDF")
+    console.log(`🔄 Checking for duplicate materials to combine...`);
+    const combinedResult = [];
+    const materialMap = new Map(); // Map to track unique material classes
+    
+    result.forEach(item => {
+      if (materialMap.has(item.materialClass)) {
+        // Combine weights for duplicate material classes
+        const existingItem = materialMap.get(item.materialClass);
+        existingItem.weight += item.weight;
+        console.log(`✓ Combined duplicate material: ${item.materialClass} - new weight: ${existingItem.weight.toFixed(2)} kg`);
+      } else {
+        // First time seeing this material class
+        materialMap.set(item.materialClass, item);
+        combinedResult.push(item);
+      }
+    });
+    
+    if (result.length !== combinedResult.length) {
+      console.log(`🔄 Combined ${result.length - combinedResult.length} duplicate materials.`);
+    }
+
     // Validate total weight
-    const totalWeight = result.reduce((sum, item) => sum + item.weight, 0);
+    const totalWeight = combinedResult.reduce((sum, item) => sum + item.weight, 0);
     if (Math.abs(totalWeight - weight) > 0.01) {
       throw new Error(
-        `Total weight mismatch: expected ${weight} kg, but got ${totalWeight} kg.`
+        `Total weight mismatch: expected ${weight} kg, but got ${totalWeight.toFixed(2)} kg.`
       );
     }
 
-    cacheClassifyBOM.set(keyClassifyBOM, result);
-    return result;
+    cacheClassifyBOM.set(keyClassifyBOM, combinedResult);
+    return combinedResult;
   } catch (error) {
     console.error(
       "Error classifying BOM:",
@@ -824,16 +1004,40 @@ ${bomList}
       }
     });
 
+    // Combine duplicate materials (e.g., if multiple "Fibreboard" all map to "MDF")
+    console.log(`🔄 Checking for duplicate materials to combine...`);
+    const combinedResult = [];
+    const materialMap = new Map(); // Map to track unique material combinations
+    
+    result.forEach(item => {
+      const key = `${item.materialClass}|${item.specificMaterial}`;
+      
+      if (materialMap.has(key)) {
+        // Combine weights for duplicate materials
+        const existingItem = materialMap.get(key);
+        existingItem.weight += item.weight;
+        console.log(`✓ Combined duplicate material: ${item.materialClass} (${item.specificMaterial}) - new weight: ${existingItem.weight.toFixed(2)} kg`);
+      } else {
+        // First time seeing this material combination
+        materialMap.set(key, item);
+        combinedResult.push(item);
+      }
+    });
+    
+    if (result.length !== combinedResult.length) {
+      console.log(`🔄 Combined ${result.length - combinedResult.length} duplicate materials.`);
+    }
+
     // Validate total weight
-    const totalWeight = result.reduce((sum, item) => sum + item.weight, 0);
+    const totalWeight = combinedResult.reduce((sum, item) => sum + item.weight, 0);
     if (Math.abs(totalWeight - weight) > 0.01) {
       throw new Error(
-        `Total weight mismatch: expected ${weight} kg, but got ${totalWeight} kg.`
+        `Total weight mismatch: expected ${weight} kg, but got ${totalWeight.toFixed(2)} kg.`
       );
     }
 
-    cacheClassifyBOM.set(keyClassifyBOM, result);
-    return result;
+    cacheClassifyBOM.set(keyClassifyBOM, combinedResult);
+    return combinedResult;
   } catch (error) {
     console.error(
       "Error classifying BOM:",
@@ -889,11 +1093,14 @@ Return the result in this format:
   ]
 }
 
-Rules:
-1. Every material in the BoM must be included in the response, and each must have at least one manufacturing process.
-2. If no specific processes apply, assign a general process like "General Processing."
-3. Use only the categories and processes provided above.
-4. Do not include any materialClass or specificMaterial that is not listed in the Bill of Materials (BoM).
+CRITICAL RULES:
+1. Every material in the BoM MUST be included in the response EXACTLY as provided, without modifications.
+2. You MUST ONLY use the exact materialClass and specificMaterial values from the BoM - DO NOT modify them in any way.
+3. Each material must have at least one manufacturing process.
+4. You MUST ONLY use categories and processes from the provided list above.
+5. If no specific processes apply, assign a general process like "General Processing."
+6. DO NOT invent new materials, processes, or categories that aren't in the provided lists.
+7. The output should map each original material from the BoM to appropriate manufacturing processes.
 
 Important:
 - Do not include any text, explanation, or extra characters outside of the JSON object.
@@ -968,11 +1175,14 @@ Return the result in this format:
   ]
 }
 
-Rules:
-1. Every material in the BoM must be included in the response, and each must have at least one manufacturing process.
-2. If no specific processes apply, assign a general process like "General Processing."
-3. Use only the categories and processes provided above.
-4. Do not include any materialClass that is not listed in the Bill of Materials (BoM).
+CRITICAL RULES:
+1. Every material in the BoM MUST be included in the response EXACTLY as provided, without modifications.
+2. You MUST ONLY use the exact materialClass values from the BoM - DO NOT modify them in any way.
+3. Each material must have at least one manufacturing process.
+4. You MUST ONLY use categories and processes from the provided list above.
+5. If no specific processes apply, assign a general process like "General Processing."
+6. DO NOT invent new materials, processes, or categories that aren't in the provided lists.
+7. The output should map each original material from the BoM to appropriate manufacturing processes.
 
 Important:
 - Do not include any text, explanation, or extra characters outside of the JSON object.
