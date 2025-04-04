@@ -1066,8 +1066,9 @@ const classifyManufacturingProcess = async (
     )
     .join("\n");
 
-  const prompt = `
-Classify the following product into manufacturing processes strictly based on the materials provided in the Bill of Materials (BoM). Ensure that every material listed in the BoM is included in the response. Each material must have at least one manufacturing process."
+
+const prompt = `
+Classify the following product into manufacturing processes strictly based on the materials provided in the Bill of Materials (BoM). Ensure that every material listed in the BoM is included in the response. Each material must have at least one manufacturing process.
 
 Product Code: ${productCode}
 Product Name: ${name}
@@ -1098,17 +1099,23 @@ Return the result in this format:
 
 CRITICAL RULES:
 1. Every material in the BoM MUST be included in the response EXACTLY as provided, without modifications.
-2. You MUST ONLY use the exact materialClass and specificMaterial values from the BoM - DO NOT modify them in any way.
+2. You MUST ONLY use the exact materialClass and specificMaterial values from the BoM — DO NOT modify them in any way.
 3. Each material must have at least one manufacturing process.
-4. You MUST ONLY use manufacturing process from the provided list above.
-4. You MUST ONLY use categories and processes from the provided list above.
-6. DO NOT invent new materials, processes, or categories that aren't in the provided lists.
-7. The output should map each original material from the BoM to appropriate manufacturing processes.
+4. You MUST ONLY use manufacturing categories and processes from the list above.
+5. You MUST NOT invent new materials, processes, or categories that aren't in the provided list.
+6. The manufacturing processes selected for each material MUST BE RELEVANT to the materialClass — for example:
+   - Metal materials must only be assigned metal-related processes.
+   - Plastic materials must only be assigned plastic-related processes.
+   - Wood materials must only be assigned wood-related processes.
+   - Do NOT assign manufacturing processes from an unrelated category (e.g., don’t assign wood processes to plastic materials).
+7. You must follow industrial and logical manufacturing norms when mapping processes to material classes.
+8. The output MUST be valid JSON only — no comments, no extra text.
 
 Important:
-- Do not include any text, explanation, or extra characters outside of the JSON object.
-- Ensure the result is strictly valid JSON.
+- Output ONLY a valid JSON object.
+- Ensure strict adherence to the rules and format above.
 `;
+
 
   try {
     const response = await openai.beta.chat.completions.parse({
@@ -1180,16 +1187,21 @@ Return the result in this format:
 
 CRITICAL RULES:
 1. Every material in the BoM MUST be included in the response EXACTLY as provided, without modifications.
-2. You MUST ONLY use the exact materialClass values from the BoM - DO NOT modify them in any way.
+2. You MUST ONLY use the exact materialClass values from the BoM — DO NOT modify them in any way.
 3. Each material must have at least one manufacturing process.
-4. You MUST ONLY use manufacturing process from the provided list above.
-5. You MUST ONLY use categories and processes from the provided list above.
-6. DO NOT invent new materials, processes, or categories that aren't in the provided lists.
-7. The output should map each original material from the BoM to appropriate manufacturing processes.
+4. You MUST ONLY use manufacturing categories and processes from the list provided above.
+5. You MUST NOT invent new materials, processes, or categories that aren't in the provided list.
+6. The manufacturing processes selected for each material MUST BE RELEVANT to the materialClass — for example:
+   - Metal materials must only be assigned metal-related processes.
+   - Plastic materials must only be assigned plastic-related processes.
+   - Wood materials must only be assigned wood-related processes.
+   - DO NOT assign processes from unrelated categories (e.g., avoid using wood processes for plastic materials).
+7. Follow standard manufacturing logic and real-world industrial relevance when mapping processes to material classes.
+8. The output MUST be strictly valid JSON and conform exactly to the format below.
 
 Important:
-- Do not include any text, explanation, or extra characters outside of the JSON object.
-- Ensure the result is strictly valid JSON.
+- Output ONLY the JSON object.
+- Do NOT include any explanations or text outside of the JSON.
 `;
 
   try {
@@ -1199,7 +1211,7 @@ Important:
       response_format: zodResponseFormat(ManufacturingSchemaBasic, "processes"),
     });
 
-    const result = response.choices[0].message.parsed.processes; // Access the 'processes' array
+    const result = response.choices[0].message.parsed.processes;
 
     updateAITokens(req, response.usage.total_tokens);
 
@@ -1214,6 +1226,7 @@ Important:
     );
   }
 };
+
 
 module.exports = {
   classifyProduct,
