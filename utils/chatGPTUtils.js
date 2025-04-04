@@ -920,6 +920,8 @@ ${bomList}
 - If an image is provided, use it to refine material classification.
 - The total weight must match exactly **${weight} kg**.
 - Do **not** include any explanation, extra text, or formatting outside the JSON array.
+ If a surface finish or lamination (e.g., melamine foil, powder coating, or plastic wrap) is mentioned, interpret it as a *process*, NOT a material. Do **not** include such coatings in the material breakdown unless the core material it is applied to is listed.
+- For example, if a "melamine-coated particleboard" is described but "Melamine" is not in the list, classify the core only (e.g., MDF if it's the closest match), and **do not** list "Melamine."
 `;
 
   
@@ -937,6 +939,7 @@ ${bomList}
     });
 
     const result = JSON.parse(response.choices[0].message.content).bom; // ✅ Fixed response parsing
+    console.log(`✅ Received AI bill of materials response: ${JSON.stringify(result)}`);
 
     updateAITokens(req, response.usage.total_tokens);
 
