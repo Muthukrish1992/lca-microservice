@@ -36,11 +36,28 @@ const calculateRawMaterialEmissions = (materials, countryOfOrigin) => {
     const rowKey = `RoW-${material.materialClass}-${material.specificMaterial}`;
     
     // Get the emission factor with fallbacks
-    const emissionFactor = 
+    let emissionFactor = 
       emissionMap.get(specificKey) || 
       emissionMap.get(globalKey) || 
-      emissionMap.get(rowKey) || 
-      0; // Default to 0 if all lookups fail
+      emissionMap.get(rowKey);
+    
+    // If still not found, try to find any entry with same material class/specific material
+    if (!emissionFactor) {
+      // Find any entry with same materialClass and specificMaterial
+      const materialEntries = emissionData.filter(
+        data => data.materialClass === material.materialClass && 
+                data.specificMaterial === material.specificMaterial
+      );
+      
+      if (materialEntries.length > 0) {
+        // Use the first match
+        emissionFactor = materialEntries[0].EmissionFactor;
+        logger.debug(`Using alternative region ${materialEntries[0].countryOfOrigin} for ${material.materialClass}-${material.specificMaterial}`);
+      } else {
+        // Default to 0 if all lookups fail
+        emissionFactor = 0;
+      }
+    }
     
     // Store the emission factor on the material for reference
     material.emissionFactor = emissionFactor * material.weight;
