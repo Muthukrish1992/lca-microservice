@@ -23,7 +23,9 @@ const logger = winston.createLogger({
           }`
         )
       ),
-      handleExceptions: true
+      handleExceptions: true,
+      stderrLevels: ['error'],
+      consoleWarnLevels: ['warn']
     }),
     // File transports
     new winston.transports.File({ 
