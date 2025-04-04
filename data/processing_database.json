@@ -1,206 +1,206 @@
 [
     {
-        "Category": "WoodProcessing",
+        "Category": "Wood Processing",
         "SubType": "Sawing",
         "Value": 0.15
     },
     {
-        "Category": "WoodProcessing",
+        "Category": "Wood Processing",
         "SubType": "Milling",
         "Value": 0.3
     },
     {
-        "Category": "WoodProcessing",
+        "Category": "Wood Processing",
         "SubType": "Jointing and Assembling",
         "Value": 0.2
     },
     {
-        "Category": "WoodProcessing",
+        "Category": "Wood Processing",
         "SubType": "Turning",
         "Value": 0.4
     },
     {
-        "Category": "WoodProcessing",
+        "Category": "Wood Processing",
         "SubType": "Veneering",
         "Value": 0.3
     },
     {
-        "Category": "WoodProcessing",
+        "Category": "Wood Processing",
         "SubType": "Laminating",
         "Value": 0.5
     },
     {
-        "Category": "WoodProcessing",
+        "Category": "Wood Processing",
         "SubType": "Sanding",
         "Value": 0.15
     },
     {
-        "Category": "WoodProcessing",
+        "Category": "Wood Processing",
         "SubType": "Staining",
         "Value": 0.23
     },
     {
-        "Category": "WoodProcessing",
+        "Category": "Wood Processing",
         "SubType": "Painting and Lacquering",
         "Value": 0.5
     },
     {
-        "Category": "WoodProcessing",
+        "Category": "Wood Processing",
         "SubType": "Precision Cutting",
         "Value": 0.3
     },
     {
-        "Category": "WoodProcessing",
+        "Category": "Wood Processing",
         "SubType": "Routing and Engraving",
         "Value": 0.4
     },
     {
-        "Category": "WoodProcessing",
+        "Category": "Wood Processing",
         "SubType": "Cold Pressing",
         "Value": 0.5
     },
     {
-        "Category": "WoodProcessing",
+        "Category": "Wood Processing",
         "SubType": "Hot Pressing",
         "Value": 1.25
     },
     {
-        "Category": "WoodProcessing",
+        "Category": "Wood Processing",
         "SubType": "Steam Bending",
         "Value": 1.0
     },
     {
-        "Category": "MetalProcessing",
+        "Category": "Metal Processing",
         "SubType": "Cutting",
         "Value": 0.23
     },
     {
-        "Category": "MetalProcessing",
+        "Category": "Metal Processing",
         "SubType": "Bending",
         "Value": 0.15
     },
     {
-        "Category": "MetalProcessing",
+        "Category": "Metal Processing",
         "SubType": "Welding",
         "Value": 1.0
     },
     {
-        "Category": "MetalProcessing",
+        "Category": "Metal Processing",
         "SubType": "Powder Coating",
         "Value": 0.5
     },
     {
-        "Category": "MetalProcessing",
+        "Category": "Metal Processing",
         "SubType": "Precision Cutting",
         "Value": 0.5
     },
     {
-        "Category": "MetalProcessing",
+        "Category": "Metal Processing",
         "SubType": "Routing and Engraving",
         "Value": 0.6
     },
     {
-        "Category": "MetalProcessing",
+        "Category": "Metal Processing",
         "SubType": "3D Printing",
         "Value": 6.0
     },
     {
-        "Category": "MetalProcessing",
+        "Category": "Metal Processing",
         "SubType": "Sand Casting",
         "Value": 1.75
     },
     {
-        "Category": "MetalProcessing",
+        "Category": "Metal Processing",
         "SubType": "Die Casting",
         "Value": 2.5
     },
     {
-        "Category": "PlasticProcessing",
+        "Category": "Plastic Processing",
         "SubType": "Injection Molding",
         "Value": 1.25
     },
     {
-        "Category": "PlasticProcessing",
+        "Category": "Plastic Processing",
         "SubType": "Blow Molding",
         "Value": 1.0
     },
     {
-        "Category": "PlasticProcessing",
+        "Category": "Plastic Processing",
         "SubType": "Thermoforming",
         "Value": 0.65
     },
     {
-        "Category": "PlasticProcessing",
+        "Category": "Plastic Processing",
         "SubType": "Precision Cutting",
         "Value": 0.4
     },
     {
-        "Category": "PlasticProcessing",
+        "Category": "Plastic Processing",
         "SubType": "3D Printing",
         "Value": 3.0
     },
     {
-        "Category": "GlassProcessing",
+        "Category": "Glass Processing",
         "SubType": "Blow Molding",
         "Value": 1.0
     },
     {
-        "Category": "FabricProcessing",
+        "Category": "Fabric Processing",
         "SubType": "Cutting and Sewing",
         "Value": 0.08
     },
     {
-        "Category": "FabricProcessing",
+        "Category": "Fabric Processing",
         "SubType": "Tacking and Stapling",
         "Value": 0.04
     },
     {
-        "Category": "LeatherProcessing",
+        "Category": "Leather Processing",
         "SubType": "Cutting and Sewing",
         "Value": 0.13
     },
     {
-        "Category": "LeatherProcessing",
+        "Category": "Leather Processing",
         "SubType": "Tacking and Stapling",
         "Value": 0.08
     },
     {
-        "Category": "LaminateProcessing",
+        "Category": "Laminate Processing",
         "SubType": "Cold Pressing",
         "Value": 0.5
     },
     {
-        "Category": "LaminateProcessing",
+        "Category": "Laminate Processing",
         "SubType": "Hot Pressing",
         "Value": 1.25
     },
     {
-        "Category": "FoamProcessing",
+        "Category": "Foam Processing",
         "SubType": "Foam Molding",
         "Value": 0.6
     },
     {
-        "Category": "BambooProcessing",
+        "Category": "Bamboo Processing",
         "SubType": "Weaving",
         "Value": 0.3
     },
     {
-        "Category": "BambooProcessing",
+        "Category": "Bamboo Processing",
         "SubType": "Bamboo Work",
         "Value": 0.23
     },
     {
-        "Category": "All MaterialsAssembly",
+        "Category": "All Materials Assembly",
         "SubType": "Manual Assembly",
         "Value": 0.08
     },
     {
-        "Category": "All MaterialsAssembly",
+        "Category": "All Materials Assembly",
         "SubType": "Flat-Pack Assembly",
         "Value": 0.15
     },
     {
-        "Category": "All MaterialsAssembly",
+        "Category": "All Materials Assembly",
         "SubType": "Automated Assembly",
         "Value": 0.4
     }

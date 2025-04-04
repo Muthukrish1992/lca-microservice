@@ -1,29 +1,29 @@
 {
-  "WoodProcessing": [
+  "Wood Processing": [
       "Woodworking",
       "CNC Machining",
       "Laminating/Pressing",
       "Steam Bending",
       "Assembly Processes"
   ],
-  "MetalProcessing": [
+  "Metal Processing": [
       "Metalworking",
       "CNC Machining",
       "3D Printing",
       "Casting"
   ],
-  "PlasticProcessing": [
+  "Plastic Processing": [
       "Plastic Molding",
       "3D Printing",
       "Upholstery"
   ],
-  "FabricProcessing": [
+  "Fabric Processing": [
       "Upholstery"
   ],
-  "LeatherProcessing": [
+  "Leather Processing": [
       "Upholstery"
   ],
-  "BambooProcessing": [
+  "Bamboo Processing": [
       "Bamboo Work"
   ]
 }

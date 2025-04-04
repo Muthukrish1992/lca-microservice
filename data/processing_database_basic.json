@@ -1,76 +1,76 @@
 [
     {
-        "Category": "WoodProcessing",
+        "Category": "Wood Processing",
         "SubType": "Woodworking",
         "Value": 1.50
     },
     {
-        "Category": "WoodProcessing",
+        "Category": "Wood Processing",
         "SubType": "CNC Machining",
         "Value": 4.00
     },
     {
-        "Category": "WoodProcessing",
+        "Category": "Wood Processing",
         "SubType": "Laminating/Pressing",
         "Value": 3.00
     },
     {
-        "Category": "WoodProcessing",
+        "Category": "Wood Processing",
         "SubType": "Steam Bending",
         "Value": 2.00
     },
     {
-        "Category": "WoodProcessing",
+        "Category": "Wood Processing",
         "SubType": "Assembly Processes",
         "Value": 1.00
     },
     {
-        "Category": "MetalProcessing",
+        "Category": "Metal Processing",
         "SubType": "Metalworking",
         "Value": 4.00
     },
     {
-        "Category": "MetalProcessing",
+        "Category": "Metal Processing",
         "SubType": "CNC Machining",
         "Value": 5.00
     },
     {
-        "Category": "MetalProcessing",
+        "Category": "Metal Processing",
         "SubType": "3D Printing",
         "Value": 10.00
     },
     {
-        "Category": "MetalProcessing",
+        "Category": "Metal Processing",
         "SubType": "Casting",
         "Value": 6.00
     },
     {
-        "Category": "PlasticProcessing",
+        "Category": "Plastic Processing",
         "SubType": "Plastic Molding",
         "Value": 2.50
     },
     {
-        "Category": "PlasticProcessing",
+        "Category": "Plastic Processing",
         "SubType": "3D Printing",
         "Value": 7.50
     },
     {
-        "Category": "FabricProcessing",
+        "Category": "Fabric Processing",
         "SubType": "Upholstery",
         "Value": 1.50
     },
     {
-        "Category": "LeatherProcessing",
+        "Category": "Leather Processing",
         "SubType": "Upholstery",
         "Value": 2.00
     },
     {
-        "Category": "PlasticProcessing",
+        "Category": "Plastic Processing",
         "SubType": "Upholstery",
         "Value": 1.80
     },
     {
-        "Category": "BambooProcessing",
+        "Category": "Bamboo Processing",
         "SubType": "Bamboo Work",
         "Value": 2.00
     }

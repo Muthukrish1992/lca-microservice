@@ -1,5 +1,5 @@
 {
-    "WoodProcessing": [
+    "Wood Processing": [
       "Sawing",
       "Milling",
       "Jointing and Assembling",
@@ -15,7 +15,7 @@
       "Hot Pressing",
       "Steam Bending"
     ],
-    "MetalProcessing": [
+    "Metal Processing": [
       "Cutting",
       "Bending",
       "Welding",
@@ -26,21 +26,21 @@
       "Sand Casting",
       "Die Casting"
     ],
-    "PlasticProcessing": [
+    "Plastic Processing": [
       "Injection Molding",
       "Blow Molding",
       "Thermoforming",
       "Precision Cutting",
       "3D Printing"
     ],
-    "GlassProcessing": ["Blow Molding"],
-    "FabricProcessing": ["Cutting and Sewing", "Tacking and Stapling"],
-    "LeatherProcessing": ["Cutting and Sewing", "Tacking and Stapling"],
-    "LaminateProcessing": ["Cold Pressing", "Hot Pressing"],
+    "Glass Processing": ["Blow Molding"],
+    "Fabric Processing": ["Cutting and Sewing", "Tacking and Stapling"],
+    "Leather Processing": ["Cutting and Sewing", "Tacking and Stapling"],
+    "Laminate Processing": ["Cold Pressing", "Hot Pressing"],
     "MeshProcessing": [],
-    "FoamProcessing": ["Foam Molding"],
+    "Foam Processing": ["Foam Molding"],
     "StoneProcessing": [],
-    "BambooProcessing": ["Weaving", "Bamboo Work"],
+    "Bamboo Processing": ["Weaving", "Bamboo Work"],
     "AllMaterialsAssembly": ["Manual Assembly", "Flat-Pack Assembly", "Automated Assembly"]
   }
   
