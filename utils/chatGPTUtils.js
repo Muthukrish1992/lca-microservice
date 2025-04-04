@@ -1067,7 +1067,7 @@ const classifyManufacturingProcess = async (
     .join("\n");
 
   const prompt = `
-Classify the following product into manufacturing processes strictly based on the materials provided in the Bill of Materials (BoM). Ensure that every material listed in the BoM is included in the response. Each material must have at least one manufacturing process. If no specific process applies, assign a general process like "General Processing."
+Classify the following product into manufacturing processes strictly based on the materials provided in the Bill of Materials (BoM). Ensure that every material listed in the BoM is included in the response. Each material must have at least one manufacturing process."
 
 Product Code: ${productCode}
 Product Name: ${name}
@@ -1100,8 +1100,8 @@ CRITICAL RULES:
 1. Every material in the BoM MUST be included in the response EXACTLY as provided, without modifications.
 2. You MUST ONLY use the exact materialClass and specificMaterial values from the BoM - DO NOT modify them in any way.
 3. Each material must have at least one manufacturing process.
+4. You MUST ONLY use manufacturing process from the provided list above.
 4. You MUST ONLY use categories and processes from the provided list above.
-5. If no specific processes apply, assign a general process like "General Processing."
 6. DO NOT invent new materials, processes, or categories that aren't in the provided lists.
 7. The output should map each original material from the BoM to appropriate manufacturing processes.
 
@@ -1150,7 +1150,7 @@ const classifyManufacturingProcessBasic = async (
     .join("\n");
 
   const prompt = `
-Classify the following product into manufacturing processes strictly based on the materials provided in the Bill of Materials (BoM). Ensure that every material listed in the BoM is included in the response. Each material must have at least one manufacturing process. If no specific process applies, assign a general process like "General Processing."
+Classify the following product into manufacturing processes strictly based on the materials provided in the Bill of Materials (BoM). Ensure that every material listed in the BoM is included in the response. Each material must have at least one manufacturing process.
 
 Product Code: ${productCode}
 Product Name: ${name}
@@ -1182,8 +1182,8 @@ CRITICAL RULES:
 1. Every material in the BoM MUST be included in the response EXACTLY as provided, without modifications.
 2. You MUST ONLY use the exact materialClass values from the BoM - DO NOT modify them in any way.
 3. Each material must have at least one manufacturing process.
-4. You MUST ONLY use categories and processes from the provided list above.
-5. If no specific processes apply, assign a general process like "General Processing."
+4. You MUST ONLY use manufacturing process from the provided list above.
+5. You MUST ONLY use categories and processes from the provided list above.
 6. DO NOT invent new materials, processes, or categories that aren't in the provided lists.
 7. The output should map each original material from the BoM to appropriate manufacturing processes.
 
