@@ -712,7 +712,6 @@ const classifyBOMBasic = async (
   req
 ) => {
   const keyClassifyBOM = JSON.stringify({
-    productCode,
     name,
     description,
     weight,
@@ -871,7 +870,6 @@ const classifyBOM = async (
 ) => {
   try {
   const keyClassifyBOM = JSON.stringify({
-    productCode,
     name,
     description,
     weight,
