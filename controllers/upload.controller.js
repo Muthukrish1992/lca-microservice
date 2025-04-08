@@ -297,6 +297,7 @@ const bulkImageUpload = async (req, res) => {
   const account = req.account; // From validateAccount middleware
   const tempDir = path.join(__dirname, "../temp", account);
   const uploadedFilePath = path.join(tempDir, req.file.originalname);
+  let extractionDir;
 
   try {
     const Product = await productService.getProductModel(req);
@@ -308,7 +309,7 @@ const bulkImageUpload = async (req, res) => {
     fs.writeFileSync(uploadedFilePath, req.file.buffer);
 
     // Create extraction directory
-    const extractionDir = path.join(
+    extractionDir = path.join(
       tempDir,
       path.parse(req.file.originalname).name
     );
@@ -317,7 +318,7 @@ const bulkImageUpload = async (req, res) => {
     // Extract based on file type
     const fileExt = path.extname(req.file.originalname).toLowerCase();
     if (fileExt === ".zip") {
-      await extractZipFile(uploadedFilePath, tempDir);
+      await extractZipFile(uploadedFilePath, extractionDir);
     } else if (fileExt === ".rar") {
       await extractRarFile(uploadedFilePath, extractionDir);
     } else {
@@ -373,9 +374,21 @@ const bulkImageUpload = async (req, res) => {
       error.message
     ));
   } finally {
-    // Cleanup temporary files (uncomment when in production)
-    //fs.removeSync(extractionDir);
-    //fs.unlinkSync(uploadedFilePath);
+    // Cleanup temporary files
+    try {
+      // Only attempt cleanup if these variables were created in the try block
+      if (typeof extractionDir !== 'undefined' && fs.existsSync(extractionDir)) {
+        fs.removeSync(extractionDir);
+        logger.info(`Removed extraction directory: ${extractionDir}`);
+      }
+      
+      if (typeof uploadedFilePath !== 'undefined' && fs.existsSync(uploadedFilePath)) {
+        fs.unlinkSync(uploadedFilePath);
+        logger.info(`Removed uploaded file: ${uploadedFilePath}`);
+      }
+    } catch (cleanupError) {
+      logger.error(`Error during cleanup: ${cleanupError.message}`);
+    }
   }
 };
 
