@@ -18,6 +18,28 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
+// Utility function to make OpenAI requests with retry logic for rate limits
+async function makeOpenAIRequestWithRetry(requestFn, maxRetries = 3) {
+  let retries = 0;
+  while (true) {
+    try {
+      return await requestFn();
+    } catch (error) {
+      if (error.status === 429 && retries < maxRetries) {
+        const waitTime = error.message.match(/try again in (\d+)ms/) 
+          ? parseInt(error.message.match(/try again in (\d+)ms/)[1])
+          : Math.pow(2, retries) * 1000;
+        
+        console.log(`Rate limited, retrying in ${waitTime}ms...`);
+        await new Promise(resolve => setTimeout(resolve, waitTime));
+        retries++;
+      } else {
+        throw error;
+      }
+    }
+  }
+}
+
 // Define the Zod schema for structured output validation
 const ClassificationSchema = z.object({
   category: z.string(),
@@ -627,13 +649,16 @@ async function classifyProduct(productCode, name, description, req) {
 
   try {
     console.log(`🤖 Sending request to AI model for product: ${productCode}`);
-    const completion = await openai.beta.chat.completions.parse({
-      model: "gpt-4o-mini-2024-07-18", // Ensure model supports structured outputs
-      messages: [{ role: "user", content: prompt }],
-      response_format: zodResponseFormat(
-        ClassificationSchema,
-        "classification"
-      ),
+    
+    const completion = await makeOpenAIRequestWithRetry(async () => {
+      return await openai.beta.chat.completions.parse({
+        model: "gpt-4o-mini-2024-07-18", // Ensure model supports structured outputs
+        messages: [{ role: "user", content: prompt }],
+        response_format: zodResponseFormat(
+          ClassificationSchema,
+          "classification"
+        ),
+      });
     });
 
     let result = completion.choices[0].message.parsed;
@@ -766,11 +791,13 @@ ${materialsList}
       messages.push({ type: "image_url", image_url: { url: imageUrl } }); // ✅ Fixed structure
     }
 
-    const response = await openai.chat.completions.create({
-      model: "gpt-4o", // Supports text + image analysis
-      messages: [{ role: "user", content: messages }],
-      response_format: zodResponseFormat(BOMSchemaBasic, "bom"),
-      temperature: 0,
+    const response = await makeOpenAIRequestWithRetry(async () => {
+      return await openai.chat.completions.create({
+        model: "gpt-4o", // Supports text + image analysis
+        messages: [{ role: "user", content: messages }],
+        response_format: zodResponseFormat(BOMSchemaBasic, "bom"),
+        temperature: 0,
+      });
     });
 
     const result = JSON.parse(response.choices[0].message.content).bom; // ✅ Fixed response parsing
@@ -929,11 +956,13 @@ ${bomList}
       messages.push({ type: "image_url", image_url: { url: imageUrl } }); // ✅ Fixed structure
     }
 
-    const response = await openai.chat.completions.create({
-      model: "gpt-4o", // Supports text + image analysis
-      messages: [{ role: "user", content: messages }],
-      response_format: zodResponseFormat(BOMSchema, "bom"),
-      temperature: 0,
+    const response = await makeOpenAIRequestWithRetry(async () => {
+      return await openai.chat.completions.create({
+        model: "gpt-4o", // Supports text + image analysis
+        messages: [{ role: "user", content: messages }],
+        response_format: zodResponseFormat(BOMSchema, "bom"),
+        temperature: 0,
+      });
     });
 
     const result = JSON.parse(response.choices[0].message.content).bom; // ✅ Fixed response parsing
@@ -1116,10 +1145,12 @@ Important:
 
 
   try {
-    const response = await openai.beta.chat.completions.parse({
-      model: "gpt-4o",
-      messages: [{ role: "user", content: prompt }],
-      response_format: zodResponseFormat(ManufacturingSchema, "processes"),
+    const response = await makeOpenAIRequestWithRetry(async () => {
+      return await openai.beta.chat.completions.parse({
+        model: "gpt-4o",
+        messages: [{ role: "user", content: prompt }],
+        response_format: zodResponseFormat(ManufacturingSchema, "processes"),
+      });
     });
 
     const result = response.choices[0].message.parsed.processes; // Access the 'processes' array
@@ -1203,10 +1234,12 @@ Important:
 `;
 
   try {
-    const response = await openai.beta.chat.completions.parse({
-      model: "gpt-4o",
-      messages: [{ role: "user", content: prompt }],
-      response_format: zodResponseFormat(ManufacturingSchemaBasic, "processes"),
+    const response = await makeOpenAIRequestWithRetry(async () => {
+      return await openai.beta.chat.completions.parse({
+        model: "gpt-4o",
+        messages: [{ role: "user", content: prompt }],
+        response_format: zodResponseFormat(ManufacturingSchemaBasic, "processes"),
+      });
     });
 
     const result = response.choices[0].message.parsed.processes;

@@ -363,7 +363,7 @@ const bulkImageUpload = async (req, res) => {
 
     res.json(formatResponse(
       true,
-      null,
+      [],
       "Files uploaded and processed successfully"
     ));
   } catch (error) {
