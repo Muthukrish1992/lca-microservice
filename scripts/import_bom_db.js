@@ -131,7 +131,7 @@ function convertCsvToJson() {
     const results = rows
       .filter(row => {
         // Filter out rows without essential data
-        const hasData = row['Region'] && row['Material Category'] && row['Material Subtype'] && row['kg CO2-Eq'];
+        const hasData = row['Region'] && row['Material Category'] && row['Material Subtype'] && row['kg CO2e'];
         if (!hasData) {
           console.warn(`Skipping row with missing data: ${JSON.stringify(row)}`);
         }
@@ -165,10 +165,10 @@ function convertCsvToJson() {
         // Parse emission factor
         let emissionFactor = 0;
         try {
-          emissionFactor = parseFloat(row['kg CO2-Eq']);
+          emissionFactor = parseFloat(row['kg CO2e']);
           if (isNaN(emissionFactor)) emissionFactor = 0;
         } catch (e) {
-          console.warn(`Warning: Could not parse emission factor for ${row['Material Subtype']}: ${row['kg CO2-Eq']}`);
+          console.warn(`Warning: Could not parse emission factor for ${row['Material Subtype']}: ${row['kg CO2e']}`);
         }
         
         // Create entry in the format of materials_database.json with additional fields
