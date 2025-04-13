@@ -108,7 +108,18 @@ function convertCsvToJson() {
     'Global (GLO)': 'GLO',
     'Global Average': 'GLO',
     'Global': 'GLO',
-    'GLO': 'GLO'
+    'GLO': 'GLO',
+    'Belgium' : 'BE',
+    'Brazil' : 'BR',
+    'Canada' : 'CA',
+    'Egypt' : 'EG',
+    'Thailand' : 'EG',
+    'Italy' : 'IT',
+    'Turkey' : 'TR',
+    'Italy-Europe-Central' : 'IT-EC',
+    'IAI Area, EU27 & EFTA' : 'IAI-EU',
+    'IAI Area, North America' : 'IAI-NA',
+    'Europe without Switzerland' : 'EU-CH',
   };
 
   try {

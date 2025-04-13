@@ -568,7 +568,7 @@
         "Source_Dataset_Name": "market for flat glass, coated"
     },
     {
-        "countryOfOrigin": "Egypt",
+        "countryOfOrigin": "EG",
         "materialClass": "Glass",
         "specificMaterial": "Tinted Glass",
         "EmissionFactor": 3.02,
@@ -584,7 +584,7 @@
         "Source_Dataset_Name": "LOW-IRON FLOAT GLASS"
     },
     {
-        "countryOfOrigin": "Turkey",
+        "countryOfOrigin": "TR",
         "materialClass": "Glass",
         "specificMaterial": "Patterned or Textured Glass",
         "EmissionFactor": 1.16,
@@ -592,7 +592,7 @@
         "Source_Dataset_Name": "Patterned Glass"
     },
     {
-        "countryOfOrigin": "Canada",
+        "countryOfOrigin": "CA",
         "materialClass": "Glass",
         "specificMaterial": "Acid-Etched Glass",
         "EmissionFactor": 2.21,
@@ -616,7 +616,7 @@
         "Source_Dataset_Name": "Insulated glass"
     },
     {
-        "countryOfOrigin": "Brazil",
+        "countryOfOrigin": "BR",
         "materialClass": "Glass",
         "specificMaterial": "Colored Glass",
         "EmissionFactor": 1.89,
@@ -624,7 +624,7 @@
         "Source_Dataset_Name": "Clear and colored flat glass"
     },
     {
-        "countryOfOrigin": "Turkey",
+        "countryOfOrigin": "TR",
         "materialClass": "Glass",
         "specificMaterial": "Mirrored Glass",
         "EmissionFactor": 1.21,
@@ -696,7 +696,7 @@
         "Source_Dataset_Name": "Acrylic upholstery fabrics, 0.73 kg/m2, Retreat, Stripe It, and Vice Versa, KnollTextiles"
     },
     {
-        "countryOfOrigin": "Italy",
+        "countryOfOrigin": "IT",
         "materialClass": "Fabric",
         "specificMaterial": "Wool",
         "EmissionFactor": 3.19,
@@ -1104,7 +1104,7 @@
         "Source_Dataset_Name": "Referred NYLON"
     },
     {
-        "countryOfOrigin": "Belgium",
+        "countryOfOrigin": "BE",
         "materialClass": "Foam",
         "specificMaterial": "Polyurethane Foam",
         "EmissionFactor": 7.15,
@@ -1112,7 +1112,7 @@
         "Source_Dataset_Name": "Flexible Polyurethane (PU) Foam - TDI-based PU foam without FR, low density 18 to 25 kg/m³"
     },
     {
-        "countryOfOrigin": "Belgium",
+        "countryOfOrigin": "BE",
         "materialClass": "Foam",
         "specificMaterial": "Memory Foam",
         "EmissionFactor": 6.9,
@@ -1120,7 +1120,7 @@
         "Source_Dataset_Name": "Flexible Polyurethane (PU) Foam -  MDI-based viscoelastic PU foam without FR, density 45 to 53 kg/m³"
     },
     {
-        "countryOfOrigin": "Belgium",
+        "countryOfOrigin": "BE",
         "materialClass": "Foam",
         "specificMaterial": "Latex Foam",
         "EmissionFactor": 6.9,
@@ -1128,7 +1128,7 @@
         "Source_Dataset_Name": "Flexible Polyurethane (PU) Foam -  MDI-based viscoelastic PU foam without FR, density 45 to 53 kg/m³"
     },
     {
-        "countryOfOrigin": "Belgium",
+        "countryOfOrigin": "BE",
         "materialClass": "Foam",
         "specificMaterial": "Low-Density Foam",
         "EmissionFactor": 7.15,
@@ -1136,7 +1136,7 @@
         "Source_Dataset_Name": "Flexible Polyurethane (PU) Foam - TDI-based PU foam without FR, low density 18 to 25 kg/m³"
     },
     {
-        "countryOfOrigin": "Belgium",
+        "countryOfOrigin": "BE",
         "materialClass": "Foam",
         "specificMaterial": "Gel-Infused Foam",
         "EmissionFactor": 7.15,
@@ -1144,7 +1144,7 @@
         "Source_Dataset_Name": "Flexible Polyurethane (PU) Foam - TDI-based PU foam without FR, low density 18 to 25 kg/m³"
     },
     {
-        "countryOfOrigin": "Belgium",
+        "countryOfOrigin": "BE",
         "materialClass": "Foam",
         "specificMaterial": "Egg Crate Foam",
         "EmissionFactor": 7.15,
@@ -1152,7 +1152,7 @@
         "Source_Dataset_Name": "Flexible Polyurethane (PU) Foam - TDI-based PU foam without FR, low density 18 to 25 kg/m³"
     },
     {
-        "countryOfOrigin": "Belgium",
+        "countryOfOrigin": "BE",
         "materialClass": "Foam",
         "specificMaterial": "Rebond Foam",
         "EmissionFactor": 7.15,
@@ -1160,7 +1160,7 @@
         "Source_Dataset_Name": "Flexible Polyurethane (PU) Foam - TDI-based PU foam without FR, low density 18 to 25 kg/m³"
     },
     {
-        "countryOfOrigin": "Belgium",
+        "countryOfOrigin": "BE",
         "materialClass": "Foam",
         "specificMaterial": "Convoluted Foam",
         "EmissionFactor": 7.15,
@@ -1168,7 +1168,7 @@
         "Source_Dataset_Name": "Flexible Polyurethane (PU) Foam - TDI-based PU foam without FR, low density 18 to 25 kg/m³"
     },
     {
-        "countryOfOrigin": "Belgium",
+        "countryOfOrigin": "BE",
         "materialClass": "Foam",
         "specificMaterial": "Open-Cell Foam",
         "EmissionFactor": 7.15,
@@ -1176,7 +1176,7 @@
         "Source_Dataset_Name": "Flexible Polyurethane (PU) Foam - TDI-based PU foam without FR, low density 18 to 25 kg/m³"
     },
     {
-        "countryOfOrigin": "Belgium",
+        "countryOfOrigin": "BE",
         "materialClass": "Foam",
         "specificMaterial": "Closed-Cell Foam",
         "EmissionFactor": 7.15,
@@ -1184,7 +1184,7 @@
         "Source_Dataset_Name": "Flexible Polyurethane (PU) Foam - TDI-based PU foam without FR, low density 18 to 25 kg/m³"
     },
     {
-        "countryOfOrigin": "Belgium",
+        "countryOfOrigin": "BE",
         "materialClass": "Foam",
         "specificMaterial": "Microbead Foam",
         "EmissionFactor": 7.15,
@@ -1224,7 +1224,7 @@
         "Source_Dataset_Name": "Natural stone products of granite and limestone –"
     },
     {
-        "countryOfOrigin": "Thailand",
+        "countryOfOrigin": "EG",
         "materialClass": "Stone",
         "specificMaterial": "Quartz",
         "EmissionFactor": 0.01,
@@ -1328,7 +1328,7 @@
         "Source_Dataset_Name": "market for concrete, 20MPa"
     },
     {
-        "countryOfOrigin": "Italy",
+        "countryOfOrigin": "IT",
         "materialClass": "Stone",
         "specificMaterial": "Terrazzo",
         "EmissionFactor": 1.07,
