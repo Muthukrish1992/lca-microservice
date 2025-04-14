@@ -20,6 +20,7 @@ app.use('/api/project-product-mapping', require('./routes/project_product.routes
 app.use('/api/account-plan', require('./routes/account.routes'));
 app.use('/api', require('./routes/calculation.routes'));
 app.use('/api', require('./routes/home.routes'));
+app.use('/api', require('./routes/category.routes'));
 
 // API Routes currently in server.js will be moved to their respective route files
 // This is a temporary measure to maintain compatibility

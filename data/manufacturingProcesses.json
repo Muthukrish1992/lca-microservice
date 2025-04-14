@@ -37,9 +37,7 @@
     "Fabric Processing": ["Cutting and Sewing", "Tacking and Stapling"],
     "Leather Processing": ["Cutting and Sewing", "Tacking and Stapling"],
     "Laminate Processing": ["Cold Pressing", "Hot Pressing"],
-    "MeshProcessing": [],
     "Foam Processing": ["Foam Molding"],
-    "StoneProcessing": [],
     "Bamboo Processing": ["Weaving", "Bamboo Work"],
     "AllMaterialsAssembly": ["Manual Assembly", "Flat-Pack Assembly", "Automated Assembly"]
   }

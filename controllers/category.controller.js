@@ -1,6 +1,7 @@
 const logger = require('../utils/logger');
 const { HTTP_STATUS, formatResponse } = require('../utils/http');
 const productCategories = require('../data/productCategories.json');
+const manufacturingProcesses = require('../data/manufacturingProcesses.json');
 
 /**
  * Get all categories
@@ -74,8 +75,26 @@ const getAllProductCategories = (req, res) => {
   }
 };
 
+/**
+ * Get all manufacturing processes
+ * @route GET /api/manufacturingProcesses
+ */
+const getAllManufacturingProcesses = (req, res) => {
+  try {
+    res.status(HTTP_STATUS.OK).json(formatResponse(true, manufacturingProcesses));
+  } catch (error) {
+    logger.error(error);
+    res.status(HTTP_STATUS.INTERNAL_SERVER_ERROR).json(formatResponse(
+      false,
+      null,
+      "An error occurred while retrieving manufacturing processes."
+    ));
+  }
+};
+
 module.exports = {
   getAllCategories,
   getSubcategories,
-  getAllProductCategories
+  getAllProductCategories,
+  getAllManufacturingProcesses
 };
