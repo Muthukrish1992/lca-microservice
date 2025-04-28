@@ -106,7 +106,7 @@ const calculateProjectImpacts = async (req, projectId) => {
   }).populate({
     path: 'productID',
     model: 'Product',
-    select: 'name code countryOfOrigin description countryOfOrigin category subCategory images co2Emission co2EmissionRawMaterials co2EmissionFromProcesses materials productManufacturingProcess'
+    select: 'name code countryOfOrigin description weight countryOfOrigin category subCategory images co2Emission co2EmissionRawMaterials co2EmissionFromProcesses materials productManufacturingProcess'
   });
   
   // Initialize totals
