@@ -3,7 +3,7 @@ const { getModel } = require('../config/database');
 const productSchema = require('../models/product_schema');
 const { getAccount } = require('../middlewares/auth.middleware');
 const emissionData = require('../data/materials_database.json');
-const processing_database = require('../data/processing_database.json');
+const manufacturingProcesses = require('../data/manufacturingProcesses.json');
 
 /**
  * Get product model for the current account
@@ -77,63 +77,22 @@ const calculateRawMaterialEmissions = (materials, countryOfOrigin) => {
  * Calculate emissions from manufacturing processes
  */
 const calculateProcessEmissions = (productManufacturingProcess) => {
-  // Group processing data by Category and SubType for faster lookup
-  const processingMap = new Map(
-    processing_database.map((data) => [
-      `${data.Category}-${data.SubType}`,
-      data.Value,
-    ])
-  );
-
-  // Create separate maps for global and ROW fallbacks
-  const processingByCategory = {};
-  
-  // Organize processing by category for fallback lookups
-  processing_database.forEach(data => {
-    if (!processingByCategory[data.Category]) {
-      processingByCategory[data.Category] = {
-        global: {},
-        row: {}
-      };
-    }
-    
-    // If this is a global or RoW entry, store it for potential fallback
-    if (data.Category === 'GLO' || data.Category.includes('Global')) {
-      processingByCategory[data.Category].global[data.SubType] = data.Value;
-    } else if (data.Category === 'RoW' || data.Category.includes('Rest')) {
-      processingByCategory[data.Category].row[data.SubType] = data.Value;
-    }
-  });
-
   return productManufacturingProcess.reduce((total, materialProcess) => {
     const processTotal = materialProcess.manufacturingProcesses.reduce(
       (sum, processGroup) => {
         const groupTotal = processGroup.processes.reduce(
           (innerSum, processName) => {
-            // Try specific category first
-            const specificKey = `${processGroup.category}-${processName}`;
-            let emissionValue = processingMap.get(specificKey);
+            // Check if the material and process exist in manufacturingProcesses
+            let emissionValue = 0;
             
-            // If not found, try fallbacks (if available)
-            if (emissionValue === undefined) {
-              // Try global fallback
-              const globalValue = 
-                (processingByCategory['GLO'] && processingByCategory['GLO'].global[processName]) ||
-                (processingByCategory['Global'] && processingByCategory['Global'].global[processName]);
-                
-              // Try ROW fallback
-              const rowValue = 
-                (processingByCategory['RoW'] && processingByCategory['RoW'].row[processName]) ||
-                (processingByCategory['Rest of World'] && processingByCategory['Rest of World'].row[processName]);
-                
-              emissionValue = globalValue || rowValue || 0;
-              
-              // Log fallback usage (optional)
-              if (globalValue || rowValue) {
-                logger.debug(`Using fallback emission factor for ${processGroup.category}-${processName} from ${
-                  globalValue ? 'Global' : 'RoW'
-                }`);
-              }
+            if (
+              manufacturingProcesses[processGroup.category] && 
+              manufacturingProcesses[processGroup.category][processName]
+            ) {
+              emissionValue = manufacturingProcesses[processGroup.category][processName];
+            } else {
+              // Log when process not found
+              logger.debug(`Process ${processName} not found for ${processGroup.category} in manufacturingProcesses. Using 0.`);
             }
             
             // Calculate and store the emission factor

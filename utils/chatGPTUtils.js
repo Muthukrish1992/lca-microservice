@@ -103,10 +103,12 @@ const ManufacturingSchemaBasic = z.object({
 const formatManufacturingProcesses = () => {
   return Object.entries(manufacturingProcesses)
     .map(
-      ([category, processes]) =>
-        `- ${category}: ${
-          processes.join(", ") || "No specific processes listed"
-        }`
+      ([material, processes]) => {
+        const processesStr = Object.keys(processes)
+          .map(process => `${process} (${processes[process]} kWh/kg)`)
+          .join(", ");
+        return `- ${material}: ${processesStr || "No specific processes listed"}`;
+      }
     )
     .join("\n");
 };
@@ -115,10 +117,12 @@ const formatManufacturingProcesses = () => {
 const formatManufacturingProcessesBasic = () => {
   return Object.entries(manufacturingProcessesBasic)
     .map(
-      ([category, processes]) =>
-        `- ${category}: ${
-          processes.join(", ") || "No specific processes listed"
-        }`
+      ([material, processes]) => {
+        const processesStr = Object.keys(processes)
+          .map(process => `${process} (${processes[process]} kWh/kg)`)
+          .join(", ");
+        return `- ${material}: ${processesStr || "No specific processes listed"}`;
+      }
     )
     .join("\n");
 };
