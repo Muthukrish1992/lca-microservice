@@ -75,28 +75,57 @@ const calculateRawMaterialEmissions = (materials, countryOfOrigin) => {
 
 /**
  * Calculate emissions from manufacturing processes
+ * @param {Array} productManufacturingProcess - The manufacturing processes for the product
+ * @param {String} countryOfOrigin - The country of origin of the product (e.g., 'CN', 'VN', 'GLO')
  */
-const calculateProcessEmissions = (productManufacturingProcess) => {
+const calculateProcessEmissions = (productManufacturingProcess, countryOfOrigin = 'GLO') => {
+  // Country-specific electricity emission factors (kg CO2eq/kWh)
+  const countryEmissionFactors = {
+    'CN': 0.84,   // China
+    'VN': 0.63,   // Vietnam
+    'GLO': 0.68   // Global default
+  };
+  
+  // Get the appropriate emission factor based on country of origin
+  // Default to global if country not found
+  const emissionFactor = countryEmissionFactors[countryOfOrigin] || countryEmissionFactors['GLO'];
+  
+  logger.debug(`Using electricity emission factor for ${countryOfOrigin}: ${emissionFactor} kg CO2eq/kWh`);
+  
   return productManufacturingProcess.reduce((total, materialProcess) => {
     const processTotal = materialProcess.manufacturingProcesses.reduce(
       (sum, processGroup) => {
         const groupTotal = processGroup.processes.reduce(
           (innerSum, processName) => {
             // Check if the material and process exist in manufacturingProcesses
-            let emissionValue = 0;
+            let energyValue = 0; // Energy value in kWh/kg
             
             if (
               manufacturingProcesses[processGroup.category] && 
               manufacturingProcesses[processGroup.category][processName]
             ) {
-              emissionValue = manufacturingProcesses[processGroup.category][processName];
+              energyValue = manufacturingProcesses[processGroup.category][processName];
             } else {
               // Log when process not found
               logger.debug(`Process ${processName} not found for ${processGroup.category} in manufacturingProcesses. Using 0.`);
             }
             
-            // Calculate and store the emission factor
-            const calculatedEmission = emissionValue * materialProcess.weight;
+            // Calculate emissions: energy (kWh/kg) * weight (kg) * emission factor (kg CO2eq/kWh)
+            const calculatedEmission = energyValue * materialProcess.weight * emissionFactor;
+            
+            // Store the emission factor for reference
+            if (!materialProcess.processEmissions) {
+              materialProcess.processEmissions = [];
+            }
+            
+            materialProcess.processEmissions.push({
+              process: processName,
+              energyValue: energyValue,
+              emissionFactor: emissionFactor,
+              weight: materialProcess.weight,
+              emission: calculatedEmission
+            });
+            
             materialProcess.emissionFactor = calculatedEmission;
             
             return innerSum + calculatedEmission;
@@ -138,7 +167,8 @@ const createProduct = async (req) => {
   );
   
   const co2EmissionFromProcesses = calculateProcessEmissions(
-    productManufacturingProcess
+    productManufacturingProcess,
+    countryOfOrigin
   );
 
   const co2Emission = co2EmissionRawMaterials + co2EmissionFromProcesses;
