@@ -370,7 +370,7 @@
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Plastic",
-        "specificMaterial": "Polypropylene (PP)",
+        "specificMaterial": "Polypropylene",
         "EmissionFactor": 3.02,
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for polypropylene, granulate"
