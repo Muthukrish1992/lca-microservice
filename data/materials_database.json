@@ -226,7 +226,7 @@
     {
         "countryOfOrigin": "RoW",
         "materialClass": "Wood",
-        "specificMaterial": "MDF (Medium Density Fiber Board)",
+        "specificMaterial": "MDF",
         "EmissionFactor": 0.98,
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for medium density fibreboard"
@@ -234,7 +234,7 @@
     {
         "countryOfOrigin": "RER",
         "materialClass": "Wood",
-        "specificMaterial": "MDF (Medium Density Fiber Board)",
+        "specificMaterial": "MDF",
         "EmissionFactor": 0.74,
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for medium density fibreboard"
@@ -261,7 +261,7 @@
         "specificMaterial": "Aluminum",
         "EmissionFactor": 9.94,
         "EF_Source": "Ecoinvent",
-        "Source_Dataset_Name": "market for aluminium, primary, ingot"
+        "Source_Dataset_Name": "market for aluminum, primary, ingot"
     },
     {
         "countryOfOrigin": "RoW",
@@ -269,7 +269,7 @@
         "specificMaterial": "Aluminum",
         "EmissionFactor": 20.9,
         "EF_Source": "Ecoinvent",
-        "Source_Dataset_Name": "market for aluminium, primary, ingot"
+        "Source_Dataset_Name": "market for aluminum, primary, ingot"
     },
     {
         "countryOfOrigin": "IAI Area, North America",
@@ -277,7 +277,7 @@
         "specificMaterial": "Aluminum",
         "EmissionFactor": 10.8,
         "EF_Source": "Ecoinvent",
-        "Source_Dataset_Name": "market for aluminium, primary, ingot"
+        "Source_Dataset_Name": "market for aluminum, primary, ingot"
     },
     {
         "countryOfOrigin": "GLO",
@@ -378,7 +378,7 @@
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Plastic",
-        "specificMaterial": "Acrylonitrile Butadiene Styrene (ABS)",
+        "specificMaterial": "Acrylonitrile Butadiene Styrene",
         "EmissionFactor": 4.6,
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for acrylonitrile-butadiene-styrene copolymer"
@@ -402,7 +402,7 @@
     {
         "countryOfOrigin": "RoW",
         "materialClass": "Plastic",
-        "specificMaterial": "Polycarbonate (PC)",
+        "specificMaterial": "Polycarbonate",
         "EmissionFactor": 6.11,
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for polycarbonate"
@@ -410,7 +410,7 @@
     {
         "countryOfOrigin": "RER",
         "materialClass": "Plastic",
-        "specificMaterial": "Polycarbonate (PC)",
+        "specificMaterial": "Polycarbonate",
         "EmissionFactor": 4.99,
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for polycarbonate"
@@ -418,7 +418,7 @@
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Plastic",
-        "specificMaterial": "High-Density Polyethylene (HDPE)",
+        "specificMaterial": "High-Density Polyethylene",
         "EmissionFactor": 2.8,
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for polyethylene, high density, granulat"
@@ -426,7 +426,7 @@
     {
         "countryOfOrigin": "RoW",
         "materialClass": "Plastic",
-        "specificMaterial": "Polyurethane (PU)",
+        "specificMaterial": "Polyurethane",
         "EmissionFactor": 6,
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for polyurethane, rigid foam"
@@ -434,7 +434,7 @@
     {
         "countryOfOrigin": "RER",
         "materialClass": "Plastic",
-        "specificMaterial": "Polyurethane (PU)",
+        "specificMaterial": "Polyurethane",
         "EmissionFactor": 4.22,
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for polyurethane, rigid foam"
@@ -458,7 +458,7 @@
     {
         "countryOfOrigin": "RoW",
         "materialClass": "Plastic",
-        "specificMaterial": "Nylon (Polyamide)",
+        "specificMaterial": "Nylon Polyamide",
         "EmissionFactor": 8.23,
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for nylon 6-6"
@@ -466,7 +466,7 @@
     {
         "countryOfOrigin": "RER",
         "materialClass": "Plastic",
-        "specificMaterial": "Nylon (Polyamide)",
+        "specificMaterial": "Nylon Polyamide",
         "EmissionFactor": 8.16,
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for nylon 6-6"
@@ -474,7 +474,7 @@
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Plastic",
-        "specificMaterial": "Polyethylene Terephthalate (PET)",
+        "specificMaterial": "Polyethylene Terephthalate",
         "EmissionFactor": 3.53,
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for polyethylene terephthalate, granulate, bottle grade"
@@ -482,7 +482,7 @@
     {
         "countryOfOrigin": "RoW",
         "materialClass": "Plastic",
-        "specificMaterial": "Expanded Polystyrene (EPS)",
+        "specificMaterial": "Expanded Polystyrene",
         "EmissionFactor": 3.54,
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "polystyrene production, expandable"
@@ -490,7 +490,7 @@
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Plastic",
-        "specificMaterial": "Low-Density Polyethylene (LDPE)",
+        "specificMaterial": "Low-Density Polyethylene",
         "EmissionFactor": 3.53,
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for polyethylene, low density, granulate"
@@ -498,7 +498,7 @@
     {
         "countryOfOrigin": "RoW",
         "materialClass": "Plastic",
-        "specificMaterial": "Melamine-Formaldehyde (MF)",
+        "specificMaterial": "Melamine-Formaldehyde",
         "EmissionFactor": 5.99,
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for melamine formaldehyde resin"
@@ -506,7 +506,7 @@
     {
         "countryOfOrigin": "RER",
         "materialClass": "Plastic",
-        "specificMaterial": "Melamine-Formaldehyde (MF)",
+        "specificMaterial": "Melamine-Formaldehyde",
         "EmissionFactor": 5.63,
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for melamine formaldehyde resin"
@@ -514,7 +514,7 @@
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Plastic",
-        "specificMaterial": "Polyvinyl Butyral (PVB)",
+        "specificMaterial": "Polyvinyl Butyral",
         "EmissionFactor": 2.4935,
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for ethylene vinyl acetate copolymer"
@@ -522,7 +522,7 @@
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Plastic",
-        "specificMaterial": "Thermoplastic Elastomers (TPE)",
+        "specificMaterial": "Thermoplastic Elastomers",
         "EmissionFactor": 3.4935,
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for ethylene vinyl acetate copolymer"
@@ -610,7 +610,7 @@
     {
         "countryOfOrigin": "SE",
         "materialClass": "Glass",
-        "specificMaterial": "Insulated Glass Units (IGUs)",
+        "specificMaterial": "Insulated Glass Units",
         "EmissionFactor": 23.91,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Insulated glass"
@@ -658,7 +658,7 @@
     {
         "countryOfOrigin": "CN",
         "materialClass": "Fabric",
-        "specificMaterial": "Mesh (Polyester)",
+        "specificMaterial": "Mesh Polyester",
         "EmissionFactor": 4.97,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Dope Dyed Polyester Knitted Fabric"
@@ -666,7 +666,7 @@
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Fabric",
-        "specificMaterial": "Leather (Genuine)",
+        "specificMaterial": "Leather Genuine",
         "EmissionFactor": 17.72,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "PURE-ANILINE/NUBUCK LEATHER"
@@ -674,7 +674,7 @@
     {
         "countryOfOrigin": "Italy-Europe-Central",
         "materialClass": "Fabric",
-        "specificMaterial": "Faux Leather (PU)",
+        "specificMaterial": "Faux Leather",
         "EmissionFactor": 5.36,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "synthetic leathers through the coating of PVC and PU,"
@@ -714,7 +714,7 @@
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Fabric",
-        "specificMaterial": "Rayon (Viscose)",
+        "specificMaterial": "Rayon Viscose",
         "EmissionFactor": 5.51,
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "Global (GLO)"
@@ -794,7 +794,7 @@
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Leather",
-        "specificMaterial": "Faux Leather (PU Leather)",
+        "specificMaterial": "Faux Leather",
         "EmissionFactor": 12.7595,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Referred PURE-ANILINE"
@@ -874,7 +874,7 @@
     {
         "countryOfOrigin": "SE",
         "materialClass": "Laminate",
-        "specificMaterial": "High-Pressure Laminate (HPL)",
+        "specificMaterial": "High-Pressure Laminate",
         "EmissionFactor": 1.25,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "HPL (Dekorative High Pressure Laminates)"
@@ -882,7 +882,7 @@
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Laminate",
-        "specificMaterial": "Low-Pressure Laminate (LPL)",
+        "specificMaterial": "Low-Pressure Laminate",
         "EmissionFactor": 8.9829,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Reffered: High Pressure Laminates"
@@ -890,7 +890,7 @@
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Laminate",
-        "specificMaterial": "Thermally Fused Laminate (TFL)",
+        "specificMaterial": "Thermally Fused Laminate",
         "EmissionFactor": 8.9829,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Reffered: High Pressure Laminates"
@@ -917,7 +917,7 @@
         "specificMaterial": "Glossy Laminate",
         "EmissionFactor": 8.9829,
         "EF_Source": "EPD",
-        "Source_Dataset_Name": "Reffered: High Pressure Laminates"
+        "Source_Dataset_Name": "Referred: High Pressure Laminates"
     },
     {
         "countryOfOrigin": "GLO",
@@ -925,7 +925,7 @@
         "specificMaterial": "Matte Laminate",
         "EmissionFactor": 8.9829,
         "EF_Source": "EPD",
-        "Source_Dataset_Name": "Reffered: High Pressure Laminates"
+        "Source_Dataset_Name": "Referred: High Pressure Laminates"
     },
     {
         "countryOfOrigin": "GLO",
@@ -933,7 +933,7 @@
         "specificMaterial": "Solid Color Laminate",
         "EmissionFactor": 8.9829,
         "EF_Source": "EPD",
-        "Source_Dataset_Name": "Reffered: High Pressure Laminates"
+        "Source_Dataset_Name": "Referred: High Pressure Laminates"
     },
     {
         "countryOfOrigin": "GLO",
@@ -941,7 +941,7 @@
         "specificMaterial": "Antimicrobial Laminate",
         "EmissionFactor": 8.9829,
         "EF_Source": "EPD",
-        "Source_Dataset_Name": "Reffered: High Pressure Laminates"
+        "Source_Dataset_Name": "Referred: High Pressure Laminates"
     },
     {
         "countryOfOrigin": "GLO",
@@ -949,7 +949,7 @@
         "specificMaterial": "Fire-Retardant Laminate",
         "EmissionFactor": 8.9829,
         "EF_Source": "EPD",
-        "Source_Dataset_Name": "Reffered: High Pressure Laminates"
+        "Source_Dataset_Name": "Referred: High Pressure Laminates"
     },
     {
         "countryOfOrigin": "GLO",
@@ -973,7 +973,7 @@
         "specificMaterial": "Digital Laminate",
         "EmissionFactor": 8.9829,
         "EF_Source": "EPD",
-        "Source_Dataset_Name": "Reffered: High Pressure Laminates"
+        "Source_Dataset_Name": "Referred: High Pressure Laminates"
     },
     {
         "countryOfOrigin": "GLO",
@@ -981,7 +981,7 @@
         "specificMaterial": "Eco-Friendly Laminate",
         "EmissionFactor": 8.9829,
         "EF_Source": "EPD",
-        "Source_Dataset_Name": "Reffered: High Pressure Laminates"
+        "Source_Dataset_Name": "Referred: High Pressure Laminates"
     },
     {
         "countryOfOrigin": "GLO",
@@ -1042,7 +1042,7 @@
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Mesh",
-        "specificMaterial": "Spacer Mesh (3D Mesh)",
+        "specificMaterial": "Spacer Mesh",
         "EmissionFactor": 5.097,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Referred NYLON"
@@ -1109,7 +1109,7 @@
         "specificMaterial": "Polyurethane Foam",
         "EmissionFactor": 7.15,
         "EF_Source": "EPD",
-        "Source_Dataset_Name": "Flexible Polyurethane (PU) Foam - TDI-based PU foam without FR, low density 18 to 25 kg/m³"
+        "Source_Dataset_Name": "Flexible Polyurethane Foam - TDI-based PU foam without FR, low density 18 to 25 kg/m³"
     },
     {
         "countryOfOrigin": "BE",
@@ -1117,7 +1117,7 @@
         "specificMaterial": "Memory Foam",
         "EmissionFactor": 6.9,
         "EF_Source": "EPD",
-        "Source_Dataset_Name": "Flexible Polyurethane (PU) Foam -  MDI-based viscoelastic PU foam without FR, density 45 to 53 kg/m³"
+        "Source_Dataset_Name": "Flexible Polyurethane Foam -  MDI-based viscoelastic PU foam without FR, density 45 to 53 kg/m³"
     },
     {
         "countryOfOrigin": "BE",
@@ -1125,7 +1125,7 @@
         "specificMaterial": "Latex Foam",
         "EmissionFactor": 6.9,
         "EF_Source": "EPD",
-        "Source_Dataset_Name": "Flexible Polyurethane (PU) Foam -  MDI-based viscoelastic PU foam without FR, density 45 to 53 kg/m³"
+        "Source_Dataset_Name": "Flexible Polyurethane Foam -  MDI-based viscoelastic PU foam without FR, density 45 to 53 kg/m³"
     },
     {
         "countryOfOrigin": "BE",
@@ -1133,7 +1133,7 @@
         "specificMaterial": "Low-Density Foam",
         "EmissionFactor": 7.15,
         "EF_Source": "EPD",
-        "Source_Dataset_Name": "Flexible Polyurethane (PU) Foam - TDI-based PU foam without FR, low density 18 to 25 kg/m³"
+        "Source_Dataset_Name": "Flexible Polyurethane Foam - TDI-based PU foam without FR, low density 18 to 25 kg/m³"
     },
     {
         "countryOfOrigin": "BE",
@@ -1141,7 +1141,7 @@
         "specificMaterial": "Gel-Infused Foam",
         "EmissionFactor": 7.15,
         "EF_Source": "EPD",
-        "Source_Dataset_Name": "Flexible Polyurethane (PU) Foam - TDI-based PU foam without FR, low density 18 to 25 kg/m³"
+        "Source_Dataset_Name": "Flexible Polyurethane Foam - TDI-based PU foam without FR, low density 18 to 25 kg/m³"
     },
     {
         "countryOfOrigin": "BE",
@@ -1149,7 +1149,7 @@
         "specificMaterial": "Egg Crate Foam",
         "EmissionFactor": 7.15,
         "EF_Source": "EPD",
-        "Source_Dataset_Name": "Flexible Polyurethane (PU) Foam - TDI-based PU foam without FR, low density 18 to 25 kg/m³"
+        "Source_Dataset_Name": "Flexible Polyurethane Foam - TDI-based PU foam without FR, low density 18 to 25 kg/m³"
     },
     {
         "countryOfOrigin": "BE",
@@ -1157,7 +1157,7 @@
         "specificMaterial": "Rebond Foam",
         "EmissionFactor": 7.15,
         "EF_Source": "EPD",
-        "Source_Dataset_Name": "Flexible Polyurethane (PU) Foam - TDI-based PU foam without FR, low density 18 to 25 kg/m³"
+        "Source_Dataset_Name": "Flexible Polyurethane Foam - TDI-based PU foam without FR, low density 18 to 25 kg/m³"
     },
     {
         "countryOfOrigin": "BE",
@@ -1165,7 +1165,7 @@
         "specificMaterial": "Convoluted Foam",
         "EmissionFactor": 7.15,
         "EF_Source": "EPD",
-        "Source_Dataset_Name": "Flexible Polyurethane (PU) Foam - TDI-based PU foam without FR, low density 18 to 25 kg/m³"
+        "Source_Dataset_Name": "Flexible Polyurethane Foam - TDI-based PU foam without FR, low density 18 to 25 kg/m³"
     },
     {
         "countryOfOrigin": "BE",
@@ -1173,7 +1173,7 @@
         "specificMaterial": "Open-Cell Foam",
         "EmissionFactor": 7.15,
         "EF_Source": "EPD",
-        "Source_Dataset_Name": "Flexible Polyurethane (PU) Foam - TDI-based PU foam without FR, low density 18 to 25 kg/m³"
+        "Source_Dataset_Name": "Flexible Polyurethane Foam - TDI-based PU foam without FR, low density 18 to 25 kg/m³"
     },
     {
         "countryOfOrigin": "BE",
@@ -1181,7 +1181,7 @@
         "specificMaterial": "Closed-Cell Foam",
         "EmissionFactor": 7.15,
         "EF_Source": "EPD",
-        "Source_Dataset_Name": "Flexible Polyurethane (PU) Foam - TDI-based PU foam without FR, low density 18 to 25 kg/m³"
+        "Source_Dataset_Name": "Flexible Polyurethane Foam - TDI-based PU foam without FR, low density 18 to 25 kg/m³"
     },
     {
         "countryOfOrigin": "BE",
@@ -1205,7 +1205,7 @@
         "specificMaterial": "Sculpted Foam",
         "EmissionFactor": 7.15,
         "EF_Source": "EPD",
-        "Source_Dataset_Name": "Flexible Polyurethane (PU) Foam - TDI-based PU foam without FR, low density 18 to 25 kg/m³"
+        "Source_Dataset_Name": "Flexible Polyurethane Foam - TDI-based PU foam without FR, low density 18 to 25 kg/m³"
     },
     {
         "countryOfOrigin": "CN",
@@ -1221,7 +1221,7 @@
         "specificMaterial": "Granite",
         "EmissionFactor": 0.07,
         "EF_Source": "EPD",
-        "Source_Dataset_Name": "Natural stone products of granite and limestone –"
+        "Source_Dataset_Name": "Natural stone products of granite and limestone"
     },
     {
         "countryOfOrigin": "EG",
@@ -1261,7 +1261,7 @@
         "specificMaterial": "Soapstone",
         "EmissionFactor": 0.072,
         "EF_Source": "EPD",
-        "Source_Dataset_Name": "Referred to : Natural stone products of granite and limestone –"
+        "Source_Dataset_Name": "Referred to : Natural stone products of granite and limestone"
     },
     {
         "countryOfOrigin": "GLO",
@@ -1269,7 +1269,7 @@
         "specificMaterial": "Onyx",
         "EmissionFactor": 0.072,
         "EF_Source": "EPD",
-        "Source_Dataset_Name": "Referred to : Natural stone products of granite and limestone –"
+        "Source_Dataset_Name": "Referred to : Natural stone products of granite and limestone"
     },
     {
         "countryOfOrigin": "SE",
@@ -1285,7 +1285,7 @@
         "specificMaterial": "Travertine",
         "EmissionFactor": 0.072,
         "EF_Source": "EPD",
-        "Source_Dataset_Name": "Referred to : Natural stone products of granite and limestone –"
+        "Source_Dataset_Name": "Referred to : Natural stone products of granite and limestone"
     },
     {
         "countryOfOrigin": "RoW",
@@ -1349,6 +1349,6 @@
         "specificMaterial": "Jasper",
         "EmissionFactor": 0.072,
         "EF_Source": "EPD",
-        "Source_Dataset_Name": "Referred to : Natural stone products of granite and limestone –"
+        "Source_Dataset_Name": "Referred to : Natural stone products of granite and limestone"
     }
 ]
