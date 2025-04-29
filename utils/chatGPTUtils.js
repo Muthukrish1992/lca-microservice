@@ -756,7 +756,6 @@ const classifyBOMBasic = async (
     name,
     description,
     weight,
-    imageUrl,
   });
 
   if (cacheClassifyBOM.has(keyClassifyBOM)) {
