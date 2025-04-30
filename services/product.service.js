@@ -81,9 +81,17 @@ const calculateRawMaterialEmissions = (materials, countryOfOrigin) => {
 const calculateProcessEmissions = (productManufacturingProcess, countryOfOrigin = 'GLO') => {
   // Country-specific electricity emission factors (kg CO2eq/kWh)
   const countryEmissionFactors = {
-    'CN': 0.84,   // China
-    'VN': 0.63,   // Vietnam
-    'GLO': 0.68   // Global default
+    'CN': 0.835,   // China
+    'VN': 0.629,   // Vietnam
+    'GLO': 0.677,  // Global default
+    'CZ': 0.662,   // Czech Republic
+    'FR': 0.077,   // France
+    'NL': 0.442,   // Netherlands
+    'PL': 0.960,   // Poland
+    'ES': 0.202,   // Spain
+    'TW': 0.771,   // Taiwan
+    'US': 0.482,   // United States
+    'UK': 0.280,   // United Kingdom
   };
   
   // Get the appropriate emission factor based on country of origin
