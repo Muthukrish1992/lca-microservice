@@ -2,28 +2,22 @@ const fs = require('fs');
 const path = require('path');
 
 /**
- * Merge billOfMaterials.json with data from materials_database.json
+ * Generate a formatted materials list from materials_database.json
  */
-function mergeBomData() {
+function generateMaterialsList() {
   // Paths
   const dataDir = path.join(__dirname, '..', 'data');
   const materialsDbPath = path.join(dataDir, 'materials_database.json');
-  const outputPath = path.join(dataDir, 'billOfMaterials_updated.json');
+  const outputPath = path.join(dataDir, 'formatted_materials.json');
 
   try {
     // Read source files
     const materialsDb = JSON.parse(fs.readFileSync(materialsDbPath, 'utf8'));
-    let ecoSolutiseDb = [];
-    
-    
-    
-    // Combine both material sources
-    const allMaterials = [...materialsDb, ...ecoSolutiseDb];
     
     // Group materials by materialClass
     const materialsByClass = {};
     
-    allMaterials.forEach(material => {
+    materialsDb.forEach(material => {
       const materialClass = material.materialClass;
       const specificMaterial = material.specificMaterial;
       
@@ -42,26 +36,13 @@ function mergeBomData() {
       result[materialClass] = Array.from(materials).sort();
     }
     
-    // Merge with existing data
-    // Keep existing categories not in the materials database
-    // for (const [materialClass, materials] of Object.entries(existingBom)) {
-    //   if (!result[materialClass]) {
-    //     result[materialClass] = materials;
-    //   } else {
-    //     // Add existing materials not in the database
-    //     const existingSet = new Set(result[materialClass]);
-    //     materials.forEach(material => existingSet.add(material));
-    //     result[materialClass] = Array.from(existingSet).sort();
-    //   }
-    // }
-    
     // Write result to a new file
     fs.writeFileSync(
       outputPath, 
       JSON.stringify(result, null, 2)
     );
     
-    console.log(`Bill of Materials updated successfully.`);
+    console.log(`Formatted materials list generated successfully.`);
     console.log(`Materials per category:`);
     
     // Print statistics
@@ -77,14 +58,14 @@ function mergeBomData() {
     
     return result;
   } catch (error) {
-    console.error('Error merging BOM data:', error);
+    console.error('Error generating materials list:', error);
     throw error;
   }
 }
 
 // Run the script
 try {
-  mergeBomData();
+  generateMaterialsList();
 } catch (error) {
   console.error('Script failed:', error);
   process.exit(1);

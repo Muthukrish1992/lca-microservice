@@ -2,7 +2,7 @@ const logger = require('../utils/logger');
 const { HTTP_STATUS, formatResponse } = require('../utils/http');
 const { getAccountPlan } = require('../services/account.service');
 const productCategories = require('../data/productCategories.json');
-const billOfMaterials = require('../data/billOfMaterials.json');
+const materialsDatabase = require('../data/materials_database.json');
 const transportDatabase = require('../data/transport_database.json');
 const transportDatabaseBasic = require('../data/country_distances.json');
 const portDistances = require('../data/port_distances.json');
@@ -401,9 +401,25 @@ const getBillOfMaterials = (req, res) => {
     // Get the category parameter from query string if it exists
     const category = req.query.category;
     
+    // Convert materials database to the expected format (grouped by materialClass)
+    const materialsByClass = {};
+    
+    materialsDatabase.forEach(material => {
+      if (!materialsByClass[material.materialClass]) {
+        materialsByClass[material.materialClass] = new Set();
+      }
+      materialsByClass[material.materialClass].add(material.specificMaterial);
+    });
+    
+    // Convert Sets to sorted arrays
+    const formattedMaterials = {};
+    for (const [materialClass, materials] of Object.entries(materialsByClass)) {
+      formattedMaterials[materialClass] = Array.from(materials).sort();
+    }
+    
     if (category) {
       // If a specific category is requested
-      if (!billOfMaterials[category]) {
+      if (!formattedMaterials[category]) {
         return res.status(HTTP_STATUS.NOT_FOUND).json(formatResponse(
           false,
           null,
@@ -414,12 +430,12 @@ const getBillOfMaterials = (req, res) => {
       // Return materials for the requested category
       return res.status(HTTP_STATUS.OK).json(formatResponse(
         true, 
-        { category, materials: billOfMaterials[category] }
+        { category, materials: formattedMaterials[category] }
       ));
     }
     
     // If no category specified, return the full structure
-    res.status(HTTP_STATUS.OK).json(formatResponse(true, billOfMaterials));
+    res.status(HTTP_STATUS.OK).json(formatResponse(true, formattedMaterials));
   } catch (error) {
     logger.error('Error retrieving bill of materials:', error);
     res.status(HTTP_STATUS.INTERNAL_SERVER_ERROR).json(formatResponse(

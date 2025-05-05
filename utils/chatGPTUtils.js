@@ -2,7 +2,7 @@ const axios = require("axios");
 require("dotenv").config();
 
 const productCategories = require("../data/productCategories.json");
-const billOfMaterials = require("../data/billOfMaterials.json");
+const materialsDatabase = require("../data/materials_database.json");
 const manufacturingProcesses = require("../data/manufacturingProcesses.json");
 const materialsDatabaseBasic = require("../data/materials_database_basic.json");
 const manufacturingProcessesBasic = require("../data/manufacturingProcesses_basic.json");
@@ -602,10 +602,22 @@ function findClosestMatch(input, validOptions, options = {}) {
     : matchValue;
 }
 
-// Function to format the BOM data as a string for the prompt
+// Function to format the materials database as a string for the prompt
 const formatBOMList = () => {
-  return Object.entries(billOfMaterials)
-    .map(([category, materials]) => `- ${category}: ${materials.join(", ")}`)
+  // Group materials by materialClass
+  const materialsByClass = {};
+  
+  materialsDatabase.forEach(material => {
+    if (!materialsByClass[material.materialClass]) {
+      materialsByClass[material.materialClass] = new Set();
+    }
+    materialsByClass[material.materialClass].add(material.specificMaterial);
+  });
+  
+  // Convert to the required format
+  return Object.entries(materialsByClass)
+    .map(([materialClass, specificMaterials]) => 
+      `- ${materialClass}: ${Array.from(specificMaterials).join(", ")}`)
     .join("\n");
 };
 
@@ -744,7 +756,6 @@ const classifyBOMBasic = async (
     name,
     description,
     weight,
-    imageUrl,
   });
 
   if (cacheClassifyBOM.has(keyClassifyBOM)) {
@@ -921,9 +932,6 @@ You are an assistant tasked with classifying products based on their description
 - **Description**: ${description}
 - **Total Weight**: ${weight} kg
 
-### **Available Materials**:
-${bomList}
-
 ### **Your Task**:
 1. Analyze the text description and image (if provided) to determine relevant materials.
 2. You MUST ONLY use material classes and specific materials EXACTLY as they appear in the list above.
@@ -943,7 +951,7 @@ ${bomList}
 - You MUST ONLY select materialClass and specificMaterial values EXACTLY as they appear in the list above.
 - DO NOT invent new materials or modify existing ones (e.g., do not use "Particleboard" if it's not in the list).
 - For example, if you think a product contains "Particleboard" but it's not in the list, choose the closest match from the list (like "MDF").
-- Every materialClass must be one of these exact categories: ${Object.keys(billOfMaterials).join(', ')}
+- Every materialClass must be one of these exact categories: ${[...new Set(materialsDatabase.map(material => material.materialClass))].join(', ')}
 - Every specificMaterial must appear exactly as listed under its category in the available materials list.
 - DO NOT add descriptive terms like "Solid Oak" - use exactly "Oak" as it appears in the list.
 - If an image is provided, use it to refine material classification.
@@ -976,12 +984,16 @@ ${bomList}
 
     // Validate and adjust material categories
     result.forEach((item) => {
-      if (!billOfMaterials[item.materialClass]) {
+      // Get all unique material classes from the database
+      const availableMaterialClasses = [...new Set(materialsDatabase.map(material => material.materialClass))];
+      
+      // Check if the material class exists in the database
+      if (!availableMaterialClasses.includes(item.materialClass)) {
         console.log(`⚠️ Material class "${item.materialClass}" not found in database. Finding closest match...`);
         
         const materialMatch = findClosestMatch(
           item.materialClass,
-          Object.keys(billOfMaterials),
+          availableMaterialClasses,
           { 
             threshold: 0.3, 
             minScore: 0.2, 
@@ -1008,32 +1020,40 @@ ${bomList}
       }
       
       // Verify specific material is valid for this material class
-      if (item.specificMaterial && 
-          billOfMaterials[item.materialClass] && 
-          !billOfMaterials[item.materialClass].includes(item.specificMaterial)) {
+      if (item.specificMaterial) {
+        // Get all specific materials for this material class
+        const availableSpecificMaterials = [
+          ...new Set(
+            materialsDatabase
+              .filter(material => material.materialClass === item.materialClass)
+              .map(material => material.specificMaterial)
+          )
+        ];
         
-        console.log(`⚠️ Specific material "${item.specificMaterial}" not found in "${item.materialClass}" category. Finding closest match...`);
-        
-        const specificMatch = findClosestMatch(
-          item.specificMaterial,
-          billOfMaterials[item.materialClass],
-          { 
-            threshold: 0.3, 
-            minScore: 0.2, 
-            returnDetails: true,
-            normalizeInput: true
+        if (!availableSpecificMaterials.includes(item.specificMaterial)) {
+          console.log(`⚠️ Specific material "${item.specificMaterial}" not found in "${item.materialClass}" category. Finding closest match...`);
+          
+          const specificMatch = findClosestMatch(
+            item.specificMaterial,
+            availableSpecificMaterials,
+            { 
+              threshold: 0.3, 
+              minScore: 0.2, 
+              returnDetails: true,
+              normalizeInput: true
+            }
+          );
+          
+          const originalSpecificMaterial = item.specificMaterial;
+          item.specificMaterial = specificMatch.match;
+          
+          if (specificMatch.isExact) {
+            console.log(`✓ Found exact match for "${originalSpecificMaterial}": "${item.specificMaterial}"`);
+          } else if (specificMatch.isDefault) {
+            console.log(`⚠️ No good match found for "${originalSpecificMaterial}". Using default: "${item.specificMaterial}"`);
+          } else {
+            console.log(`🔄 Adjusted specific material from "${originalSpecificMaterial}" to "${item.specificMaterial}" (confidence: ${Math.round(specificMatch.score * 100)}%)`);
           }
-        );
-        
-        const originalSpecificMaterial = item.specificMaterial;
-        item.specificMaterial = specificMatch.match;
-        
-        if (specificMatch.isExact) {
-          console.log(`✓ Found exact match for "${originalSpecificMaterial}": "${item.specificMaterial}"`);
-        } else if (specificMatch.isDefault) {
-          console.log(`⚠️ No good match found for "${originalSpecificMaterial}". Using default: "${item.specificMaterial}"`);
-        } else {
-          console.log(`🔄 Adjusted specific material from "${originalSpecificMaterial}" to "${item.specificMaterial}" (confidence: ${Math.round(specificMatch.score * 100)}%)`);
         }
       }
     });

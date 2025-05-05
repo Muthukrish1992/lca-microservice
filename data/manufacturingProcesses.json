@@ -1,16 +1,8 @@
 {
   "Wood": {
-    "Cutting / CNC Machining": 0.910176,
-    "Planing / Shaping": 0.510976,
-    "Drilling / Routing": 0.095808,
-    "Sanding": 0.03720544,
-    "Surface Coating": 0.5291323417,
-    "Assembly": 0.02650688
+    "Whole process": 0.631
   },
   "Metal": {
-    "Forming": 0.15,
-    "Machining": 2.75,
-    "Joining": 0.15,
     "Whole process": 0.74
   },
   "Plastic": {
@@ -32,13 +24,7 @@
     "Whole process": 0.0038
   },
   "Stone": {
-    "Cutting / Sawing": 0.04,
-    "Surface Grinding / Polishing": 0.03,
-    "Edge Profiling / Chamfering": 0.08,
-    "Drilling / Slotting": 0.01,
-    "Sealing / Coating": 0.0015,
-    "Assembly / Mounting": 0.0035,
-    "Whole process": 0.00163
+   "Whole process": 0.0016
   },
   "Laminate": {
     "Whole process": 0.000358
