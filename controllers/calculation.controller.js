@@ -263,7 +263,7 @@ const getDistance = async (req, res) => {
  */
 const calculateTransportEmission = (req, res) => {
   const EMISSION_FACTORS = {
-    SeaFreight: 0.119,
+    SeaFreight: 0.1187026394094,
     RoadFreight: 0.16,
     RailFreight: 0.056,
     AirFreight: 0.801,
