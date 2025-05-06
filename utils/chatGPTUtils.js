@@ -923,6 +923,7 @@ const classifyBOM = async (
   }
 
   const bomList = formatBOMList();
+  description = description.replace(';',' ');
   const prompt = `
 You are an assistant tasked with classifying products based on their description and analyzing an image to determine the composition of materials.
 
@@ -948,10 +949,11 @@ You are an assistant tasked with classifying products based on their description
 ]
 
 ### **CRITICAL RULES**:
-- You MUST ONLY select materialClass and specificMaterial values EXACTLY as they appear in the list above.
+
 - DO NOT invent new materials or modify existing ones (e.g., do not use "Particleboard" if it's not in the list).
 - For example, if you think a product contains "Particleboard" but it's not in the list, choose the closest match from the list (like "MDF").
-- Every materialClass must be one of these exact categories: ${[...new Set(materialsDatabase.map(material => material.materialClass))].join(', ')}
+- Every materialClass must be one of these exact categories: ${bomList}
+- You MUST ONLY select materialClass and specificMaterial values EXACTLY as they appear in the list above.
 - Every specificMaterial must appear exactly as listed under its category in the available materials list.
 - DO NOT add descriptive terms like "Solid Oak" - use exactly "Oak" as it appears in the list.
 - If an image is provided, use it to refine material classification.
@@ -960,6 +962,8 @@ You are an assistant tasked with classifying products based on their description
  If a surface finish or lamination (e.g., melamine foil, powder coating, or plastic wrap) is mentioned, interpret it as a *process*, NOT a material. Do **not** include such coatings in the material breakdown unless the core material it is applied to is listed.
 - For example, if a "melamine-coated particleboard" is described but "Melamine" is not in the list, classify the core only (e.g., MDF if it's the closest match), and **do not** list "Melamine."
 `;
+
+console.log(prompt);
 
   
     const messages = [{ type: "text", text: prompt }];
