@@ -804,7 +804,31 @@ ${materialsList}
     const messages = [{ type: "text", text: prompt }];
 
     if (imageUrl) {
-      messages.push({ type: "image_url", image_url: { url: imageUrl } }); // ✅ Fixed structure
+      try {
+        // Validate image URL before adding to messages
+        if (!imageUrl.startsWith('http') && !imageUrl.startsWith('/')) {
+          console.log(`⚠️ Invalid image URL format: ${imageUrl}`);
+          throw new Error(`Invalid image URL format: ${imageUrl}`);
+        }
+        
+        // Skip local/development URLs that OpenAI can't access
+        if (imageUrl.includes('localhost') || imageUrl.includes('127.0.0.1') || imageUrl.includes(':5000')) {
+          console.log(`⚠️ Skipping local image URL: ${imageUrl}`);
+          console.log(`Local images cannot be accessed by OpenAI API. Proceeding without image.`);
+          // Don't add the image to messages
+        } else {
+          // Format URLs correctly based on whether they're absolute or relative
+          const formattedUrl = imageUrl.startsWith('/') 
+            ? `${process.env.BASE_URL || 'http://localhost:3000'}${imageUrl}`
+            : imageUrl;
+          
+          console.log(`🖼️ Using image URL: ${formattedUrl}`);
+          messages.push({ type: "image_url", image_url: { url: formattedUrl } });
+        }
+      } catch (error) {
+        console.error(`Failed to add image to request: ${error.message}`);
+        // Continue without the image rather than failing completely
+      }
     }
 
     const response = await makeOpenAIRequestWithRetry(async () => {
@@ -816,8 +840,16 @@ ${materialsList}
       });
     });
 
-    const result = JSON.parse(response.choices[0].message.content).bom; // ✅ Fixed response parsing
-
+    let result;
+    try {
+      result = JSON.parse(response.choices[0].message.content).bom;
+      console.log(`✅ Successfully parsed BOM response`);
+    } catch (parseError) {
+      console.error(`❌ Failed to parse BOM response: ${parseError.message}`);
+      console.error(`Response content: ${response.choices[0].message.content}`);
+      throw new Error("Failed to parse BOM response from API. Invalid JSON format.");
+    }
+    
     updateAITokens(req, response.usage.total_tokens);
 
     // Validate and adjust material categories
@@ -976,7 +1008,31 @@ console.log(prompt);
     const messages = [{ type: "text", text: prompt }];
 
     if (imageUrl) {
-      messages.push({ type: "image_url" , image_url: { url: imageUrl } }); // ✅ Fixed structure
+      try {
+        // Validate image URL before adding to messages
+        if (!imageUrl.startsWith('http') && !imageUrl.startsWith('/')) {
+          console.log(`⚠️ Invalid image URL format: ${imageUrl}`);
+          throw new Error(`Invalid image URL format: ${imageUrl}`);
+        }
+        
+        // Skip local/development URLs that OpenAI can't access
+        if (imageUrl.includes('localhost') || imageUrl.includes('127.0.0.1') || imageUrl.includes(':5000')) {
+          console.log(`⚠️ Skipping local image URL: ${imageUrl}`);
+          console.log(`Local images cannot be accessed by OpenAI API. Proceeding without image.`);
+          // Don't add the image to messages
+        } else {
+          // Format URLs correctly based on whether they're absolute or relative
+          const formattedUrl = imageUrl.startsWith('/') 
+            ? `${process.env.BASE_URL || 'http://localhost:3000'}${imageUrl}`
+            : imageUrl;
+          
+          console.log(`🖼️ Using image URL: ${formattedUrl}`);
+          messages.push({ type: "image_url", image_url: { url: formattedUrl } });
+        }
+      } catch (error) {
+        console.error(`Failed to add image to request: ${error.message}`);
+        // Continue without the image rather than failing completely
+      }
     }
 
     const response = await makeOpenAIRequestWithRetry(async () => {
@@ -988,9 +1044,16 @@ console.log(prompt);
       });
     });
 
-    const result = JSON.parse(response.choices[0].message.content).bom; // ✅ Fixed response parsing
-    console.log(`✅ Received AI bill of materials response: ${JSON.stringify(result)}`);
-
+    let result;
+    try {
+      result = JSON.parse(response.choices[0].message.content).bom;
+      console.log(`✅ Received AI bill of materials response: ${JSON.stringify(result)}`);
+    } catch (parseError) {
+      console.error(`❌ Failed to parse BOM response: ${parseError.message}`);
+      console.error(`Response content: ${response.choices[0].message.content}`);
+      throw new Error("Failed to parse BOM response from API. Invalid JSON format.");
+    }
+    
     updateAITokens(req, response.usage.total_tokens);
 
     // Validate and adjust material categories
