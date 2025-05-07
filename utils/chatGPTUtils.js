@@ -923,6 +923,7 @@ const classifyBOM = async (
   }
 
   const bomList = formatBOMList();
+  description = description.replace(';',' ');
   const prompt = `
 You are an assistant tasked with classifying products based on their description and analyzing an image to determine the composition of materials.
 
@@ -934,11 +935,14 @@ You are an assistant tasked with classifying products based on their description
 
 ### **Your Task**:
 1. Analyze the text description and image (if provided) to determine relevant materials.
-2. You MUST ONLY use material classes and specific materials EXACTLY as they appear in the list above.
-3. Distribute the total weight (${weight} kg) proportionally across these materials.
-4. Ensure the total weight of all materials adds up **exactly** to ${weight} kg.
-5. Return the result **strictly as a valid JSON array** in the following format:
-
+2. Pay close attention to all parts of the product details, including the name, description, and material fields, as they may each indicate distinct materials.
+3. You MUST ONLY use material classes and specific materials EXACTLY as they appear in the list above.
+4. Identify materials based on both explicit fields and any implied mentions in the product name or description.
+5. Distribute the total weight realistically across these materials, applying typical engineering assumptions where needed.
+6. Where materials are not fully specified, apply logical assumptions based on standard industry practices (e.g., assume steel frames for shelving or racking system).
+7. Ensure the total weight of all materials adds up **exactly** to ${weight} kg.
+8. “For each material, provide a brief reasoning (1–2 sentences) explaining why the material was included and how its weight was estimated.”,
+9. Return the result **strictly as a valid JSON array** in the following format:
 [
     {
         "materialClass": "<category>",
@@ -948,10 +952,11 @@ You are an assistant tasked with classifying products based on their description
 ]
 
 ### **CRITICAL RULES**:
-- You MUST ONLY select materialClass and specificMaterial values EXACTLY as they appear in the list above.
+
 - DO NOT invent new materials or modify existing ones (e.g., do not use "Particleboard" if it's not in the list).
 - For example, if you think a product contains "Particleboard" but it's not in the list, choose the closest match from the list (like "MDF").
-- Every materialClass must be one of these exact categories: ${[...new Set(materialsDatabase.map(material => material.materialClass))].join(', ')}
+- Every materialClass must be one of these exact categories: ${bomList}
+- You MUST ONLY select materialClass and specificMaterial values EXACTLY as they appear in the list above.
 - Every specificMaterial must appear exactly as listed under its category in the available materials list.
 - DO NOT add descriptive terms like "Solid Oak" - use exactly "Oak" as it appears in the list.
 - If an image is provided, use it to refine material classification.
@@ -960,6 +965,8 @@ You are an assistant tasked with classifying products based on their description
  If a surface finish or lamination (e.g., melamine foil, powder coating, or plastic wrap) is mentioned, interpret it as a *process*, NOT a material. Do **not** include such coatings in the material breakdown unless the core material it is applied to is listed.
 - For example, if a "melamine-coated particleboard" is described but "Melamine" is not in the list, classify the core only (e.g., MDF if it's the closest match), and **do not** list "Melamine."
 `;
+
+console.log(prompt);
 
   
     const messages = [{ type: "text", text: prompt }];
