@@ -51,6 +51,7 @@ const BOMItemSchema = z.object({
   materialClass: z.string(),
   specificMaterial: z.string(),
   weight: z.number(),
+  reasoning : z.string(),
 });
 
 // Define the Zod schema for BOM classification output
@@ -935,9 +936,9 @@ You are an assistant tasked with classifying products based on their description
 
 ### **Your Task**:
 1. Analyze the text description and image (if provided) to determine relevant materials.
-2. Pay close attention to all parts of the product details, including the name, description, and material fields, as they may each indicate distinct materials.
+2. Pay close attention to all parts of the product details, including the name, description, and material fields, as they may each indicate distinct materials. However, do not interpret color names or color fields as materials.
 3. You MUST ONLY use material classes and specific materials EXACTLY as they appear in the list above.
-4. Identify materials based on both explicit fields and any implied mentions in the product name or description.
+4. Identify materials based on both explicit fields and any implied mentions in the product name or description only when they describe the material construction or composition, not decorative finishes or colors.
 5. Distribute the total weight realistically across these materials, applying typical engineering assumptions where needed.
 6. Where materials are not fully specified, apply logical assumptions based on standard industry practices (e.g., assume steel frames for shelving or racking system).
 7. Ensure the total weight of all materials adds up **exactly** to ${weight} kg.
@@ -947,7 +948,8 @@ You are an assistant tasked with classifying products based on their description
     {
         "materialClass": "<category>",
         "specificMaterial": "<material>",
-        "weight": <weight>
+        "weight": <weight>,
+        "reasoning": "<brief explanation>"
     }
 ]
 
