@@ -935,13 +935,14 @@ You are an assistant tasked with classifying products based on their description
 
 ### **Your Task**:
 1. Analyze the text description and image (if provided) to determine relevant materials.
-2. You MUST ONLY use material classes and specific materials EXACTLY as they appear in the list above.
-3. Distribute the total weight (${weight} kg) proportionally across these materials.
-4. Distribute the total weight realistically across these materials , applying typical engineering assumptions where needed
-5. Where materials are not fully specified, apply logical assumptions based on standard industry practices ( eg. assume steel frames for shelving or racking system) 
-6. Ensure the total weight of all materials adds up **exactly** to ${weight} kg.
-7. Return the result **strictly as a valid JSON array** in the following format:
-
+2. Pay close attention to all parts of the product details, including the name, description, and material fields, as they may each indicate distinct materials.
+3. You MUST ONLY use material classes and specific materials EXACTLY as they appear in the list above.
+4. Identify materials based on both explicit fields and any implied mentions in the product name or description.
+5. Distribute the total weight realistically across these materials, applying typical engineering assumptions where needed.
+6. Where materials are not fully specified, apply logical assumptions based on standard industry practices (e.g., assume steel frames for shelving or racking system).
+7. Ensure the total weight of all materials adds up **exactly** to ${weight} kg.
+8. “For each material, provide a brief reasoning (1–2 sentences) explaining why the material was included and how its weight was estimated.”,
+9. Return the result **strictly as a valid JSON array** in the following format:
 [
     {
         "materialClass": "<category>",
