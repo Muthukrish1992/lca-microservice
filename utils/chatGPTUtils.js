@@ -977,7 +977,8 @@ Prioritize what is visually confirmed in the image if there is a discrepancy bet
 6. Where materials are not fully specified, apply logical assumptions based on standard industry practices (e.g., assume steel frames for shelving or racking system).
 7. Ensure the total weight of all materials adds up **exactly** to ${weight} kg.
 8. “For each material, provide a brief reasoning (1–2 sentences) explaining why the material was included and how its weight was estimated.”,
-9. Return the result **strictly as a valid JSON array** in the following format:
+9. If a color field or description contains a term that matches a material name (e.g., "Maple," "Oak"), you MUST treat it as a color only and MUST NOT treat it as a material unless the description explicitly states it is a material or part of the product structure.
+10. Return the result **strictly as a valid JSON array** in the following format:
 [
     {
         "materialClass": "<category>",
