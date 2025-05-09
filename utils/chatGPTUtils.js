@@ -51,6 +51,7 @@ const BOMItemSchema = z.object({
   materialClass: z.string(),
   specificMaterial: z.string(),
   weight: z.number(),
+  reasoning : z.string(),
 });
 
 // Define the Zod schema for BOM classification output
@@ -803,7 +804,31 @@ ${materialsList}
     const messages = [{ type: "text", text: prompt }];
 
     if (imageUrl) {
-      messages.push({ type: "image_url", image_url: { url: imageUrl } }); // ✅ Fixed structure
+      try {
+        // Validate image URL before adding to messages
+        if (!imageUrl.startsWith('http') && !imageUrl.startsWith('/')) {
+          console.log(`⚠️ Invalid image URL format: ${imageUrl}`);
+          throw new Error(`Invalid image URL format: ${imageUrl}`);
+        }
+        
+        // Skip local/development URLs that OpenAI can't access
+        if (imageUrl.includes('localhost') || imageUrl.includes('127.0.0.1') || imageUrl.includes(':5000')) {
+          console.log(`⚠️ Skipping local image URL: ${imageUrl}`);
+          console.log(`Local images cannot be accessed by OpenAI API. Proceeding without image.`);
+          // Don't add the image to messages
+        } else {
+          // Format URLs correctly based on whether they're absolute or relative
+          const formattedUrl = imageUrl.startsWith('/') 
+            ? `${process.env.BASE_URL || 'http://localhost:3000'}${imageUrl}`
+            : imageUrl;
+          
+          console.log(`🖼️ Using image URL: ${formattedUrl}`);
+          messages.push({ type: "image_url", image_url: { url: formattedUrl } });
+        }
+      } catch (error) {
+        console.error(`Failed to add image to request: ${error.message}`);
+        // Continue without the image rather than failing completely
+      }
     }
 
     const response = await makeOpenAIRequestWithRetry(async () => {
@@ -815,8 +840,16 @@ ${materialsList}
       });
     });
 
-    const result = JSON.parse(response.choices[0].message.content).bom; // ✅ Fixed response parsing
-
+    let result;
+    try {
+      result = JSON.parse(response.choices[0].message.content).bom;
+      console.log(`✅ Successfully parsed BOM response`);
+    } catch (parseError) {
+      console.error(`❌ Failed to parse BOM response: ${parseError.message}`);
+      console.error(`Response content: ${response.choices[0].message.content}`);
+      throw new Error("Failed to parse BOM response from API. Invalid JSON format.");
+    }
+    
     updateAITokens(req, response.usage.total_tokens);
 
     // Validate and adjust material categories
@@ -934,20 +967,24 @@ You are an assistant tasked with classifying products based on their description
 - **Total Weight**: ${weight} kg
 
 ### **Your Task**:
-1. Analyze the text description and image (if provided) to determine relevant materials.
-2. Pay close attention to all parts of the product details, including the name, description, and material fields, as they may each indicate distinct materials.
+1. Analyze the text description and image (if provided) to determine relevant materials. If the image shows materials that are missing from the description, you MUST add them to the BOM and allocate weight using realistic engineering assumptions.
+You MUST analyze the provided image alongside the text description to identify all visible materials used in the product. If the image shows materials that are not mentioned in the description, you MUST include them.
+Prioritize what is visually confirmed in the image if there is a discrepancy between text and image.
+2. Pay close attention to all parts of the product details, including the name, description, and material fields, as they may each indicate distinct materials. However, do not interpret color names or color fields as materials.
 3. You MUST ONLY use material classes and specific materials EXACTLY as they appear in the list above.
-4. Identify materials based on both explicit fields and any implied mentions in the product name or description.
+4. Identify materials based on both explicit fields and any implied mentions in the product name or description only when they describe the material construction or composition, not decorative finishes or colors.
 5. Distribute the total weight realistically across these materials, applying typical engineering assumptions where needed.
 6. Where materials are not fully specified, apply logical assumptions based on standard industry practices (e.g., assume steel frames for shelving or racking system).
 7. Ensure the total weight of all materials adds up **exactly** to ${weight} kg.
 8. “For each material, provide a brief reasoning (1–2 sentences) explaining why the material was included and how its weight was estimated.”,
-9. Return the result **strictly as a valid JSON array** in the following format:
+9. If a color field or description contains a term that matches a material name (e.g., "Maple," "Oak"), you MUST treat it as a color only and MUST NOT treat it as a material unless the description explicitly states it is a material or part of the product structure.
+10. Return the result **strictly as a valid JSON array** in the following format:
 [
     {
         "materialClass": "<category>",
         "specificMaterial": "<material>",
-        "weight": <weight>
+        "weight": <weight>,
+        "reasoning": "<brief explanation>"
     }
 ]
 
@@ -972,7 +1009,31 @@ console.log(prompt);
     const messages = [{ type: "text", text: prompt }];
 
     if (imageUrl) {
-      messages.push({ type: "image_url", image_url: { url: imageUrl } }); // ✅ Fixed structure
+      try {
+        // Validate image URL before adding to messages
+        if (!imageUrl.startsWith('http') && !imageUrl.startsWith('/')) {
+          console.log(`⚠️ Invalid image URL format: ${imageUrl}`);
+          throw new Error(`Invalid image URL format: ${imageUrl}`);
+        }
+        
+        // Skip local/development URLs that OpenAI can't access
+        if (imageUrl.includes('localhost') || imageUrl.includes('127.0.0.1') || imageUrl.includes(':5000')) {
+          console.log(`⚠️ Skipping local image URL: ${imageUrl}`);
+          console.log(`Local images cannot be accessed by OpenAI API. Proceeding without image.`);
+          // Don't add the image to messages
+        } else {
+          // Format URLs correctly based on whether they're absolute or relative
+          const formattedUrl = imageUrl.startsWith('/') 
+            ? `${process.env.BASE_URL || 'http://localhost:3000'}${imageUrl}`
+            : imageUrl;
+          
+          console.log(`🖼️ Using image URL: ${formattedUrl}`);
+          messages.push({ type: "image_url", image_url: { url: formattedUrl } });
+        }
+      } catch (error) {
+        console.error(`Failed to add image to request: ${error.message}`);
+        // Continue without the image rather than failing completely
+      }
     }
 
     const response = await makeOpenAIRequestWithRetry(async () => {
@@ -984,9 +1045,16 @@ console.log(prompt);
       });
     });
 
-    const result = JSON.parse(response.choices[0].message.content).bom; // ✅ Fixed response parsing
-    console.log(`✅ Received AI bill of materials response: ${JSON.stringify(result)}`);
-
+    let result;
+    try {
+      result = JSON.parse(response.choices[0].message.content).bom;
+      console.log(`✅ Received AI bill of materials response: ${JSON.stringify(result)}`);
+    } catch (parseError) {
+      console.error(`❌ Failed to parse BOM response: ${parseError.message}`);
+      console.error(`Response content: ${response.choices[0].message.content}`);
+      throw new Error("Failed to parse BOM response from API. Invalid JSON format.");
+    }
+    
     updateAITokens(req, response.usage.total_tokens);
 
     // Validate and adjust material categories
