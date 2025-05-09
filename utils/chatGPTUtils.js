@@ -1039,6 +1039,9 @@ Prioritize what is visually confirmed in the image if there is a discrepancy bet
 - Do **not** include any explanation, extra text, or formatting outside the JSON array.
  If a surface finish or lamination (e.g., melamine foil, powder coating, or plastic wrap) is mentioned, interpret it as a *process*, NOT a material. Do **not** include such coatings in the material breakdown unless the core material it is applied to is listed.
 - For example, if a "melamine-coated particleboard" is described but "Melamine" is not in the list, classify the core only (e.g., MDF if it's the closest match), and **do not** list "Melamine."
+If a surface finish or lamination (e.g., melamine foil, powder coating, plastic wrap) is mentioned, interpret it as a process, NOT a material. Only classify the structural material underneath (e.g., MDF for melamine-coated boards).
+If the product description mentions melamine, melamine-coated, or melamine-faced, you MUST treat this as a surface treatment or process. Do NOT classify this as “Melamine-Formaldehyde.” Use MDF for the core material instead.
+If a material name (e.g., Beech, Oak, Maple) appears only in a color field, tabletop color, or visual styling, you MUST treat it as a color only, NOT a material. Only use that wood type if the description explicitly states it is used in the product’s construction.
 `;
 
 console.log(prompt);
