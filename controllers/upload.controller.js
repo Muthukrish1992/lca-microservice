@@ -140,7 +140,7 @@ const bulkUploadProducts = async (req, res) => {
         // Wait for classification result
         const classifyResult = await retry(
           classifyProduct,
-          [product.code, product.name, product.description, req],
+          [product.code, product.name, product.description, null, req],
           1
         );
         const classifyBOMResult = await retry(

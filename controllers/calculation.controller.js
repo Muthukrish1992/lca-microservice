@@ -20,7 +20,7 @@ const {
  */
 const classifyProductController = async (req, res) => {
   try {
-    const { productCode, description, name } = req.body;
+    const { productCode, description, name, imageUrl } = req.body;
 
     if (!productCode || !name || !description) {
       return res.status(HTTP_STATUS.BAD_REQUEST).json(formatResponse(
@@ -30,7 +30,7 @@ const classifyProductController = async (req, res) => {
       ));
     }
 
-    const result = await classifyProduct(productCode, name, description, req);
+    const result = await classifyProduct(productCode, name, description, imageUrl, req);
     res.status(HTTP_STATUS.OK).json(formatResponse(true, result));
   } catch (error) {
     logger.error('Error classifying product:', error);
