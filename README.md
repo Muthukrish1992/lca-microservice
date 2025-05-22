@@ -34,10 +34,14 @@ lca-microservice/
 ├── uploads/                    # Upload directory
 ├── .env                        # Environment variables
 ├── package.json                # Project dependencies
+├── Dockerfile                  # Docker configuration
+├── docker-compose.yml          # Docker Compose configuration
 └── server.js                   # Entry point
 ```
 
 ## Setup
+
+### Local Development
 
 1. Clone the repository
 2. Install dependencies
@@ -46,13 +50,99 @@ npm install
 ```
 3. Create a `.env` file with the following variables:
 ```
-PORT=5000
+PORT=21004
 MONGODB_URI=mongodb://localhost:27017
 NODE_ENV=development
+CORS_ORIGIN=*
+UPLOAD_DIR=uploads
 ```
 4. Start the server
 ```
 npm start
+```
+
+### Docker Deployment
+
+#### Using Docker
+
+1. Build the Docker image
+```bash
+docker build --platform linux/amd64 -t iviva.azurecr.io/services/lca-microservice:v1 .
+```
+
+2. Run the container
+```bash
+docker run -d -p 21004:21004 \
+  -e PORT=21004 \
+  -e MONGODB_URI='mongodb://your-mongodb-host:27017' \
+  -e CORS_ORIGIN='*' \
+  -e NODE_ENV='production' \
+  iviva.azurecr.io/services/lca-microservice:v1
+```
+
+3. Push to Azure Container Registry
+```bash
+# Login to ACR
+az acr login --name iviva
+
+# Push the image
+docker push iviva.azurecr.io/services/lca-microservice:v1
+```
+
+#### Using Docker Compose
+
+1. Run with docker-compose (includes MongoDB)
+```bash
+docker-compose up -d
+```
+
+2. Stop containers
+```bash
+docker-compose down
+```
+
+### Deployment to Azure
+
+1. Deploy to Azure Container Instances
+```bash
+az container create \
+  --resource-group myResourceGroup \
+  --name lca-microservice \
+  --image iviva.azurecr.io/services/lca-microservice:v1 \
+  --cpu 1 \
+  --memory 1.5 \
+  --registry-login-server iviva.azurecr.io \
+  --registry-username <registry-username> \
+  --registry-password <registry-password> \
+  --environment-variables \
+    PORT=21004 \
+    MONGODB_URI='mongodb://<your-mongodb-host>:27017' \
+    NODE_ENV='production' \
+    CORS_ORIGIN='*' \
+  --ports 21004
+```
+
+2. Deploy to Azure App Service
+```bash
+# Create App Service Plan
+az appservice plan create --name lca-service-plan --resource-group myResourceGroup --sku B1 --is-linux
+
+# Create Web App
+az webapp create \
+  --resource-group myResourceGroup \
+  --plan lca-service-plan \
+  --name lca-microservice \
+  --deployment-container-image-name iviva.azurecr.io/services/lca-microservice:v1
+
+# Configure environment variables
+az webapp config appsettings set \
+  --resource-group myResourceGroup \
+  --name lca-microservice \
+  --settings \
+    PORT=21004 \
+    MONGODB_URI='mongodb://<your-mongodb-host>:27017' \
+    NODE_ENV='production' \
+    CORS_ORIGIN='*'
 ```
 
 ## API Endpoints
