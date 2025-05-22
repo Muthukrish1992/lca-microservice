@@ -1350,5 +1350,29 @@
         "EmissionFactor": 0.072,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Referred to : Natural stone products of granite and limestone"
+    },
+    {
+        "countryOfOrigin": "GLO",
+        "materialClass": "Ceramic",
+        "specificMaterial": "Porcelain",
+        "EmissionFactor": 0.458,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Referred to: Ceramic Tableware ProductsPrint, Ground, Cras Collection Manufactured by Bonna Ceramic"
+    },
+    {
+        "countryOfOrigin": "IN",
+        "materialClass": "Metal",
+        "specificMaterial": "Stainless Steel",
+        "EmissionFactor": 2.01,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": ""
+    },
+    {
+        "countryOfOrigin": "GLO",
+        "materialClass": "Rubber",
+        "specificMaterial": "Synthetic rubber",
+        "EmissionFactor": 3.27,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "Referred to: market for synthetic rubber"
     }
 ]
