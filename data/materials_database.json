@@ -1369,10 +1369,10 @@
     },
     {
         "countryOfOrigin": "GLO",
-        "materialClass": "Rubber",
-        "specificMaterial": "Synthetic rubber",
+        "materialClass": "Silicon",
+        "specificMaterial": "Silicon",
         "EmissionFactor": 3.27,
         "EF_Source": "Ecoinvent",
-        "Source_Dataset_Name": "Referred to: market for synthetic rubber"
+        "Source_Dataset_Name": "Referred to: market for Silicon"
     }
 ]

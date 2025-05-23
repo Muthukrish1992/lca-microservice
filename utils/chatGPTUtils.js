@@ -641,30 +641,33 @@ async function classifyProduct(productCode, name, description, imageUrl, req) {
 
   console.log(`📝 Building classification prompt`);
   // Prompt for classification
-  const prompt = `Classify the following product into a category and subcategory from the given list.
-  
-  Product Code: ${productCode}
-  Product Name: ${name}
-  Product Description: ${description}
-  
-  Categories and Subcategories:
-  ${categoriesList}
-  
-  Return the result in JSON format:
-  {
-      "category": "<category>",
-      "subcategory": "<subcategory>"
-  }
-  
-  CRITICAL RULES:
-  1. You MUST ONLY select a category and subcategory EXACTLY as they appear in the list above.
-  2. The category MUST be one of these exact values: ${Object.keys(productCategories).join(', ')}
-  3. The subcategory MUST belong to the selected category.
-  4. DO NOT invent or modify any categories or subcategories.
-  5. DO NOT add any descriptive terms to categories or subcategories.
-  6. If an image is provided, you MUST analyze it carefully to identify the product appearance, structure, and purpose.
-  7. Prioritize the image's visual information if it provides clear evidence of the product's category.
-  8. If no exact match is found, select the closest valid subcategory from the list.`;
+  const prompt = `Classify the following product into a category and subcategory based on the provided list.
+
+Product Code: ${productCode}  
+Product Name: ${name}  
+Product Description: ${description}  
+
+If an image is provided, use it as the primary source of truth for identifying the product type, appearance, function, and context. Text information should supplement the visual analysis.
+
+Categories and Subcategories:  
+${categoriesList}  
+
+Return the result strictly in this JSON format:
+{
+  "category": "<category>",
+  "subcategory": "<subcategory>"
+}
+
+CRITICAL RULES:
+1. You MUST ONLY select a category and subcategory EXACTLY as they appear in the provided list.
+2. The category MUST be one of the following values: ${Object.keys(productCategories).join(', ')}
+3. The selected subcategory MUST belong to the selected category.
+4. DO NOT invent, modify, or generalize any category or subcategory values.
+5. DO NOT add any descriptive or extra terms to the output.
+6. If an image is present, PRIORITIZE visual cues (e.g. shape, structure, materials, intended use) over text description.
+7. If no exact match is found, choose the CLOSEST possible subcategory that logically aligns with the product's function or usage.
+8. DO NOT select a subcategory based on loose associations or naming similarities—use function and actual product type as your basis.
+`;
 
   try {
     console.log(`🤖 Sending request to AI model for product: ${productCode}`);
@@ -1042,6 +1045,10 @@ Prioritize what is visually confirmed in the image if there is a discrepancy bet
 If a surface finish or lamination (e.g., melamine foil, powder coating, plastic wrap) is mentioned, interpret it as a process, NOT a material. Only classify the structural material underneath (e.g., MDF for melamine-coated boards).
 If the product description mentions melamine, melamine-coated, or melamine-faced, you MUST treat this as a surface treatment or process. Do NOT classify this as “Melamine-Formaldehyde.” Use MDF for the core material instead.
 If a material name (e.g., Beech, Oak, Maple) appears only in a color field, tabletop color, or visual styling, you MUST treat it as a color only, NOT a material. Only use that wood type if the description explicitly states it is used in the product’s construction.
+If the product material is listed as polyethylene, and the product is described as soft, flexible, squeezable, or transparent, you MUST select Low-Density Polyethylene (LDPE). Only select High-Density Polyethylene (HDPE) if the product is rigid, structural, or includes features such as handles, closures, or container-like form.
+If the image contradicts or clarifies the product description, the image takes precedence.
+If the image shows a **support item** (e.g., bar, rack, holder) and the text includes terms associated with tools (e.g., knife, spoon), you MUST classify the product according to its function and form as observed in the image.
+
 `;
 
 console.log(prompt);
