@@ -1051,9 +1051,6 @@ If the image shows a **support item** (e.g., bar, rack, holder) and the text inc
 
 `;
 
-console.log(prompt);
-
-  
     const messages = [{ type: "text", text: prompt }];
 
     if (imageUrl) {

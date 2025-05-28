@@ -26,4 +26,11 @@ router.route('/project/:projectID')
 router.route('/product/:productID')
   .get(projectProductController.getProjectProductMappingsByProductId);
 
+// Single product management routes
+router.route('/:id/product')
+  .post(projectProductController.addProductToProject);
+
+router.route('/:id/product/:productID')
+  .delete(projectProductController.removeProductFromProject);
+
 module.exports = router;
