@@ -199,19 +199,31 @@ The Project-Product API allows you to manage the relationship between projects a
 
 #### Managing Products in a Project
 
-1. **Adding a Product**: To add a product to an existing project:
+1. **Adding a Product by Mapping ID**: To add a product to an existing project-product mapping:
    ```
    POST /api/project-product-mapping/:id/product
    ```
    Where `:id` is the ID of the project-product mapping
 
-2. **Removing a Product**: To remove a product from a project:
+2. **Adding a Product Directly to a Project**: To add a product directly to a project:
+   ```
+   POST /api/project-product-mapping/project/:projectID/product
+   ```
+   Where `:projectID` is the ID of the project. This will create a mapping if none exists.
+
+3. **Removing a Product by Mapping ID**: To remove a product from a project-product mapping:
    ```
    DELETE /api/project-product-mapping/:id/product/:productID
    ```
    Where `:id` is the mapping ID and `:productID` is the product to remove
 
-3. **Updating the Mapping**: To update the entire mapping:
+4. **Removing a Product Directly from a Project**: To remove a product directly from a project:
+   ```
+   DELETE /api/project-product-mapping/project/:projectID/product/:productID
+   ```
+   Where `:projectID` is the project ID and `:productID` is the product to remove
+
+5. **Updating the Mapping**: To update the entire mapping:
    ```
    PUT /api/project-product-mapping/:id
    ```
@@ -812,6 +824,106 @@ curl -X DELETE http://localhost:5009/api/project-product-mapping/60d21b4667d0d89
 curl -X DELETE http://localhost:5009/api/project-product-mapping/project/60d21b4667d0d8992e610c85 \
   -H "Content-Type: application/json" \
   -H "x-iviva-account: lucy1"
+```
+
+#### Add Product Directly to a Project by Project ID
+```bash
+curl -X POST http://localhost:5009/api/project-product-mapping/project/60d21b4667d0d8992e610c85/product \
+  -H "Content-Type: application/json" \
+  -H "x-iviva-account: lucy1" \
+  -d '{
+    "productID": "60d21b4667d0d8992e610c89",
+    "packagingWeight": 1.2,
+    "palletWeight": 4.5,
+    "totalTransportationEmission": 92.7,
+    "transportationLegs": [
+      {
+        "transportMode": "Train",
+        "originCountry": "France",
+        "destinationCountry": "Germany",
+        "originGateway": "Paris",
+        "destinationGateway": "Berlin",
+        "transportEmission": 45.3,
+        "transportDistance": 1050
+      },
+      {
+        "transportMode": "Truck",
+        "originCountry": "Germany",
+        "destinationCountry": "Poland",
+        "originGateway": "Berlin",
+        "destinationGateway": "Warsaw",
+        "transportEmission": 47.4,
+        "transportDistance": 575
+      }
+    ]
+  }'
+```
+
+**Response Format:**
+```json
+{
+  "success": true,
+  "data": {
+    "_id": "60d21b4667d0d8992e610c88",
+    "projectID": "60d21b4667d0d8992e610c85",
+    "products": [
+      {
+        "_id": "60d21b4667d0d8992e610c94",
+        "productID": "60d21b4667d0d8992e610c89",
+        "packagingWeight": 1.2,
+        "palletWeight": 4.5,
+        "totalTransportationEmission": 92.7,
+        "transportationLegs": [
+          {
+            "_id": "60d21b4667d0d8992e610c95",
+            "transportMode": "Train",
+            "originCountry": "France",
+            "destinationCountry": "Germany",
+            "originGateway": "Paris",
+            "destinationGateway": "Berlin",
+            "transportEmission": 45.3,
+            "transportDistance": 1050
+          },
+          {
+            "_id": "60d21b4667d0d8992e610c96",
+            "transportMode": "Truck",
+            "originCountry": "Germany",
+            "destinationCountry": "Poland",
+            "originGateway": "Berlin",
+            "destinationGateway": "Warsaw",
+            "transportEmission": 47.4,
+            "transportDistance": 575
+          }
+        ]
+      }
+    ],
+    "createdDate": "2023-01-01T00:00:00.000Z",
+    "modifiedDate": "2023-01-10T00:00:00.000Z"
+  },
+  "message": "Product added to project successfully"
+}
+```
+
+#### Remove Product Directly from a Project by Project ID
+```bash
+curl -X DELETE http://localhost:5009/api/project-product-mapping/project/60d21b4667d0d8992e610c85/product/60d21b4667d0d8992e610c89 \
+  -H "Content-Type: application/json" \
+  -H "x-iviva-account: lucy1"
+```
+
+**Response Format:**
+```json
+{
+  "success": true,
+  "data": {
+    "_id": "60d21b4667d0d8992e610c88",
+    "projectID": "60d21b4667d0d8992e610c85",
+    "products": [],
+    "createdDate": "2023-01-01T00:00:00.000Z",
+    "modifiedDate": "2023-01-15T00:00:00.000Z"
+  },
+  "message": "Product removed from project successfully"
+}
 ```
 
 ### Calculation Endpoints

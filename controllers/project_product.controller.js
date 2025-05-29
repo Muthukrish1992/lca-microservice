@@ -393,6 +393,126 @@ const removeProductFromProject = async (req, res) => {
   }
 };
 
+/**
+ * Add a product to a project by project ID
+ * @route POST /api/project-product-mapping/project/:projectID/product
+ */
+const addProductToProjectByProjectId = async (req, res) => {
+  try {
+    const { projectID } = req.params;
+    const productData = req.body;
+
+    // Validate product data
+    try {
+      validateRequiredFields(productData, ['productID']);
+    } catch (error) {
+      return res.status(HTTP_STATUS.BAD_REQUEST).json(formatResponse(
+        false,
+        null,
+        error.message
+      ));
+    }
+
+    // Get project-product mapping
+    const ProjectProductMap = await projectProductService.getProjectProductMapModel(req);
+    let mapping = await ProjectProductMap.findOne({ projectID });
+    
+    // If no mapping exists, create a new one
+    if (!mapping) {
+      mapping = new ProjectProductMap({
+        projectID,
+        products: [],
+        createdDate: new Date(),
+        modifiedDate: new Date()
+      });
+    }
+    
+    // Check if product already exists in the mapping
+    const productExists = mapping.products.some(
+      p => p.productID.toString() === productData.productID.toString()
+    );
+    
+    if (productExists) {
+      return res.status(HTTP_STATUS.CONFLICT).json(formatResponse(
+        false,
+        null,
+        'Product already exists in this project mapping'
+      ));
+    }
+    
+    // Add product to mapping
+    mapping.products.push(productData);
+    mapping.modifiedDate = new Date();
+    const updatedMapping = await mapping.save();
+    
+    res.status(HTTP_STATUS.OK).json(formatResponse(
+      true,
+      updatedMapping,
+      'Product added to project successfully'
+    ));
+  } catch (error) {
+    logger.error('Error adding product to project by project ID:', error);
+    res.status(HTTP_STATUS.INTERNAL_SERVER_ERROR).json(formatResponse(
+      false,
+      null,
+      `Error adding product to project: ${error.message}`
+    ));
+  }
+};
+
+/**
+ * Remove a product from a project by project ID and product ID
+ * @route DELETE /api/project-product-mapping/project/:projectID/product/:productID
+ */
+const removeProductFromProjectByProjectId = async (req, res) => {
+  try {
+    const { projectID, productID } = req.params;
+
+    // Get project-product mapping
+    const ProjectProductMap = await projectProductService.getProjectProductMapModel(req);
+    const mapping = await ProjectProductMap.findOne({ projectID });
+    
+    if (!mapping) {
+      return res.status(HTTP_STATUS.NOT_FOUND).json(formatResponse(
+        false,
+        null,
+        'Project-Product mapping not found for this project'
+      ));
+    }
+    
+    // Find product index
+    const productIndex = mapping.products.findIndex(
+      p => p.productID.toString() === productID
+    );
+    
+    if (productIndex === -1) {
+      return res.status(HTTP_STATUS.NOT_FOUND).json(formatResponse(
+        false,
+        null,
+        'Product not found in this project mapping'
+      ));
+    }
+    
+    // Remove product from mapping
+    mapping.products.splice(productIndex, 1);
+    mapping.modifiedDate = new Date();
+    const updatedMapping = await mapping.save();
+    
+    res.status(HTTP_STATUS.OK).json(formatResponse(
+      true,
+      updatedMapping,
+      'Product removed from project successfully'
+    ));
+  } catch (error) {
+    logger.error('Error removing product from project by project ID:', error);
+    res.status(HTTP_STATUS.INTERNAL_SERVER_ERROR).json(formatResponse(
+      false,
+      null,
+      `Error removing product from project: ${error.message}`
+    ));
+  }
+};
+
 module.exports = {
   createProjectProductMapping,
   getAllProjectProductMappings,
@@ -403,5 +523,7 @@ module.exports = {
   deleteProjectProductMapping,
   deleteProjectProductMappingsByProjectId,
   addProductToProject,
-  removeProductFromProject
+  removeProductFromProject,
+  addProductToProjectByProjectId,
+  removeProductFromProjectByProjectId
 };
