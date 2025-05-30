@@ -107,6 +107,7 @@ const calculateProjectImpacts = async (req, projectId) => {
   
   if (!projectMappings || projectMappings.length === 0) {
     return {
+      _id : project._id,
       projectCode: project.code,
       projectName: project.name,
       totalProjectImpact: 0,
@@ -130,15 +131,23 @@ const calculateProjectImpacts = async (req, projectId) => {
     // Process each product in the mapping
     for (const productEntry of mapping.products) {
       // Fetch the full product details
-      const productDetails = await ProductModel.findById(productEntry.productID).select(
-        'name code images co2Emission co2EmissionRawMaterials co2EmissionFromProcesses materials productManufacturingProcess'
-      );
+      const productDetails = await ProductModel.findById(productEntry.productID);
       
       // Check if product details exist
       if (!productDetails) {
         allProductDetails.push({
+          _id: null,
           productName: 'Unknown',
           productCode: 'Unknown',
+          description: null,
+          weight: 0,
+          countryOfOrigin: "Unknown",
+          category: "Uncategorized",
+          subCategory: "Uncategorized",
+          supplierName: "Unknown",
+          modifiedDate: null,
+          createdDate: null,
+          co2Emission: 0,
           materials: [],
           productManufacturingProcess: [],
           co2EmissionRawMaterials: 0,
@@ -147,7 +156,7 @@ const calculateProjectImpacts = async (req, projectId) => {
           transportationLegs: productEntry.transportationLegs || [],
           packagingWeight: productEntry.packagingWeight || 0,
           palletWeight: productEntry.palletWeight || 0,
-          images: null,
+          images: [],
           impacts: {
             materialsImpact: 0,
             manufacturingImpact: 0,
@@ -170,8 +179,18 @@ const calculateProjectImpacts = async (req, projectId) => {
       
       // Add product details to the result array
       allProductDetails.push({
+        _id: productDetails._id,
         productName: productDetails.name,
         productCode: productDetails.code,
+        description: productDetails.description,
+        weight: productDetails.weight || 0,
+        countryOfOrigin: productDetails.countryOfOrigin || "Unknown",
+        category: productDetails.category || "Uncategorized",
+        subCategory: productDetails.subCategory || "Uncategorized",
+        supplierName: productDetails.supplierName || "Unknown",
+        modifiedDate: productDetails.modifiedDate,
+        createdDate: productDetails.createdDate,
+        co2Emission: productDetails.co2Emission || 0,
         materials: productDetails.materials || [],
         productManufacturingProcess: productDetails.productManufacturingProcess || [],
         co2EmissionRawMaterials: materialsImpact,
@@ -180,7 +199,7 @@ const calculateProjectImpacts = async (req, projectId) => {
         transportationLegs: productEntry.transportationLegs || [],
         packagingWeight: productEntry.packagingWeight || 0,
         palletWeight: productEntry.palletWeight || 0,
-        images: productDetails.images && productDetails.images.length > 0 ? productDetails.images[0] : null,
+        images: productDetails.images || [],
         impacts: {
           materialsImpact,
           manufacturingImpact,
