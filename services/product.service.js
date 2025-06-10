@@ -93,6 +93,7 @@ const calculateProcessEmissions = (productManufacturingProcess, countryOfOrigin 
     'TW': 0.771,   // Taiwan
     'US': 0.482,   // United States
     'UK': 0.280,   // United Kingdom
+    'IN': 1.438,   // United Kingdom
   };
   
   // Get the appropriate emission factor based on country of origin

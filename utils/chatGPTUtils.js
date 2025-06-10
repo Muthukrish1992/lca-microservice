@@ -622,7 +622,7 @@ const formatBOMList = () => {
     .join("\n");
 };
 
-async function classifyProduct(productCode, name, description, req) {
+async function classifyProduct(productCode, name, description, imageUrl, req) {
   console.log(`🚀 Starting classification for product: ${productCode}`);
   
   if (!name || !description) {
@@ -641,45 +641,86 @@ async function classifyProduct(productCode, name, description, req) {
 
   console.log(`📝 Building classification prompt`);
   // Prompt for classification
-  const prompt = `Classify the following product into a category and subcategory from the given list.
-  
-  Product Code: ${productCode}
-  Product Name: ${name}
-  Product Description: ${description}
-  
-  Categories and Subcategories:
-  ${categoriesList}
-  
-  Return the result in JSON format:
-  {
-      "category": "<category>",
-      "subcategory": "<subcategory>"
-  }
-  
-  CRITICAL RULES:
-  1. You MUST ONLY select a category and subcategory EXACTLY as they appear in the list above.
-  2. The category MUST be one of these exact values: ${Object.keys(productCategories).join(', ')}
-  3. The subcategory MUST belong to the selected category.
-  4. DO NOT invent or modify any categories or subcategories.
-  5. DO NOT add any descriptive terms to categories or subcategories.
-  6. If no exact match is found, select the closest valid subcategory from the list.`;
+  const prompt = `Classify the following product into a category and subcategory based on the provided list.
+
+Product Code: ${productCode}  
+Product Name: ${name}  
+Product Description: ${description}  
+
+If an image is provided, use it as the primary source of truth for identifying the product type, appearance, function, and context. Text information should supplement the visual analysis.
+
+Categories and Subcategories:  
+${categoriesList}  
+
+Return the result strictly in this JSON format:
+{
+  "category": "<category>",
+  "subcategory": "<subcategory>"
+}
+
+CRITICAL RULES:
+1. You MUST ONLY select a category and subcategory EXACTLY as they appear in the provided list.
+2. The category MUST be one of the following values: ${Object.keys(productCategories).join(', ')}
+3. The selected subcategory MUST belong to the selected category.
+4. DO NOT invent, modify, or generalize any category or subcategory values.
+5. DO NOT add any descriptive or extra terms to the output.
+6. If an image is present, PRIORITIZE visual cues (e.g. shape, structure, materials, intended use) over text description.
+7. If no exact match is found, choose the CLOSEST possible subcategory that logically aligns with the product's function or usage.
+8. DO NOT select a subcategory based on loose associations or naming similarities—use function and actual product type as your basis.
+`;
 
   try {
     console.log(`🤖 Sending request to AI model for product: ${productCode}`);
     
+    // Prepare messages with text and image if available
+    const messages = [{ type: "text", text: prompt }];
+
+    if (imageUrl) {
+      try {
+        // Validate image URL before adding to messages
+        if (!imageUrl.startsWith('http') && !imageUrl.startsWith('/')) {
+          console.log(`⚠️ Invalid image URL format: ${imageUrl}`);
+          throw new Error(`Invalid image URL format: ${imageUrl}`);
+        }
+        
+        // Skip local/development URLs that OpenAI can't access
+        if (imageUrl.includes('localhost') || imageUrl.includes('127.0.0.1') || imageUrl.includes(':5000')) {
+          console.log(`⚠️ Skipping local image URL: ${imageUrl}`);
+          console.log(`Local images cannot be accessed by OpenAI API. Proceeding without image.`);
+          // Don't add the image to messages
+        } else {
+          // Format URLs correctly based on whether they're absolute or relative
+          const formattedUrl = imageUrl.startsWith('/') 
+            ? `${process.env.BASE_URL || 'http://localhost:3000'}${imageUrl}`
+            : imageUrl;
+          
+          console.log(`🖼️ Using image URL for classification: ${formattedUrl}`);
+          messages.push({ type: "image_url", image_url: { url: formattedUrl } });
+        }
+      } catch (error) {
+        console.error(`Failed to add image to classification request: ${error.message}`);
+        // Continue without the image rather than failing completely
+      }
+    }
+    
     const completion = await makeOpenAIRequestWithRetry(async () => {
-      return await openai.beta.chat.completions.parse({
-        model: "gpt-4o-mini-2024-07-18", // Ensure model supports structured outputs
-        messages: [{ role: "user", content: prompt }],
-        response_format: zodResponseFormat(
-          ClassificationSchema,
-          "classification"
-        ),
+      return await openai.chat.completions.create({
+        model: "gpt-4o", // Using full GPT-4o for better image analysis
+        messages: [{ role: "user", content: messages }],
+        response_format: { type: "json_object" },
+        temperature: 0,
       });
     });
 
-    let result = completion.choices[0].message.parsed;
-    console.log(`✅ Received AI classification response: ${JSON.stringify(result)}`);
+    let result;
+    try {
+      result = JSON.parse(completion.choices[0].message.content);
+      console.log(`✅ Received AI classification response: ${JSON.stringify(result)}`);
+    } catch (parseError) {
+      console.error(`❌ Failed to parse classification response: ${parseError.message}`);
+      console.error(`Response content: ${completion.choices[0].message.content}`);
+      throw new Error("Failed to parse classification response. Invalid JSON format.");
+    }
 
     updateAITokens(req, completion.usage.total_tokens);
     console.log(`📊 Updated token usage: ${completion.usage.total_tokens} tokens`);
@@ -1001,11 +1042,15 @@ Prioritize what is visually confirmed in the image if there is a discrepancy bet
 - Do **not** include any explanation, extra text, or formatting outside the JSON array.
  If a surface finish or lamination (e.g., melamine foil, powder coating, or plastic wrap) is mentioned, interpret it as a *process*, NOT a material. Do **not** include such coatings in the material breakdown unless the core material it is applied to is listed.
 - For example, if a "melamine-coated particleboard" is described but "Melamine" is not in the list, classify the core only (e.g., MDF if it's the closest match), and **do not** list "Melamine."
+If a surface finish or lamination (e.g., melamine foil, powder coating, plastic wrap) is mentioned, interpret it as a process, NOT a material. Only classify the structural material underneath (e.g., MDF for melamine-coated boards).
+If the product description mentions melamine, melamine-coated, or melamine-faced, you MUST treat this as a surface treatment or process. Do NOT classify this as “Melamine-Formaldehyde.” Use MDF for the core material instead.
+If a material name (e.g., Beech, Oak, Maple) appears only in a color field, tabletop color, or visual styling, you MUST treat it as a color only, NOT a material. Only use that wood type if the description explicitly states it is used in the product’s construction.
+If the product material is listed as polyethylene, and the product is described as soft, flexible, squeezable, or transparent, you MUST select Low-Density Polyethylene (LDPE). Only select High-Density Polyethylene (HDPE) if the product is rigid, structural, or includes features such as handles, closures, or container-like form.
+If the image contradicts or clarifies the product description, the image takes precedence.
+If the image shows a **support item** (e.g., bar, rack, holder) and the text includes terms associated with tools (e.g., knife, spoon), you MUST classify the product according to its function and form as observed in the image.
+
 `;
 
-console.log(prompt);
-
-  
     const messages = [{ type: "text", text: prompt }];
 
     if (imageUrl) {

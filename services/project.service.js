@@ -100,79 +100,117 @@ const calculateProjectImpacts = async (req, projectId) => {
     return null;
   }
   
-  // Find all product mappings related to the project
-  const productMappings = await ProjectProductMapModel.find({
+  // Find the project-product mapping for the project
+  const projectMappings = await ProjectProductMapModel.find({
     projectID: projectId
-  }).populate({
-    path: 'productID',
-    model: 'Product',
-    select: 'name code countryOfOrigin description weight countryOfOrigin category subCategory images co2Emission co2EmissionRawMaterials co2EmissionFromProcesses materials productManufacturingProcess'
   });
+  
+  if (!projectMappings || projectMappings.length === 0) {
+    return {
+      _id : project._id,
+      projectCode: project.code,
+      projectName: project.name,
+      totalProjectImpact: 0,
+      totalMaterialsImpact: 0,
+      totalManufacturingImpact: 0,
+      totalTransportationImpact: 0,
+      products: []
+    };
+  }
   
   // Initialize totals
   let totalMaterialsImpact = 0;
   let totalManufacturingImpact = 0;
   let totalTransportationImpact = 0;
   
-  const products = productMappings.map((mapping) => {
-    // Check if productID exists
-    if (!mapping.productID) {
-      return {
-        productName: 'Unknown',
-        productCode: 'Unknown',
-        materials: [],
-        productManufacturingProcess: [],
-        co2EmissionRawMaterials: 0,
-        co2EmissionFromProcesses: 0,
-        transportationEmission: 0,
-        transportationLegs: [],
-        packagingWeight: mapping.packagingWeight || 0,
-        palletWeight: mapping.palletWeight || 0,
-        images: null,
-        impacts: {
-          materialsImpact: 0,
-          manufacturingImpact: 0,
-          transportationImpact: 0,
-          totalImpact: 0
-        }
-      };
-    }
-    
-    const product = mapping.productID;
-    const materialsImpact = product.co2EmissionRawMaterials || 0;
-    const manufacturingImpact = product.co2EmissionFromProcesses || 0;
-    const transportationImpact = mapping.totalTransportationEmission || 0;
-    
-    // Add to running totals
-    totalMaterialsImpact += materialsImpact;
-    totalManufacturingImpact += manufacturingImpact;
-    totalTransportationImpact += transportationImpact;
-    
-    return {
-      productName: product.name,
-      productCode: product.code,
-      description: product.description || '',
-      category: product.category || '',
-      subCategory: product.subCategory || '',
-      weight: product.weight || 0,
-      countryOfOrigin: product.countryOfOrigin || '',
-      materials: product.materials || [],
-      productManufacturingProcess: product.productManufacturingProcess || [],
-      co2EmissionRawMaterials: materialsImpact,
-      co2EmissionFromProcesses: manufacturingImpact,
-      transportationEmission: transportationImpact,
-      transportationLegs: mapping.transportationLegs || [],
-      packagingWeight: mapping.packagingWeight || 0,
-      palletWeight: mapping.palletWeight || 0,
-      images: product.images && product.images.length > 0 ? product.images[0] : null,
-      impacts: {
-        materialsImpact,
-        manufacturingImpact,
-        transportationImpact,
-        totalImpact: materialsImpact + manufacturingImpact + transportationImpact
+  // Create a flattened array of all products from all mappings
+  let allProductDetails = [];
+  
+  // Process each mapping
+  for (const mapping of projectMappings) {
+    // Process each product in the mapping
+    for (const productEntry of mapping.products) {
+      // Fetch the full product details
+      const productDetails = await ProductModel.findById(productEntry.productID);
+      
+      // Check if product details exist
+      if (!productDetails) {
+        allProductDetails.push({
+          _id: null,
+          productName: 'Unknown',
+          productCode: 'Unknown',
+          description: null,
+          weight: 0,
+          countryOfOrigin: "Unknown",
+          category: "Uncategorized",
+          subCategory: "Uncategorized",
+          supplierName: "Unknown",
+          modifiedDate: null,
+          createdDate: null,
+          co2Emission: 0,
+          materials: [],
+          productManufacturingProcess: [],
+          co2EmissionRawMaterials: 0,
+          co2EmissionFromProcesses: 0,
+          transportationEmission: 0,
+          transportationLegs: productEntry.transportationLegs || [],
+          packagingWeight: productEntry.packagingWeight || 0,
+          palletWeight: productEntry.palletWeight || 0,
+          images: [],
+          impacts: {
+            materialsImpact: 0,
+            manufacturingImpact: 0,
+            transportationImpact: 0,
+            totalImpact: 0
+          }
+        });
+        continue;
       }
-    };
-  });
+      
+      // Calculate impacts
+      const materialsImpact = productDetails.co2EmissionRawMaterials || 0;
+      const manufacturingImpact = productDetails.co2EmissionFromProcesses || 0;
+      const transportationImpact = productEntry.totalTransportationEmission || 0;
+      
+      // Add to running totals
+      totalMaterialsImpact += materialsImpact;
+      totalManufacturingImpact += manufacturingImpact;
+      totalTransportationImpact += transportationImpact;
+      
+      // Add product details to the result array
+      allProductDetails.push({
+        _id: productDetails._id,
+        productName: productDetails.name,
+        productCode: productDetails.code,
+        description: productDetails.description,
+        weight: productDetails.weight || 0,
+        countryOfOrigin: productDetails.countryOfOrigin || "Unknown",
+        category: productDetails.category || "Uncategorized",
+        subCategory: productDetails.subCategory || "Uncategorized",
+        supplierName: productDetails.supplierName || "Unknown",
+        modifiedDate: productDetails.modifiedDate,
+        createdDate: productDetails.createdDate,
+        co2Emission: productDetails.co2Emission || 0,
+        materials: productDetails.materials || [],
+        productManufacturingProcess: productDetails.productManufacturingProcess || [],
+        co2EmissionRawMaterials: materialsImpact,
+        co2EmissionFromProcesses: manufacturingImpact,
+        transportationEmission: transportationImpact,
+        transportationLegs: productEntry.transportationLegs || [],
+        packagingWeight: productEntry.packagingWeight || 0,
+        palletWeight: productEntry.palletWeight || 0,
+        images: productDetails.images || [],
+        impacts: {
+          materialsImpact,
+          manufacturingImpact,
+          transportationImpact,
+          totalImpact: materialsImpact + manufacturingImpact + transportationImpact
+        }
+      });
+    }
+  }
+  
+  const products = allProductDetails;
   
   // Calculate total project impact
   const totalProjectImpact = parseFloat(

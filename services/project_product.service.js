@@ -73,7 +73,7 @@ const getProjectProductMappingsByProjectId = async (req, projectID) => {
  */
 const getProjectProductMappingsByProductId = async (req, productID) => {
   const ProjectProductMap = await getProjectProductMapModel(req);
-  return await ProjectProductMap.find({ productID }).sort({ createdAt: -1 });
+  return await ProjectProductMap.find({ "products.productID": productID }).sort({ createdAt: -1 });
 };
 
 /**
@@ -86,11 +86,10 @@ const getProjectProductMappingsByProductId = async (req, productID) => {
 const updateProjectProductMapping = async (req, id, updateData) => {
   const ProjectProductMap = await getProjectProductMapModel(req);
   
-  // Don't allow changing project or product IDs to prevent inconsistency
+  // Don't allow changing project ID to prevent inconsistency
   const sanitizedData = { ...updateData };
   delete sanitizedData.projectID;
-  delete sanitizedData.productID;
-  sanitizedData.updatedAt = new Date();
+  sanitizedData.modifiedDate = new Date();
   
   return await ProjectProductMap.findByIdAndUpdate(
     id,

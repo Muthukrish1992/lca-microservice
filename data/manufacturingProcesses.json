@@ -24,9 +24,15 @@
     "Whole process": 0.0038
   },
   "Stone": {
-   "Whole process": 0.0016
+    "Whole process": 0.0016
   },
   "Laminate": {
     "Whole process": 0.000358
+  },
+  "Ceramic": {
+    "Whole process": 2.65
+  },
+  "Rubber": {
+    "Whole process": 2.041667
   }
 }

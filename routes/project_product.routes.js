@@ -22,8 +22,22 @@ router.route('/project/:projectID')
   .get(projectProductController.getProjectProductMappingsByProjectId)
   .delete(projectProductController.deleteProjectProductMappingsByProjectId);
 
+// Direct product management by project ID
+router.route('/project/:projectID/product')
+  .post(projectProductController.addProductToProjectByProjectId);
+
+router.route('/project/:projectID/product/:productID')
+  .delete(projectProductController.removeProductFromProjectByProjectId);
+
 // Product-specific routes
 router.route('/product/:productID')
   .get(projectProductController.getProjectProductMappingsByProductId);
+
+// Single product management routes
+router.route('/:id/product')
+  .post(projectProductController.addProductToProject);
+
+router.route('/:id/product/:productID')
+  .delete(projectProductController.removeProductFromProject);
 
 module.exports = router;
