@@ -17,11 +17,11 @@ const getProductModel = async (req) => {
  * Calculate emissions from raw materials
  */
 const calculateRawMaterialEmissions = (materials, countryOfOrigin) => {
-  // Create Maps for faster lookup
+  // Create Maps for faster lookup - store full data object instead of just EmissionFactor
   const emissionMap = new Map(
     emissionData.map((data) => [
       `${data.countryOfOrigin}-${data.materialClass}-${data.specificMaterial}`,
-      data.EmissionFactor,
+      data
     ])
   );
 
@@ -35,14 +35,14 @@ const calculateRawMaterialEmissions = (materials, countryOfOrigin) => {
     // If still not found, try with RoW (Rest of World)
     const rowKey = `RoW-${material.materialClass}-${material.specificMaterial}`;
     
-    // Get the emission factor with fallbacks
-    let emissionFactor = 
+    // Get the emission data with fallbacks
+    let emissionDataEntry = 
       emissionMap.get(specificKey) || 
       emissionMap.get(globalKey) || 
       emissionMap.get(rowKey);
     
     // If still not found, try to find any entry with same material class/specific material
-    if (!emissionFactor) {
+    if (!emissionDataEntry) {
       // Find any entry with same materialClass and specificMaterial
       const materialEntries = emissionData.filter(
         data => data.materialClass === material.materialClass && 
@@ -51,16 +51,17 @@ const calculateRawMaterialEmissions = (materials, countryOfOrigin) => {
       
       if (materialEntries.length > 0) {
         // Use the first match
-        emissionFactor = materialEntries[0].EmissionFactor;
+        emissionDataEntry = materialEntries[0];
         logger.debug(`Using alternative region ${materialEntries[0].countryOfOrigin} for ${material.materialClass}-${material.specificMaterial}`);
       } else {
-        // Default to 0 if all lookups fail
-        emissionFactor = 0;
+        // Default data if all lookups fail
+        emissionDataEntry = { EmissionFactor: 0, EF_Source: 'Unknown' };
       }
     }
     
-    // Store the emission factor on the material for reference
-    material.emissionFactor = emissionFactor * material.weight;
+    // Store the emission factor and EF_Source on the material for reference
+    material.emissionFactor = emissionDataEntry.EmissionFactor * material.weight;
+    material.EF_Source = emissionDataEntry.EF_Source;
     
     // Log when using fallbacks for debugging (optional)
     if (!emissionMap.get(specificKey) && (emissionMap.get(globalKey) || emissionMap.get(rowKey))) {

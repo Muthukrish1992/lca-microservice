@@ -22,7 +22,8 @@ const ProductSchema = new mongoose.Schema({
       weight: { type: Number, required: true },
       unit: { type: String, required: true, default: "kg" },
       emissionFactor: { type: Number, required: true, default: 0 },
-      reasoning: { type: String }
+      reasoning: { type: String },
+      EF_Source: {type: String }
     }],
     default: []  // Empty array default
   },
