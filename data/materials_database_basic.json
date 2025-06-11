@@ -1,0 +1,57 @@
+[
+  {
+    "materialClass": "Wood",
+    "EmissionFactor": 0.2285,
+    "EF_Source": "Ecoinvent"
+  },
+  {
+    "materialClass": "Metal",
+    "EmissionFactor": 4.3432,
+    "EF_Source": "Ecoinvent"
+  },
+  {
+    "materialClass": "Plastic",
+    "EmissionFactor": 4.8398,
+    "EF_Source": "Ecoinvent"
+  },
+  {
+    "materialClass": "Glass",
+    "EmissionFactor": 1.1103,
+    "EF_Source": "Ecoinvent"
+  },
+  {
+    "materialClass": "Fabric",
+    "EmissionFactor": 7.7732,
+    "EF_Source": "Ecoinvent"
+  },
+  {
+    "materialClass": "Leather",
+    "EmissionFactor": 12.7595,
+    "EF_Source": "EPD"
+  },
+  {
+    "materialClass": "Laminate",
+    "EmissionFactor": 8.9829,
+    "EF_Source": "EPD"
+  },
+  {
+    "materialClass": "Mesh",
+    "EmissionFactor": 5.097,
+    "EF_Source": "EPD"
+  },
+  {
+    "materialClass": "Foam",
+    "EmissionFactor": 6.8954,
+    "EF_Source": "Ecoinvent"
+  },
+  {
+    "materialClass": "Stone",
+    "EmissionFactor": 0.0631,
+    "EF_Source": "EPD"
+  },
+  {
+    "materialClass": "Bamboo",
+    "EmissionFactor": 0.478,
+    "EF_Source": "Ecoinvent"
+  }
+]

@@ -3,3 +3,5 @@ node_modules/
 .DS_Store
 *.zip
 /routes/temp/*
+*.log
+**/.claude/settings.local.json

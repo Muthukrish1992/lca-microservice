@@ -12,7 +12,9 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}/server.js",
-            "envFile": "${workspaceFolder}/microservice-lca/.env"
+            "envFile": "${workspaceFolder}/.env",
+            "console": "integratedTerminal",
+            "outputCapture": "std"
         }
     ]
 }

@@ -1,11 +1,22 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const logger = require('../utils/logger');
-const connections = {}; // Cache for database connections
 
+// Load env variables
+dotenv.config();
+
+// Cache for database connections
+const connections = {}; 
+
+/**
+ * Get database connection for a specific account
+ * @param {string} account - Account name to connect to
+ * @returns {mongoose.Connection} - Mongoose connection object
+ */
 const getDBConnection = async (account) => {
     if (!account) throw new Error('Account name is required');
 
+    // Return cached connection if available
     if (connections[account]) {
         return connections[account];
     }
@@ -58,4 +69,19 @@ const getDBConnection = async (account) => {
     }
 };
 
-module.exports = getDBConnection;
+/**
+ * Create a model for a specific schema and account
+ * @param {string} account - Account name
+ * @param {mongoose.Schema} schema - Mongoose schema
+ * @param {string} modelName - Name of the model
+ * @returns {mongoose.Model} - Mongoose model
+ */
+const getModel = async (account, schema, modelName) => {
+    const connection = await getDBConnection(account);
+    return connection.model(modelName, schema);
+};
+
+module.exports = {
+    getDBConnection,
+    getModel
+};

@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - NODE_ENV=production
+    platform: linux/amd64
+    image: iviva.azurecr.io/services/lca-microservice:v1
+    container_name: lca-microservice
+    restart: unless-stopped
+    ports:
+      - "21004:21004"
+    environment:
+      - NODE_ENV=production
+      - PORT=21004
+      - MONGODB_URI=mongodb://mongo:27017
+      - CORS_ORIGIN=*
+      - UPLOAD_DIR=uploads
+    volumes:
+      - ./uploads:/app/uploads
+      - ./logs:/app/logs
+    depends_on:
+      - mongo
+    networks:
+      - lca-network
+
+  mongo:
+    image: mongo:6
+    container_name: lca-mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - lca-network
+
+networks:
+  lca-network:
+    driver: bridge
+
+volumes:
+  mongo-data:
+    driver: local
