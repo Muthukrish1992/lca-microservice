@@ -189,7 +189,9 @@ function convertCsvToJson() {
           "specificMaterial": row['Material Subtype'] || '',
           "EmissionFactor": emissionFactor,
           "EF_Source": row['EF Source'] || '',
-          "Source_Dataset_Name": row['Source Dataset Name'] || ''
+          "Source_Dataset_Name": row['Source Dataset Name'] || '',
+          "EF_Type": row['EF Type'] || '',
+          "Type_Rationale": row['Type Rationale'] || ''
         };
       });
     
