@@ -8,6 +8,7 @@ const materialsDatabaseBasic = require("../data/materials_database_basic.json");
 const manufacturingProcessesBasic = require("../data/manufacturingProcesses_basic.json");
 
 const { updateAITokens } = require("../utils/utils");
+const logger = require('./logger');
 
 const OpenAI = require("openai");
 const { zodResponseFormat } = require("openai/helpers/zod");
@@ -30,7 +31,7 @@ async function makeOpenAIRequestWithRetry(requestFn, maxRetries = 3) {
           ? parseInt(error.message.match(/try again in (\d+)ms/)[1])
           : Math.pow(2, retries) * 1000;
         
-        console.log(`Rate limited, retrying in ${waitTime}ms...`);
+        logger.info(`Rate limited, retrying in ${waitTime}ms...`);
         await new Promise(resolve => setTimeout(resolve, waitTime));
         retries++;
       } else {
@@ -173,11 +174,11 @@ function findClosestMatch(input, validOptions, options = {}) {
     useWeights = false
   } = options;
   
-  const logger = console.log;
+  // Logger is already imported at the top of the file
   
   // Handle edge cases
   if (!input || typeof input !== 'string') {
-    logger('⚠️ Invalid input provided to findClosestMatch:', input);
+    logger.warn('⚠️ Invalid input provided to findClosestMatch:', input);
     
     // Return first option if available, otherwise return null
     const defaultOption = validOptions && validOptions.length > 0 
@@ -190,7 +191,7 @@ function findClosestMatch(input, validOptions, options = {}) {
   }
   
   if (!validOptions || !Array.isArray(validOptions) || validOptions.length === 0) {
-    logger('⚠️ Invalid options array provided to findClosestMatch');
+    logger.warn('⚠️ Invalid options array provided to findClosestMatch');
     return returnDetails ? { match: input, score: 1, isExact: true, reason: 'no_options' } : input;
   }
   
@@ -311,7 +312,7 @@ function findClosestMatch(input, validOptions, options = {}) {
   
   // Log if we found a common alternative mapping
   if (mappedInput.toLowerCase() !== cleanInput.toLowerCase()) {
-    logger(`🔄 Mapped alternative material name "${input}" to standard name "${mappedInput}"`);
+    logger.info(`🔄 Mapped alternative material name "${input}" to standard name "${mappedInput}"`);
   }
   
   // Check for exact match first (case-insensitive if ignoreCase is true)
@@ -367,7 +368,7 @@ function findClosestMatch(input, validOptions, options = {}) {
       'keyTerm': 'key term'
     };
       
-    logger(`✓ Found ${matchTypeDisplay[matchType]} match for "${input}": "${matchValue}"`);
+    logger.info(`✓ Found ${matchTypeDisplay[matchType]} match for "${input}": "${matchValue}"`);
     
     return returnDetails 
       ? { 
@@ -439,9 +440,9 @@ function findClosestMatch(input, validOptions, options = {}) {
   
   // Log which search term we're using
   if (usingMappedTerm) {
-    logger(`🔍 Using mapped alternative "${mappedInput}" instead of "${cleanInput}" for better matching`);
+    logger.info(`🔍 Using mapped alternative "${mappedInput}" instead of "${cleanInput}" for better matching`);
   } else if (usingExtractedTerm) {
-    logger(`🔍 Using extracted key term "${extractedInput}" instead of "${cleanInput}" for better matching`);
+    logger.info(`🔍 Using extracted key term "${extractedInput}" instead of "${cleanInput}" for better matching`);
   }
   
   // Perform fuzzy search with the best search term
@@ -458,7 +459,7 @@ function findClosestMatch(input, validOptions, options = {}) {
       const newMappedResult = mappedResult.length > 0 ? mappedResult : fuse.search(mappedInput);
       if (newMappedResult.length > 0 && newMappedResult[0].score < (1 - minScore)) {
         // We got a reasonable match with the mapped term
-        logger(`🔍 Falling back to mapped alternative "${mappedInput}" - found match`);
+        logger.info(`🔍 Falling back to mapped alternative "${mappedInput}" - found match`);
         return findClosestMatch(mappedInput, validOptions, options);
       }
     }
@@ -468,7 +469,7 @@ function findClosestMatch(input, validOptions, options = {}) {
       const newExtractedResult = extractedResult.length > 0 ? extractedResult : fuse.search(extractedInput);
       if (newExtractedResult.length > 0 && newExtractedResult[0].score < (1 - minScore)) {
         // We got a reasonable match with the extracted term
-        logger(`🔍 Falling back to extracted key term "${extractedInput}" - found match`);
+        logger.info(`🔍 Falling back to extracted key term "${extractedInput}" - found match`);
         return findClosestMatch(extractedInput, validOptions, options);
       }
     }
@@ -482,7 +483,7 @@ function findClosestMatch(input, validOptions, options = {}) {
       
       if (mdfIndex !== -1) {
         const mdfValue = isWeightedOptions ? validOptions[mdfIndex].value : optionStrings[mdfIndex];
-        logger(`🔍 Found special case match for "${input}": "${mdfValue}" (fibreboard-type material)`);
+        logger.info(`🔍 Found special case match for "${input}": "${mdfValue}" (fibreboard-type material)`);
         
         return returnDetails 
           ? { 
@@ -508,7 +509,7 @@ function findClosestMatch(input, validOptions, options = {}) {
       
       if (termMatch !== -1) {
         const termMatchValue = isWeightedOptions ? validOptions[termMatch].value : optionStrings[termMatch];
-        logger(`⚠️ No good full match found for "${input}". Found partial term match for "${lastTerm}": "${termMatchValue}"`);
+        logger.warn(`⚠️ No good full match found for "${input}". Found partial term match for "${lastTerm}": "${termMatchValue}"`);
         
         return returnDetails 
           ? { 
@@ -525,7 +526,7 @@ function findClosestMatch(input, validOptions, options = {}) {
     // 5. No match found, use the first option as default
     const defaultOption = isWeightedOptions ? validOptions[0].value : optionStrings[0];
     
-    logger(`⚠️ No good match found for "${input}". Using default: "${defaultOption}"`);
+    logger.warn(`⚠️ No good match found for "${input}". Using default: "${defaultOption}"`);
     
     return returnDetails 
       ? { 
@@ -571,7 +572,7 @@ function findClosestMatch(input, validOptions, options = {}) {
     ? validOptions[bestMatchIndex].value 
     : optionStrings[bestMatchIndex];
   
-  logger(`🔍 Best match for "${input}": "${matchValue}" (confidence: ${Math.round(matchScore * 100)}%)`);
+  logger.info(`🔍 Best match for "${input}": "${matchValue}" (confidence: ${Math.round(matchScore * 100)}%)`);
   
   // If the top few matches are close in score, log them
   if (result.length > 1) {
@@ -582,7 +583,7 @@ function findClosestMatch(input, validOptions, options = {}) {
     }).join(', ');
     
     if (topAlternatives) {
-      logger(`🔍 Alternative matches: ${topAlternatives}`);
+      logger.info(`🔍 Alternative matches: ${topAlternatives}`);
     }
   }
   
@@ -623,14 +624,14 @@ const formatBOMList = () => {
 };
 
 async function classifyProduct(productCode, name, description, imageUrl, req) {
-  console.log(`🚀 Starting classification for product: ${productCode}`);
+  logger.info(`🚀 Starting classification for product: ${productCode}`);
   
   if (!name || !description) {
-    console.log(`❌ Missing required fields for product: ${productCode}`);
+    logger.error(`❌ Missing required fields for product: ${productCode}`);
     throw new Error("Product code, name, and description are required.");
   }
 
-  console.log(`📋 Preparing categories list for prompt`);
+  logger.info(`📋 Preparing categories list for prompt`);
   // Construct categories list for the prompt
   const categoriesList = Object.entries(productCategories)
     .map(
@@ -639,7 +640,7 @@ async function classifyProduct(productCode, name, description, imageUrl, req) {
     )
     .join("\n\n");
 
-  console.log(`📝 Building classification prompt`);
+  logger.info(`📝 Building classification prompt`);
   // Prompt for classification
   const prompt = `Classify the following product into a category and subcategory based on the provided list.
 
@@ -670,7 +671,7 @@ CRITICAL RULES:
 `;
 
   try {
-    console.log(`🤖 Sending request to AI model for product: ${productCode}`);
+    logger.info(`🤖 Sending request to AI model for product: ${productCode}`);
     
     // Prepare messages with text and image if available
     const messages = [{ type: "text", text: prompt }];
@@ -679,14 +680,14 @@ CRITICAL RULES:
       try {
         // Validate image URL before adding to messages
         if (!imageUrl.startsWith('http') && !imageUrl.startsWith('/')) {
-          console.log(`⚠️ Invalid image URL format: ${imageUrl}`);
+          logger.warn(`⚠️ Invalid image URL format: ${imageUrl}`);
           throw new Error(`Invalid image URL format: ${imageUrl}`);
         }
         
         // Skip local/development URLs that OpenAI can't access
         if (imageUrl.includes('localhost') || imageUrl.includes('127.0.0.1') || imageUrl.includes(':5000')) {
-          console.log(`⚠️ Skipping local image URL: ${imageUrl}`);
-          console.log(`Local images cannot be accessed by OpenAI API. Proceeding without image.`);
+          logger.warn(`⚠️ Skipping local image URL: ${imageUrl}`);
+          logger.warn(`Local images cannot be accessed by OpenAI API. Proceeding without image.`);
           // Don't add the image to messages
         } else {
           // Format URLs correctly based on whether they're absolute or relative
@@ -694,11 +695,11 @@ CRITICAL RULES:
             ? `${process.env.BASE_URL || 'http://localhost:3000'}${imageUrl}`
             : imageUrl;
           
-          console.log(`🖼️ Using image URL for classification: ${formattedUrl}`);
+          logger.info(`🖼️ Using image URL for classification: ${formattedUrl}`);
           messages.push({ type: "image_url", image_url: { url: formattedUrl } });
         }
       } catch (error) {
-        console.error(`Failed to add image to classification request: ${error.message}`);
+        logger.error(`Failed to add image to classification request: ${error.message}`);
         // Continue without the image rather than failing completely
       }
     }
@@ -715,19 +716,19 @@ CRITICAL RULES:
     let result;
     try {
       result = JSON.parse(completion.choices[0].message.content);
-      console.log(`✅ Received AI classification response: ${JSON.stringify(result)}`);
+      logger.info(`✅ Received AI classification response: ${JSON.stringify(result)}`);
     } catch (parseError) {
-      console.error(`❌ Failed to parse classification response: ${parseError.message}`);
-      console.error(`Response content: ${completion.choices[0].message.content}`);
+      logger.error(`❌ Failed to parse classification response: ${parseError.message}`);
+      logger.error(`Response content: ${completion.choices[0].message.content}`);
       throw new Error("Failed to parse classification response. Invalid JSON format.");
     }
 
     updateAITokens(req, completion.usage.total_tokens);
-    console.log(`📊 Updated token usage: ${completion.usage.total_tokens} tokens`);
+    logger.info(`📊 Updated token usage: ${completion.usage.total_tokens} tokens`);
 
     // Validate the category and subcategory
     if (!productCategories[result.category]) {
-      console.log(`⚠️ Invalid category "${result.category}". Finding closest match...`);
+      logger.warn(`⚠️ Invalid category "${result.category}". Finding closest match...`);
       const categoryMatch = findClosestMatch(
         result.category,
         Object.keys(productCategories),
@@ -737,16 +738,16 @@ CRITICAL RULES:
       result.category = categoryMatch.match;
       
       if (categoryMatch.isExact) {
-        console.log(`✓ Found exact category match: ${result.category}`);
+        logger.info(`✓ Found exact category match: ${result.category}`);
       } else if (categoryMatch.isDefault) {
-        console.log(`⚠️ No good match found, using default category: ${result.category}`);
+        logger.warn(`⚠️ No good match found, using default category: ${result.category}`);
       } else {
-        console.log(`🔄 Adjusted category to: ${result.category} (confidence: ${Math.round(categoryMatch.score * 100)}%)`);
+        logger.info(`🔄 Adjusted category to: ${result.category} (confidence: ${Math.round(categoryMatch.score * 100)}%)`);
       }
     }
     
     if (!productCategories[result.category].includes(result.subcategory)) {
-      console.log(`⚠️ Invalid subcategory "${result.subcategory}" for category "${result.category}". Finding closest match...`);
+      logger.warn(`⚠️ Invalid subcategory "${result.subcategory}" for category "${result.category}". Finding closest match...`);
       
       const subcategoryMatch = findClosestMatch(
         result.subcategory,
@@ -757,22 +758,22 @@ CRITICAL RULES:
       result.subcategory = subcategoryMatch.match;
       
       if (subcategoryMatch.isExact) {
-        console.log(`✓ Found exact subcategory match: ${result.subcategory}`);
+        logger.info(`✓ Found exact subcategory match: ${result.subcategory}`);
       } else if (subcategoryMatch.isDefault) {
-        console.log(`⚠️ No good match found, using default subcategory: ${result.subcategory}`);
+        logger.warn(`⚠️ No good match found, using default subcategory: ${result.subcategory}`);
       } else {
-        console.log(`🔄 Adjusted subcategory to: ${result.subcategory} (confidence: ${Math.round(subcategoryMatch.score * 100)}%)`);
+        logger.info(`🔄 Adjusted subcategory to: ${result.subcategory} (confidence: ${Math.round(subcategoryMatch.score * 100)}%)`);
         if (subcategoryMatch.allMatches && subcategoryMatch.allMatches.length > 1) {
-          console.log(`🔍 Top alternative matches: ${subcategoryMatch.allMatches.slice(1).map(m => `${m.value} (${Math.round(m.score * 100)}%)`).join(', ')}`);
+          logger.info(`🔍 Top alternative matches: ${subcategoryMatch.allMatches.slice(1).map(m => `${m.value} (${Math.round(m.score * 100)}%)`).join(', ')}`);
         }
       }
     }
 
-    console.log(`✅ Final classification for ${productCode}: Category=${result.category}, Subcategory=${result.subcategory}`);
+    logger.info(`✅ Final classification for ${productCode}: Category=${result.category}, Subcategory=${result.subcategory}`);
     return result;
   } catch (error) {
-    console.error(`❌ Classification failed for ${productCode}: ${error.message}`);
-    console.log(`⚠️ Using default fallback classification for ${productCode}`);
+    logger.error(`❌ Classification failed for ${productCode}: ${error.message}`);
+    logger.warn(`⚠️ Using default fallback classification for ${productCode}`);
     return { category: "Uncategorized", subcategory: "Other" }; // Default fallback
   }
 }
@@ -848,14 +849,14 @@ ${materialsList}
       try {
         // Validate image URL before adding to messages
         if (!imageUrl.startsWith('http') && !imageUrl.startsWith('/')) {
-          console.log(`⚠️ Invalid image URL format: ${imageUrl}`);
+          logger.warn(`⚠️ Invalid image URL format: ${imageUrl}`);
           throw new Error(`Invalid image URL format: ${imageUrl}`);
         }
         
         // Skip local/development URLs that OpenAI can't access
         if (imageUrl.includes('localhost') || imageUrl.includes('127.0.0.1') || imageUrl.includes(':5000')) {
-          console.log(`⚠️ Skipping local image URL: ${imageUrl}`);
-          console.log(`Local images cannot be accessed by OpenAI API. Proceeding without image.`);
+          logger.warn(`⚠️ Skipping local image URL: ${imageUrl}`);
+          logger.warn(`Local images cannot be accessed by OpenAI API. Proceeding without image.`);
           // Don't add the image to messages
         } else {
           // Format URLs correctly based on whether they're absolute or relative
@@ -863,11 +864,11 @@ ${materialsList}
             ? `${process.env.BASE_URL || 'http://localhost:3000'}${imageUrl}`
             : imageUrl;
           
-          console.log(`🖼️ Using image URL: ${formattedUrl}`);
+          logger.info(`🖼️ Using image URL: ${formattedUrl}`);
           messages.push({ type: "image_url", image_url: { url: formattedUrl } });
         }
       } catch (error) {
-        console.error(`Failed to add image to request: ${error.message}`);
+        logger.error(`Failed to add image to request: ${error.message}`);
         // Continue without the image rather than failing completely
       }
     }
@@ -884,10 +885,10 @@ ${materialsList}
     let result;
     try {
       result = JSON.parse(response.choices[0].message.content).bom;
-      console.log(`✅ Successfully parsed BOM response`);
+      logger.info(`✅ Successfully parsed BOM response`);
     } catch (parseError) {
-      console.error(`❌ Failed to parse BOM response: ${parseError.message}`);
-      console.error(`Response content: ${response.choices[0].message.content}`);
+      logger.error(`❌ Failed to parse BOM response: ${parseError.message}`);
+      logger.error(`Response content: ${response.choices[0].message.content}`);
       throw new Error("Failed to parse BOM response from API. Invalid JSON format.");
     }
     
@@ -900,7 +901,7 @@ ${materialsList}
       );
       
       if (!isValidMaterialClass) {
-        console.log(`⚠️ Material class "${item.materialClass}" not found in basic database. Finding closest match...`);
+        logger.warn(`⚠️ Material class "${item.materialClass}" not found in basic database. Finding closest match...`);
         
         // Get all valid material classes
         const validMaterialClasses = materialsDatabaseBasic.map(material => material.materialClass);
@@ -920,15 +921,15 @@ ${materialsList}
         item.materialClass = materialMatch.match;
         
         if (materialMatch.isExact) {
-          console.log(`✓ Found exact match for "${originalMaterialClass}": "${item.materialClass}"`);
+          logger.info(`✓ Found exact match for "${originalMaterialClass}": "${item.materialClass}"`);
         } else if (materialMatch.isDefault) {
-          console.log(`⚠️ No good match found for "${originalMaterialClass}". Using default: "${item.materialClass}"`);
+          logger.warn(`⚠️ No good match found for "${originalMaterialClass}". Using default: "${item.materialClass}"`);
         } else {
-          console.log(`🔄 Adjusted material class from "${originalMaterialClass}" to "${item.materialClass}" (confidence: ${Math.round(materialMatch.score * 100)}%)`);
+          logger.info(`🔄 Adjusted material class from "${originalMaterialClass}" to "${item.materialClass}" (confidence: ${Math.round(materialMatch.score * 100)}%)`);
           
           // Log alternative matches
           if (materialMatch.allMatches && materialMatch.allMatches.length > 1) {
-            console.log(`🔍 Alternative matches: ${materialMatch.allMatches.slice(1).map(m => 
+            logger.info(`🔍 Alternative matches: ${materialMatch.allMatches.slice(1).map(m => 
               `${m.value} (${Math.round(m.score * 100)}%)`).join(', ')}`);
           }
         }
@@ -936,7 +937,7 @@ ${materialsList}
     });
 
     // Combine duplicate materials (e.g., if both "Fibreboard" and "Particleboard" map to "MDF")
-    console.log(`🔄 Checking for duplicate materials to combine...`);
+    logger.info(`🔄 Checking for duplicate materials to combine...`);
     const combinedResult = [];
     const materialMap = new Map(); // Map to track unique material classes
     
@@ -945,7 +946,7 @@ ${materialsList}
         // Combine weights for duplicate material classes
         const existingItem = materialMap.get(item.materialClass);
         existingItem.weight += item.weight;
-        console.log(`✓ Combined duplicate material: ${item.materialClass} - new weight: ${existingItem.weight.toFixed(2)} kg`);
+        logger.info(`✓ Combined duplicate material: ${item.materialClass} - new weight: ${existingItem.weight.toFixed(2)} kg`);
       } else {
         // First time seeing this material class
         materialMap.set(item.materialClass, item);
@@ -954,7 +955,7 @@ ${materialsList}
     });
     
     if (result.length !== combinedResult.length) {
-      console.log(`🔄 Combined ${result.length - combinedResult.length} duplicate materials.`);
+      logger.info(`🔄 Combined ${result.length - combinedResult.length} duplicate materials.`);
     }
 
     // Validate total weight
@@ -968,7 +969,7 @@ ${materialsList}
     cacheClassifyBOM.set(keyClassifyBOM, combinedResult);
     return combinedResult;
   } catch (error) {
-    console.error(
+    logger.error(
       "Error classifying BOM:",
       error.response?.data || error.message
     );
@@ -1057,14 +1058,14 @@ If the image shows a **support item** (e.g., bar, rack, holder) and the text inc
       try {
         // Validate image URL before adding to messages
         if (!imageUrl.startsWith('http') && !imageUrl.startsWith('/')) {
-          console.log(`⚠️ Invalid image URL format: ${imageUrl}`);
+          logger.warn(`⚠️ Invalid image URL format: ${imageUrl}`);
           throw new Error(`Invalid image URL format: ${imageUrl}`);
         }
         
         // Skip local/development URLs that OpenAI can't access
         if (imageUrl.includes('localhost') || imageUrl.includes('127.0.0.1') || imageUrl.includes(':5000')) {
-          console.log(`⚠️ Skipping local image URL: ${imageUrl}`);
-          console.log(`Local images cannot be accessed by OpenAI API. Proceeding without image.`);
+          logger.warn(`⚠️ Skipping local image URL: ${imageUrl}`);
+          logger.warn(`Local images cannot be accessed by OpenAI API. Proceeding without image.`);
           // Don't add the image to messages
         } else {
           // Format URLs correctly based on whether they're absolute or relative
@@ -1072,11 +1073,11 @@ If the image shows a **support item** (e.g., bar, rack, holder) and the text inc
             ? `${process.env.BASE_URL || 'http://localhost:3000'}${imageUrl}`
             : imageUrl;
           
-          console.log(`🖼️ Using image URL: ${formattedUrl}`);
+          logger.info(`🖼️ Using image URL: ${formattedUrl}`);
           messages.push({ type: "image_url", image_url: { url: formattedUrl } });
         }
       } catch (error) {
-        console.error(`Failed to add image to request: ${error.message}`);
+        logger.error(`Failed to add image to request: ${error.message}`);
         // Continue without the image rather than failing completely
       }
     }
@@ -1093,10 +1094,10 @@ If the image shows a **support item** (e.g., bar, rack, holder) and the text inc
     let result;
     try {
       result = JSON.parse(response.choices[0].message.content).bom;
-      console.log(`✅ Received AI bill of materials response: ${JSON.stringify(result)}`);
+      logger.info(`✅ Received AI bill of materials response: ${JSON.stringify(result)}`);
     } catch (parseError) {
-      console.error(`❌ Failed to parse BOM response: ${parseError.message}`);
-      console.error(`Response content: ${response.choices[0].message.content}`);
+      logger.error(`❌ Failed to parse BOM response: ${parseError.message}`);
+      logger.error(`Response content: ${response.choices[0].message.content}`);
       throw new Error("Failed to parse BOM response from API. Invalid JSON format.");
     }
     
@@ -1109,7 +1110,7 @@ If the image shows a **support item** (e.g., bar, rack, holder) and the text inc
       
       // Check if the material class exists in the database
       if (!availableMaterialClasses.includes(item.materialClass)) {
-        console.log(`⚠️ Material class "${item.materialClass}" not found in database. Finding closest match...`);
+        logger.warn(`⚠️ Material class "${item.materialClass}" not found in database. Finding closest match...`);
         
         const materialMatch = findClosestMatch(
           item.materialClass,
@@ -1126,14 +1127,14 @@ If the image shows a **support item** (e.g., bar, rack, holder) and the text inc
         item.materialClass = materialMatch.match;
         
         if (materialMatch.isExact) {
-          console.log(`✓ Found exact match for "${originalMaterialClass}": "${item.materialClass}"`);
+          logger.info(`✓ Found exact match for "${originalMaterialClass}": "${item.materialClass}"`);
         } else if (materialMatch.isDefault) {
-          console.log(`⚠️ No good match found for "${originalMaterialClass}". Using default: "${item.materialClass}"`);
+          logger.warn(`⚠️ No good match found for "${originalMaterialClass}". Using default: "${item.materialClass}"`);
         } else {
-          console.log(`🔄 Adjusted material class from "${originalMaterialClass}" to "${item.materialClass}" (confidence: ${Math.round(materialMatch.score * 100)}%)`);
+          logger.info(`🔄 Adjusted material class from "${originalMaterialClass}" to "${item.materialClass}" (confidence: ${Math.round(materialMatch.score * 100)}%)`);
           
           if (materialMatch.allMatches && materialMatch.allMatches.length > 1) {
-            console.log(`🔍 Alternative matches: ${materialMatch.allMatches.slice(1).map(m => 
+            logger.info(`🔍 Alternative matches: ${materialMatch.allMatches.slice(1).map(m => 
               `${m.value} (${Math.round(m.score * 100)}%)`).join(', ')}`);
           }
         }
@@ -1151,7 +1152,7 @@ If the image shows a **support item** (e.g., bar, rack, holder) and the text inc
         ];
         
         if (!availableSpecificMaterials.includes(item.specificMaterial)) {
-          console.log(`⚠️ Specific material "${item.specificMaterial}" not found in "${item.materialClass}" category. Finding closest match...`);
+          logger.warn(`⚠️ Specific material "${item.specificMaterial}" not found in "${item.materialClass}" category. Finding closest match...`);
           
           const specificMatch = findClosestMatch(
             item.specificMaterial,
@@ -1168,18 +1169,18 @@ If the image shows a **support item** (e.g., bar, rack, holder) and the text inc
           item.specificMaterial = specificMatch.match;
           
           if (specificMatch.isExact) {
-            console.log(`✓ Found exact match for "${originalSpecificMaterial}": "${item.specificMaterial}"`);
+            logger.info(`✓ Found exact match for "${originalSpecificMaterial}": "${item.specificMaterial}"`);
           } else if (specificMatch.isDefault) {
-            console.log(`⚠️ No good match found for "${originalSpecificMaterial}". Using default: "${item.specificMaterial}"`);
+            logger.warn(`⚠️ No good match found for "${originalSpecificMaterial}". Using default: "${item.specificMaterial}"`);
           } else {
-            console.log(`🔄 Adjusted specific material from "${originalSpecificMaterial}" to "${item.specificMaterial}" (confidence: ${Math.round(specificMatch.score * 100)}%)`);
+            logger.info(`🔄 Adjusted specific material from "${originalSpecificMaterial}" to "${item.specificMaterial}" (confidence: ${Math.round(specificMatch.score * 100)}%)`);
           }
         }
       }
     });
 
     // Combine duplicate materials (e.g., if multiple "Fibreboard" all map to "MDF")
-    console.log(`🔄 Checking for duplicate materials to combine...`);
+    logger.info(`🔄 Checking for duplicate materials to combine...`);
     const combinedResult = [];
     const materialMap = new Map(); // Map to track unique material combinations
     
@@ -1190,7 +1191,7 @@ If the image shows a **support item** (e.g., bar, rack, holder) and the text inc
         // Combine weights for duplicate materials
         const existingItem = materialMap.get(key);
         existingItem.weight += item.weight;
-        console.log(`✓ Combined duplicate material: ${item.materialClass} (${item.specificMaterial}) - new weight: ${existingItem.weight.toFixed(2)} kg`);
+        logger.info(`✓ Combined duplicate material: ${item.materialClass} (${item.specificMaterial}) - new weight: ${existingItem.weight.toFixed(2)} kg`);
       } else {
         // First time seeing this material combination
         materialMap.set(key, item);
@@ -1199,7 +1200,7 @@ If the image shows a **support item** (e.g., bar, rack, holder) and the text inc
     });
     
     if (result.length !== combinedResult.length) {
-      console.log(`🔄 Combined ${result.length - combinedResult.length} duplicate materials.`);
+      logger.info(`🔄 Combined ${result.length - combinedResult.length} duplicate materials.`);
     }
 
     // Validate total weight
@@ -1213,7 +1214,7 @@ If the image shows a **support item** (e.g., bar, rack, holder) and the text inc
     cacheClassifyBOM.set(keyClassifyBOM, combinedResult);
     return combinedResult;
   } catch (error) {
-    console.error(
+    logger.error(
       "Error classifying BOM:",
       error.response?.data || error.message
     );
@@ -1303,7 +1304,7 @@ Important:
 
     return result;
   } catch (error) {
-    console.error(
+    logger.error(
       "Error classifying manufacturing process:",
       error.response?.data || error.message
     );
@@ -1392,7 +1393,7 @@ Important:
 
     return result;
   } catch (error) {
-    console.error(
+    logger.error(
       "Error classifying manufacturing process:",
       error.response?.data || error.message
     );
