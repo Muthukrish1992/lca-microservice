@@ -7,7 +7,7 @@
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "cleft timber, measured as dry mass",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "DE",
@@ -17,7 +17,7 @@
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "cleft timber, measured as dry mass",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "GLO",
@@ -27,7 +27,7 @@
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "",
         "EF_Type": "Average",
-        "Type_Rationale": "AI could not find a specific or similar material, so an average emission factor for the broader category has been used to calculate emissions."
+        "Type_Rationale": "A category-average emission factor was applied as no close match was identified for the specified material."
     },
     {
         "countryOfOrigin": "GLO",
@@ -37,7 +37,7 @@
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "",
         "EF_Type": "Average",
-        "Type_Rationale": "AI could not find a specific or similar material, so an average emission factor for the broader category has been used to calculate emissions."
+        "Type_Rationale": "A category-average emission factor was applied as no close match was identified for the specified material."
     },
     {
         "countryOfOrigin": "GLO",
@@ -47,7 +47,7 @@
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "",
         "EF_Type": "Average",
-        "Type_Rationale": "AI could not find a specific or similar material, so an average emission factor for the broader category has been used to calculate emissions."
+        "Type_Rationale": "A category-average emission factor was applied as no close match was identified for the specified material."
     },
     {
         "countryOfOrigin": "RoW",
@@ -57,7 +57,7 @@
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "cleft timber, measured as dry mass",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "DE",
@@ -67,7 +67,7 @@
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "cleft timber, measured as dry mass",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "GLO",
@@ -77,7 +77,7 @@
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "",
         "EF_Type": "Average",
-        "Type_Rationale": "AI could not find a specific or similar material, so an average emission factor for the broader category has been used to calculate emissions."
+        "Type_Rationale": "A category-average emission factor was applied as no close match was identified for the specified material."
     },
     {
         "countryOfOrigin": "RoW",
@@ -87,7 +87,7 @@
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "softwood forestry, pine, sustainable forest management-cleft timber, measured as dry mass",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "DE",
@@ -97,7 +97,7 @@
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "softwood forestry, pine, sustainable forest management-cleft timber, measured as dry mass",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "SE",
@@ -107,7 +107,7 @@
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "softwood forestry, pine, sustainable forest management-cleft timber, measured as dry mass",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "RoW",
@@ -117,7 +117,7 @@
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "hardwood forestry, birch, sustainable forest management-cleft timber, measured as dry mass",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "SE",
@@ -127,7 +127,7 @@
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "hardwood forestry, birch, sustainable forest management-cleft timber, measured as dry mass",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "GLO",
@@ -137,7 +137,7 @@
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "",
         "EF_Type": "Average",
-        "Type_Rationale": "AI could not find a specific or similar material, so an average emission factor for the broader category has been used to calculate emissions."
+        "Type_Rationale": "A category-average emission factor was applied as no close match was identified for the specified material."
     },
     {
         "countryOfOrigin": "GLO",
@@ -147,7 +147,7 @@
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "",
         "EF_Type": "Average",
-        "Type_Rationale": "AI could not find a specific or similar material, so an average emission factor for the broader category has been used to calculate emissions."
+        "Type_Rationale": "A category-average emission factor was applied as no close match was identified for the specified material."
     },
     {
         "countryOfOrigin": "GLO",
@@ -157,7 +157,7 @@
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "",
         "EF_Type": "Average",
-        "Type_Rationale": "AI could not find a specific or similar material, so an average emission factor for the broader category has been used to calculate emissions."
+        "Type_Rationale": "A category-average emission factor was applied as no close match was identified for the specified material."
     },
     {
         "countryOfOrigin": "GLO",
@@ -167,7 +167,7 @@
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "",
         "EF_Type": "Average",
-        "Type_Rationale": "AI could not find a specific or similar material, so an average emission factor for the broader category has been used to calculate emissions."
+        "Type_Rationale": "A category-average emission factor was applied as no close match was identified for the specified material."
     },
     {
         "countryOfOrigin": "GLO",
@@ -177,7 +177,7 @@
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "",
         "EF_Type": "Average",
-        "Type_Rationale": "AI could not find a specific or similar material, so an average emission factor for the broader category has been used to calculate emissions."
+        "Type_Rationale": "A category-average emission factor was applied as no close match was identified for the specified material."
     },
     {
         "countryOfOrigin": "GLO",
@@ -187,17 +187,17 @@
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "",
         "EF_Type": "Average",
-        "Type_Rationale": "AI could not find a specific or similar material, so an average emission factor for the broader category has been used to calculate emissions."
+        "Type_Rationale": "A category-average emission factor was applied as no close match was identified for the specified material."
     },
     {
-        "countryOfOrigin": "PH",
+        "countryOfOrigin": "Philippines",
         "materialClass": "Wood",
         "specificMaterial": "Natural Bamboo",
         "EmissionFactor": 0.6,
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for flattened bamboo",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "RoW",
@@ -207,17 +207,17 @@
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for flattened bamboo",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
-        "countryOfOrigin": "CO",
+        "countryOfOrigin": "Colombia",
         "materialClass": "Wood",
         "specificMaterial": "Natural Bamboo",
         "EmissionFactor": 0.32,
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for flattened bamboo",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "BR",
@@ -227,7 +227,7 @@
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for flattened bamboo",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "CN",
@@ -237,17 +237,17 @@
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for flattened bamboo",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
-        "countryOfOrigin": "EC",
+        "countryOfOrigin": "Ecuador",
         "materialClass": "Wood",
         "specificMaterial": "Natural Bamboo",
         "EmissionFactor": 0.09,
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for flattened bamboo",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "SE",
@@ -257,7 +257,7 @@
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Holse & Wibroe Strand Woven Bamboo",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "GLO",
@@ -267,7 +267,7 @@
         "EF_Source": "EPD",
         "Source_Dataset_Name": "dasso strand woven bamboo",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "SE",
@@ -277,97 +277,177 @@
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Particleboard",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "RoW",
         "materialClass": "Wood",
-        "specificMaterial": "MDF (Medium Density Fiber Board)",
+        "specificMaterial": "MDF",
         "EmissionFactor": 0.98,
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for medium density fibreboard",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
-        "countryOfOrigin": "RER",
+        "countryOfOrigin": "Europe",
         "materialClass": "Wood",
-        "specificMaterial": "MDF (Medium Density Fiber Board)",
+        "specificMaterial": "MDF",
         "EmissionFactor": 0.74,
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for medium density fibreboard",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
-    },
-    {
-        "countryOfOrigin": "GLO",
-        "materialClass": "Metal",
-        "specificMaterial": "Steel",
-        "EmissionFactor": 4.93,
-        "EF_Source": "Ecoinvent",
-        "Source_Dataset_Name": "market for steel, chromium steel 18/8",
-        "EF_Type": "Porxy",
-        "Type_Rationale": "As ecoinvent does not include a specific or directly matching dataset for the material, a proxy material with similar properties was selected."
-    },
-    {
-        "countryOfOrigin": "GLO",
-        "materialClass": "Metal",
-        "specificMaterial": "Stainless Steel",
-        "EmissionFactor": 4.93,
-        "EF_Source": "Ecoinvent",
-        "Source_Dataset_Name": "market for steel, chromium steel 18/9",
-        "EF_Type": "Porxy",
-        "Type_Rationale": "As ecoinvent does not include a specific or directly matching dataset for the material, a proxy material with similar properties was selected."
-    },
-    {
-        "countryOfOrigin": "IAI Area, EU27 & EFTA",
-        "materialClass": "Metal",
-        "specificMaterial": "Aluminum",
-        "EmissionFactor": 9.94,
-        "EF_Source": "Ecoinvent",
-        "Source_Dataset_Name": "market for aluminium, primary, ingot",
-        "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "RoW",
         "materialClass": "Metal",
-        "specificMaterial": "Aluminum",
+        "specificMaterial": "Stainless Steel",
+        "EmissionFactor": 5.22,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for steel, chromium steel 18/8, hot rolled",
+        "EF_Type": "Direct",
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
+    },
+    {
+        "countryOfOrigin": "India",
+        "materialClass": "Metal",
+        "specificMaterial": "Stainless Steel",
+        "EmissionFactor": 2.01,
+        "EF_Source": "EPD",
+        "Source_Dataset_Name": "Stainless Steel Cast & Rolled Products",
+        "EF_Type": "Direct",
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
+    },
+    {
+        "countryOfOrigin": "IAI-EU",
+        "materialClass": "Metal",
+        "specificMaterial": "Primary Aluminum",
+        "EmissionFactor": 9.94,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for aluminium, primary, ingot",
+        "EF_Type": "Direct",
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
+    },
+    {
+        "countryOfOrigin": "RoW",
+        "materialClass": "Metal",
+        "specificMaterial": "Primary Aluminum",
         "EmissionFactor": 20.9,
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for aluminium, primary, ingot",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
-        "countryOfOrigin": "IAI Area, North America",
+        "countryOfOrigin": "IAI-NA",
         "materialClass": "Metal",
-        "specificMaterial": "Aluminum",
+        "specificMaterial": "Primary Aluminum",
         "EmissionFactor": 10.8,
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for aluminium, primary, ingot",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
+    },
+    {
+        "countryOfOrigin": "GLO",
+        "materialClass": "Metal",
+        "specificMaterial": "Hot Rolled Low-Alloy Steel",
+        "EmissionFactor": 2.28,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for steel, low-alloyed, hot rolled",
+        "EF_Type": "Direct",
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
+    },
+    {
+        "countryOfOrigin": "GLO",
+        "materialClass": "Metal",
+        "specificMaterial": "Steel Section Bar",
+        "EmissionFactor": 0.21,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for section bar rolling, steel",
+        "EF_Type": "Direct",
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
+    },
+    {
+        "countryOfOrigin": "GLO",
+        "materialClass": "Metal",
+        "specificMaterial": "Steel Sheet",
+        "EmissionFactor": 0.37,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for sheet rolling, steel",
+        "EF_Type": "Direct",
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
+    },
+    {
+        "countryOfOrigin": "GLO",
+        "materialClass": "Metal",
+        "specificMaterial": "Powdercoat Steel",
+        "EmissionFactor": 3.42,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for powder coat, steel",
+        "EF_Type": "Direct",
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
+    },
+    {
+        "countryOfOrigin": "GLO",
+        "materialClass": "Metal",
+        "specificMaterial": "Wrought Aluminium",
+        "EmissionFactor": 13.1,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for aluminium, wrought alloy",
+        "EF_Type": "Direct",
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
+    },
+    {
+        "countryOfOrigin": "GLO",
+        "materialClass": "Metal",
+        "specificMaterial": "Aluminium Section Bar",
+        "EmissionFactor": 0.85,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for section bar extrusion, aluminium",
+        "EF_Type": "Direct",
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
+    },
+    {
+        "countryOfOrigin": "GLO",
+        "materialClass": "Metal",
+        "specificMaterial": "Cast Aluminium",
+        "EmissionFactor": 6.3,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for aluminium, cast alloy",
+        "EF_Type": "Direct",
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
+    },
+    {
+        "countryOfOrigin": "Europe",
+        "materialClass": "Metal",
+        "specificMaterial": "Stainless Steel",
+        "EmissionFactor": 5.22,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for steel, chromium steel 18/8, hot rolled",
+        "EF_Type": "Direct",
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Metal",
         "specificMaterial": "Chromed Steel",
-        "EmissionFactor": 4.93,
+        "EmissionFactor": 2.28,
         "EF_Source": "Ecoinvent",
-        "Source_Dataset_Name": "market for steel, chromium steel 18/8",
-        "EF_Type": "Porxy",
-        "Type_Rationale": "As ecoinvent does not include a specific or directly matching dataset for the material, a proxy material with similar properties was selected."
+        "Source_Dataset_Name": "market for steel, low-alloyed, hot rolled",
+        "EF_Type": "Proxy",
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Metal",
         "specificMaterial": "Wrought Iron",
-        "EmissionFactor": 5.0717,
+        "EmissionFactor": 2.28,
         "EF_Source": "Ecoinvent",
-        "Source_Dataset_Name": "steel production, electric, chromium steel 18/8",
+        "Source_Dataset_Name": "market for steel, low-alloyed, hot rolled",
         "EF_Type": "Proxy",
-        "Type_Rationale": "AI could not find a specific emission factor, so a proxy material with similar properties has been used to calculate emissions."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "GLO",
@@ -377,7 +457,7 @@
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for cast iron",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "RoW",
@@ -387,27 +467,27 @@
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for brass",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
-        "countryOfOrigin": "CH",
+        "countryOfOrigin": "Switzerland",
         "materialClass": "Metal",
         "specificMaterial": "Brass",
         "EmissionFactor": 5.67,
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for brass",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Metal",
         "specificMaterial": "Copper",
-        "EmissionFactor": 3.69,
+        "EmissionFactor": 6.71,
         "EF_Source": "Ecoinvent",
-        "Source_Dataset_Name": "market for copper cake",
+        "Source_Dataset_Name": "market for copper, cathode",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "GLO",
@@ -417,7 +497,7 @@
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for Zinc",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "GLO",
@@ -427,37 +507,37 @@
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for titanium",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Metal",
         "specificMaterial": "Mild Steel",
-        "EmissionFactor": 2.03,
+        "EmissionFactor": 2.28,
         "EF_Source": "Ecoinvent",
-        "Source_Dataset_Name": "market for steel, low-alloyed",
+        "Source_Dataset_Name": "market for steel, low-alloyed, hot rolled",
         "EF_Type": "Proxy",
-        "Type_Rationale": ""
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Metal",
         "specificMaterial": "Galvanized Steel",
-        "EmissionFactor": 5.0717,
+        "EmissionFactor": 2.28,
         "EF_Source": "Ecoinvent",
-        "Source_Dataset_Name": "steel production, electric, chromium steel 18/8",
+        "Source_Dataset_Name": "market for steel, low-alloyed, hot rolled",
         "EF_Type": "Proxy",
-        "Type_Rationale": "AI could not find a specific emission factor, so a proxy material with similar properties has been used to calculate emissions."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Metal",
         "specificMaterial": "Nickel",
-        "EmissionFactor": 4.93,
+        "EmissionFactor": 16.35,
         "EF_Source": "Ecoinvent",
-        "Source_Dataset_Name": "market for steel, chromium steel 18/8",
-        "EF_Type": "Porxy",
-        "Type_Rationale": "As ecoinvent does not include a specific or directly matching dataset for the material, a proxy material with similar properties was selected."
+        "Source_Dataset_Name": "market for nickel, class 1",
+        "EF_Type": "Direct",
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "GLO",
@@ -467,7 +547,7 @@
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for polypropylene, granulate",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "GLO",
@@ -477,7 +557,7 @@
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for acrylonitrile-butadiene-styrene copolymer",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "RoW",
@@ -487,17 +567,17 @@
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for polyvinyl chloride, emulsion polymerised",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
-        "countryOfOrigin": "RER",
+        "countryOfOrigin": "Europe",
         "materialClass": "Plastic",
         "specificMaterial": "Polyvinyl Chloride (PVC)",
         "EmissionFactor": 2.36,
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for polyvinyl chloride, emulsion polymerised",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "RoW",
@@ -507,17 +587,17 @@
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for polycarbonate",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
-        "countryOfOrigin": "RER",
+        "countryOfOrigin": "Europe",
         "materialClass": "Plastic",
         "specificMaterial": "Polycarbonate (PC)",
         "EmissionFactor": 4.99,
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for polycarbonate",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "GLO",
@@ -527,7 +607,7 @@
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for polyethylene, high density, granulat",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "RoW",
@@ -537,17 +617,17 @@
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for polyurethane, rigid foam",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
-        "countryOfOrigin": "RER",
+        "countryOfOrigin": "Europe",
         "materialClass": "Plastic",
         "specificMaterial": "Polyurethane (PU)",
         "EmissionFactor": 4.22,
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for polyurethane, rigid foam",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "RoW",
@@ -557,17 +637,17 @@
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for polymethyl methacrylate",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
-        "countryOfOrigin": "RER",
+        "countryOfOrigin": "Europe",
         "materialClass": "Plastic",
         "specificMaterial": "Acrylic (PMMA)",
         "EmissionFactor": 6.62,
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for polymethyl methacrylate",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "RoW",
@@ -577,17 +657,17 @@
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for nylon 6-6",
         "EF_Type": "Proxy",
-        "Type_Rationale": ""
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
-        "countryOfOrigin": "RER",
+        "countryOfOrigin": "Europe",
         "materialClass": "Plastic",
         "specificMaterial": "Nylon (Polyamide)",
         "EmissionFactor": 8.16,
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for nylon 6-6",
         "EF_Type": "Proxy",
-        "Type_Rationale": ""
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "GLO",
@@ -597,7 +677,7 @@
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for polyethylene terephthalate, granulate, bottle grade",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "RoW",
@@ -607,7 +687,7 @@
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "polystyrene production, expandable",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "GLO",
@@ -617,7 +697,7 @@
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for polyethylene, low density, granulate",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "RoW",
@@ -627,47 +707,57 @@
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for melamine formaldehyde resin",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
-        "countryOfOrigin": "RER",
+        "countryOfOrigin": "Europe",
         "materialClass": "Plastic",
         "specificMaterial": "Melamine-Formaldehyde (MF)",
         "EmissionFactor": 5.63,
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for melamine formaldehyde resin",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Plastic",
         "specificMaterial": "Polyvinyl Butyral (PVB)",
-        "EmissionFactor": 2.4935,
+        "EmissionFactor": 2.49,
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for ethylene vinyl acetate copolymer",
         "EF_Type": "Proxy",
-        "Type_Rationale": "AI could not find a specific emission factor, so a proxy material with similar properties has been used to calculate emissions."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Plastic",
         "specificMaterial": "Thermoplastic Elastomers (TPE)",
-        "EmissionFactor": 3.4935,
+        "EmissionFactor": 3.49,
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for ethylene vinyl acetate copolymer",
         "EF_Type": "Proxy",
-        "Type_Rationale": "AI could not find a specific emission factor, so a proxy material with similar properties has been used to calculate emissions."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Glass",
         "specificMaterial": "Tempered Glass",
-        "EmissionFactor": 0.18,
+        "EmissionFactor": 1.06,
         "EF_Source": "Ecoinvent",
-        "Source_Dataset_Name": "market for tempering, flat glass",
-        "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Source_Dataset_Name": "market for flat glass, uncoated",
+        "EF_Type": "Proxy",
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
+    },
+    {
+        "countryOfOrigin": "Europe",
+        "materialClass": "Glass",
+        "specificMaterial": "Tempered Glass",
+        "EmissionFactor": 0.98,
+        "EF_Source": "Ecoinvent",
+        "Source_Dataset_Name": "market for flat glass, uncoated",
+        "EF_Type": "Proxy",
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "GLO",
@@ -677,37 +767,37 @@
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for glazing, double, U<1.1 W/m2K, laminated safety glass",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Glass",
         "specificMaterial": "Frosted Glass",
-        "EmissionFactor": 1.1642,
+        "EmissionFactor": 1.16,
         "EF_Source": "EPD",
-        "Source_Dataset_Name": "Patterned Glass (referred for)",
+        "Source_Dataset_Name": "Patterned Glass",
         "EF_Type": "Proxy",
-        "Type_Rationale": ""
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Glass",
         "specificMaterial": "Clear Float Glass",
-        "EmissionFactor": 1.27,
+        "EmissionFactor": 1.06,
         "EF_Source": "Ecoinvent",
-        "Source_Dataset_Name": "market for flat glass, coated",
+        "Source_Dataset_Name": "market for flat glass, uncoated",
         "EF_Type": "Proxy",
-        "Type_Rationale": ""
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
-        "countryOfOrigin": "RER",
+        "countryOfOrigin": "Europe",
         "materialClass": "Glass",
         "specificMaterial": "Clear Float Glass",
-        "EmissionFactor": 1.24,
+        "EmissionFactor": 0.98,
         "EF_Source": "Ecoinvent",
-        "Source_Dataset_Name": "market for flat glass, coated",
+        "Source_Dataset_Name": "market for flat glass, uncoated",
         "EF_Type": "Proxy",
-        "Type_Rationale": ""
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "EG",
@@ -717,7 +807,7 @@
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Body-tinted glass",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "SE",
@@ -725,9 +815,9 @@
         "specificMaterial": "Low-Iron Glass",
         "EmissionFactor": 0.3,
         "EF_Source": "EPD",
-        "Source_Dataset_Name": "LOW-IRON FLOAT GLASS",
+        "Source_Dataset_Name": "Low-Iron Float Glass",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "TR",
@@ -737,7 +827,7 @@
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Patterned Glass",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "CA",
@@ -745,9 +835,9 @@
         "specificMaterial": "Acid-Etched Glass",
         "EmissionFactor": 2.21,
         "EF_Source": "EPD",
-        "Source_Dataset_Name": "acid-etched glass in four finishes: Satinlite, Satin, Velour, Opaque.",
+        "Source_Dataset_Name": "Acid-etched glass in four finishes: Satinlite, Satin, Velour, Opaque.",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "SE",
@@ -757,7 +847,7 @@
         "EF_Source": "EPD",
         "Source_Dataset_Name": "smart dynamic glass",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "SE",
@@ -767,7 +857,7 @@
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Insulated glass",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "BR",
@@ -777,7 +867,7 @@
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Clear and colored flat glass",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "TR",
@@ -787,7 +877,7 @@
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Mirror",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "RoW",
@@ -797,7 +887,7 @@
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for fibre, polyester",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "RoW",
@@ -807,17 +897,17 @@
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for nylon 6-6",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
-        "countryOfOrigin": "RER",
+        "countryOfOrigin": "Europe",
         "materialClass": "Fabric",
         "specificMaterial": "Nylon",
         "EmissionFactor": 8.25,
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for nylon 6-6",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "CN",
@@ -827,7 +917,7 @@
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Dope Dyed Polyester Knitted Fabric",
         "EF_Type": "Proxy",
-        "Type_Rationale": ""
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "GLO",
@@ -837,7 +927,7 @@
         "EF_Source": "EPD",
         "Source_Dataset_Name": "PURE-ANILINE/NUBUCK LEATHER",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "Italy-Europe-Central",
@@ -847,7 +937,7 @@
         "EF_Source": "EPD",
         "Source_Dataset_Name": "synthetic leathers through the coating of PVC and PU,",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "DE",
@@ -857,7 +947,7 @@
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Vinyl wallcoverings on woven textile backing",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "USA",
@@ -867,7 +957,7 @@
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Acrylic upholstery fabrics, 0.73 kg/m2, Retreat, Stripe It, and Vice Versa, KnollTextiles",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "IT",
@@ -877,7 +967,7 @@
         "EF_Source": "EPD",
         "Source_Dataset_Name": "MWool® yarn",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "GLO",
@@ -887,7 +977,7 @@
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for fibre, cotton",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "GLO",
@@ -897,7 +987,7 @@
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "Global (GLO)",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "GLO",
@@ -907,7 +997,7 @@
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Cotton Linen Yarn",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "USA",
@@ -917,7 +1007,7 @@
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Crepe, Dobby, Jacquard, Knit, Plain Weave, Velvet",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "SE",
@@ -927,7 +1017,7 @@
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Trident Tweed",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "USA",
@@ -937,7 +1027,7 @@
         "EF_Source": "EPD",
         "Source_Dataset_Name": "MONOFILAMENT MICROFIBER",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "SE",
@@ -947,67 +1037,67 @@
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Stretched canvas (excluding installation accessories), 0.4 mm, 0.26 kg/m2, toile 495D, ECOPHON SAINT-GOBAIN",
         "EF_Type": "Proxy",
-        "Type_Rationale": ""
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Leather",
         "specificMaterial": "Genuine Leather",
-        "EmissionFactor": 12.7595,
+        "EmissionFactor": 12.76,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Referred PURE-ANILINE",
         "EF_Type": "Proxy",
-        "Type_Rationale": "AI could not find a specific emission factor, so a proxy material with similar properties has been used to calculate emissions."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Leather",
         "specificMaterial": "Full-Grain Leather",
-        "EmissionFactor": 12.7595,
+        "EmissionFactor": 12.76,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Referred PURE-ANILINE",
         "EF_Type": "Proxy",
-        "Type_Rationale": "AI could not find a specific emission factor, so a proxy material with similar properties has been used to calculate emissions."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Leather",
         "specificMaterial": "Top-Grain Leather",
-        "EmissionFactor": 12.7595,
+        "EmissionFactor": 12.76,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Referred PURE-ANILINE",
         "EF_Type": "Proxy",
-        "Type_Rationale": "AI could not find a specific emission factor, so a proxy material with similar properties has been used to calculate emissions."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Leather",
         "specificMaterial": "Bonded Leather",
-        "EmissionFactor": 12.7595,
+        "EmissionFactor": 12.76,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Referred PURE-ANILINE",
         "EF_Type": "Proxy",
-        "Type_Rationale": "AI could not find a specific emission factor, so a proxy material with similar properties has been used to calculate emissions."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Leather",
         "specificMaterial": "Faux Leather (PU Leather)",
-        "EmissionFactor": 12.7595,
+        "EmissionFactor": 12.76,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Referred PURE-ANILINE",
         "EF_Type": "Proxy",
-        "Type_Rationale": "AI could not find a specific emission factor, so a proxy material with similar properties has been used to calculate emissions."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Leather",
         "specificMaterial": "Vinyl Leather",
-        "EmissionFactor": 12.7595,
+        "EmissionFactor": 12.76,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Referred PURE-ANILINE",
         "EF_Type": "Proxy",
-        "Type_Rationale": "AI could not find a specific emission factor, so a proxy material with similar properties has been used to calculate emissions."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "SE",
@@ -1017,57 +1107,57 @@
         "EF_Source": "EPD",
         "Source_Dataset_Name": "PURE-ANILINE",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Leather",
         "specificMaterial": "Semi-Aniline Leather",
-        "EmissionFactor": 12.7595,
+        "EmissionFactor": 12.76,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Referred PURE-ANILINE",
         "EF_Type": "Proxy",
-        "Type_Rationale": "AI could not find a specific emission factor, so a proxy material with similar properties has been used to calculate emissions."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Leather",
         "specificMaterial": "Pigmented Leather",
-        "EmissionFactor": 12.7595,
+        "EmissionFactor": 12.76,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Referred PURE-ANILINE",
         "EF_Type": "Proxy",
-        "Type_Rationale": "AI could not find a specific emission factor, so a proxy material with similar properties has been used to calculate emissions."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Leather",
         "specificMaterial": "Nubuck Leather",
-        "EmissionFactor": 12.7595,
+        "EmissionFactor": 12.76,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Referred PURE-ANILINE",
         "EF_Type": "Proxy",
-        "Type_Rationale": "AI could not find a specific emission factor, so a proxy material with similar properties has been used to calculate emissions."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Leather",
         "specificMaterial": "Suede Leather",
-        "EmissionFactor": 12.7595,
+        "EmissionFactor": 12.76,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Referred PURE-ANILINE",
         "EF_Type": "Proxy",
-        "Type_Rationale": "AI could not find a specific emission factor, so a proxy material with similar properties has been used to calculate emissions."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Leather",
         "specificMaterial": "Patent Leather",
-        "EmissionFactor": 12.7595,
+        "EmissionFactor": 12.76,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Referred PURE-ANILINE",
         "EF_Type": "Proxy",
-        "Type_Rationale": "AI could not find a specific emission factor, so a proxy material with similar properties has been used to calculate emissions."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "SE",
@@ -1077,17 +1167,17 @@
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Eco Recycled Leather Yarn",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Leather",
         "specificMaterial": "Oiled Leather",
-        "EmissionFactor": 12.7595,
+        "EmissionFactor": 12.76,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Referred PURE-ANILINE",
         "EF_Type": "Proxy",
-        "Type_Rationale": "AI could not find a specific emission factor, so a proxy material with similar properties has been used to calculate emissions."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "SE",
@@ -1097,287 +1187,287 @@
         "EF_Source": "EPD",
         "Source_Dataset_Name": "HPL (Dekorative High Pressure Laminates)",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Laminate",
         "specificMaterial": "Low-Pressure Laminate (LPL)",
-        "EmissionFactor": 8.9829,
+        "EmissionFactor": 8.98,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Reffered: High Pressure Laminates",
         "EF_Type": "Proxy",
-        "Type_Rationale": "AI could not find a specific emission factor, so a proxy material with similar properties has been used to calculate emissions."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Laminate",
         "specificMaterial": "Thermally Fused Laminate (TFL)",
-        "EmissionFactor": 8.9829,
+        "EmissionFactor": 8.98,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Reffered: High Pressure Laminates",
         "EF_Type": "Proxy",
-        "Type_Rationale": "AI could not find a specific emission factor, so a proxy material with similar properties has been used to calculate emissions."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Laminate",
         "specificMaterial": "Post-Formed Laminate",
-        "EmissionFactor": 8.9829,
+        "EmissionFactor": 8.98,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Reffered: High Pressure Laminates",
         "EF_Type": "Proxy",
-        "Type_Rationale": "AI could not find a specific emission factor, so a proxy material with similar properties has been used to calculate emissions."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Laminate",
         "specificMaterial": "Textured Laminate",
-        "EmissionFactor": 8.9829,
+        "EmissionFactor": 8.98,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Reffered: High Pressure Laminates",
         "EF_Type": "Proxy",
-        "Type_Rationale": "AI could not find a specific emission factor, so a proxy material with similar properties has been used to calculate emissions."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Laminate",
         "specificMaterial": "Glossy Laminate",
-        "EmissionFactor": 8.9829,
+        "EmissionFactor": 8.98,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Reffered: High Pressure Laminates",
         "EF_Type": "Proxy",
-        "Type_Rationale": "AI could not find a specific emission factor, so a proxy material with similar properties has been used to calculate emissions."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Laminate",
         "specificMaterial": "Matte Laminate",
-        "EmissionFactor": 8.9829,
+        "EmissionFactor": 8.98,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Reffered: High Pressure Laminates",
         "EF_Type": "Proxy",
-        "Type_Rationale": "AI could not find a specific emission factor, so a proxy material with similar properties has been used to calculate emissions."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Laminate",
         "specificMaterial": "Solid Color Laminate",
-        "EmissionFactor": 8.9829,
+        "EmissionFactor": 8.98,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Reffered: High Pressure Laminates",
         "EF_Type": "Proxy",
-        "Type_Rationale": "AI could not find a specific emission factor, so a proxy material with similar properties has been used to calculate emissions."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Laminate",
         "specificMaterial": "Antimicrobial Laminate",
-        "EmissionFactor": 8.9829,
+        "EmissionFactor": 8.98,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Reffered: High Pressure Laminates",
         "EF_Type": "Proxy",
-        "Type_Rationale": "AI could not find a specific emission factor, so a proxy material with similar properties has been used to calculate emissions."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Laminate",
         "specificMaterial": "Fire-Retardant Laminate",
-        "EmissionFactor": 8.9829,
+        "EmissionFactor": 8.98,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Reffered: High Pressure Laminates",
         "EF_Type": "Proxy",
-        "Type_Rationale": "AI could not find a specific emission factor, so a proxy material with similar properties has been used to calculate emissions."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Laminate",
         "specificMaterial": "Chemical-Resistant Laminate",
-        "EmissionFactor": 8.9829,
+        "EmissionFactor": 8.98,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Reffered: High Pressure Laminates",
         "EF_Type": "Proxy",
-        "Type_Rationale": "AI could not find a specific emission factor, so a proxy material with similar properties has been used to calculate emissions."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Laminate",
         "specificMaterial": "Writable Laminate (Markerboard)",
-        "EmissionFactor": 8.9829,
+        "EmissionFactor": 8.98,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Reffered: High Pressure Laminates",
         "EF_Type": "Proxy",
-        "Type_Rationale": "AI could not find a specific emission factor, so a proxy material with similar properties has been used to calculate emissions."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Laminate",
         "specificMaterial": "Digital Laminate",
-        "EmissionFactor": 8.9829,
+        "EmissionFactor": 8.98,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Reffered: High Pressure Laminates",
         "EF_Type": "Proxy",
-        "Type_Rationale": "AI could not find a specific emission factor, so a proxy material with similar properties has been used to calculate emissions."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Laminate",
         "specificMaterial": "Eco-Friendly Laminate",
-        "EmissionFactor": 8.9829,
+        "EmissionFactor": 8.98,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Reffered: High Pressure Laminates",
         "EF_Type": "Proxy",
-        "Type_Rationale": "AI could not find a specific emission factor, so a proxy material with similar properties has been used to calculate emissions."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Mesh",
         "specificMaterial": "Nylon Mesh",
-        "EmissionFactor": 0.317,
+        "EmissionFactor": 0.32,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Reco nylon",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Mesh",
         "specificMaterial": "Polyester Mesh",
-        "EmissionFactor": 5.097,
+        "EmissionFactor": 5.1,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Referred NYLON",
         "EF_Type": "Proxy",
-        "Type_Rationale": "AI could not find a specific emission factor, so a proxy material with similar properties has been used to calculate emissions."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Mesh",
         "specificMaterial": "PVC-Coated Mesh",
-        "EmissionFactor": 5.097,
+        "EmissionFactor": 5.1,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Referred NYLON",
         "EF_Type": "Proxy",
-        "Type_Rationale": "AI could not find a specific emission factor, so a proxy material with similar properties has been used to calculate emissions."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Mesh",
         "specificMaterial": "Elastomeric Mesh",
-        "EmissionFactor": 5.097,
+        "EmissionFactor": 5.1,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Referred NYLON",
         "EF_Type": "Proxy",
-        "Type_Rationale": "AI could not find a specific emission factor, so a proxy material with similar properties has been used to calculate emissions."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Mesh",
         "specificMaterial": "Fiberglass Mesh",
-        "EmissionFactor": 5.097,
+        "EmissionFactor": 5.1,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Referred NYLON",
         "EF_Type": "Proxy",
-        "Type_Rationale": "AI could not find a specific emission factor, so a proxy material with similar properties has been used to calculate emissions."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Mesh",
         "specificMaterial": "Metal Mesh",
-        "EmissionFactor": 5.097,
+        "EmissionFactor": 5.1,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Referred NYLON",
         "EF_Type": "Proxy",
-        "Type_Rationale": "AI could not find a specific emission factor, so a proxy material with similar properties has been used to calculate emissions."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Mesh",
         "specificMaterial": "Knitted Mesh",
-        "EmissionFactor": 5.097,
+        "EmissionFactor": 5.1,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Referred NYLON",
         "EF_Type": "Proxy",
-        "Type_Rationale": "AI could not find a specific emission factor, so a proxy material with similar properties has been used to calculate emissions."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Mesh",
         "specificMaterial": "Spacer Mesh (3D Mesh)",
-        "EmissionFactor": 5.097,
+        "EmissionFactor": 5.1,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Referred NYLON",
         "EF_Type": "Proxy",
-        "Type_Rationale": "AI could not find a specific emission factor, so a proxy material with similar properties has been used to calculate emissions."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Mesh",
         "specificMaterial": "Air Mesh",
-        "EmissionFactor": 5.097,
+        "EmissionFactor": 5.1,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Referred NYLON",
         "EF_Type": "Proxy",
-        "Type_Rationale": "AI could not find a specific emission factor, so a proxy material with similar properties has been used to calculate emissions."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Mesh",
         "specificMaterial": "Monofilament Mesh",
-        "EmissionFactor": 5.097,
+        "EmissionFactor": 5.1,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Referred NYLON",
         "EF_Type": "Proxy",
-        "Type_Rationale": "AI could not find a specific emission factor, so a proxy material with similar properties has been used to calculate emissions."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Mesh",
         "specificMaterial": "Polypropylene Mesh",
-        "EmissionFactor": 5.097,
+        "EmissionFactor": 5.1,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Referred NYLON",
         "EF_Type": "Proxy",
-        "Type_Rationale": "AI could not find a specific emission factor, so a proxy material with similar properties has been used to calculate emissions."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Mesh",
         "specificMaterial": "Acrylic Mesh",
-        "EmissionFactor": 5.097,
+        "EmissionFactor": 5.1,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Referred NYLON",
         "EF_Type": "Proxy",
-        "Type_Rationale": "AI could not find a specific emission factor, so a proxy material with similar properties has been used to calculate emissions."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Mesh",
         "specificMaterial": "Conductive Mesh",
-        "EmissionFactor": 5.097,
+        "EmissionFactor": 5.1,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Referred NYLON",
         "EF_Type": "Proxy",
-        "Type_Rationale": "AI could not find a specific emission factor, so a proxy material with similar properties has been used to calculate emissions."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Mesh",
         "specificMaterial": "Micro-Mesh",
-        "EmissionFactor": 5.097,
+        "EmissionFactor": 5.1,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Referred NYLON",
         "EF_Type": "Proxy",
-        "Type_Rationale": "AI could not find a specific emission factor, so a proxy material with similar properties has been used to calculate emissions."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Mesh",
         "specificMaterial": "Hybrid Mesh",
-        "EmissionFactor": 5.097,
+        "EmissionFactor": 5.1,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Referred NYLON",
         "EF_Type": "Proxy",
-        "Type_Rationale": "AI could not find a specific emission factor, so a proxy material with similar properties has been used to calculate emissions."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "BE",
@@ -1387,7 +1477,7 @@
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Flexible Polyurethane (PU) Foam - TDI-based PU foam without FR, low density 18 to 25 kg/m³",
         "EF_Type": "Proxy",
-        "Type_Rationale": "As ecoinvent does not include a specific or directly matching dataset for the material, a proxy material with similar properties was selected."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "BE",
@@ -1397,7 +1487,7 @@
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Flexible Polyurethane (PU) Foam -  MDI-based viscoelastic PU foam without FR, density 45 to 53 kg/m³",
         "EF_Type": "Proxy",
-        "Type_Rationale": "As ecoinvent does not include a specific or directly matching dataset for the material, a proxy material with similar properties was selected."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "BE",
@@ -1407,7 +1497,7 @@
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Flexible Polyurethane (PU) Foam -  MDI-based viscoelastic PU foam without FR, density 45 to 53 kg/m³",
         "EF_Type": "Proxy",
-        "Type_Rationale": "Memory foam is often used in conjunction with other foams like latex or polyurethane"
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "BE",
@@ -1417,7 +1507,7 @@
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Flexible Polyurethane (PU) Foam - TDI-based PU foam without FR, low density 18 to 25 kg/m³",
         "EF_Type": "Proxy",
-        "Type_Rationale": "As ecoinvent does not include a specific or directly matching dataset for the material, a proxy material with similar properties was selected."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "BE",
@@ -1427,7 +1517,7 @@
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Flexible Polyurethane (PU) Foam - TDI-based PU foam without FR, low density 18 to 25 kg/m³",
         "EF_Type": "Proxy",
-        "Type_Rationale": "While it may not find an EPD specifically for gel-infused foam, it can use polyurethane foam EPDs as a proxy for understanding its environmental impact."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "BE",
@@ -1437,7 +1527,7 @@
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Flexible Polyurethane (PU) Foam - TDI-based PU foam without FR, low density 18 to 25 kg/m³",
         "EF_Type": "Proxy",
-        "Type_Rationale": "While it may not find an EPD specifically for egg-crate foam, it can use polyurethane foam EPDs as a proxy for understanding its environmental impact."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "BE",
@@ -1447,7 +1537,7 @@
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Flexible Polyurethane (PU) Foam - TDI-based PU foam without FR, low density 18 to 25 kg/m³",
         "EF_Type": "Proxy",
-        "Type_Rationale": "While it may not find an EPD specifically for rebond foam, it can use polyurethane foam EPDs as a proxy for understanding its environmental impact."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "BE",
@@ -1457,7 +1547,7 @@
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Flexible Polyurethane (PU) Foam - TDI-based PU foam without FR, low density 18 to 25 kg/m³",
         "EF_Type": "Proxy",
-        "Type_Rationale": "While it may not find an EPD specifically for rebond foam, it can use polyurethane foam or recycled foam EPDs as a proxy for understanding its environmental impact."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "BE",
@@ -1467,7 +1557,7 @@
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Flexible Polyurethane (PU) Foam - TDI-based PU foam without FR, low density 18 to 25 kg/m³",
         "EF_Type": "Proxy",
-        "Type_Rationale": "While it may not find an EPD specifically for rebond foam, it can use Open-Cell Foam EPDs as a proxy for understanding its environmental impact."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "BE",
@@ -1477,7 +1567,7 @@
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Flexible Polyurethane (PU) Foam - TDI-based PU foam without FR, low density 18 to 25 kg/m³",
         "EF_Type": "Proxy",
-        "Type_Rationale": "While it may not find an EPD specifically for Closed-Cell Foam, it can use polyurethane foam EPDs as a proxy for understanding its environmental impact."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "BE",
@@ -1487,17 +1577,17 @@
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Expanded Polystyrene (EPS) Foam Insulation",
         "EF_Type": "Proxy",
-        "Type_Rationale": "While it may not find an EPD specifically for microbead Foam, it can use Expanded Polystyrene (EPS) EPDs as a proxy for understanding its environmental impact."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
-        "countryOfOrigin": "RER",
+        "countryOfOrigin": "Europe",
         "materialClass": "Foam",
         "specificMaterial": "Polyethylene Foam",
         "EmissionFactor": 7.15,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Polyethylene foam",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "GLO",
@@ -1507,7 +1597,7 @@
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Flexible Polyurethane (PU) Foam - TDI-based PU foam without FR, low density 18 to 25 kg/m³",
         "EF_Type": "Proxy",
-        "Type_Rationale": "While it may not find an EPD specifically for Exact or similar EPD forSculpted Foam, it can use polyurethane foam EPDs as a proxy for understanding its environmental impact."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "CN",
@@ -1517,7 +1607,7 @@
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Marble Block Stone from Norwegian Rose Quarry - China",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "SE",
@@ -1527,7 +1617,7 @@
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Natural stone products of granite and limestone –",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "EG",
@@ -1537,7 +1627,7 @@
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Quartz stone products",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "RoW",
@@ -1547,47 +1637,47 @@
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for limestone, milled, packed",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
-        "countryOfOrigin": "CH",
+        "countryOfOrigin": "Switzerland",
         "materialClass": "Stone",
         "specificMaterial": "Limestone",
         "EmissionFactor": 0.01,
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for limestone, milled, packed",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
-        "countryOfOrigin": "Europe without Switzerland",
+        "countryOfOrigin": "EU-CH",
         "materialClass": "Stone",
         "specificMaterial": "Limestone",
         "EmissionFactor": 0.05,
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for limestone, milled, packed",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Stone",
         "specificMaterial": "Soapstone",
-        "EmissionFactor": 0.072,
+        "EmissionFactor": 0.07,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Referred to : Natural stone products of granite and limestone –",
         "EF_Type": "Proxy",
-        "Type_Rationale": "AI could not find a specific emission factor, so a proxy material with similar properties has been used to calculate emissions."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Stone",
         "specificMaterial": "Onyx",
-        "EmissionFactor": 0.072,
+        "EmissionFactor": 0.07,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Referred to : Natural stone products of granite and limestone –",
         "EF_Type": "Proxy",
-        "Type_Rationale": "AI could not find a specific emission factor, so a proxy material with similar properties has been used to calculate emissions."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "SE",
@@ -1597,17 +1687,17 @@
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Slate stone pieces",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Stone",
         "specificMaterial": "Travertine",
-        "EmissionFactor": 0.072,
+        "EmissionFactor": 0.07,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Referred to : Natural stone products of granite and limestone –",
         "EF_Type": "Proxy",
-        "Type_Rationale": "AI could not find a specific emission factor, so a proxy material with similar properties has been used to calculate emissions."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     },
     {
         "countryOfOrigin": "RoW",
@@ -1617,47 +1707,47 @@
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for concrete, 20MPa",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
-        "countryOfOrigin": "CO",
+        "countryOfOrigin": "Colombia",
         "materialClass": "Stone",
         "specificMaterial": "Concrete",
         "EmissionFactor": 0.11,
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for concrete, 20MPa",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
-        "countryOfOrigin": "ZA",
+        "countryOfOrigin": "South",
         "materialClass": "Stone",
         "specificMaterial": "Concrete",
         "EmissionFactor": 0.1,
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for concrete, 20MPa",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
-        "countryOfOrigin": "PE",
+        "countryOfOrigin": "Peru",
         "materialClass": "Stone",
         "specificMaterial": "Concrete",
         "EmissionFactor": 0.15,
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for concrete, 20MPa",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
-        "countryOfOrigin": "RNA",
+        "countryOfOrigin": "Northern",
         "materialClass": "Stone",
         "specificMaterial": "Concrete",
         "EmissionFactor": 0.11,
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for concrete, 20MPa",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "IT",
@@ -1667,7 +1757,7 @@
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Terrazzoplatta 12 mm",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "RoW",
@@ -1677,16 +1767,16 @@
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for basalt",
         "EF_Type": "Direct",
-        "Type_Rationale": ""
+        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material."
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Stone",
         "specificMaterial": "Jasper",
-        "EmissionFactor": 0.072,
+        "EmissionFactor": 0.07,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Referred to : Natural stone products of granite and limestone –",
         "EF_Type": "Proxy",
-        "Type_Rationale": "AI could not find a specific emission factor, so a proxy material with similar properties has been used to calculate emissions."
+        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date"
     }
 ]
