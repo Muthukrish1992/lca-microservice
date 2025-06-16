@@ -1,4 +1,17 @@
 const winston = require('winston');
+const fs = require('fs');
+const path = require('path');
+
+// Ensure logs directory exists
+const logsDir = path.join(process.cwd(), 'logs');
+if (!fs.existsSync(logsDir)) {
+  try {
+    fs.mkdirSync(logsDir, { recursive: true });
+    console.log(`Created logs directory: ${logsDir}`);
+  } catch (error) {
+    console.error(`Failed to create logs directory: ${error.message}`);
+  }
+}
 
 // Simple logger with console output and file output
 const logger = winston.createLogger({
@@ -29,14 +42,28 @@ const logger = winston.createLogger({
     }),
     // File transports
     new winston.transports.File({ 
-      filename: 'logs/error.log', 
-      level: 'error' 
+      filename: path.join(logsDir, 'error.log'), 
+      level: 'error',
+      handleExceptions: true,
+      maxsize: 5242880, // 5MB
+      maxFiles: 5
     }),
     new winston.transports.File({ 
-      filename: 'logs/combined.log' 
+      filename: path.join(logsDir, 'combined.log'),
+      handleExceptions: true,
+      maxsize: 5242880, // 5MB  
+      maxFiles: 5
     })
   ],
   exitOnError: false
 });
+
+// Handle logger errors
+logger.on('error', (error) => {
+  console.error('Logger error:', error);
+});
+
+// Test that logging works on startup
+logger.info('Logger initialized successfully');
 
 module.exports = logger;
