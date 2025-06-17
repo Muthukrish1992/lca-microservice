@@ -173,21 +173,12 @@ function convertCsvToJson() {
         if (countryOfOrigin.toLowerCase() === 'global') countryOfOrigin = 'GLO';
         if (countryOfOrigin.toLowerCase() === 'row' || countryOfOrigin.toLowerCase() === 'rest') countryOfOrigin = 'RoW';
         
-        // Parse emission factor
-        let emissionFactor = 0;
-        try {
-          emissionFactor = parseFloat(row['kg CO2e']);
-          if (isNaN(emissionFactor)) emissionFactor = 0;
-        } catch (e) {
-          console.warn(`Warning: Could not parse emission factor for ${row['Material Subtype']}: ${row['kg CO2e']}`);
-        }
-        
         // Create entry in the format of materials_database.json with additional fields
         return {
           "countryOfOrigin": countryOfOrigin,
           "materialClass": row['Material Category'] || '',
           "specificMaterial": row['Material Subtype'] || '',
-          "EmissionFactor": emissionFactor,
+          "EmissionFactor": row['EmissionFactor'] || '',
           "EF_Source": row['EF Source'] || '',
           "Source_Dataset_Name": row['Source Dataset Name'] || '',
           "EF_Type": row['EF Type'] || '',

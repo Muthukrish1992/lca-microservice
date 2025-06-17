@@ -64,6 +64,7 @@ const calculateRawMaterialEmissions = (materials, countryOfOrigin) => {
     material.EF_Source = emissionDataEntry.EF_Source;
     material.EF_Type = emissionDataEntry.EF_Type;
     material.Type_Rationale = emissionDataEntry.Type_Rationale
+    material.countryOfOrigin = emissionDataEntry.countryOfOrigin
     // Log when using fallbacks for debugging (optional)
     if (!emissionMap.get(specificKey) && (emissionMap.get(globalKey) || emissionMap.get(rowKey))) {
       logger.debug(`Using fallback emission factor for ${material.materialClass}-${material.specificMaterial} from ${
