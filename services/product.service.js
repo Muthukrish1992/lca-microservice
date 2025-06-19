@@ -16,62 +16,138 @@ const getProductModel = async (req) => {
 /**
  * Calculate emissions from raw materials
  */
+// const calculateRawMaterialEmissions = (materials, countryOfOrigin) => {
+//   console.log('executing RawMaterialEmissions',materials,countryOfOrigin)
+//   // Create Maps for faster lookup - store full data object instead of just EmissionFactor
+//   const emissionMap = new Map(
+//     emissionData.map((data) => [
+//       `${data.countryOfOrigin}-${data.materialClass}-${data.specificMaterial}`,
+//       data
+//     ])
+//   );
+
+//   return materials.reduce((total, material) => {
+//     console.log("executing materials.reduce")
+//     // Try with specific country first
+//     const specificKey = `${countryOfOrigin}-${material.materialClass}-${material.specificMaterial}`;
+    
+//     // If not found, try with GLO (Global)
+//     const globalKey = `GLO-${material.materialClass}-${material.specificMaterial}`;
+    
+//     // If still not found, try with RoW (Rest of World)
+//     const rowKey = `RoW-${material.materialClass}-${material.specificMaterial}`;
+//     console.log(`specificKey`,specificKey)
+//     console.log(`globalKey`,globalKey)
+//     console.log(`rowKey`,rowKey)
+//     // Get the emission data with fallbacks
+//     let emissionDataEntry = 
+//       emissionMap.get(specificKey) || 
+//       emissionMap.get(globalKey) || 
+//       emissionMap.get(rowKey);
+//     console.log("emissionDataEntry",emissionDataEntry)
+//     // If still not found, try to find any entry with same material class/specific material
+//     if (!emissionDataEntry) {
+//       // Find any entry with same materialClass and specificMaterial
+//       const materialEntries = emissionData.filter(
+//         data => data.materialClass === material.materialClass && 
+//                 data.specificMaterial === material.specificMaterial
+//       );
+      
+//       if (materialEntries.length > 0) {
+//         // Use the first match
+//         emissionDataEntry = materialEntries[0];
+//         logger.debug(`Using alternative region ${materialEntries[0].countryOfOrigin} for ${material.materialClass}-${material.specificMaterial}`);
+//       } else {
+//         // Default data if all lookups fail
+//         emissionDataEntry = { EmissionFactor: 0, EF_Source: 'Unknown',EF_Type:'Unknown',Type_Rationale:'Unknown' };
+//       }
+//     }
+    
+//     // Store the emission factor and EF_Source on the material for reference
+//     material.emissionFactor = emissionDataEntry.EmissionFactor ;
+//     material.EF_Source = emissionDataEntry.EF_Source;
+//     material.EF_Type = emissionDataEntry.EF_Type;
+//     material.Type_Rationale = emissionDataEntry.Type_Rationale
+//     material.countryOfOrigin = emissionDataEntry.countryOfOrigin
+//     // Log when using fallbacks for debugging (optional)
+//     if (!emissionMap.get(specificKey) && (emissionMap.get(globalKey) || emissionMap.get(rowKey))) {
+//       logger.debug(`Using fallback emission factor for ${material.materialClass}-${material.specificMaterial} from ${
+//         emissionMap.get(globalKey) ? 'GLO' : 'RoW'
+//       }`);
+//     }
+    
+//     return total + material.emissionFactor;
+//   }, 0);
+// };
+const isoToCountry = {
+  IN: "India",
+  US: "United States",
+  CN: "China",
+  // Add other mappings as needed
+};
+
+const normalize = str => str?.trim().toLowerCase();
+
 const calculateRawMaterialEmissions = (materials, countryOfOrigin) => {
-  // Create Maps for faster lookup - store full data object instead of just EmissionFactor
+  console.log('executing RawMaterialEmissions', materials, countryOfOrigin);
+
+  const fullCountry = isoToCountry[countryOfOrigin] || countryOfOrigin;
+
+  // Create normalized map for fast lookup
   const emissionMap = new Map(
-    emissionData.map((data) => [
-      `${data.countryOfOrigin}-${data.materialClass}-${data.specificMaterial}`,
-      data
-    ])
+    emissionData.map((data) => {
+      const key = `${normalize(data.countryOfOrigin)}-${normalize(data.materialClass)}-${normalize(data.specificMaterial)}`;
+      return [key, data];
+    })
   );
 
   return materials.reduce((total, material) => {
-    // Try with specific country first
-    const specificKey = `${countryOfOrigin}-${material.materialClass}-${material.specificMaterial}`;
-    
-    // If not found, try with GLO (Global)
-    const globalKey = `GLO-${material.materialClass}-${material.specificMaterial}`;
-    
-    // If still not found, try with RoW (Rest of World)
-    const rowKey = `RoW-${material.materialClass}-${material.specificMaterial}`;
-    
-    // Get the emission data with fallbacks
+
+    const materialClass = normalize(material.materialClass);
+    const specificMaterial = normalize(material.specificMaterial);
+    const origin = normalize(fullCountry);
+
+    const specificKey = `${origin}-${materialClass}-${specificMaterial}`;
+    const globalKey = `glo-${materialClass}-${specificMaterial}`;
+    const rowKey = `row-${materialClass}-${specificMaterial}`;
+
     let emissionDataEntry = 
       emissionMap.get(specificKey) || 
       emissionMap.get(globalKey) || 
       emissionMap.get(rowKey);
-    
-    // If still not found, try to find any entry with same material class/specific material
+
     if (!emissionDataEntry) {
-      // Find any entry with same materialClass and specificMaterial
-      const materialEntries = emissionData.filter(
-        data => data.materialClass === material.materialClass && 
-                data.specificMaterial === material.specificMaterial
+      // Fallback: find first matching material class + specific material
+      const materialEntries = emissionData.filter(data =>
+        normalize(data.materialClass) === materialClass &&
+        normalize(data.specificMaterial) === specificMaterial
       );
-      
+
       if (materialEntries.length > 0) {
-        // Use the first match
         emissionDataEntry = materialEntries[0];
-        logger.debug(`Using alternative region ${materialEntries[0].countryOfOrigin} for ${material.materialClass}-${material.specificMaterial}`);
+        logger?.debug?.(`Using alternative region ${materialEntries[0].countryOfOrigin} for ${material.materialClass}-${material.specificMaterial}`);
       } else {
-        // Default data if all lookups fail
-        emissionDataEntry = { EmissionFactor: 0, EF_Source: 'Unknown',EF_Type:'Unknown',Type_Rationale:'Unknown' };
+        emissionDataEntry = {
+          EmissionFactor: 0,
+          EF_Source: 'Unknown',
+          EF_Type: 'Unknown',
+          Type_Rationale: 'Unknown',
+          countryOfOrigin: 'Unknown'
+        };
       }
     }
-    
-    // Store the emission factor and EF_Source on the material for reference
-    material.emissionFactor = emissionDataEntry.EmissionFactor ;
+
+    // Assign results back to the material
+    material.emissionFactor = emissionDataEntry.EmissionFactor;
     material.EF_Source = emissionDataEntry.EF_Source;
     material.EF_Type = emissionDataEntry.EF_Type;
-    material.Type_Rationale = emissionDataEntry.Type_Rationale
-    material.countryOfOrigin = emissionDataEntry.countryOfOrigin
-    // Log when using fallbacks for debugging (optional)
+    material.Type_Rationale = emissionDataEntry.Type_Rationale;
+    material.countryOfOrigin = emissionDataEntry.countryOfOrigin;
+
     if (!emissionMap.get(specificKey) && (emissionMap.get(globalKey) || emissionMap.get(rowKey))) {
-      logger.debug(`Using fallback emission factor for ${material.materialClass}-${material.specificMaterial} from ${
-        emissionMap.get(globalKey) ? 'GLO' : 'RoW'
-      }`);
+      logger?.debug?.(`Using fallback emission factor for ${material.materialClass}-${material.specificMaterial} from ${emissionMap.get(globalKey) ? 'GLO' : 'RoW'}`);
     }
-    
+
     return total + material.emissionFactor;
   }, 0);
 };
