@@ -79,10 +79,28 @@ const getProductModel = async (req) => {
 //     return total + material.emissionFactor;
 //   }, 0);
 // };
+const regionToCountryCode = {
+
+};
 const isoToCountry = {
   IN: "India",
   US: "United States",
   CN: "China",
+  RoW: 'RoW',
+  ROW: 'RoW',
+  Row: 'RoW',
+  Germany: 'DE',
+  Sweden: 'SE',
+  China: 'CN',
+  Global: 'GLO',
+  GLO: 'GLO',
+  Belgium : 'BE',
+  Brazil : 'BR',
+  Canada : 'CA',
+  Egypt : 'EG',
+  Thailand : 'EG',
+  Italy : 'IT',
+  Turkey : 'TR',
   // Add other mappings as needed
 };
 
