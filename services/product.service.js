@@ -55,12 +55,12 @@ const calculateRawMaterialEmissions = (materials, countryOfOrigin) => {
         logger.debug(`Using alternative region ${materialEntries[0].countryOfOrigin} for ${material.materialClass}-${material.specificMaterial}`);
       } else {
         // Default data if all lookups fail
-        emissionDataEntry = { emissionFactor: 0, EF_Source: 'Unknown',EF_Type:'Unknown',Type_Rationale:'Unknown' };
+        emissionDataEntry = { EmissionFactor: 0, EF_Source: 'Unknown',EF_Type:'Unknown',Type_Rationale:'Unknown' };
       }
     }
     
     // Store the emission factor and EF_Source on the material for reference
-    material.emissionFactor = emissionDataEntry.emissionFactor ;
+    material.emissionFactor = emissionDataEntry.EmissionFactor ;
     material.EF_Source = emissionDataEntry.EF_Source;
     material.EF_Type = emissionDataEntry.EF_Type;
     material.Type_Rationale = emissionDataEntry.Type_Rationale
