@@ -156,7 +156,8 @@ const calculateRawMaterialEmissions = (materials, countryOfOrigin) => {
     }
 
     // Assign results back to the material
-    material.emissionFactor = emissionDataEntry.EmissionFactor;
+    material.specificMaterialEmissionFactor = emissionDataEntry.EmissionFactor;
+    material.emissionFactor = emissionDataEntry.EmissionFactor * material.weight;
     material.EF_Source = emissionDataEntry.EF_Source;
     material.EF_Type = emissionDataEntry.EF_Type;
     material.Type_Rationale = emissionDataEntry.Type_Rationale;
