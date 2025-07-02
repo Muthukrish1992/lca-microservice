@@ -10,6 +10,7 @@ const ProductSchema = new mongoose.Schema({
   category: { type: String  ,index: true, default: "Uncategorized"},
   subCategory: { type: String ,index: true ,default: "Uncategorized"},
   supplierName: { type: String , default: "Unknown"},
+  aiProcessingStatus: { type: String, enum: ['pending', 'processing', 'completed', 'failed'], default: 'pending' },
   modifiedDate: { type: Date , default: Date.now},
   createdDate: { type: Date , default: Date.now},
   co2Emission: { type: Number , default: 0},

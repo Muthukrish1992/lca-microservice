@@ -16,6 +16,7 @@ router.route('/')
 // Bulk upload routes (must come before /:id routes to avoid conflicts)
 router.post('/bulk-upload', uploadController.upload.single('file'), uploadController.bulkUploadProducts);
 router.post('/bulk-image-upload', uploadController.upload.single('file'), uploadController.bulkImageUpload);
+router.post('/trigger-ai-processing', uploadController.triggerAIProcessing);
 router.post('/delete-product-by-id', productController.deleteProductByID);
 
 // Product routes with ID

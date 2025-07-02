@@ -61,7 +61,18 @@ const bulkUploadProducts = async (req, res) => {
     } else {
       // Parse Excel file
       const workbook = XLSX.read(req.file.buffer, { type: "buffer" });
-      const sheetName = workbook.SheetNames[0];
+      
+      // Use selected sheet if provided, otherwise use first sheet
+      const sheetName = req.body.selectedSheet || workbook.SheetNames[0];
+      
+      if (!workbook.Sheets[sheetName]) {
+        return res.status(HTTP_STATUS.BAD_REQUEST).json(formatResponse(
+          false,
+          null,
+          `Sheet '${sheetName}' not found in Excel file`
+        ));
+      }
+      
       const sheet = workbook.Sheets[sheetName];
       products = XLSX.utils.sheet_to_json(sheet);
     }
@@ -74,33 +85,67 @@ const bulkUploadProducts = async (req, res) => {
       ));
     }
 
-    // Normalize field names to lowercase to handle case-insensitivity
+    // Get field mappings from request body
+    const fieldMappings = {
+      code: req.body.codeField,
+      name: req.body.nameField,
+      description: req.body.descriptionField,
+      weight: req.body.weightField,
+      countryOfOrigin: req.body.countryOfOriginField,
+      supplierName: req.body.supplierNameField,
+      category: req.body.categoryField,
+      subCategory: req.body.subCategoryField
+    };
+
+    // Validate required field mappings
+    const requiredMappings = ['code', 'name', 'description'];
+    const missingMappings = requiredMappings.filter(field => !fieldMappings[field]);
+    
+    if (missingMappings.length > 0) {
+      return res.status(HTTP_STATUS.BAD_REQUEST).json(formatResponse(
+        false,
+        null,
+        "Required field mappings missing",
+        { missingMappings: missingMappings.map(field => `${field}Field`) }
+      ));
+    }
+
+    // Validate that mapped fields exist in the uploaded file
+    if (products.length > 0) {
+      const fileHeaders = Object.keys(products[0]);
+      const missingFields = [];
+      
+      requiredMappings.forEach(schemaField => {
+        const csvField = fieldMappings[schemaField];
+        if (!fileHeaders.includes(csvField)) {
+          missingFields.push(csvField);
+        }
+      });
+      
+      if (missingFields.length > 0) {
+        return res.status(HTTP_STATUS.BAD_REQUEST).json(formatResponse(
+          false,
+          null,
+          "Mapped fields not found in uploaded file",
+          { 
+            missingFields,
+            availableFields: fileHeaders,
+            fieldMappings
+          }
+        ));
+      }
+    }
+
+    // Map products using field mappings from frontend
     const normalizedProducts = products.map(product => {
       const normalizedProduct = {};
       
-      // Map of expected field names (lowercase) to schema field names
-      const fieldMap = {
-        'code': 'code',
-        'name': 'name',
-        'description': 'description',
-        'weight': 'weight',
-        'country of origin': 'countryOfOrigin',
-        'countryoforigin': 'countryOfOrigin',
-        'supplier name': 'supplierName',
-        'suppliername': 'supplierName',
-        'category': 'category',
-        'subcategory': 'subCategory',
-        'price': 'price'
-      };
-      
-      // Process each field in the product
-      Object.keys(product).forEach(key => {
-        // Find the corresponding field in our schema
-        const normalizedKey = key.toLowerCase().replace(/\s+/g, '');
-        const schemaField = fieldMap[normalizedKey] || normalizedKey;
-        
-        // If the field exists in our schema, add it to the normalized product
-        normalizedProduct[schemaField] = product[key];
+      // Apply field mappings
+      Object.keys(fieldMappings).forEach(schemaField => {
+        const csvField = fieldMappings[schemaField];
+        if (csvField && product.hasOwnProperty(csvField)) {
+          normalizedProduct[schemaField] = product[csvField];
+        }
       });
       
       // Add creation date and modified date
@@ -116,8 +161,9 @@ const bulkUploadProducts = async (req, res) => {
     
     normalizedProducts.forEach((product, index) => {
       requiredFields.forEach(field => {
-        if (!product[field]) {
-          validationErrors[`Row ${index + 2}, ${field}`] = 'is required';
+        if (!product[field] || String(product[field]).trim() === '') {
+          const csvField = fieldMappings[field];
+          validationErrors[`Row ${index + 2}, ${field}`] = `is required (mapped from column '${csvField}')`;
         }
       });
     });
@@ -127,16 +173,59 @@ const bulkUploadProducts = async (req, res) => {
         false,
         null,
         "Validation failed",
-        { validationErrors }
+        { 
+          validationErrors,
+          fieldMappings,
+          note: "Check that the mapped columns contain valid data for all rows"
+        }
       ));
     }
 
     // Insert products into MongoDB
     const savedProducts = await Product.insertMany(normalizedProducts);
 
+    // Mark products as pending AI processing (will be processed after images upload)
+    await Product.updateMany(
+      { _id: { $in: savedProducts.map(p => p._id) } },
+      { $set: { aiProcessingStatus: 'pending' } }
+    );
+
+    // Send response immediately - AI processing will happen after image upload
+    res
+      .status(HTTP_STATUS.CREATED)
+      .json(formatResponse(true, savedProducts));
+  } catch (error) {
+    logger.error("Product upload error:", error);
+    res.status(HTTP_STATUS.INTERNAL_SERVER_ERROR).json(formatResponse(
+      false,
+      null,
+      `Failed to upload products: ${error.message}`
+    ));
+  }
+};
+
+// AI Processing Function - to be called after images are uploaded
+const processProductAI = async (req) => {
+  try {
+    const account = req.get("x-iviva-account");
+    
+    // Find products that are pending AI processing
+    const pendingProducts = await Product.find({ 
+      account: account,
+      aiProcessingStatus: 'pending' 
+    });
+
+    logger.info(`🔄 Starting AI processing for ${pendingProducts.length} products...`);
+
     // Process each product in the background
-    savedProducts.forEach(async (product) => {
+    pendingProducts.forEach(async (product) => {
       try {
+        // Update status to processing
+        await Product.updateOne(
+          { _id: product._id },
+          { $set: { aiProcessingStatus: 'processing' } }
+        );
+
         // Wait for classification result
         const classifyResult = await retry(
           classifyProduct,
@@ -178,20 +267,29 @@ const bulkUploadProducts = async (req, res) => {
                 co2Emission: co2Emission,
                 co2EmissionRawMaterials: co2EmissionRawMaterials,
                 co2EmissionFromProcesses: co2EmissionFromProcesses,
+                aiProcessingStatus: 'completed',
                 modifiedDate: Date.now(),
               },
             }
           );
 
           logger.info(
-            `✅ Product ${product.code} updated with category: ${classifyResult.category}, subcategory: ${classifyResult.subcategory}`
+            `✅ Product ${product.code} AI processing completed with category: ${classifyResult.category}, subcategory: ${classifyResult.subcategory}`
           );
         } else {
+          await Product.updateOne(
+            { _id: product._id },
+            { $set: { aiProcessingStatus: 'failed' } }
+          );
           logger.warn(
-            `⚠️ Product ${product.code} classification failed, skipping update.`
+            `⚠️ Product ${product.code} classification failed, marked as failed.`
           );
         }
       } catch (error) {
+        await Product.updateOne(
+          { _id: product._id },
+          { $set: { aiProcessingStatus: 'failed' } }
+        );
         logger.error(
           `❌ Failed to classify and update product ${product.code}:`,
           error.message
@@ -199,17 +297,9 @@ const bulkUploadProducts = async (req, res) => {
       }
     });
 
-    // Send response immediately while classification happens in the background
-    res
-      .status(HTTP_STATUS.CREATED)
-      .json(formatResponse(true, savedProducts));
+    logger.info(`🚀 AI processing initiated for ${pendingProducts.length} products`);
   } catch (error) {
-    logger.error("Product upload error:", error);
-    res.status(HTTP_STATUS.INTERNAL_SERVER_ERROR).json(formatResponse(
-      false,
-      null,
-      `Failed to upload products: ${error.message}`
-    ));
+    logger.error("Error in processProductAI:", error);
   }
 };
 
@@ -361,6 +451,9 @@ const bulkImageUpload = async (req, res) => {
       }
     }
 
+    // Trigger AI processing for pending products after images are uploaded
+    await processProductAI(req);
+
     res.json(formatResponse(
       true,
       [],
@@ -392,8 +485,28 @@ const bulkImageUpload = async (req, res) => {
   }
 };
 
+// Manual AI Processing trigger endpoint
+const triggerAIProcessing = async (req, res) => {
+  try {
+    await processProductAI(req);
+    res.status(HTTP_STATUS.OK).json(formatResponse(
+      true, 
+      [], 
+      "AI processing initiated for pending products"
+    ));
+  } catch (error) {
+    logger.error("Manual AI processing trigger error:", error);
+    res.status(HTTP_STATUS.INTERNAL_SERVER_ERROR).json(formatResponse(
+      false,
+      null,
+      `Failed to trigger AI processing: ${error.message}`
+    ));
+  }
+};
+
 module.exports = {
   upload,  // Export multer middleware for routes
   bulkUploadProducts,
-  bulkImageUpload
+  bulkImageUpload,
+  triggerAIProcessing
 };
