@@ -208,10 +208,11 @@ const bulkUploadProducts = async (req, res) => {
 const processProductAI = async (req) => {
   try {
     const account = req.get("x-iviva-account");
+
+    const Product = await productService.getProductModel(req);
     
     // Find products that are pending AI processing
     const pendingProducts = await Product.find({ 
-      account: account,
       aiProcessingStatus: 'pending' 
     });
 

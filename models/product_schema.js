@@ -16,6 +16,7 @@ const ProductSchema = new mongoose.Schema({
   co2Emission: { type: Number , default: 0},
   co2EmissionRawMaterials: { type: Number , default: 0},
   co2EmissionFromProcesses: { type: Number , default: 0},
+  aiProcessingStatus: { type: String, default: "" },
   materials: {
     type: [{
       materialClass: { type: String, required: true },
@@ -47,7 +48,8 @@ const ProductSchema = new mongoose.Schema({
       }
     }],
     default: []  // Empty array default
-  }
+  },
+ 
 });
 
 module.exports = ProductSchema; // Export only the schema, NOT a model
