@@ -92,8 +92,8 @@ function splitCSVLine(line, delimiter) {
 function convertCsvToJson() {
   // Paths
   const dataDir = path.join(__dirname, '..', 'data');
-  const inputFile = path.join(dataDir, 'Eco Solutise Database - Ongoing V3 28.03.2025.xlsx - EF Database - V3.csv');
-  const outputFile = path.join(dataDir, 'eco_solutise_materials.json');
+  const inputFile = path.join(dataDir, 'ESGNOW.csv');
+  const outputFile = path.join(dataDir, 'esgnow.json');
 
   // Country codes mapping
   const regionToCountryCode = {
@@ -178,7 +178,7 @@ function convertCsvToJson() {
           "countryOfOrigin": countryOfOrigin,
           "materialClass": row['Material Category'] || '',
           "specificMaterial": row['Material Subtype'] || '',
-          "EmissionFactor": row['EmissionFactor'] || '',
+          "EmissionFactor": parseFloat(row['kg CO2e']) || 0,
           "EF_Source": row['EF Source'] || '',
           "Source_Dataset_Name": row['Source Dataset Name'] || '',
           "EF_Type": row['EF Type'] || '',
