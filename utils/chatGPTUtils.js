@@ -3,6 +3,7 @@ require("dotenv").config();
 
 const productCategories = require("../data/productCategories.json");
 const materialsDatabase = require("../data/materials_database.json");
+const materialsDatabaseEnhanced = require("../data/esgnow.json");
 const manufacturingProcesses = require("../data/manufacturingProcesses.json");
 const materialsDatabaseBasic = require("../data/materials_database_basic.json");
 const manufacturingProcessesBasic = require("../data/manufacturingProcesses_basic.json");
@@ -623,6 +624,43 @@ const formatBOMList = () => {
     .join("\n");
 };
 
+// Function to format the enhanced materials database with use case information
+const formatEnhancedBOMList = () => {
+  // Group materials by materialClass with use case information
+  const materialsByClass = {};
+  
+  materialsDatabaseEnhanced.forEach(material => {
+    if (!materialsByClass[material.materialClass]) {
+      materialsByClass[material.materialClass] = new Map();
+    }
+    
+    // Store specific material with its use case
+    const existingUseCase = materialsByClass[material.materialClass].get(material.specificMaterial);
+    if (!existingUseCase && material.Use_Case) {
+      materialsByClass[material.materialClass].set(material.specificMaterial, material.Use_Case);
+    }
+  });
+  
+  // Convert to the required format with use case information
+  return Object.entries(materialsByClass)
+    .map(([materialClass, specificMaterials]) => {
+      const materialsWithUseCases = Array.from(specificMaterials.entries())
+        .map(([material, useCase]) => {
+          if (useCase && useCase.trim()) {
+            // Clean and summarize use case (first 200 characters)
+            const cleanUseCase = useCase.replace(/\n/g, ' ').replace(/\s+/g, ' ').trim();
+            const summary = cleanUseCase.length > 200 ? cleanUseCase.substring(0, 200) + '...' : cleanUseCase;
+            return `${material} (${summary})`;
+          }
+          return material;
+        })
+        .join(", ");
+      
+      return `- ${materialClass}: ${materialsWithUseCases}`;
+    })
+    .join("\n");
+};
+
 async function classifyProduct(productCode, name, description, imageUrl, req) {
   logger.info(`🚀 Starting classification for product: ${productCode}`);
   
@@ -997,7 +1035,7 @@ const classifyBOM = async (
     return cacheClassifyBOM.get(keyClassifyBOM);
   }
 
-  const bomList = formatBOMList();
+  const bomList = formatEnhancedBOMList();
   description = description.replace(';',' ');
   const prompt = `
 You are an assistant tasked with classifying products based on their description and analyzing an image to determine the composition of materials.
@@ -1008,25 +1046,29 @@ You are an assistant tasked with classifying products based on their description
 - **Description**: ${description}
 - **Total Weight**: ${weight} kg
 
+### **Available Materials with Use Cases**:
+${bomList}
+
 ### **Your Task**:
 1. Analyze the text description and image (if provided) to determine relevant materials. If the image shows materials that are missing from the description, you MUST add them to the BOM and allocate weight using realistic engineering assumptions.
 You MUST analyze the provided image alongside the text description to identify all visible materials used in the product. If the image shows materials that are not mentioned in the description, you MUST include them.
 Prioritize what is visually confirmed in the image if there is a discrepancy between text and image.
 2. Pay close attention to all parts of the product details, including the name, description, and material fields, as they may each indicate distinct materials. However, do not interpret color names or color fields as materials.
 3. You MUST ONLY use material classes and specific materials EXACTLY as they appear in the list above.
-4. Identify materials based on both explicit fields and any implied mentions in the product name or description only when they describe the material construction or composition, not decorative finishes or colors.
-5. Distribute the total weight realistically across these materials, applying typical engineering assumptions where needed.
-6. Where materials are not fully specified, apply logical assumptions based on standard industry practices (e.g., assume steel frames for shelving or racking system).
-7. Ensure the total weight of all materials adds up **exactly** to ${weight} kg.
+4. **CRITICAL: Use the use case information provided in parentheses** to make informed material selections. Choose materials whose use cases (✅ suitable for) match the product's intended function, application context, and environment. Avoid materials where the use cases indicate they are unsuitable (❌ not suitable for) for the product's intended purpose.
+5. Identify materials based on both explicit fields and any implied mentions in the product name or description only when they describe the material construction or composition, not decorative finishes or colors.
+6. Distribute the total weight realistically across these materials, applying typical engineering assumptions where needed.
+7. Where materials are not fully specified, apply logical assumptions based on standard industry practices (e.g., assume steel frames for shelving or racking system) AND prioritize materials whose use cases align with the product's function.
+8. Ensure the total weight of all materials adds up **exactly** to ${weight} kg.
 8. “For each material, provide a brief reasoning (1–2 sentences) explaining why the material was included and how its weight was estimated.”,
-9. If a color field or description contains a term that matches a material name (e.g., "Maple," "Oak"), you MUST treat it as a color only and MUST NOT treat it as a material unless the description explicitly states it is a material or part of the product structure.
-10. Return the result **strictly as a valid JSON array** in the following format:
+10. If a color field or description contains a term that matches a material name (e.g., "Maple," "Oak"), you MUST treat it as a color only and MUST NOT treat it as a material unless the description explicitly states it is a material or part of the product structure.
+11. Return the result **strictly as a valid JSON array** in the following format:
 [
     {
         "materialClass": "<category>",
         "specificMaterial": "<material>",
         "weight": <weight>,
-        "reasoning": "<brief explanation>"
+        "reasoning": "<brief explanation including use case relevance>"
     }
 ]
 
@@ -1034,10 +1076,11 @@ Prioritize what is visually confirmed in the image if there is a discrepancy bet
 
 - DO NOT invent new materials or modify existing ones (e.g., do not use "Particleboard" if it's not in the list).
 - For example, if you think a product contains "Particleboard" but it's not in the list, choose the closest match from the list (like "MDF").
-- Every materialClass must be one of these exact categories: ${bomList}
+- Every materialClass must be one of the exact categories listed above.
 - You MUST ONLY select materialClass and specificMaterial values EXACTLY as they appear in the list above.
 - Every specificMaterial must appear exactly as listed under its category in the available materials list.
 - DO NOT add descriptive terms like "Solid Oak" - use exactly "Oak" as it appears in the list.
+- **PRIORITIZE materials whose use cases match the product's function and intended application** - this is critical for accurate material selection.
 - If an image is provided, use it to refine material classification.
 - The total weight must match exactly **${weight} kg**.
 - Do **not** include any explanation, extra text, or formatting outside the JSON array.
@@ -1105,8 +1148,8 @@ If the image shows a **support item** (e.g., bar, rack, holder) and the text inc
 
     // Validate and adjust material categories
     result.forEach((item) => {
-      // Get all unique material classes from the database
-      const availableMaterialClasses = [...new Set(materialsDatabase.map(material => material.materialClass))];
+      // Get all unique material classes from the enhanced database
+      const availableMaterialClasses = [...new Set(materialsDatabaseEnhanced.map(material => material.materialClass))];
       
       // Check if the material class exists in the database
       if (!availableMaterialClasses.includes(item.materialClass)) {
@@ -1145,7 +1188,7 @@ If the image shows a **support item** (e.g., bar, rack, holder) and the text inc
         // Get all specific materials for this material class
         const availableSpecificMaterials = [
           ...new Set(
-            materialsDatabase
+            materialsDatabaseEnhanced
               .filter(material => material.materialClass === item.materialClass)
               .map(material => material.specificMaterial)
           )

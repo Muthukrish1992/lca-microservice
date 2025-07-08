@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const xlsx = require('xlsx');
 
 /**
  * Simple CSV parser
@@ -87,12 +88,42 @@ function splitCSVLine(line, delimiter) {
 }
 
 /**
- * Convert Eco Solutise CSV to JSON format similar to materials_database.json
+ * Read Excel file and convert to JSON array
+ * @param {string} filePath - Path to Excel file
+ * @returns {Array} Array of objects representing rows
  */
-function convertCsvToJson() {
+function readExcelFile(filePath) {
+  const workbook = xlsx.readFile(filePath);
+  const sheetName = workbook.SheetNames[0]; // Use first sheet
+  const sheet = workbook.Sheets[sheetName];
+  return xlsx.utils.sheet_to_json(sheet);
+}
+
+/**
+ * Convert Eco Solutise CSV/Excel to JSON format similar to materials_database.json
+ */
+function convertFileToJson() {
   // Paths
   const dataDir = path.join(__dirname, '..', 'data');
-  const inputFile = path.join(dataDir, 'ESGNOW.csv');
+  
+  // Check for both CSV and Excel files
+  const csvFile = path.join(dataDir, 'ESGNOW.csv');
+  const excelFile = path.join(dataDir, 'ESGNOW.xlsx');
+  
+  let inputFile;
+  let isExcel = false;
+  
+  if (fs.existsSync(excelFile)) {
+    inputFile = excelFile;
+    isExcel = true;
+    console.log('Found Excel file, using:', excelFile);
+  } else if (fs.existsSync(csvFile)) {
+    inputFile = csvFile;
+    console.log('Found CSV file, using:', csvFile);
+  } else {
+    throw new Error('Neither ESGNOW.csv nor ESGNOW.xlsx found in data directory');
+  }
+  
   const outputFile = path.join(dataDir, 'esgnow.json');
 
   // Country codes mapping
@@ -123,16 +154,23 @@ function convertCsvToJson() {
   };
 
   try {
-    // Read CSV file
-    const csvContent = fs.readFileSync(inputFile, 'utf8');
+    let rows;
     
-    // Parse CSV - no need to skip lines since format changed
-    const rows = parseCSV(csvContent, { skipLines: 0 });
-    
-    console.log(`Read ${rows.length} rows from CSV`);
+    if (isExcel) {
+      // Read Excel file
+      rows = readExcelFile(inputFile);
+      console.log(`Read ${rows.length} rows from Excel file`);
+    } else {
+      // Read CSV file
+      const csvContent = fs.readFileSync(inputFile, 'utf8');
+      
+      // Parse CSV - no need to skip lines since format changed
+      rows = parseCSV(csvContent, { skipLines: 0 });
+      console.log(`Read ${rows.length} rows from CSV file`);
+    }
     
     if (rows.length === 0) {
-      throw new Error('No data found in CSV file');
+      throw new Error('No data found in file');
     }
     
     // Display a sample row to debug
@@ -142,7 +180,7 @@ function convertCsvToJson() {
     const results = rows
       .filter(row => {
         // Filter out rows without essential data
-        const hasData = row['Region'] && row['Material Category'] && row['Material Subtype'] && row['kg CO2e'];
+        const hasData = row['Country/Region'] && row['Material Category'] && row['Material Subtype'] && row['kg CO2e'];
         if (!hasData) {
           console.warn(`Skipping row with missing data: ${JSON.stringify(row)}`);
         }
@@ -150,7 +188,7 @@ function convertCsvToJson() {
       })
       .map(row => {
         // Extract country code from region
-        const regionName = row['Region'] || '';
+        const regionName = row['Country/Region'] || '';
         
         // Clean up the region name to handle different formats
         let countryOfOrigin;
@@ -182,7 +220,8 @@ function convertCsvToJson() {
           "EF_Source": row['EF Source'] || '',
           "Source_Dataset_Name": row['Source Dataset Name'] || '',
           "EF_Type": row['EF Type'] || '',
-          "Type_Rationale": row['Type Rationale'] || ''
+          "Type_Rationale": row['Type Rationale'] || '',
+          "Use_Case": row['Use Case'] || ''
         };
       });
     
@@ -201,7 +240,7 @@ function convertCsvToJson() {
 
 // Run the script
 try {
-  convertCsvToJson();
+  convertFileToJson();
 } catch (error) {
   console.error('Script failed:', error);
   process.exit(1);
