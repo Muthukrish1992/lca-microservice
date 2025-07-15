@@ -4,7 +4,7 @@ require("dotenv").config();
 const productCategories = require("../data/productCategories.json");
 const materialsDatabase = require("../data/materials_database.json");
 const materialsDatabaseEnhanced = require("../data/esgnow.json");
-const manufacturingProcesses = require("../data/manufacturingProcesses.json");
+const manufacturingProcesses = require("../data/manufacturing_ef.json");
 const materialsDatabaseBasic = require("../data/materials_database_basic.json");
 const manufacturingProcessesBasic = require("../data/manufacturingProcesses_basic.json");
 
@@ -104,15 +104,68 @@ const ManufacturingSchemaBasic = z.object({
 
 // Format manufacturing processes as a string for the prompt
 const formatManufacturingProcesses = () => {
-  return Object.entries(manufacturingProcesses)
-    .map(
-      ([material, processes]) => {
-        const processesStr = Object.keys(processes)
-          .map(process => `${process} (${processes[process]} kWh/kg)`)
-          .join(", ");
-        return `- ${material}: ${processesStr || "No specific processes listed"}`;
+  const materialGroups = {};
+  
+  // Group by Material Class
+  manufacturingProcesses.forEach(item => {
+    const materialClass = item['Material Class'];
+    if (!materialGroups[materialClass]) {
+      materialGroups[materialClass] = [];
+    }
+    materialGroups[materialClass].push({
+      process: item['Process'],
+      materialType: item['Material Type'],
+      ef: item['EF (kgCO2) per 1 kg']
+    });
+  });
+  
+  return Object.entries(materialGroups)
+    .map(([material, processes]) => {
+      const processesStr = processes
+        .map(p => `${p.process} - ${p.materialType} (${p.ef} kgCO2/kg)`)
+        .join(", ");
+      return `- ${material}: ${processesStr || "No specific processes listed"}`;
+    })
+    .join("\n");
+};
+
+// Format filtered manufacturing processes based on BOM materials
+const formatFilteredManufacturingProcesses = (bomMaterials) => {
+  const materialGroups = {};
+  
+  // Create a map of BOM materials for quick lookup
+  const bomMap = new Map();
+  bomMaterials.forEach(bomItem => {
+    const key = `${bomItem.materialClass}|${bomItem.specificMaterial}`;
+    bomMap.set(key, bomItem);
+  });
+  
+  // Filter and group manufacturing processes based on BOM
+  manufacturingProcesses.forEach(item => {
+    const materialClass = item['Material Class'];
+    const materialType = item['Material Type'];
+    
+    // Check if this material class and type combination exists in BOM
+    const bomKey = `${materialClass}|${materialType}`;
+    if (bomMap.has(bomKey)) {
+      if (!materialGroups[materialClass]) {
+        materialGroups[materialClass] = [];
       }
-    )
+      materialGroups[materialClass].push({
+        process: item['Process'],
+        materialType: item['Material Type'],
+        ef: item['EF (kgCO2) per 1 kg']
+      });
+    }
+  });
+  
+  return Object.entries(materialGroups)
+    .map(([material, processes]) => {
+      const processesStr = processes
+        .map(p => `${p.process} - ${p.materialType} (${p.ef} kgCO2/kg)`)
+        .join(", ");
+      return `- ${material}: ${processesStr || "No specific processes listed"}`;
+    })
     .join("\n");
 };
 
@@ -1263,7 +1316,7 @@ const classifyManufacturingProcess = async (
   bom,
   req
 ) => {
-  const formattedProcesses = formatManufacturingProcesses();
+  const formattedProcesses = formatFilteredManufacturingProcesses(bom);
 
   const formattedBoM = bom
     .map(

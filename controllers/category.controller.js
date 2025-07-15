@@ -1,7 +1,7 @@
 const logger = require('../utils/logger');
 const { HTTP_STATUS, formatResponse } = require('../utils/http');
 const productCategories = require('../data/productCategories.json');
-const manufacturingProcesses = require('../data/manufacturingProcesses.json');
+const manufacturingProcesses = require('../data/manufacturing_ef.json');
 
 /**
  * Get all categories
