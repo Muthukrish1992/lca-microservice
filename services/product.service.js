@@ -181,8 +181,8 @@ const calculateProcessEmissions = (productManufacturingProcess, countryOfOrigin 
   const processMap = new Map();
   
   manufacturingProcesses.forEach(item => {
-    const key = `${normalize(item['Material Class'])}-${normalize(item['Material Type'])}-${normalize(item['Process'])}-${normalize(item['Country/Region'])}`;
-    processMap.set(key, item['EF (kgCO2) per 1 kg']);
+    const key = `${normalize(item['materialClass'])}-${normalize(item['specificMaterial'])}-${normalize(item['Process'])}-${normalize(item['countryOfOrigin'])}`;
+    processMap.set(key, item['EmissionFactor']);
   });
   
   // Get the appropriate country name for lookup

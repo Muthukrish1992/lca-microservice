@@ -102,32 +102,6 @@ const ManufacturingSchemaBasic = z.object({
   processes: z.array(ManufacturingProcessSchemaBasic), // Wrap in an object key
 });
 
-// Format manufacturing processes as a string for the prompt
-const formatManufacturingProcesses = () => {
-  const materialGroups = {};
-  
-  // Group by Material Class
-  manufacturingProcesses.forEach(item => {
-    const materialClass = item['Material Class'];
-    if (!materialGroups[materialClass]) {
-      materialGroups[materialClass] = [];
-    }
-    materialGroups[materialClass].push({
-      process: item['Process'],
-      materialType: item['Material Type'],
-      ef: item['EF (kgCO2) per 1 kg']
-    });
-  });
-  
-  return Object.entries(materialGroups)
-    .map(([material, processes]) => {
-      const processesStr = processes
-        .map(p => `${p.process} - ${p.materialType} (${p.ef} kgCO2/kg)`)
-        .join(", ");
-      return `- ${material}: ${processesStr || "No specific processes listed"}`;
-    })
-    .join("\n");
-};
 
 // Format filtered manufacturing processes based on BOM materials
 const formatFilteredManufacturingProcesses = (bomMaterials) => {
@@ -142,8 +116,8 @@ const formatFilteredManufacturingProcesses = (bomMaterials) => {
   
   // Filter and group manufacturing processes based on BOM
   manufacturingProcesses.forEach(item => {
-    const materialClass = item['Material Class'];
-    const materialType = item['Material Type'];
+    const materialClass = item['materialClass'];
+    const materialType = item['specificMaterial'];
     
     // Check if this material class and type combination exists in BOM
     const bomKey = `${materialClass}|${materialType}`;
@@ -153,17 +127,16 @@ const formatFilteredManufacturingProcesses = (bomMaterials) => {
       }
       materialGroups[materialClass].push({
         process: item['Process'],
-        materialType: item['Material Type'],
-        ef: item['EF (kgCO2) per 1 kg']
+        materialType: item['specificMaterial']
       });
     }
   });
   
   return Object.entries(materialGroups)
     .map(([material, processes]) => {
-      const processesStr = processes
-        .map(p => `${p.process} - ${p.materialType} (${p.ef} kgCO2/kg)`)
-        .join(", ");
+      // Get unique processes only (remove duplicates)
+      const uniqueProcesses = [...new Set(processes.map(p => p.process))];
+      const processesStr = uniqueProcesses.join(", ");
       return `- ${material}: ${processesStr || "No specific processes listed"}`;
     })
     .join("\n");

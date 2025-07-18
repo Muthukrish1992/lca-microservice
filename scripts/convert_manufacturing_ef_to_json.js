@@ -12,7 +12,9 @@ function convertManufacturingEfToJson() {
     
     // Read the CSV file
     const csvContent = fs.readFileSync(inputFile, 'utf8');
-    const lines = csvContent.split('\n');
+    
+    // Parse CSV properly handling quoted fields with newlines
+    const lines = parseCSVWithQuotes(csvContent);
     
     // Skip empty lines
     const nonEmptyLines = lines.filter(line => line.trim() !== '');
@@ -28,7 +30,7 @@ function convertManufacturingEfToJson() {
     // Target columns: A-D and K
     // A: Country/Region, B: Material Class, C: Material Type, D: Process, K: EF (kgCO2) per 1 kg
     const targetColumns = [0, 1, 2, 3, 10]; // A=0, B=1, C=2, D=3, K=10
-    const targetHeaders = ['Country/Region', 'Material Class', 'Material Type', 'Process', 'EF (kgCO2) per 1 kg'];
+    const targetHeaders = ['countryOfOrigin', 'materialClass', 'specificMaterial', 'Process', 'EmissionFactor'];
     
     const jsonData = [];
     
@@ -50,17 +52,20 @@ function convertManufacturingEfToJson() {
         // Clean up the value
         if (value === '' || value === 'undefined' || value === 'null') {
           value = null;
-        } else if (headerName === 'EF (kgCO2) per 1 kg') {
+        } else if (headerName === 'EmissionFactor') {
           // Try to parse as number for EF values
           const numValue = parseFloat(value);
           value = isNaN(numValue) ? null : numValue;
+        } else if (headerName === 'Process') {
+          // Replace commas with empty strings in Process field
+          value = value.replace(/,/g, '');
         }
         
         record[headerName] = value;
       });
       
       // Only add records that have country, material info, and EF value
-      if (record['Country/Region'] && record['Material Class'] && record['EF (kgCO2) per 1 kg'] !== null) {
+      if (record['countryOfOrigin'] && record['materialClass'] && record['EmissionFactor'] !== null) {
         jsonData.push(record);
       }
     }
@@ -76,6 +81,50 @@ function convertManufacturingEfToJson() {
     console.error(`Error converting CSV to JSON: ${error.message}`);
     process.exit(1);
   }
+}
+
+/**
+ * Parse CSV content properly handling quoted fields with newlines
+ */
+function parseCSVWithQuotes(csvContent) {
+  const lines = [];
+  let currentLine = '';
+  let inQuotes = false;
+  
+  for (let i = 0; i < csvContent.length; i++) {
+    const char = csvContent[i];
+    
+    if (char === '"') {
+      if (inQuotes && csvContent[i + 1] === '"') {
+        // Escaped quote
+        currentLine += '"';
+        i++; // Skip next quote
+      } else {
+        // Toggle quote state
+        inQuotes = !inQuotes;
+      }
+      currentLine += char;
+    } else if ((char === '\n' || char === '\r') && !inQuotes) {
+      // End of line outside quotes
+      if (currentLine.trim() !== '') {
+        lines.push(currentLine);
+      }
+      currentLine = '';
+      // Skip \r\n combination
+      if (char === '\r' && csvContent[i + 1] === '\n') {
+        i++;
+      }
+    } else {
+      currentLine += char;
+    }
+  }
+  
+  // Add the last line if it exists
+  if (currentLine.trim() !== '') {
+    lines.push(currentLine);
+  }
+  
+  return lines;
 }
 
 /**
