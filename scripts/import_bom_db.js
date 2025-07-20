@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const xlsx = require('xlsx');
+const { normalizeCountryCode } = require('../utils/countryMappings');
 
 /**
  * Simple CSV parser
@@ -126,32 +127,7 @@ function convertFileToJson() {
   
   const outputFile = path.join(dataDir, 'esgnow.json');
 
-  // Country codes mapping
-  const regionToCountryCode = {
-    'RoW': 'RoW',
-    'ROW': 'RoW',
-    'Row': 'RoW',
-    'Rest-of-World': 'RoW',
-    'Rest of World': 'RoW',
-    'Germany': 'DE',
-    'Sweden': 'SE',
-    'China': 'CN',
-    'Global (GLO)': 'GLO',
-    'Global Average': 'GLO',
-    'Global': 'GLO',
-    'GLO': 'GLO',
-    'Belgium' : 'BE',
-    'Brazil' : 'BR',
-    'Canada' : 'CA',
-    'Egypt' : 'EG',
-    'Thailand' : 'EG',
-    'Italy' : 'IT',
-    'Turkey' : 'TR',
-    'Italy-Europe-Central' : 'IT-EC',
-    'IAI Area, EU27 & EFTA' : 'IAI-EU',
-    'IAI Area, North America' : 'IAI-NA',
-    'Europe without Switzerland' : 'EU-CH',
-  };
+  // Country codes mapping - now using common utility
 
   try {
     let rows;
@@ -187,29 +163,9 @@ function convertFileToJson() {
         return hasData;
       })
       .map(row => {
-        // Extract country code from region
+        // Extract and normalize country code from region
         const regionName = row['Country/Region'] || '';
-        
-        // Clean up the region name to handle different formats
-        let countryOfOrigin;
-        
-        // Check if it's in our mapping
-        if (regionToCountryCode[regionName]) {
-          countryOfOrigin = regionToCountryCode[regionName];
-        } else {
-          // Try to extract from patterns like "Global (GLO)" or "China (CN)"
-          const matches = regionName.match(/\(([^)]+)\)/);
-          if (matches && matches[1]) {
-            countryOfOrigin = matches[1];
-          } else {
-            // Default to first word
-            countryOfOrigin = regionName.split(' ')[0].replace(/[()]/g, '');
-          }
-        }
-        
-        // Normalize country code
-        if (countryOfOrigin.toLowerCase() === 'global') countryOfOrigin = 'GLO';
-        if (countryOfOrigin.toLowerCase() === 'row' || countryOfOrigin.toLowerCase() === 'rest') countryOfOrigin = 'RoW';
+        const countryOfOrigin = normalizeCountryCode(regionName);
         
         // Create entry in the format of materials_database.json with additional fields
         return {

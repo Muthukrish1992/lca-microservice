@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { normalizeCountryCode } = require('../utils/countryMappings');
 
 /**
  * Converts manufacturing_ef.csv to JSON format with columns A-D and K
@@ -59,6 +60,11 @@ function convertManufacturingEfToJson() {
         } else if (headerName === 'Process') {
           // Replace commas with empty strings in Process field
           value = value.replace(/,/g, '');
+        }
+        
+        // Apply country code normalization for countryOfOrigin field
+        if (headerName === 'countryOfOrigin') {
+          value = normalizeCountryCode(value);
         }
         
         record[headerName] = value;

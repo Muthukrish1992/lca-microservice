@@ -208,7 +208,7 @@ const calculateProcessEmissions = (productManufacturingProcess, countryOfOrigin 
             const specificKey = `${materialClass}-${specificMaterial}-${process}-${country}`;
             
             // Try global fallback
-            const globalKey = `${materialClass}-${specificMaterial}-${process}-global`;
+            const globalKey = `${materialClass}-${specificMaterial}-${process}-GLO`;
             
             // Try with different material combinations
             const materialOnlyKey = `${materialClass}-${specificMaterial}-${process}`;

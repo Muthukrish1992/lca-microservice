@@ -970,13 +970,13 @@
     {
         "countryOfOrigin": "SE",
         "materialClass": "Glass",
-        "specificMaterial": "Low-Iron Glass",
+        "specificMaterial": "Low Iron Glass",
         "EmissionFactor": 1.327272727,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Low-Iron Float Glass",
         "EF_Type": "Direct",
         "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material.",
-        "Use_Case": "Low-Iron Glass\n\n✅ Suitable for furniture, display cases, and interior fit-outs where high transparency, edge clarity, and a neutral color tone are essential. Its extra-clear composition and minimal iron content make it ideal for applications that prioritize visual aesthetics and clarity, such as tabletops, shelving, and partitions in interior spaces. \n❌ Not suitable for exterior applications or contexts requiring solar control, thermal insulation, or enhanced energy performance. This material lacks the necessary coatings and treatments for energy efficiency, making it unsuitable for exterior glazing or environments where temperature regulation is critical. Additionally, it is not recommended for catering equipment that requires durability against thermal shock or impact resistance."
+        "Use_Case": "Low Iron Glass\n\n✅ Suitable for furniture, display cases, and interior fit-outs where high transparency, edge clarity, and a neutral color tone are essential. Its extra-clear composition and minimal iron content make it ideal for applications that prioritize visual aesthetics and clarity, such as tabletops, shelving, and partitions in interior spaces. \n❌ Not suitable for exterior applications or contexts requiring solar control, thermal insulation, or enhanced energy performance. This material lacks the necessary coatings and treatments for energy efficiency, making it unsuitable for exterior glazing or environments where temperature regulation is critical. Additionally, it is not recommended for catering equipment that requires durability against thermal shock or impact resistance."
     },
     {
         "countryOfOrigin": "TR",
@@ -992,13 +992,13 @@
     {
         "countryOfOrigin": "CA",
         "materialClass": "Glass",
-        "specificMaterial": "Acid-Etched Glass",
+        "specificMaterial": "Acid Etched Glass",
         "EmissionFactor": 0.4628099174,
         "EF_Source": "EPD",
-        "Source_Dataset_Name": "Acid-etched glass in four finishes: Satinlite, Satin, Velour, Opaque.",
+        "Source_Dataset_Name": "Acid Etched Glass in four finishes: Satinlite, Satin, Velour, Opaque.",
         "EF_Type": "Direct",
         "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material.",
-        "Use_Case": "Acid-Etched Glass\n\n✅ Suitable for interior partitions, furniture panels, and decorative surfaces where aesthetics, light diffusion, privacy, and low maintenance are priorities. Ideal for applications in office spaces, retail environments, and residential interiors where visual appeal and privacy are important. Can be used in catering environments for decorative purposes where hygiene and easy cleaning are required, such as in display cases or decorative wall panels.\n❌ Not suitable for structural applications, load-bearing furniture, or areas requiring thermal insulation due to its limited strength and lack of energy performance properties. Not recommended for use in exterior applications, environments where high impact resistance is necessary, or in catering equipment that requires high durability and impact resistance, such as countertops or heavy-duty kitchen surfaces."
+        "Use_Case": "Acid Etched Glass\n\n✅ Suitable for interior partitions, furniture panels, and decorative surfaces where aesthetics, light diffusion, privacy, and low maintenance are priorities. Ideal for applications in office spaces, retail environments, and residential interiors where visual appeal and privacy are important. Can be used in catering environments for decorative purposes where hygiene and easy cleaning are required, such as in display cases or decorative wall panels.\n❌ Not suitable for structural applications, load-bearing furniture, or areas requiring thermal insulation due to its limited strength and lack of energy performance properties. Not recommended for use in exterior applications, environments where high impact resistance is necessary, or in catering equipment that requires high durability and impact resistance, such as countertops or heavy-duty kitchen surfaces."
     },
     {
         "countryOfOrigin": "SE",
@@ -1234,24 +1234,24 @@
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Leather",
-        "specificMaterial": "Full-Grain Leather",
+        "specificMaterial": "Full Grain Leather",
         "EmissionFactor": 22,
         "EF_Source": "Journal Paper",
         "Source_Dataset_Name": "Per reviewed Joural Paper (Springer Nature-Discover Sustainability)",
         "EF_Type": "Proxy",
         "Type_Rationale": "An emission factor of a similar material (Cow Leather) was used as a proxy where a direct emission factor for the specified material could not be identified to date",
-        "Use_Case": "Full-Grain Leather\n\n✅  Suitable for high-end furniture and interior fit-outs where aesthetics, softness, and a luxurious feel are prioritized. Its natural appearance and ability to develop a patina over time make it ideal for premium settings with controlled environments. \n❌ Not suitable for catering equipment or environments with high moisture or potential for spills, such as kitchens or dining areas, due to its susceptibility to staining, water damage, and the need for regular maintenance to preserve its quality."
+        "Use_Case": "Full Grain Leather\n\n✅  Suitable for high-end furniture and interior fit-outs where aesthetics, softness, and a luxurious feel are prioritized. Its natural appearance and ability to develop a patina over time make it ideal for premium settings with controlled environments. \n❌ Not suitable for catering equipment or environments with high moisture or potential for spills, such as kitchens or dining areas, due to its susceptibility to staining, water damage, and the need for regular maintenance to preserve its quality."
     },
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Leather",
-        "specificMaterial": "Top-Grain Leather",
+        "specificMaterial": "Top Grain Leather",
         "EmissionFactor": 22,
         "EF_Source": "Journal Paper",
         "Source_Dataset_Name": "Per reviewed Joural Paper (Springer Nature-Discover Sustainability)",
         "EF_Type": "Proxy",
         "Type_Rationale": "An emission factor of a similar material (Cow Leather) was used as a proxy where a direct emission factor for the specified material could not be identified to date",
-        "Use_Case": "Top-Grain Leather\n\n✅ Suitable for high-end furniture and interior fit-outs where aesthetics, softness, and a luxurious feel are prioritized. Its natural appearance and comfort make it ideal for low-traffic areas or spaces where it can be maintained regularly. \n❌ Not suitable for catering equipment or environments with high moisture or potential for spills, as it is prone to staining and requires significant maintenance. Additionally, not ideal for high-traffic areas or commercial settings where durability against wear and tear is critical."
+        "Use_Case": "Top Grain Leather\n\n✅ Suitable for high-end furniture and interior fit-outs where aesthetics, softness, and a luxurious feel are prioritized. Its natural appearance and comfort make it ideal for low-traffic areas or spaces where it can be maintained regularly. \n❌ Not suitable for catering equipment or environments with high moisture or potential for spills, as it is prone to staining and requires significant maintenance. Additionally, not ideal for high-traffic areas or commercial settings where durability against wear and tear is critical."
     },
     {
         "countryOfOrigin": "GLO",
@@ -1377,24 +1377,24 @@
     {
         "countryOfOrigin": "DE",
         "materialClass": "Laminate",
-        "specificMaterial": "High-Pressure Laminate (HPL)",
+        "specificMaterial": "High Pressure Laminate (HPL)",
         "EmissionFactor": 1.3608,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "HPL (Dekorative High Pressure Laminates)",
         "EF_Type": "Direct",
         "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material.",
-        "Use_Case": "High-Pressure Laminate (HPL)\n\n✅ Suitable for interior fit-outs and furniture, which are highly durable, scratch-resistant, and offer a wide range of aesthetic options, making it ideal for interior applications where visual appeal and longevity are important. It is also cost-effective, which is beneficial for large-scale projects.\n❌ Not suitable for catering equipment or environments where it will be exposed to extreme heat or moisture for extended periods. These conditions can lead to delamination and compromise the material's integrity, posing hygiene risks. Therefore, it is unsuitable for surfaces in kitchens or food preparation areas that require frequent cleaning and exposure to high temperatures."
+        "Use_Case": "High Pressure Laminate (HPL)\n\n✅ Suitable for interior fit-outs and furniture, which are highly durable, scratch-resistant, and offer a wide range of aesthetic options, making it ideal for interior applications where visual appeal and longevity are important. It is also cost-effective, which is beneficial for large-scale projects.\n❌ Not suitable for catering equipment or environments where it will be exposed to extreme heat or moisture for extended periods. These conditions can lead to delamination and compromise the material's integrity, posing hygiene risks. Therefore, it is unsuitable for surfaces in kitchens or food preparation areas that require frequent cleaning and exposure to high temperatures."
     },
     {
         "countryOfOrigin": "DE",
         "materialClass": "Laminate",
-        "specificMaterial": "Low-Pressure Laminate (LPL)",
+        "specificMaterial": "Low Pressure Laminate (LPL)",
         "EmissionFactor": 1.3608,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Reffered: High Pressure Laminates",
         "EF_Type": "Proxy",
         "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date",
-        "Use_Case": "Low-Pressure Laminate (LPL)\n\n✅ Suitable for interior fit-outs and furniture applications where moderate durability and cost-effectiveness are prioritized. LPL offers a range of aesthetic options and is ideal for areas with low to moderate wear and tear. \n❌ Not suitable for catering equipment or environments exposed to extreme heat, moisture, or heavy use. LPL may delaminate under such conditions and does not meet the hygiene standards required for food-related applications."
+        "Use_Case": "Low Pressure Laminate (LPL)\n\n✅ Suitable for interior fit-outs and furniture applications where moderate durability and cost-effectiveness are prioritized. LPL offers a range of aesthetic options and is ideal for areas with low to moderate wear and tear. \n❌ Not suitable for catering equipment or environments exposed to extreme heat, moisture, or heavy use. LPL may delaminate under such conditions and does not meet the hygiene standards required for food-related applications."
     },
     {
         "countryOfOrigin": "DE",
