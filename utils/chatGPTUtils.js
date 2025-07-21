@@ -904,6 +904,7 @@ ${materialsList}
 - If an image is provided, use it to refine material classification.
 - The total weight must match exactly **${weight} kg**.
 - Do **not** include any explanation, extra text, or formatting outside the JSON array.
+- CRITICAL VENEER RULE: If ANY wood species name (birch, oak, walnut, maple, cherry, pine, beech, ash, teak, mahogany, etc.) appears in combination with "veneer," "laminate," "foil," "finish," "coating," "look," "effect," "style," or similar surface treatment terms (e.g., "birch veneer finish," "oak laminate," "maple foil"), you MUST completely ignore the wood species name and NOT classify it as a material. These are decorative surface treatments applied to an underlying substrate material like MDF.
 `;
 
   try {
@@ -1109,6 +1110,7 @@ Where the image suggests a material and typical industry practice differs, typic
 If the image shows a **support item** (e.g., bar, rack, holder) and the text includes terms associated with tools (e.g., knife, spoon), you MUST classify the product according to its function and form as observed in the image.
 If a material name (e.g., Beech, Oak, Maple) appears only in the product name, a color field, or in a styling/aesthetic context (e.g., "maple color," "oak tone"), treat it as an aesthetic reference only and NOT as a material — unless the description explicitly states that the material is used structurally or the image clearly confirms it is a main construction material.
 If a description includes any reference to veneer, laminate, foil, melamine-coating, powder coating, plating, paint, stain, lacquer, or other surface treatment (e.g., “oak veneer,” “walnut foil finish,” “lacquered birch,” “chrome-plated,” “wood-look,” “stone-effect”), you MUST treat this as an aesthetic or surface finish. Classify only the core structural material and do NOT assign a separate material or weight to the surface treatment or decorative descriptor.
+CRITICAL VENEER RULE: If ANY wood species name (birch, oak, walnut, maple, cherry, pine, beech, ash, teak, mahogany, etc.) appears in combination with "veneer," "laminate," "foil," "finish," "coating," "look," "effect," "style," or similar surface treatment terms (e.g., "birch veneer finish," "oak laminate," "maple foil"), you MUST completely ignore the wood species name and NOT classify it as a material. These are decorative surface treatments applied to an underlying substrate material like MDF or particleboard.
 When multiple plausible materials exist for a component, you MUST select the most typical industry-standard material for that component, guided by the available materials list and their use case descriptions.
 If a product description is vague or ambiguous, prefer structural materials (e.g., MDF for flat panels, steel for frames) rather than aesthetic surface treatments, unless the description explicitly states otherwise.
 Do not classify minor or secondary decorative materials (e.g., small plastic inserts or trims) unless they contribute substantially to the total weight or structure.
