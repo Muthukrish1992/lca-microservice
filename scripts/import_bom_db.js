@@ -92,8 +92,8 @@ function splitCSVLine(line, delimiter) {
 function convertCsvToJson() {
   // Paths
   const dataDir = path.join(__dirname, '..', 'data');
-  const inputFile = path.join(dataDir, 'ESGNOW.csv');
-  const outputFile = path.join(dataDir, 'esgnow.json');
+  const inputFile = path.join(dataDir, 'ESGMaterials.csv');
+  const outputFile = path.join(dataDir, 'ESGMaterials.json');
 
   // Country codes mapping
   const regionToCountryCode = {
