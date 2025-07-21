@@ -1054,7 +1054,6 @@ const classifyBOM = async (
     name,
     description,
     weight,
-    imageUrl,
   });
 
   if (cacheClassifyBOM.has(keyClassifyBOM)) {

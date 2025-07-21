@@ -262,7 +262,92 @@ const calculateProcessEmissions = (productManufacturingProcess, countryOfOrigin 
 };
 
 /**
- * Create a new product
+ * Create or update product with AI processing
+ * @param {Object} req - Request object
+ * @param {Object} productData - Product data
+ * @param {boolean} runAI - Whether to run AI classification
+ * @returns {Object} - Created or updated product
+ */
+const createOrUpdateProductWithAI = async (req, productData, runAI = false) => {
+  const { 
+    classifyProduct, 
+    classifyBOM, 
+    classifyManufacturingProcess 
+  } = require('../utils/chatGPTUtils');
+  
+  const Product = await getProductModel(req);
+  const { code, name, description, weight, images } = productData;
+
+  // Check if product with same code already exists
+  const existingProduct = await Product.findOne({ code });
+
+  let result = {
+    isUpdate: !!existingProduct,
+    product: null,
+    aiProcessingRequired: runAI
+  };
+
+  if (runAI) {
+    try {
+      // Run AI classification
+      const classifyResult = await classifyProduct(code, name, description, images?.[0], req);
+      const classifyBOMResult = await classifyBOM(code, name, description, weight, images?.[0], req);
+      const classifyManufacturingProcessResult = await classifyManufacturingProcess(
+        code, name, description, classifyBOMResult, req
+      );
+
+      // Calculate emissions
+      const co2EmissionRawMaterials = calculateRawMaterialEmissions(
+        classifyBOMResult,
+        productData.countryOfOrigin
+      );
+      const co2EmissionFromProcesses = calculateProcessEmissions(
+        classifyManufacturingProcessResult,
+        productData.countryOfOrigin
+      );
+
+      // Update product data with AI results
+      productData.category = classifyResult.category;
+      productData.subCategory = classifyResult.subcategory;
+      productData.materials = classifyBOMResult;
+      productData.productManufacturingProcess = classifyManufacturingProcessResult;
+      productData.co2Emission = co2EmissionRawMaterials + co2EmissionFromProcesses;
+      productData.co2EmissionRawMaterials = co2EmissionRawMaterials;
+      productData.co2EmissionFromProcesses = co2EmissionFromProcesses;
+      productData.aiProcessingStatus = 'completed';
+    } catch (error) {
+      logger?.error?.(`AI processing failed for product ${code}: ${error.message}`);
+      productData.aiProcessingStatus = 'failed';
+    }
+  }
+
+  // Set timestamps
+  productData.modifiedDate = new Date();
+  
+  if (existingProduct) {
+    // Update existing product
+    logger?.info?.(`Updating existing product with code: ${code}`);
+    productData.createdDate = existingProduct.createdDate;
+    
+    result.product = await Product.findOneAndUpdate(
+      { code },
+      productData,
+      { new: true, runValidators: true }
+    );
+  } else {
+    // Create new product
+    logger?.info?.(`Creating new product with code: ${code}`);
+    productData.createdDate = new Date();
+    
+    const newProduct = new Product(productData);
+    result.product = await newProduct.save();
+  }
+
+  return result;
+};
+
+/**
+ * Create a new product or update existing one if product code already exists
  */
 const createProduct = async (req) => {
   const Product = await getProductModel(req);
@@ -281,6 +366,9 @@ const createProduct = async (req) => {
     productManufacturingProcess = [],
   } = req.body;
 
+  // Check if product with same code already exists
+  const existingProduct = await Product.findOne({ code });
+
   // Calculate emissions separately
   const co2EmissionRawMaterials = calculateRawMaterialEmissions(
     materials,
@@ -294,8 +382,7 @@ const createProduct = async (req) => {
 
   const co2Emission = co2EmissionRawMaterials + co2EmissionFromProcesses;
 
-  // Create new product instance
-  const newProduct = new Product({
+  const productData = {
     code,
     name,
     description,
@@ -307,14 +394,35 @@ const createProduct = async (req) => {
     materials,
     images,
     modifiedDate: new Date(),
-    createdDate: new Date(),
     co2Emission,
     co2EmissionRawMaterials,
     co2EmissionFromProcesses,
     productManufacturingProcess,
-  });
+  };
 
-  return await newProduct.save();
+  if (existingProduct) {
+    // Update existing product with new data and re-calculated emissions
+    logger?.info?.(`Updating existing product with code: ${code}`);
+    
+    // Preserve original creation date
+    productData.createdDate = existingProduct.createdDate;
+    
+    // Update the existing product
+    const updatedProduct = await Product.findOneAndUpdate(
+      { code },
+      productData,
+      { new: true, runValidators: true }
+    );
+    
+    return updatedProduct;
+  } else {
+    // Create new product
+    logger?.info?.(`Creating new product with code: ${code}`);
+    productData.createdDate = new Date();
+    
+    const newProduct = new Product(productData);
+    return await newProduct.save();
+  }
 };
 
 /**
@@ -394,6 +502,7 @@ module.exports = {
   calculateRawMaterialEmissions,
   calculateProcessEmissions,
   createProduct,
+  createOrUpdateProductWithAI,
   getAllProducts,
   getProductById,
   updateProduct,

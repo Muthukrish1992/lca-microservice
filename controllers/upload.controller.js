@@ -181,19 +181,55 @@ const bulkUploadProducts = async (req, res) => {
       ));
     }
 
-    // Insert products into MongoDB
-    const savedProducts = await Product.insertMany(normalizedProducts);
+    // Process products (create new or update existing)
+    const processedProducts = [];
+    const updateCounts = { created: 0, updated: 0 };
 
-    // Mark products as pending AI processing (will be processed after images upload)
-    await Product.updateMany(
-      { _id: { $in: savedProducts.map(p => p._id) } },
-      { $set: { aiProcessingStatus: 'pending' } }
-    );
+    for (const productData of normalizedProducts) {
+      try {
+        // Check if product with same code already exists
+        const existingProduct = await Product.findOne({ code: productData.code });
+        
+        if (existingProduct) {
+          // Update existing product
+          productData.createdDate = existingProduct.createdDate; // Preserve original creation date
+          productData.aiProcessingStatus = 'pending'; // Mark for AI processing
+          
+          const updatedProduct = await Product.findOneAndUpdate(
+            { code: productData.code },
+            productData,
+            { new: true, runValidators: true }
+          );
+          
+          processedProducts.push(updatedProduct);
+          updateCounts.updated++;
+          logger.info(`Updated existing product: ${productData.code}`);
+        } else {
+          // Create new product
+          productData.aiProcessingStatus = 'pending'; // Mark for AI processing
+          const newProduct = new Product(productData);
+          const savedProduct = await newProduct.save();
+          
+          processedProducts.push(savedProduct);
+          updateCounts.created++;
+          logger.info(`Created new product: ${productData.code}`);
+        }
+      } catch (error) {
+        logger.error(`Error processing product ${productData.code}: ${error.message}`);
+        // Continue with other products
+      }
+    }
+
+    logger.info(`Bulk upload completed: ${updateCounts.created} created, ${updateCounts.updated} updated`);
 
     // Send response immediately - AI processing will happen after image upload
     res
       .status(HTTP_STATUS.CREATED)
-      .json(formatResponse(true, savedProducts));
+      .json(formatResponse(true, {
+        products: processedProducts,
+        summary: updateCounts,
+        message: `Successfully processed ${processedProducts.length} products (${updateCounts.created} created, ${updateCounts.updated} updated)`
+      }));
   } catch (error) {
     logger.error("Product upload error:", error);
     res.status(HTTP_STATUS.INTERNAL_SERVER_ERROR).json(formatResponse(
