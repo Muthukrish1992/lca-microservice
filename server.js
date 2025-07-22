@@ -33,6 +33,8 @@ app.use(errorHandler);
 const PORT = config.port;
 app.listen(PORT, () => {
   logger.info(`Server running in ${config.nodeEnv} mode on port ${PORT}`);
+  logger.info(`MongoDB URI: ${config.mongodbUri ? 'SET' : 'NOT SET'}`);
+  logger.info(`OpenAI API Key: ${process.env.OPENAI_API_KEY ? 'SET' : 'NOT SET'}`);
 });
 
 module.exports = app;

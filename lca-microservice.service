@@ -1,0 +1,21 @@
+[Unit]
+Description=LCA Microservice
+After=network.target
+
+[Service]
+Type=simple
+User=your-username
+WorkingDirectory=/path/to/your/lca-microservice
+Environment=NODE_ENV=production
+EnvironmentFile=/path/to/your/lca-microservice/.env
+ExecStart=/usr/bin/node server.js
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+# Ensure MongoDB is available
+After=mongodb.service
+
+[Install]
+WantedBy=multi-user.target
