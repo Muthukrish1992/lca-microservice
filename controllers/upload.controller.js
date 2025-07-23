@@ -441,6 +441,8 @@ const extractRarFile = async (filePath, outputPath) => {
  * @param {Object} res - Express response object
  */
 const bulkImageUpload = async (req, res) => {
+  let responseSent = false;
+  
   if (!req.file) {
     return res.status(400).json(formatResponse(
       false,
@@ -486,78 +488,108 @@ const bulkImageUpload = async (req, res) => {
       throw new Error("Unsupported file type. Only ZIP and RAR are allowed.");
     }
 
-    // Process extracted folders
-    const productFolders = fs.readdirSync(extractionDir);
-    for (const productCode of productFolders) {
-      let imageUploadedPaths = [];
-
-      const productPath = path.join(extractionDir, productCode);
-      if (fs.statSync(productPath).isDirectory()) {
-        logger.info(`Processing images for product: ${productCode}`);
-
-        const images = fs
-          .readdirSync(productPath)
-          .filter((file) => /\.(jpg|jpeg|png|gif)$/i.test(file));
-        
-        for (const image of images) {
-          const imagePath = path.join(productPath, image);
-          if (fs.statSync(imagePath).isFile()) {
-            let name = `file-${generateUUID()}${path.extname(imagePath)}`;
-            let hostURL = getOriginUrl(req) || "http://127.0.0.1:5000";
-            let baseUrl = `${hostURL}/uploadcontent/notes/uploads/images/`;
-            let url = addQSToURL(baseUrl, { filename: name });
-
-            await uploadImageToExternalAPI(url, imagePath);
-            let downloadUrl = hostURL + "/content/notes/uploads/images/" + name;
-            imageUploadedPaths.push(downloadUrl);
-
-            await Product.updateOne(
-              { code: productCode },
-              { $push: { images: downloadUrl } }
-            );
-
-            logger.info(`Uploaded: ${downloadUrl}`);
-          }
-        }
-      }
-    }
-
-    // Trigger AI processing for pending products after images are uploaded
-    await processProductAI(req);
-
+    // Send response immediately after extraction
     res.json(formatResponse(
       true,
       [],
-      "Files uploaded and processed successfully"
+      "Files extracted successfully. Image processing started in background."
     ));
+    responseSent = true;
+
+    // Process images in background after sending response
+    setImmediate(async () => {
+      try {
+        logger.info(`🖼️ Starting background image processing for ${fs.readdirSync(extractionDir).length} product folders`);
+        
+        const productFolders = fs.readdirSync(extractionDir);
+        for (const productCode of productFolders) {
+          const productPath = path.join(extractionDir, productCode);
+          if (fs.statSync(productPath).isDirectory()) {
+            logger.info(`📂 Processing images for product: ${productCode}`);
+
+            const images = fs
+              .readdirSync(productPath)
+              .filter((file) => /\.(jpg|jpeg|png|gif)$/i.test(file));
+            
+            for (const image of images) {
+              try {
+                const imagePath = path.join(productPath, image);
+                if (fs.statSync(imagePath).isFile()) {
+                  let name = `file-${generateUUID()}${path.extname(imagePath)}`;
+                  let hostURL = getOriginUrl(req) || "http://127.0.0.1:5000";
+                  let baseUrl = `${hostURL}/uploadcontent/notes/uploads/images/`;
+                  let url = addQSToURL(baseUrl, { filename: name });
+
+                  await uploadImageToExternalAPI(url, imagePath);
+                  let downloadUrl = hostURL + "/content/notes/uploads/images/" + name;
+
+                  await Product.updateOne(
+                    { code: productCode },
+                    { $push: { images: downloadUrl } }
+                  );
+
+                  logger.info(`✅ Uploaded: ${downloadUrl}`);
+                }
+              } catch (imageError) {
+                logger.error(`❌ Failed to process image ${image} for product ${productCode}:`, imageError.message);
+                // Continue with next image
+              }
+            }
+          }
+        }
+
+        // Trigger AI processing after all images are processed
+        // await processProductAI(req);
+        
+        logger.info(`🎉 Background image processing completed`);
+        
+      } catch (backgroundError) {
+        logger.error(`❌ Error in background image processing:`, backgroundError.message);
+      } finally {
+        // Cleanup extraction directory after background processing
+        try {
+          if (fs.existsSync(extractionDir)) {
+            fs.removeSync(extractionDir);
+            logger.info(`🧹 Removed extraction directory after background processing: ${extractionDir}`);
+          }
+        } catch (cleanupError) {
+          logger.error(`❌ Error cleaning up extraction directory: ${cleanupError.message}`);
+        }
+      }
+    });
   } catch (error) {
     logger.error("Error:", error);
-    res.status(500).json(formatResponse(
-      false,
-      null,
-      error.message
-    ));
+    if (!responseSent) {
+      res.status(500).json(formatResponse(
+        false,
+        null,
+        error.message
+      ));
+    } else {
+      logger.error("Error occurred after response was sent - cannot send error response to client");
+    }
   } finally {
     // Cleanup temporary files
     try {
-      // Only attempt cleanup if these variables were created in the try block
-      if (typeof extractionDir !== 'undefined' && fs.existsSync(extractionDir)) {
+      // Only cleanup extraction directory if response wasn't sent (error occurred before background processing)
+      if (!responseSent && typeof extractionDir !== 'undefined' && fs.existsSync(extractionDir)) {
         fs.removeSync(extractionDir);
-        logger.info(`Removed extraction directory: ${extractionDir}`);
+        logger.info(`🧹 Removed extraction directory (error cleanup): ${extractionDir}`);
       }
       
+      // Always clean up uploaded files
       if (typeof uploadedFilePath !== 'undefined' && fs.existsSync(uploadedFilePath)) {
         fs.unlinkSync(uploadedFilePath);
-        logger.info(`Removed uploaded file: ${uploadedFilePath}`);
+        logger.info(`🧹 Removed uploaded file: ${uploadedFilePath}`);
       }
       
       // Also clean up the original multer uploaded file
       if (req.file && req.file.path && fs.existsSync(req.file.path)) {
         fs.unlinkSync(req.file.path);
-        logger.info(`Removed original uploaded file: ${req.file.path}`);
+        logger.info(`🧹 Removed original uploaded file: ${req.file.path}`);
       }
     } catch (cleanupError) {
-      logger.error(`Error during cleanup: ${cleanupError.message}`);
+      logger.error(`❌ Error during cleanup: ${cleanupError.message}`);
     }
   }
 };
