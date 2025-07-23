@@ -61,6 +61,15 @@ UPLOAD_DIR=uploads
 npm start
 ```
 
+Set ownership to iviva
+sudo chown -R iviva:iviva /var/data/iviva/microservices/lca-microservice/temp
+
+
+Set the setgid bit on the directory
+This ensures that new files/directories created inside temp inherit the group ownership from the parent folder:
+sudo chmod g+s /var/data/iviva/microservices/lca-microservice/temp
+
+
 ### Docker Deployment
 
 #### Using Docker

@@ -7,8 +7,15 @@ const { errorHandler, notFound } = require('./middlewares/error.middleware');
 // Initialize Express app
 const app = express();
 
+// Request logging middleware
+app.use((req, res, next) => {
+  logger.info(`${req.method} ${req.path} - Headers: ${JSON.stringify(req.headers)}`);
+  next();
+});
+
 // Middleware
-app.use(express.json());
+app.use(express.json({ limit: '200mb' }));
+app.use(express.urlencoded({ limit: '200mb', extended: true }));
 app.use(cors({
   origin: config.corsOrigin
 }));
@@ -31,10 +38,15 @@ app.use(errorHandler);
 
 // Start server
 const PORT = config.port;
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   logger.info(`Server running in ${config.nodeEnv} mode on port ${PORT}`);
   logger.info(`MongoDB URI: ${config.mongodbUri ? 'SET' : 'NOT SET'}`);
   logger.info(`OpenAI API Key: ${process.env.OPENAI_API_KEY ? 'SET' : 'NOT SET'}`);
 });
+
+// Set server timeout for large file uploads
+server.timeout = 300000; // 5 minutes
+server.keepAliveTimeout = 65000; // 65 seconds
+server.headersTimeout = 66000; // 66 seconds
 
 module.exports = app;

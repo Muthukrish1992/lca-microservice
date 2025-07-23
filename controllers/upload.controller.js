@@ -18,9 +18,22 @@ const {
 } = require('../utils/chatGPTUtils');
 
 // Set up multer for file uploads
-const storage = multer.memoryStorage();
-const upload = multer({ storage: storage });
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    const uploadPath = path.join(__dirname, '../temp/uploads');
+    fs.ensureDirSync(uploadPath); // ensures the directory exists
+    cb(null, uploadPath);
+  },
+  filename: function (req, file, cb) {
+    const uniqueName = `${Date.now()}-${file.originalname}`;
+    cb(null, uniqueName);
+  }
+});
 
+const upload = multer({ 
+  storage: storage,
+  limits: { fileSize: 200 * 1024 * 1024 } // 100MB limit
+});
 /**
  * Bulk upload products from Excel/CSV
  * @param {Object} req - Express request object
@@ -39,8 +52,8 @@ const bulkUploadProducts = async (req, res) => {
     let products = [];
 
     if (fileExtension === 'csv') {
-      // Parse CSV file
-      const csvContent = req.file.buffer.toString('utf8');
+      // Parse CSV file from disk
+      const csvContent = fs.readFileSync(req.file.path, 'utf8');
       const Papa = require('papaparse');
       const parseResult = Papa.parse(csvContent, {
         header: true,
@@ -59,8 +72,8 @@ const bulkUploadProducts = async (req, res) => {
       
       products = parseResult.data;
     } else {
-      // Parse Excel file
-      const workbook = XLSX.read(req.file.buffer, { type: "buffer" });
+      // Parse Excel file from disk
+      const workbook = XLSX.readFile(req.file.path);
       
       // Use selected sheet if provided, otherwise use first sheet
       const sheetName = req.body.selectedSheet || workbook.SheetNames[0];
@@ -237,6 +250,16 @@ const bulkUploadProducts = async (req, res) => {
       null,
       `Failed to upload products: ${error.message}`
     ));
+  } finally {
+    // Clean up uploaded file
+    if (req.file && req.file.path && fs.existsSync(req.file.path)) {
+      try {
+        fs.unlinkSync(req.file.path);
+        logger.info(`Cleaned up uploaded file: ${req.file.path}`);
+      } catch (cleanupError) {
+        logger.error(`Error cleaning up uploaded file: ${cleanupError.message}`);
+      }
+    }
   }
 };
 
@@ -254,8 +277,9 @@ const processProductAI = async (req) => {
 
     logger.info(`🔄 Starting AI processing for ${pendingProducts.length} products...`);
 
-    // Process each product in the background
-    pendingProducts.forEach(async (product) => {
+    // Process each product in the background with proper error handling
+    const processProductsInBackground = () => {
+      pendingProducts.forEach(async (product) => {
       try {
         // Update status to processing
         await Product.updateOne(
@@ -332,7 +356,11 @@ const processProductAI = async (req) => {
           error.message
         );
       }
-    });
+      });
+    };
+
+    // Run processing in background without blocking
+    setImmediate(processProductsInBackground);
 
     logger.info(`🚀 AI processing initiated for ${pendingProducts.length} products`);
   } catch (error) {
@@ -420,6 +448,12 @@ const bulkImageUpload = async (req, res) => {
       "No file uploaded"
     ));
   }
+
+  // Log file size and memory usage for debugging
+  const fileSizeMB = (req.file.size / (1024 * 1024)).toFixed(2);
+  const memUsage = process.memoryUsage();
+  const memUsedMB = (memUsage.heapUsed / (1024 * 1024)).toFixed(2);
+  logger.info(`🖼️ Processing image upload: ${req.file.originalname} (${fileSizeMB} MB) - Memory: ${memUsedMB} MB`);
   
   const account = req.account; // From validateAccount middleware
   const tempDir = path.join(__dirname, "../temp", account);
@@ -432,8 +466,8 @@ const bulkImageUpload = async (req, res) => {
     // Ensure temp directory exists
     fs.ensureDirSync(tempDir);
 
-    // Save uploaded file
-    fs.writeFileSync(uploadedFilePath, req.file.buffer);
+    // Copy uploaded file to temp directory (file is already saved by multer)
+    fs.copyFileSync(req.file.path, uploadedFilePath);
 
     // Create extraction directory
     extractionDir = path.join(
@@ -515,6 +549,12 @@ const bulkImageUpload = async (req, res) => {
       if (typeof uploadedFilePath !== 'undefined' && fs.existsSync(uploadedFilePath)) {
         fs.unlinkSync(uploadedFilePath);
         logger.info(`Removed uploaded file: ${uploadedFilePath}`);
+      }
+      
+      // Also clean up the original multer uploaded file
+      if (req.file && req.file.path && fs.existsSync(req.file.path)) {
+        fs.unlinkSync(req.file.path);
+        logger.info(`Removed original uploaded file: ${req.file.path}`);
       }
     } catch (cleanupError) {
       logger.error(`Error during cleanup: ${cleanupError.message}`);
