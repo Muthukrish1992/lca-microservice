@@ -10,7 +10,7 @@ const logger = require('../utils/logger');
 const { HTTP_STATUS, formatResponse } = require('../utils/http');
 const productService = require('../services/product.service');
 const { retry, generateUUID, addQSToURL } = require('../utils/helpers');
-const { getOriginUrl } = require('../middlewares/auth.middleware');
+const { getOriginUrl, getAccount } = require('../middlewares/auth.middleware');
 const { 
   classifyProduct, 
   classifyBOM, 
@@ -455,7 +455,7 @@ const bulkImageUpload = async (req, res) => {
   const memUsedMB = (memUsage.heapUsed / (1024 * 1024)).toFixed(2);
   logger.info(`🖼️ Processing image upload: ${req.file.originalname} (${fileSizeMB} MB) - Memory: ${memUsedMB} MB`);
   
-  const account = req.account; // From validateAccount middleware
+  const account = getAccount(req);
   const tempDir = path.join(__dirname, "../temp", account);
   const uploadedFilePath = path.join(tempDir, req.file.originalname);
   let extractionDir;

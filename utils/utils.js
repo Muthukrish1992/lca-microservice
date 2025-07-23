@@ -105,17 +105,6 @@ const formatError = (error, operation) => {
   };
 };
 
-const validateAccount = (req, res, next) => {
-  const account = getAccount(req);
-  if (!account) {
-    return res
-      .status(HTTP_STATUS.BAD_REQUEST)
-      .json(formatResponse(false, null, "Account header missing"));
-  }
-  req.account = account;
-  next();
-};
-
 const getAccount = (req) => {
   const account = req.headers["x-iviva-account"];
 
@@ -194,7 +183,6 @@ module.exports = {
   sanitizeQuery,
   isValidObjectId,
   formatError,
-  validateAccount,
   getAccount,
   getOriginUrl,
   getAuthorizationKey,

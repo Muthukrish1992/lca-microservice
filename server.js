@@ -22,6 +22,7 @@ app.use(cors({
 
 // Routes
 app.use('/api/products', require('./routes/product.routes'));
+app.use('/api/products/chunk-upload', require('./routes/chunkUpload.routes'));
 app.use('/api/projects', require('./routes/project.routes'));
 app.use('/api/project-product-mapping', require('./routes/project_product.routes'));
 app.use('/api/account-plan', require('./routes/account.routes'));

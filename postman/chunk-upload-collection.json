@@ -1,0 +1,257 @@
+{
+  "info": {
+    "name": "LCA Microservice - Chunk Upload",
+    "description": "Test collection for chunk upload functionality",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5009"
+    },
+    {
+      "key": "account",
+      "value": "lucy1"
+    },
+    {
+      "key": "uploadId",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "1. Initialize Bulk Product Upload",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "x-iviva-account",
+            "value": "{{account}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"filename\": \"products.xlsx\",\n  \"totalSize\": 52428800,\n  \"totalChunks\": 3,\n  \"fileHash\": \"optional-hash\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/products/chunk-upload/init",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "products", "chunk-upload", "init"]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "if (pm.response.code === 200) {",
+              "    const response = pm.response.json();",
+              "    pm.collectionVariables.set('uploadId', response.data.uploadId);",
+              "    console.log('Upload ID:', response.data.uploadId);",
+              "}"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. Upload Chunk 0",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "x-iviva-account",
+            "value": "{{account}}"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "uploadId",
+              "value": "{{uploadId}}",
+              "type": "text"
+            },
+            {
+              "key": "chunkIndex",
+              "value": "0",
+              "type": "text"
+            },
+            {
+              "key": "chunk",
+              "type": "file",
+              "src": "path/to/chunk_000.bin"
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/products/chunk-upload/chunk",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "products", "chunk-upload", "chunk"]
+        }
+      }
+    },
+    {
+      "name": "3. Upload Chunk 1",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "x-iviva-account",
+            "value": "{{account}}"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "uploadId",
+              "value": "{{uploadId}}",
+              "type": "text"
+            },
+            {
+              "key": "chunkIndex",
+              "value": "1",
+              "type": "text"
+            },
+            {
+              "key": "chunk",
+              "type": "file",
+              "src": "path/to/chunk_001.bin"
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/products/chunk-upload/chunk",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "products", "chunk-upload", "chunk"]
+        }
+      }
+    },
+    {
+      "name": "4. Upload Chunk 2",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "x-iviva-account",
+            "value": "{{account}}"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "uploadId",
+              "value": "{{uploadId}}",
+              "type": "text"
+            },
+            {
+              "key": "chunkIndex",
+              "value": "2",
+              "type": "text"
+            },
+            {
+              "key": "chunk",
+              "type": "file",
+              "src": "path/to/chunk_002.bin"
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/products/chunk-upload/chunk",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "products", "chunk-upload", "chunk"]
+        }
+      }
+    },
+    {
+      "name": "5. Complete Bulk Product Upload",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "x-iviva-account",
+            "value": "{{account}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"uploadId\": \"{{uploadId}}\",\n  \"codeField\": \"Product Code\",\n  \"nameField\": \"Product Name\",\n  \"descriptionField\": \"Description\",\n  \"weightField\": \"Weight\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/products/chunk-upload/complete-bulk-upload",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "products", "chunk-upload", "complete-bulk-upload"]
+        }
+      }
+    },
+    {
+      "name": "6. Complete Image Upload",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "x-iviva-account",
+            "value": "{{account}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"uploadId\": \"{{uploadId}}\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/products/chunk-upload/complete-image-upload",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "products", "chunk-upload", "complete-image-upload"]
+        }
+      }
+    },
+    {
+      "name": "Get Upload Status",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "x-iviva-account",
+            "value": "{{account}}"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/products/chunk-upload/status/{{uploadId}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "products", "chunk-upload", "status", "{{uploadId}}"]
+        }
+      }
+    },
+    {
+      "name": "Cancel Upload",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "x-iviva-account",
+            "value": "{{account}}"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/products/chunk-upload/{{uploadId}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "products", "chunk-upload", "{{uploadId}}"]
+        }
+      }
+    }
+  ]
+}
