@@ -3,7 +3,7 @@ require("dotenv").config();
 
 const productCategories = require("../data/productCategories.json");
 const materialsDatabaseEnhanced = require("../data/esgnow.json");
-const manufacturingProcesses = require("../data/esgnow.json");
+const manufacturingProcesses = require("../data/manufacturing_ef.json");
 const materialsDatabaseBasic = require("../data/materials_database_basic.json");
 const manufacturingProcessesBasic = require("../data/manufacturingProcesses_basic.json");
 
