@@ -125,9 +125,45 @@ const getAccountAITokens = async (req) => {
       return 0;
     }
     
-    return existingEntry.ai_tokens;
+    return existingEntry.total_tokens || 0;
   } catch (error) {
     logger.error('Error getting AI tokens:', error);
+    throw error;
+  }
+};
+
+/**
+ * Reset all AI token values for an account
+ */
+const resetAllAITokens = async (req) => {
+  try {
+    const account_id = getAccount(req);
+    const AccountAIToken = await getAccountAITokenModel(account_id);
+
+    let existingEntry = await AccountAIToken.findOne({ account_id });
+
+    if (existingEntry) {
+      // Reset all token values to 0
+      existingEntry.total_tokens = 0;
+      existingEntry.prompt_tokens = 0;
+      existingEntry.completion_tokens = 0;
+      existingEntry.ai_cost_usd = 0;
+      await existingEntry.save();
+      logger.info(`AI tokens reset successfully for account: ${account_id}`);
+    } else {
+      // Create new entry with all values as 0
+      const newEntry = new AccountAIToken({ 
+        account_id, 
+        total_tokens: 0,
+        prompt_tokens: 0,
+        completion_tokens: 0,
+        ai_cost_usd: 0
+      });
+      await newEntry.save();
+      logger.info(`New AI token entry created with reset values for account: ${account_id}`);
+    }
+  } catch (error) {
+    logger.error('Error resetting AI tokens:', error);
     throw error;
   }
 };
@@ -142,5 +178,6 @@ module.exports = {
   updateAccountPlanById,
   deleteAccountPlanById,
   updateAITokens,
-  getAccountAITokens
+  getAccountAITokens,
+  resetAllAITokens
 };

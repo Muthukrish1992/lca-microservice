@@ -485,7 +485,13 @@ const deleteProduct = async (req, id) => {
  */
 const deleteAllProducts = async (req) => {
   const Product = await getProductModel(req);
-  return await Product.deleteMany({});
+  
+  // Get all products to calculate total AI tokens before deletion
+  const products = await Product.find({}, 'ai_tokens');
+  const totalAITokens = products.reduce((sum, product) => sum + (product.ai_tokens || 0), 0);
+  
+  const result = await Product.deleteMany({});
+  return { ...result, totalAITokens };
 };
 
 /**
@@ -494,7 +500,13 @@ const deleteAllProducts = async (req) => {
 const deleteProductByID = async (req) => {
   const { _id } = req.body;
   const Product = await getProductModel(req);
-  return await Product.deleteOne({ _id });
+  
+  // Get the product to retrieve AI tokens before deletion
+  const product = await Product.findById(_id, 'ai_tokens');
+  const ai_tokens = product ? product.ai_tokens || 0 : 0;
+  
+  const result = await Product.deleteOne({ _id });
+  return { ...result, ai_tokens };
 };
 
 module.exports = {

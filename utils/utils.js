@@ -138,27 +138,93 @@ const getAuthorizationKey = (req) => {
   return authorizationKey;
 };
 
-const updateAITokens = async (req, ai_tokens) => {
+const updateAITokens = async (req, usage) => {
   try {
-    
     const account_id = getAccount(req);
     const AccountAIToken = await getAccountAITokenModel(account_id);
+
+    // Calculate token and cost details
+    const {
+      inputTokens,
+    newPromptTokens,
+    cachedPromptTokens,
+    outputTokens,
+    inputCost,
+    cachedInputCost,
+    outputCost,
+    totalCost,
+    } = await calculateOpenAICost(usage, "gpt-4o");
+
+    const totalTokens = inputTokens + outputTokens;
 
     let existingEntry = await AccountAIToken.findOne({ account_id });
 
     if (existingEntry) {
-      // Update existing entry
-      existingEntry.ai_tokens = existingEntry.ai_tokens + ai_tokens;
+      existingEntry.prompt_tokens = (existingEntry.prompt_tokens || 0) + inputTokens;
+      existingEntry.completion_tokens = (existingEntry.completion_tokens || 0) + outputTokens;
+      existingEntry.total_tokens = (existingEntry.total_tokens || 0) + totalTokens;
+      existingEntry.ai_cost_usd = (existingEntry.ai_cost_usd || 0) + totalCost;
       await existingEntry.save();
     } else {
-      // Create new entry
-      const newEntry = new AccountAIToken({ account_id, ai_tokens });
-      savedEntry = await newEntry.save();
+      const newEntry = new AccountAIToken({
+        account_id,
+        prompt_tokens: inputTokens,
+        completion_tokens: outputTokens,
+        total_tokens: totalTokens,
+        ai_cost_usd: totalCost
+      });
+      await newEntry.save();
     }
+
+    console.log(`✅ AI usage updated for ${account_id}: ${inputTokens} prompt, ${outputTokens} completion, ${totalTokens} total, ~$${totalCost.toFixed(6)} USD`);
   } catch (error) {
-    console.log(error);
+    console.error(`❌ Failed to update AI usage: ${error.message}`);
   }
 };
+
+
+
+const calculateOpenAICost= async (usage, model = "gpt-4o") =>{
+  // Pricing per 1M tokens in USD (based on OpenAI docs as of 2024-08-06)
+  const pricing = {
+    "gpt-4o": {
+      input: 2.5,        // per 1M new prompt tokens
+      cached_input: 1.25,// per 1M cached tokens
+      output: 1.25       // per 1M output tokens
+    },
+    // Add support for other models if needed
+  };
+
+  const modelPricing = pricing[model];
+  if (!modelPricing) {
+    throw new Error(`Unsupported model: ${model}`);
+  }
+
+  const promptTokens = usage.prompt_tokens || 0;
+  const completionTokens = usage.completion_tokens || 0;
+  const cachedTokens = usage.prompt_tokens_details?.cached_tokens || 0;
+
+  const newPromptTokens = promptTokens - cachedTokens;
+  const cachedPromptTokens = cachedTokens;
+
+  const inputCost = (newPromptTokens * modelPricing.input) / 1_000_000;
+  const cachedCost = (cachedPromptTokens * modelPricing.cached_input) / 1_000_000;
+  const outputCost = (completionTokens * modelPricing.output) / 1_000_000;
+
+  const totalCost = inputCost + cachedCost + outputCost;
+
+  return {
+    inputTokens: promptTokens,
+    newPromptTokens,
+    cachedPromptTokens,
+    outputTokens: completionTokens,
+    inputCost: parseFloat(inputCost.toFixed(6)),
+    cachedInputCost: parseFloat(cachedCost.toFixed(6)),
+    outputCost: parseFloat(outputCost.toFixed(6)),
+    totalCost: parseFloat(totalCost.toFixed(6)),
+  };
+}
+
 
 const getAccountAITokens = async (req) => {
     try {
@@ -168,7 +234,7 @@ const getAccountAITokens = async (req) => {
   
       let existingEntry = await AccountAIToken.findOne({ account_id });
   
-      return existingEntry.ai_tokens;
+      return existingEntry.total_tokens;
     } catch (error) {
       console.log(error);
     }

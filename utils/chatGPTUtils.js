@@ -930,9 +930,9 @@ Return the result strictly in this JSON format:
       );
     }
 
-    updateAITokens(req, completion.usage.total_tokens);
+    updateAITokens(req, completion.usage);
     logger.info(
-      `📊 Updated token usage: ${completion.usage.total_tokens} tokens`
+      `📊 Updated token usage: ${completion.usage} tokens`
     );
 
     // Validate the category and subcategory
@@ -1141,7 +1141,7 @@ ${materialsList}
       );
     }
 
-    updateAITokens(req, response.usage.total_tokens);
+    updateAITokens(req, response.usage);
 
     // Validate and adjust material categories
     result.forEach((item) => {
@@ -1399,7 +1399,7 @@ Return the result **strictly as a valid JSON array** in the specified format. Do
       );
     }
 
-    updateAITokens(req, response.usage.total_tokens);
+    updateAITokens(req, response.usage);
 
     // Validate and adjust material categories
     result.forEach((item) => {
@@ -1674,7 +1674,7 @@ ${formattedProcesses}
 
     const result = response.choices[0].message.parsed.processes; // Access the 'processes' array
 
-    updateAITokens(req, response.usage.total_tokens);
+    updateAITokens(req, response.usage);
 
     return result;
   } catch (error) {
@@ -1766,7 +1766,7 @@ Important:
 
     const result = response.choices[0].message.parsed.processes;
 
-    updateAITokens(req, response.usage.total_tokens);
+    updateAITokens(req, response.usage);
 
     return result;
   } catch (error) {

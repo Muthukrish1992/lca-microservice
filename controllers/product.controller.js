@@ -2,6 +2,7 @@ const logger = require("../utils/logger");
 const { HTTP_STATUS, formatResponse } = require("../utils/http");
 const productService = require("../services/product.service");
 const { getAccountPlan } = require("../services/account.service");
+const accountService = require("../services/account.service");
 
 /**
  * Create a new product or update existing one if product code already exists
@@ -125,6 +126,13 @@ const deleteProduct = async (req, res) => {
         .json(formatResponse(false, null, "Product not found"));
     }
 
+    // Reset AI tokens after successful product deletion
+    try {
+      await accountService.updateAITokens(req, -deletedProduct.ai_tokens || 0);
+    } catch (tokenError) {
+      logger.warn(`Failed to reset AI tokens for deleted product: ${tokenError.message}`);
+    }
+
     res
       .status(HTTP_STATUS.OK)
       .json(formatResponse(true, null, "Product deleted successfully"));
@@ -149,13 +157,21 @@ const deleteAllProducts = async (req, res) => {
   try {
     const result = await productService.deleteAllProducts(req);
 
+    // Reset all AI token values after successful deletion of all products
+    try {
+      await accountService.resetAllAITokens(req);
+      logger.info("All AI tokens reset successfully after deleting all products");
+    } catch (tokenError) {
+      logger.warn(`Failed to reset AI tokens after deleting all products: ${tokenError.message}`);
+    }
+
     res
       .status(HTTP_STATUS.OK)
       .json(
         formatResponse(
           true,
           { deletedCount: result.deletedCount },
-          "All products have been deleted successfully"
+          "All products have been deleted successfully and AI tokens reset"
         )
       );
   } catch (error) {
@@ -190,6 +206,16 @@ const deleteProductByID = async (req, res) => {
       return res
         .status(404)
         .json(formatResponse(false, null, `No product found with ID: ${_id}`));
+    }
+
+    // Reset AI tokens after successful product deletion
+    try {
+      const aiTokensToReset = result.ai_tokens || 0;
+      if (aiTokensToReset > 0) {
+        await accountService.updateAITokens(req, -aiTokensToReset);
+      }
+    } catch (tokenError) {
+      logger.warn(`Failed to reset AI tokens for deleted product: ${tokenError.message}`);
     }
 
     res
