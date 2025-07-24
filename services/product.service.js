@@ -3,7 +3,7 @@ const { getModel } = require('../config/database');
 const productSchema = require('../models/product_schema');
 const { getAccount } = require('../middlewares/auth.middleware');
 const emissionData = require('../data/materials_database.json');
-const manufacturingProcesses = require('../data/manufacturingProcesses.json');
+const manufacturingProcesses = require('../data/manufacturing_ef.json');
 
 /**
  * Get product model for the current account
@@ -177,48 +177,63 @@ const calculateRawMaterialEmissions = (materials, countryOfOrigin) => {
  * @param {String} countryOfOrigin - The country of origin of the product (e.g., 'CN', 'VN', 'GLO')
  */
 const calculateProcessEmissions = (productManufacturingProcess, countryOfOrigin = 'GLO') => {
-  // Country-specific electricity emission factors (kg CO2eq/kWh)
-  const countryEmissionFactors = {
-    'CN': 0.835,   // China
-    'VN': 0.629,   // Vietnam
-    'GLO': 0.677,  // Global default
-    'CZ': 0.662,   // Czech Republic
-    'FR': 0.077,   // France
-    'NL': 0.442,   // Netherlands
-    'PL': 0.960,   // Poland
-    'ES': 0.202,   // Spain
-    'TW': 0.771,   // Taiwan
-    'US': 0.482,   // United States
-    'UK': 0.280,   // United Kingdom
-    'IN': 1.438,   // United Kingdom
-  };
+  // Create a normalized lookup map for manufacturing processes
+  const processMap = new Map();
   
-  // Get the appropriate emission factor based on country of origin
-  // Default to global if country not found
-  const emissionFactor = countryEmissionFactors[countryOfOrigin] || countryEmissionFactors['GLO'];
+  manufacturingProcesses.forEach(item => {
+    const key = `${normalize(item['materialClass'])}-${normalize(item['specificMaterial'])}-${normalize(item['Process'])}-${normalize(item['countryOfOrigin'])}`;
+    processMap.set(key, item['EmissionFactor']);
+  });
   
-  logger.debug(`Using electricity emission factor for ${countryOfOrigin}: ${emissionFactor} kg CO2eq/kWh`);
+  // Get the appropriate country name for lookup
+  const fullCountry = isoToCountry[countryOfOrigin] || countryOfOrigin;
+  
+  logger.debug(`Calculating process emissions for country: ${fullCountry}`);
   
   return productManufacturingProcess.reduce((total, materialProcess) => {
     const processTotal = materialProcess.manufacturingProcesses.reduce(
       (sum, processGroup) => {
         const groupTotal = processGroup.processes.reduce(
           (innerSum, processName) => {
-            // Check if the material and process exist in manufacturingProcesses
-            let energyValue = 0; // Energy value in kWh/kg
+            // Try to find the emission factor in the new structure
+            let emissionFactor = 0; // Direct emission factor in kg CO2/kg
             
-            if (
-              manufacturingProcesses[processGroup.category] && 
-              manufacturingProcesses[processGroup.category][processName]
-            ) {
-              energyValue = manufacturingProcesses[processGroup.category][processName];
-            } else {
-              // Log when process not found
-              logger.debug(`Process ${processName} not found for ${processGroup.category} in manufacturingProcesses. Using 0.`);
+            // Try different lookup strategies
+            const materialClass = normalize(materialProcess.materialClass);
+            const specificMaterial = normalize(materialProcess.specificMaterial);
+            const process = normalize(processName);
+            const country = normalize(fullCountry);
+            
+            // Try specific country first
+            const specificKey = `${materialClass}-${specificMaterial}-${process}-${country}`;
+            
+            // Try global fallback
+            const globalKey = `${materialClass}-${specificMaterial}-${process}-GLO`;
+            
+            // Try with different material combinations
+            const materialOnlyKey = `${materialClass}-${specificMaterial}-${process}`;
+            
+            emissionFactor = processMap.get(specificKey) || 
+                           processMap.get(globalKey) || 
+                           0;
+            
+            // If still not found, try to find any matching process for this material class
+            if (emissionFactor === 0) {
+              for (const [key, value] of processMap.entries()) {
+                if (key.includes(materialClass) && key.includes(process)) {
+                  emissionFactor = value;
+                  logger.debug(`Using fallback emission factor for ${materialClass}-${process}: ${emissionFactor}`);
+                  break;
+                }
+              }
             }
             
-            // Calculate emissions: energy (kWh/kg) * weight (kg) * emission factor (kg CO2eq/kWh)
-            const calculatedEmission = energyValue * materialProcess.weight * emissionFactor;
+            if (emissionFactor === 0) {
+              logger.debug(`No emission factor found for ${materialClass}-${specificMaterial}-${process}. Using 0.`);
+            }
+            
+            // Calculate emissions: emission factor (kg CO2/kg) * weight (kg)
+            const calculatedEmission = emissionFactor * materialProcess.weight;
             
             // Store the emission factor for reference
             if (!materialProcess.processEmissions) {
@@ -227,7 +242,6 @@ const calculateProcessEmissions = (productManufacturingProcess, countryOfOrigin 
             
             materialProcess.processEmissions.push({
               process: processName,
-              energyValue: energyValue,
               emissionFactor: emissionFactor,
               weight: materialProcess.weight,
               emission: calculatedEmission
@@ -248,7 +262,92 @@ const calculateProcessEmissions = (productManufacturingProcess, countryOfOrigin 
 };
 
 /**
- * Create a new product
+ * Create or update product with AI processing
+ * @param {Object} req - Request object
+ * @param {Object} productData - Product data
+ * @param {boolean} runAI - Whether to run AI classification
+ * @returns {Object} - Created or updated product
+ */
+const createOrUpdateProductWithAI = async (req, productData, runAI = false) => {
+  const { 
+    classifyProduct, 
+    classifyBOM, 
+    classifyManufacturingProcess 
+  } = require('../utils/chatGPTUtils');
+  
+  const Product = await getProductModel(req);
+  const { code, name, description, weight, images } = productData;
+
+  // Check if product with same code already exists
+  const existingProduct = await Product.findOne({ code });
+
+  let result = {
+    isUpdate: !!existingProduct,
+    product: null,
+    aiProcessingRequired: runAI
+  };
+
+  if (runAI) {
+    try {
+      // Run AI classification
+      const classifyResult = await classifyProduct(code, name, description, images?.[0], req);
+      const classifyBOMResult = await classifyBOM(code, name, description, weight, images?.[0], req);
+      const classifyManufacturingProcessResult = await classifyManufacturingProcess(
+        code, name, description, classifyBOMResult, req
+      );
+
+      // Calculate emissions
+      const co2EmissionRawMaterials = calculateRawMaterialEmissions(
+        classifyBOMResult,
+        productData.countryOfOrigin
+      );
+      const co2EmissionFromProcesses = calculateProcessEmissions(
+        classifyManufacturingProcessResult,
+        productData.countryOfOrigin
+      );
+
+      // Update product data with AI results
+      productData.category = classifyResult.category;
+      productData.subCategory = classifyResult.subcategory;
+      productData.materials = classifyBOMResult;
+      productData.productManufacturingProcess = classifyManufacturingProcessResult;
+      productData.co2Emission = co2EmissionRawMaterials + co2EmissionFromProcesses;
+      productData.co2EmissionRawMaterials = co2EmissionRawMaterials;
+      productData.co2EmissionFromProcesses = co2EmissionFromProcesses;
+      productData.aiProcessingStatus = 'completed';
+    } catch (error) {
+      logger?.error?.(`AI processing failed for product ${code}: ${error.message}`);
+      productData.aiProcessingStatus = 'failed';
+    }
+  }
+
+  // Set timestamps
+  productData.modifiedDate = new Date();
+  
+  if (existingProduct) {
+    // Update existing product
+    logger?.info?.(`Updating existing product with code: ${code}`);
+    productData.createdDate = existingProduct.createdDate;
+    
+    result.product = await Product.findOneAndUpdate(
+      { code },
+      productData,
+      { new: true, runValidators: true }
+    );
+  } else {
+    // Create new product
+    logger?.info?.(`Creating new product with code: ${code}`);
+    productData.createdDate = new Date();
+    
+    const newProduct = new Product(productData);
+    result.product = await newProduct.save();
+  }
+
+  return result;
+};
+
+/**
+ * Create a new product or update existing one if product code already exists
  */
 const createProduct = async (req) => {
   const Product = await getProductModel(req);
@@ -267,6 +366,9 @@ const createProduct = async (req) => {
     productManufacturingProcess = [],
   } = req.body;
 
+  // Check if product with same code already exists
+  const existingProduct = await Product.findOne({ code });
+
   // Calculate emissions separately
   const co2EmissionRawMaterials = calculateRawMaterialEmissions(
     materials,
@@ -280,8 +382,7 @@ const createProduct = async (req) => {
 
   const co2Emission = co2EmissionRawMaterials + co2EmissionFromProcesses;
 
-  // Create new product instance
-  const newProduct = new Product({
+  const productData = {
     code,
     name,
     description,
@@ -293,14 +394,35 @@ const createProduct = async (req) => {
     materials,
     images,
     modifiedDate: new Date(),
-    createdDate: new Date(),
     co2Emission,
     co2EmissionRawMaterials,
     co2EmissionFromProcesses,
     productManufacturingProcess,
-  });
+  };
 
-  return await newProduct.save();
+  if (existingProduct) {
+    // Update existing product with new data and re-calculated emissions
+    logger?.info?.(`Updating existing product with code: ${code}`);
+    
+    // Preserve original creation date
+    productData.createdDate = existingProduct.createdDate;
+    
+    // Update the existing product
+    const updatedProduct = await Product.findOneAndUpdate(
+      { code },
+      productData,
+      { new: true, runValidators: true }
+    );
+    
+    return updatedProduct;
+  } else {
+    // Create new product
+    logger?.info?.(`Creating new product with code: ${code}`);
+    productData.createdDate = new Date();
+    
+    const newProduct = new Product(productData);
+    return await newProduct.save();
+  }
 };
 
 /**
@@ -380,6 +502,7 @@ module.exports = {
   calculateRawMaterialEmissions,
   calculateProcessEmissions,
   createProduct,
+  createOrUpdateProductWithAI,
   getAllProducts,
   getProductById,
   updateProduct,

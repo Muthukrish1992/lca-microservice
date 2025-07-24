@@ -10,11 +10,13 @@ const ProductSchema = new mongoose.Schema({
   category: { type: String  ,index: true, default: "Uncategorized"},
   subCategory: { type: String ,index: true ,default: "Uncategorized"},
   supplierName: { type: String , default: "Unknown"},
+  aiProcessingStatus: { type: String, enum: ['pending', 'processing', 'completed', 'failed'], default: 'pending' },
   modifiedDate: { type: Date , default: Date.now},
   createdDate: { type: Date , default: Date.now},
   co2Emission: { type: Number , default: 0},
   co2EmissionRawMaterials: { type: Number , default: 0},
   co2EmissionFromProcesses: { type: Number , default: 0},
+  aiProcessingStatus: { type: String, default: "" },
   materials: {
     type: [{
       materialClass: { type: String, required: true },
@@ -46,7 +48,8 @@ const ProductSchema = new mongoose.Schema({
       }
     }],
     default: []  // Empty array default
-  }
+  },
+ 
 });
 
 module.exports = ProductSchema; // Export only the schema, NOT a model

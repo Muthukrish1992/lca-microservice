@@ -4,7 +4,7 @@ const productService = require('../services/product.service');
 const { getAccountPlan } = require('../services/account.service');
 
 /**
- * Create a new product
+ * Create a new product or update existing one if product code already exists
  * @route POST /api/products
  */
 const createProduct = async (req, res) => {
@@ -12,11 +12,11 @@ const createProduct = async (req, res) => {
     const savedProduct = await productService.createProduct(req);
     res.status(201).json(formatResponse(true, savedProduct));
   } catch (error) {
-    logger.error("Error creating product:", error);
+    logger.error("Error creating/updating product:", error);
     res.status(500).json(formatResponse(
       false, 
       null, 
-      `Failed to create product: ${error.message}`
+      `Failed to create/update product: ${error.message}`
     ));
   }
 };
