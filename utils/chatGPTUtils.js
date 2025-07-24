@@ -840,21 +840,9 @@ async function classifyProduct(productCode, name, description, imageUrl, req) {
     throw new Error("Product code, name, and description are required.");
   }
 
-  logger.info(`📋 Preparing categories list for prompt`);
-  // Construct categories list for the prompt
-  const categoriesList = Object.entries(productCategories)
-    .map(
-      ([category, subcategories]) =>
-        `${category}:\n  - ${subcategories.join("\n  - ")}`
-    )
-    .join("\n\n");
-
   logger.info(`📝 Building classification prompt`);
 
   const systemPrompt = `You are an expert product classification specialist with deep knowledge of product categories and their functional characteristics. Your task is to classify products into appropriate categories and subcategories based on their description and visual characteristics.
-
-AVAILABLE CATEGORIES AND SUBCATEGORIES:
-${categoriesList}
 
 CLASSIFICATION PRINCIPLES:
 1. You MUST ONLY select a category and subcategory EXACTLY as they appear in the provided list.
@@ -1343,7 +1331,18 @@ RESPONSE FORMAT:
     "weight": <weight>,
     "reasoning": "<brief explanation including use case relevance>"
   }
-]`;
+]
+
+### **Your Task**:
+1. Analyze the text description and image (if provided) to determine relevant materials. If the image shows materials that are missing from the description, you MUST add them to the BOM and allocate weight using realistic engineering assumptions.
+2. Pay close attention to all parts of the product details, including the name, description, and material fields, as they may each indicate distinct materials. However, do not interpret color names or color fields as materials.
+3. Identify materials based on both explicit fields and any implied mentions in the product name or description only when they describe the material construction or composition, not decorative finishes or colors.
+4. For each material, provide a brief reasoning (1–2 sentences) explaining why the material was included and how its weight was estimated.
+5. If a color field or description contains a term that matches a material name (e.g., "Maple," "Oak"), you MUST treat it as a color only and MUST NOT treat it as a material unless the description explicitly states it is a material or part of the product structure.
+
+
+Return the result **strictly as a valid JSON array** in the specified format. Do **not** include any explanation, extra text, or formatting outside the JSON array.  
+`;
 
     const userPrompt = `Analyze the following product to determine its bill of materials composition:
 
@@ -1354,14 +1353,7 @@ RESPONSE FORMAT:
 - **Total Weight**: ${weight} kg
 
 ### **Your Task**:
-1. Analyze the text description and image (if provided) to determine relevant materials. If the image shows materials that are missing from the description, you MUST add them to the BOM and allocate weight using realistic engineering assumptions.
-2. Pay close attention to all parts of the product details, including the name, description, and material fields, as they may each indicate distinct materials. However, do not interpret color names or color fields as materials.
-3. Identify materials based on both explicit fields and any implied mentions in the product name or description only when they describe the material construction or composition, not decorative finishes or colors.
-4. Ensure the total weight of all materials adds up **exactly** to ${weight} kg.
-5. For each material, provide a brief reasoning (1–2 sentences) explaining why the material was included and how its weight was estimated.
-6. If a color field or description contains a term that matches a material name (e.g., "Maple," "Oak"), you MUST treat it as a color only and MUST NOT treat it as a material unless the description explicitly states it is a material or part of the product structure.
-
-Return the result **strictly as a valid JSON array** in the specified format. Do **not** include any explanation, extra text, or formatting outside the JSON array.
+1. Ensure the total weight of all materials adds up **exactly** to ${weight} kg.
 `;
 
     const messages = [{ type: "text", text: userPrompt }];
