@@ -1689,6 +1689,23 @@ ${formattedBoM}
 AVAILABLE MANUFACTURING CATEGORIES AND PROCESSES:
 ${formattedProcesses}
 `;
+1. Every material in the BoM MUST be included in the response EXACTLY as provided, without modifications.
+2. You MUST ONLY use the exact materialClass and specificMaterial values from the BoM — DO NOT modify them in any way.
+3. Each material must have at least one manufacturing process.
+4. You MUST ONLY use manufacturing categories and processes from the list above.
+5. You MUST NOT invent new materials, processes, or categories that aren't in the provided list.
+6. The manufacturing processes selected for each material MUST BE RELEVANT to the materialClass — for example:
+   - Metal materials must only be assigned metal-related processes.
+   - Plastic materials must only be assigned plastic-related processes.
+   - Wood materials must only be assigned wood-related processes.
+   - Do NOT assign manufacturing processes from an unrelated category (e.g., don’t assign wood processes to plastic materials).
+7. You must follow industrial and logical manufacturing norms when mapping processes to material classes.
+8. The output MUST be valid JSON only — no comments, no extra text.
+
+Important:
+- Output ONLY a valid JSON object.
+- Ensure strict adherence to the rules and format above.
+`;
 
   try {
     const response = await makeOpenAIRequestWithRetry(async () => {
