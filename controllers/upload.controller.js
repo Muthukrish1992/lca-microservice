@@ -40,6 +40,8 @@ const upload = multer({
  * @param {Object} res - Express response object
  */
 const bulkUploadProducts = async (req, res) => {
+  let responseSent = false;
+  
   try {
     if (!req.file) {
       return res
@@ -194,62 +196,75 @@ const bulkUploadProducts = async (req, res) => {
       ));
     }
 
-    // Process products (create new or update existing)
-    const processedProducts = [];
-    const updateCounts = { created: 0, updated: 0 };
-
-    for (const productData of normalizedProducts) {
-      try {
-        // Check if product with same code already exists
-        const existingProduct = await Product.findOne({ code: productData.code });
-        
-        if (existingProduct) {
-          // Update existing product
-          productData.createdDate = existingProduct.createdDate; // Preserve original creation date
-          productData.aiProcessingStatus = 'pending'; // Mark for AI processing
-          
-          const updatedProduct = await Product.findOneAndUpdate(
-            { code: productData.code },
-            productData,
-            { new: true, runValidators: true }
-          );
-          
-          processedProducts.push(updatedProduct);
-          updateCounts.updated++;
-          logger.info(`Updated existing product: ${productData.code}`);
-        } else {
-          // Create new product
-          productData.aiProcessingStatus = 'pending'; // Mark for AI processing
-          const newProduct = new Product(productData);
-          const savedProduct = await newProduct.save();
-          
-          processedProducts.push(savedProduct);
-          updateCounts.created++;
-          logger.info(`Created new product: ${productData.code}`);
-        }
-      } catch (error) {
-        logger.error(`Error processing product ${productData.code}: ${error.message}`);
-        // Continue with other products
-      }
-    }
-
-    logger.info(`Bulk upload completed: ${updateCounts.created} created, ${updateCounts.updated} updated`);
-
-    // Send response immediately - AI processing will happen after image upload
+    // Send response immediately after validation
     res
       .status(HTTP_STATUS.CREATED)
       .json(formatResponse(true, {
-        products: processedProducts,
-        summary: updateCounts,
-        message: `Successfully processed ${processedProducts.length} products (${updateCounts.created} created, ${updateCounts.updated} updated)`
+        totalProducts: normalizedProducts.length,
+        message: `File processed successfully. Creating ${normalizedProducts.length} products in background.`
       }));
+    responseSent = true;
+
+    // Process products in background after sending response
+    setImmediate(async () => {
+      try {
+        logger.info(`📦 Starting background product processing for ${normalizedProducts.length} products`);
+        
+        const processedProducts = [];
+        const updateCounts = { created: 0, updated: 0 };
+
+        for (const productData of normalizedProducts) {
+          try {
+            // Check if product with same code already exists
+            const existingProduct = await Product.findOne({ code: productData.code });
+            
+            if (existingProduct) {
+              // Update existing product
+              productData.createdDate = existingProduct.createdDate; // Preserve original creation date
+              productData.aiProcessingStatus = 'pending'; // Mark for AI processing
+              
+              const updatedProduct = await Product.findOneAndUpdate(
+                { code: productData.code },
+                productData,
+                { new: true, runValidators: true }
+              );
+              
+              processedProducts.push(updatedProduct);
+              updateCounts.updated++;
+              logger.info(`✅ Updated existing product: ${productData.code}`);
+            } else {
+              // Create new product
+              productData.aiProcessingStatus = 'pending'; // Mark for AI processing
+              const newProduct = new Product(productData);
+              const savedProduct = await newProduct.save();
+              
+              processedProducts.push(savedProduct);
+              updateCounts.created++;
+              logger.info(`✅ Created new product: ${productData.code}`);
+            }
+          } catch (productError) {
+            logger.error(`❌ Error processing product ${productData.code}: ${productError.message}`);
+            // Continue with other products
+          }
+        }
+
+        logger.info(`🎉 Background product processing completed: ${updateCounts.created} created, ${updateCounts.updated} updated`);
+        
+      } catch (backgroundError) {
+        logger.error(`❌ Error in background product processing: ${backgroundError.message}`);
+      }
+    });
   } catch (error) {
     logger.error("Product upload error:", error);
-    res.status(HTTP_STATUS.INTERNAL_SERVER_ERROR).json(formatResponse(
-      false,
-      null,
-      `Failed to upload products: ${error.message}`
-    ));
+    if (!responseSent) {
+      res.status(HTTP_STATUS.INTERNAL_SERVER_ERROR).json(formatResponse(
+        false,
+        null,
+        `Failed to upload products: ${error.message}`
+      ));
+    } else {
+      logger.error("Error occurred after response was sent - cannot send error response to client");
+    }
   } finally {
     // Clean up uploaded file
     if (req.file && req.file.path && fs.existsSync(req.file.path)) {
