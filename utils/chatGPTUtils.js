@@ -1074,29 +1074,32 @@ const classifyBOM = async (
 
   const bomList = formatEnhancedBOMList();
   description = description.replace(';',' ');
-  const prompt = `
-You are an assistant tasked with classifying products based on their description and analyzing an image to determine the composition of materials.
-### **Product Details**:
-- **Code**: ${productCode}
-- **Name**: ${name}
-- **Description**: ${description}
-- **Total Weight**: ${weight} kg
-### **Available Materials with Use Cases**:
+  
+  const systemPrompt = `You are an expert materials classification specialist with deep knowledge of product composition, material properties, and industrial manufacturing practices. Your task is to analyze product descriptions and images to determine the precise bill of materials (BOM) for any given product.
+
+AVAILABLE MATERIALS WITH USE CASES:
 ${bomList}
-### **Your Task**:
-1. Analyze the text description and image (if provided) to determine relevant materials. If the image shows materials that are missing from the description, you MUST add them to the BOM and allocate weight using realistic engineering assumptions.
-You MUST analyze the provided image alongside the text description to identify all visible materials used in the product. If the image shows materials that are not mentioned in the description, you MUST include them.
-Prioritize what is visually confirmed in the image if there is a discrepancy between text and image.
-2. Pay close attention to all parts of the product details, including the name, description, and material fields, as they may each indicate distinct materials. However, do not interpret color names or color fields as materials.
-3. You MUST ONLY use material classes and specific materials EXACTLY as they appear in the list above.
-4. **CRITICAL: Use the use case information provided in parentheses** to make informed material selections. Choose materials whose use cases (:white_check_mark: suitable for) match the product's intended function, application context, and environment. Avoid materials where the use cases indicate they are unsuitable (:x: not suitable for) for the product's intended purpose.
-5. Identify materials based on both explicit fields and any implied mentions in the product name or description only when they describe the material construction or composition, not decorative finishes or colors.
-6. Distribute the total weight realistically across these materials, applying typical engineering assumptions where needed.
-7. Where materials are not fully specified, apply logical assumptions based on standard industry practices (e.g., assume steel frames for shelving or racking system) AND prioritize materials whose use cases align with the product's function.
-8. Ensure the total weight of all materials adds up **exactly** to ${weight} kg. The total declared weight must be distributed across the structural/core materials only. Surface finishes, veneers, coatings, and decorative treatments should not receive separate weight allocation unless explicitly described as substantial structural layers.
-9. "For each material, provide a brief reasoning (1–2 sentences) explaining why the material was included and how its weight was estimated.",
-10. If a color field or description contains a term that matches a material name (e.g., "Maple," "Oak"), you MUST treat it as a color only and MUST NOT treat it as a material unless the description explicitly states it is a material or part of the product structure.
-11. Return the result **strictly as a valid JSON array** in the following format:
+
+CLASSIFICATION PRINCIPLES:
+1. You MUST ONLY use material classes and specific materials EXACTLY as they appear in the list above.
+2. **CRITICAL: Use the use case information provided in parentheses** to make informed material selections. Choose materials whose use cases match the product's intended function, application context, and environment.
+3. Every materialClass must be one of the exact categories listed above.
+4. Every specificMaterial must appear exactly as listed under its category in the available materials list.
+5. DO NOT invent new materials or modify existing ones (e.g., do not use "Particleboard" if it's not in the list).
+6. DO NOT add descriptive terms like "Solid Oak" - use exactly "Oak" as it appears in the list.
+7. **PRIORITIZE materials whose use cases match the product's function and intended application** - this is critical for accurate material selection.
+8. If an image is provided, use it to refine material classification and prioritize visual confirmation.
+9. If the image contradicts or clarifies the product description, the image takes precedence.
+10. CRITICAL VENEER RULE: If ANY wood species name appears in combination with "veneer," "laminate," "foil," "finish," "coating," "look," "effect," "style," or similar surface treatment terms, you MUST completely ignore the wood species name and NOT classify it as a material. These are decorative surface treatments applied to an underlying substrate material.
+
+WEIGHT DISTRIBUTION RULES:
+1. Distribute the total weight realistically across materials, applying typical engineering assumptions.
+2. The total declared weight must be distributed across the structural/core materials only.
+3. Surface finishes, veneers, coatings, and decorative treatments should not receive separate weight allocation unless explicitly described as substantial structural layers.
+4. Where materials are not fully specified, apply logical assumptions based on standard industry practices.
+5. When selecting materials, check that they align with the approved use case guidance. Do NOT assign materials with unsuitable use cases.
+
+RESPONSE FORMAT:
 [
   {
     "materialClass": "<category>",
@@ -1104,31 +1107,28 @@ Prioritize what is visually confirmed in the image if there is a discrepancy bet
     "weight": <weight>,
     "reasoning": "<brief explanation including use case relevance>"
   }
-]
-### **CRITICAL RULES**:
-DO NOT invent new materials or modify existing ones (e.g., do not use "Particleboard" if it's not in the list).
-For example, if you think a product contains "Particleboard" but it's not in the list, choose the closest match from the list (like "MDF").
-Every materialClass must be one of the exact categories listed above.
-You MUST ONLY select materialClass and specificMaterial values EXACTLY as they appear in the list above.
-Every specificMaterial must appear exactly as listed under its category in the available materials list.
-DO NOT add descriptive terms like "Solid Oak" - use exactly "Oak" as it appears in the list.
-**PRIORITIZE materials whose use cases match the product's function and intended application** - this is critical for accurate material selection.
-If an image is provided, use it to refine material classification.
-The total weight must match exactly **${weight} kg**.
-Do **not** include any explanation, extra text, or formatting outside the JSON array.
-If the image contradicts or clarifies the product description, the image takes precedence.
-Where the image suggests a material and typical industry practice differs, typical industry practice should guide material selection unless the image unmistakably confirms a specific material type.
-If the image shows a **support item** (e.g., bar, rack, holder) and the text includes terms associated with tools (e.g., knife, spoon), you MUST classify the product according to its function and form as observed in the image.
-If a material name (e.g., Beech, Oak, Maple) appears only in the product name, a color field, or in a styling/aesthetic context (e.g., "maple color," "oak tone"), treat it as an aesthetic reference only and NOT as a material — unless the description explicitly states that the material is used structurally or the image clearly confirms it is a main construction material.
-If a description includes any reference to veneer, laminate, foil, melamine-coating, powder coating, plating, paint, stain, lacquer, or other surface treatment (e.g., “oak veneer,” “walnut foil finish,” “lacquered birch,” “chrome-plated,” “wood-look,” “stone-effect”), you MUST treat this as an aesthetic or surface finish. Classify only the core structural material and do NOT assign a separate material or weight to the surface treatment or decorative descriptor.
-CRITICAL VENEER RULE: If ANY wood species name (birch, oak, walnut, maple, cherry, pine, beech, ash, teak, mahogany, etc.) appears in combination with "veneer," "laminate," "foil," "finish," "coating," "look," "effect," "style," or similar surface treatment terms (e.g., "birch veneer finish," "oak laminate," "maple foil"), you MUST completely ignore the wood species name and NOT classify it as a material. These are decorative surface treatments applied to an underlying substrate material like MDF or particleboard.
-When multiple plausible materials exist for a component, you MUST select the most typical industry-standard material for that component, guided by the available materials list and their use case descriptions.
-If a product description is vague or ambiguous, prefer structural materials (e.g., MDF for flat panels, steel for frames) rather than aesthetic surface treatments, unless the description explicitly states otherwise.
-Do not classify minor or secondary decorative materials (e.g., small plastic inserts or trims) unless they contribute substantially to the total weight or structure.
-When selecting materials, check that they align with the approved use case guidance. Do NOT assign materials with :x: use cases for the product’s category.
+]`;
+
+  const userPrompt = `Analyze the following product to determine its bill of materials composition:
+
+### **Product Details**:
+- **Code**: ${productCode}
+- **Name**: ${name}
+- **Description**: ${description}
+- **Total Weight**: ${weight} kg
+
+### **Your Task**:
+1. Analyze the text description and image (if provided) to determine relevant materials. If the image shows materials that are missing from the description, you MUST add them to the BOM and allocate weight using realistic engineering assumptions.
+2. Pay close attention to all parts of the product details, including the name, description, and material fields, as they may each indicate distinct materials. However, do not interpret color names or color fields as materials.
+3. Identify materials based on both explicit fields and any implied mentions in the product name or description only when they describe the material construction or composition, not decorative finishes or colors.
+4. Ensure the total weight of all materials adds up **exactly** to ${weight} kg.
+5. For each material, provide a brief reasoning (1–2 sentences) explaining why the material was included and how its weight was estimated.
+6. If a color field or description contains a term that matches a material name (e.g., "Maple," "Oak"), you MUST treat it as a color only and MUST NOT treat it as a material unless the description explicitly states it is a material or part of the product structure.
+
+Return the result **strictly as a valid JSON array** in the specified format. Do **not** include any explanation, extra text, or formatting outside the JSON array.
 `;
 
-    const messages = [{ type: "text", text: prompt }];
+    const messages = [{ type: "text", text: userPrompt }];
 
     if (imageUrl) {
       try {
@@ -1161,7 +1161,10 @@ When selecting materials, check that they align with the approved use case guida
     const response = await makeOpenAIRequestWithRetry(async () => {
       return await openai.chat.completions.create({
         model: "gpt-4o", // Supports text + image analysis
-        messages: [{ role: "user", content: messages }],
+        messages: [
+          { role: "system", content: systemPrompt },
+          { role: "user", content: messages }
+        ],
         response_format: zodResponseFormat(BOMSchema, "bom"),
         temperature: 0,
       });
