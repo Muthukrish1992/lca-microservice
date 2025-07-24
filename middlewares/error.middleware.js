@@ -20,6 +20,7 @@ const errorHandler = (err, req, res, next) => {
  * Not found middleware for handling undefined routes
  */
 const notFound = (req, res, next) => {
+  logger.warn(`404 - Route not found: ${req.method} ${req.originalUrl} - Account: ${req.headers['x-iviva-account'] || 'MISSING'}`);
   const error = new Error(`Route not found - ${req.originalUrl}`);
   error.statusCode = 404;
   next(error);

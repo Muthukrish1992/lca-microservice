@@ -20,23 +20,40 @@ const validateAccount = (req, res, next) => {
  * Get account from request headers
  */
 const getAccount = (req) => {
-  return req.headers["x-iviva-account"];
+  return req?.headers?.["x-iviva-account"];
 };
 
 /**
  * Get authorization key from request headers
  */
 const getAuthorizationKey = (req) => {
-  return req.headers["authorization"];
+  return req?.headers?.["authorization"];
 };
 
 /**
  * Get the origin URL from the request
  */
 const getOriginUrl = (req) => {
-  const protocol = req.protocol; // http or https
-  const host = req.get("host"); // localhost:3000 or example.com
-  return `${protocol}://${host}`;
+  try {
+    const protocol = req.protocol || 'http';
+    
+    // Try to get host using Express req.get method if available
+    let host;
+    if (typeof req.get === 'function') {
+      host = req.get("host");
+    } else if (req.headers && req.headers.host) {
+      // Fallback to headers if req.get is not available (mock requests)
+      host = req.headers.host;
+    } else {
+      // Default fallback
+      host = 'localhost:5000';
+    }
+    
+    return `${protocol}://${host}`;
+  } catch (error) {
+    // Fallback if anything goes wrong
+    return 'http://localhost:5000';
+  }
 };
 
 module.exports = {

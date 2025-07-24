@@ -5,3 +5,18 @@ node_modules/
 /routes/temp/*
 *.log
 **/.claude/settings.local.json
+
+# Temporary chunk upload files and directories
+temp/
+temp/chunks/
+temp/uploads/
+scripts/chunks/
+chunks/
+*.chunk
+chunk_*
+assembled_*
+fileinfo.json
+
+# Temporary files created during uploads
+*.tmp
+*.temp
