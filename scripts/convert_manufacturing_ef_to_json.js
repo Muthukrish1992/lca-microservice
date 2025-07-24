@@ -65,6 +65,9 @@ function convertManufacturingEfToJson() {
         // Apply country code normalization for countryOfOrigin field
         if (headerName === 'countryOfOrigin') {
           value = normalizeCountryCode(value);
+        } else if (headerName === 'specificMaterial' && value) {
+          // Replace dashes with spaces in specificMaterial field
+          value = value.replace(/-/g, ' ');
         }
         
         record[headerName] = value;

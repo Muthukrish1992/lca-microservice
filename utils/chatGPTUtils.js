@@ -2,9 +2,8 @@ const axios = require("axios");
 require("dotenv").config();
 
 const productCategories = require("../data/productCategories.json");
-const materialsDatabase = require("../data/materials_database.json");
 const materialsDatabaseEnhanced = require("../data/esgnow.json");
-const manufacturingProcesses = require("../data/manufacturing_ef.json");
+const manufacturingProcesses = require("../data/esgnow.json");
 const materialsDatabaseBasic = require("../data/materials_database_basic.json");
 const manufacturingProcessesBasic = require("../data/manufacturingProcesses_basic.json");
 
@@ -763,27 +762,6 @@ function findClosestMatch(input, validOptions, options = {}) {
     : matchValue;
 }
 
-// Function to format the materials database as a string for the prompt
-const formatBOMList = () => {
-  // Group materials by materialClass
-  const materialsByClass = {};
-
-  materialsDatabase.forEach((material) => {
-    if (!materialsByClass[material.materialClass]) {
-      materialsByClass[material.materialClass] = new Set();
-    }
-    materialsByClass[material.materialClass].add(material.specificMaterial);
-  });
-
-  // Convert to the required format
-  return Object.entries(materialsByClass)
-    .map(
-      ([materialClass, specificMaterials]) =>
-        `- ${materialClass}: ${Array.from(specificMaterials).join(", ")}`
-    )
-    .join("\n");
-};
-
 // Function to format the enhanced materials database with use case information
 const formatEnhancedBOMList = () => {
   // Group materials by materialClass with use case information
@@ -1292,9 +1270,9 @@ const classifyBOM = async (
       weight,
     });
 
-    // if (cacheClassifyBOM.has(keyClassifyBOM)) {
-    //   return cacheClassifyBOM.get(keyClassifyBOM);
-    // }
+    if (cacheClassifyBOM.has(keyClassifyBOM)) {
+      return cacheClassifyBOM.get(keyClassifyBOM);
+    }
 
     const bomList = formatEnhancedBOMList();
     description = description.replace(";", " ");

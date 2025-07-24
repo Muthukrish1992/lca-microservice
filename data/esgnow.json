@@ -209,7 +209,7 @@
         "Use_Case": "Poplar  \n\n✅ Suitable for lightweight furniture and interior components, such as cabinets, drawers, and decorative moldings, due to its ease of machining, affordability, and smooth finish. It is ideal for painted surfaces and cost-effective applications where aesthetics and low weight are prioritized over structural strength. \n❌ Not suitable for high-stress structural uses, such as load-bearing furniture or frames, due to its relatively low strength and density. It is also unsuitable for outdoor environments or areas with high moisture exposure, as it lacks durability and moisture resistance, which can lead to warping, swelling, and a reduced lifespan. Poplar should be avoided in catering equipment that requires high durability or exposure to moisture and heat. "
     },
     {
-        "countryOfOrigin": "Philippines",
+        "countryOfOrigin": "PH",
         "materialClass": "Wood",
         "specificMaterial": "Natural Bamboo",
         "EmissionFactor": 0.623340403457778,
@@ -231,7 +231,7 @@
         "Use_Case": "Natural Bamboo\n\n✅ Suitable for sustainable interior fit-outs and lightweight furniture applications where flexibility, renewability, and low embodied energy are prioritized. Ideal for decorative wall panels, room dividers, and furniture components that do not bear heavy loads. Its aesthetic appeal and natural finish make it a popular choice for eco-friendly design themes. In catering equipment, it can be used for non-structural elements like decorative serving trays or utensil holders, where its natural look and lightweight properties are advantageous.\n❌ Not suitable for high-load structural applications, such as load-bearing furniture frames or flooring, due to its handcrafted, untreated nature. Additionally, it is not recommended for environments with high moisture exposure, such as bathrooms or outdoor settings, unless properly treated or sealed to enhance durability and moisture resistance. In catering, it should not be used for heavy-duty kitchen equipment or surfaces that require high durability and moisture resistance."
     },
     {
-        "countryOfOrigin": "Colombia",
+        "countryOfOrigin": "CO",
         "materialClass": "Wood",
         "specificMaterial": "Natural Bamboo",
         "EmissionFactor": 0.335683273997128,
@@ -264,7 +264,7 @@
         "Use_Case": "Natural Bamboo\n\n✅ Suitable for sustainable interior fit-outs and lightweight furniture applications where flexibility, renewability, and low embodied energy are prioritized. Ideal for decorative wall panels, room dividers, and furniture components that do not bear heavy loads. Its aesthetic appeal and natural finish make it a popular choice for eco-friendly design themes. In catering equipment, it can be used for non-structural elements like decorative serving trays or utensil holders, where its natural look and lightweight properties are advantageous.\n❌ Not suitable for high-load structural applications, such as load-bearing furniture frames or flooring, due to its handcrafted, untreated nature. Additionally, it is not recommended for environments with high moisture exposure, such as bathrooms or outdoor settings, unless properly treated or sealed to enhance durability and moisture resistance. In catering, it should not be used for heavy-duty kitchen equipment or surfaces that require high durability and moisture resistance."
     },
     {
-        "countryOfOrigin": "Ecuador",
+        "countryOfOrigin": "EC",
         "materialClass": "Wood",
         "specificMaterial": "Natural Bamboo",
         "EmissionFactor": 0.0994559455881948,
@@ -277,7 +277,7 @@
     {
         "countryOfOrigin": "SE",
         "materialClass": "Wood",
-        "specificMaterial": "Strand-Woven Bamboo",
+        "specificMaterial": "Strand Woven Bamboo",
         "EmissionFactor": 0.0102,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Holse & Wibroe Strand Woven Bamboo",
@@ -288,7 +288,7 @@
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Wood",
-        "specificMaterial": "Strand-Woven Bamboo",
+        "specificMaterial": "Strand Woven Bamboo",
         "EmissionFactor": 0.0102,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "dasso strand woven bamboo",
@@ -297,7 +297,7 @@
         "Use_Case": "Strand-Woven Bamboo  \n\n✅ Suitable for indoor furniture and interior applications due to its high strength, durability, and appealing natural aesthetics. It is a sustainable choice as it is made from a fast-growing renewable resource. Additionally, it offers good moisture resistance and is cost-effective compared to traditional hardwoods, making it a practical option for various interior design projects. \n❌ Not Suitable for outdoor use as it can be susceptible to swelling and fungal attacks when exposed to high moisture levels. In areas such as bathrooms or kitchens where moisture levels are consistently high, strand-woven bamboo should be used with caution and proper sealing to prevent damage. Due to its higher embodied energy from processing and potential moisture-related issues, strand-woven bamboo is not ideal for catering equipment that requires frequent cleaning and exposure to water."
     },
     {
-        "countryOfOrigin": "RER",
+        "countryOfOrigin": "EU",
         "materialClass": "Wood",
         "specificMaterial": "Particle Board",
         "EmissionFactor": 0.3587596613,
@@ -330,7 +330,7 @@
         "Use_Case": "MDF\n\n✅ Suitable for furniture and interior fit-outs, such as office desks, conference tables, and decorative wall paneling, due to its smooth finish, stability, and ability to support decorative laminates or veneers. Commonly used in commercial settings for affordable, modern furniture and interior applications.\n❌ Not suitable for catering equipment or environments with high moisture exposure, such as kitchens or bathrooms, without special treatment. May pose concerns due to resin emissions and higher embodied energy compared to solid wood, and is not ideal for structural loads or heavy-duty applications."
     },
     {
-        "countryOfOrigin": "Europe",
+        "countryOfOrigin": "EU",
         "materialClass": "Wood",
         "specificMaterial": "MDF",
         "EmissionFactor": 0.8806715912,
@@ -363,7 +363,7 @@
         "Use_Case": "Stainless Steel\n\n✅ Suitable for furniture, interior fit-outs, and catering applications where excellent corrosion resistance, hygiene, and structural strength are essential — such as kitchen counters, sinks, and fixtures in commercial or healthcare environments.\n❌ Not suitable for applications requiring low embodied energy or reduced weight, as stainless steel has high production emissions and is heavier than alternatives like aluminum."
     },
     {
-        "countryOfOrigin": "India",
+        "countryOfOrigin": "IN",
         "materialClass": "Metal",
         "specificMaterial": "Stainless Steel",
         "EmissionFactor": 2.01,
@@ -374,7 +374,7 @@
         "Use_Case": "Staineless Steel\n  \n✅ Suitable for furniture, interior fit-outs, and catering applications where excellent corrosion resistance, hygiene, and structural strength are essential — such as kitchen counters, sinks, and fixtures in commercial or healthcare environments.\n❌ Not suitable for applications requiring low embodied energy or reduced weight, as stainless steel has high production emissions and is heavier than alternatives like aluminum."
     },
     {
-        "countryOfOrigin": "Europe",
+        "countryOfOrigin": "EU",
         "materialClass": "Metal",
         "specificMaterial": "Stainless Steel",
         "EmissionFactor": 5.2315185905877,
@@ -431,7 +431,7 @@
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Metal",
-        "specificMaterial": "Hot Rolled Low-Alloy Steel",
+        "specificMaterial": "Hot Rolled Low Alloy Steel",
         "EmissionFactor": 2.32722449199322,
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for steel, low-alloyed, hot rolled",
@@ -462,7 +462,7 @@
         "Use_Case": "Steel Section Bar\n\n✅ Suitable for internal support structures in furniture, interior fit-outs, and catering equipment where high load-bearing capacity, dimensional stability, and mechanical strength are essential. Commonly used in commercial and office furniture frameworks, interior partitions, and catering equipment frames that require longevity and structural reliability.\n❌ Not suitable for visible or decorative finishes in furniture, interior fit-outs, or catering equipment without additional treatment due to limited corrosion resistance and industrial surface appearance. Steel section bars may require coatings or coverings to enhance aesthetic appeal and protect against environmental factors."
     },
     {
-        "countryOfOrigin": "India",
+        "countryOfOrigin": "IN",
         "materialClass": "Metal",
         "specificMaterial": "Steel Section Bar",
         "EmissionFactor": 2.58,
@@ -484,7 +484,7 @@
         "Use_Case": "Steel Sheet\n\n ✅ Suitable for structural frames and under-structure components in furniture and interior fit-outs due to its high strength, availability, and cost-effectiveness. It is ideal for applications where structural integrity is prioritized over aesthetics or surface finish. \n❌ Not suitable for catering equipment or decorative finishes without additional treatment. In catering equipment, hygiene and corrosion resistance are critical, which low-alloyed, hot rolled steel lacks unless coated or treated. For decorative finishes, the surface aesthetics of hot rolled steel may not meet the desired quality without further processing such as polishing or painting."
     },
     {
-        "countryOfOrigin": "India",
+        "countryOfOrigin": "IN",
         "materialClass": "Metal",
         "specificMaterial": "Steel Sheet",
         "EmissionFactor": 2.58,
@@ -704,7 +704,7 @@
         "Use_Case": "Polyvinyl Chloride (PVC)\n\n✅ Suitable for interior fit-outs and catering equipment where durability, moisture resistance, and cost-effectiveness are critical. Ideal applications include flooring, wall coverings, and piping due to its robust nature and ability to withstand moisture and wear.\n❌ Not suitable for furniture applications or for projects prioritizing high environmental sustainability. PVC is derived from fossil fuels, is not biodegradable, and often relies on virgin material, contributing to higher carbon emissions. It is also not recommended for interior elements that require frequent updates or replacements, as its environmental impact is significant over time. Consider alternative materials with better sustainability credentials for projects with a strong focus on environmental responsibility."
     },
     {
-        "countryOfOrigin": "Europe",
+        "countryOfOrigin": "EU",
         "materialClass": "Plastic",
         "specificMaterial": "Polyvinyl Chloride (PVC)",
         "EmissionFactor": 2.45140314632993,
@@ -726,7 +726,7 @@
         "Use_Case": "Polycarbonate (PC)\n\n✅ Suitable for furniture and interior applications where high impact resistance, transparency, and lightweight properties are essential. Ideal for protective panels, lighting fixtures, decorative elements, and certain catering equipment that require durability and clarity, such as display cases and sneeze guards. \n❌ Not suitable for applications where sustainability, low environmental impact, or biodegradability are prioritized. Polycarbonate is derived from fossil fuels, typically involves the use of 100% virgin material, and is associated with high emissions. Consider alternative materials if environmental considerations are a priority, such as recycled plastics or bioplastics."
     },
     {
-        "countryOfOrigin": "Europe",
+        "countryOfOrigin": "EU",
         "materialClass": "Plastic",
         "specificMaterial": "Polycarbonate (PC)",
         "EmissionFactor": 5.16623341269134,
@@ -739,7 +739,7 @@
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Plastic",
-        "specificMaterial": "High-Density Polyethylene (HDPE)",
+        "specificMaterial": "High Density Polyethylene (HDPE)",
         "EmissionFactor": 2.93516102308909,
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for polyethylene, high density, granulat",
@@ -759,7 +759,7 @@
         "Use_Case": "Polyurethane (PU)\n\n✅ Suitable for interior fit-outs and catering equipment applications that demand high thermal insulation and mechanical load-bearing capabilities, such as refrigerated units, insulated panels, and cold storage facilities. Its excellent insulating properties and structural strength make it ideal for maintaining temperature control and supporting heavy loads.\n❌ Not suitable for furniture applications where environmental sustainability, biodegradability, or recyclability are priorities. Due to its fossil fuel origin, lack of recycled content, and thermoset nature, polyurethane rigid foam poses challenges in terms of environmental impact and end-of-life disposal. Consider alternative materials if reducing ecological footprint is a key concern."
     },
     {
-        "countryOfOrigin": "Europe",
+        "countryOfOrigin": "EU",
         "materialClass": "Plastic",
         "specificMaterial": "Polyurethane (PU)",
         "EmissionFactor": 4.37786264424637,
@@ -781,7 +781,7 @@
         "Use_Case": "Acrylic (PMMA)\n\n✅ Suitable for interior fit-outs and catering equipment that require excellent thermal insulation and mechanical load-bearing capabilities, such as refrigerated units, insulated panels, and cold storage facilities. Its high insulating properties and structural strength make it ideal for applications where maintaining temperature and supporting weight are critical. Additionally, it can be used in furniture design where transparency and lightweight characteristics are desired, such as in display cases and modern furniture pieces.\n❌ Not suitable for applications where environmental sustainability is a priority. Acrylic (PMMA) is derived from fossil fuels, lacks recycled content, and is not biodegradable, which limits its recyclability. It can contribute to environmental pollution if not disposed of properly. Therefore, it is not recommended for projects aiming for high environmental standards or certifications, particularly in furniture, interior fit-outs, and catering equipment contexts."
     },
     {
-        "countryOfOrigin": "Europe",
+        "countryOfOrigin": "EU",
         "materialClass": "Plastic",
         "specificMaterial": "Acrylic (PMMA)",
         "EmissionFactor": 6.92521247818833,
@@ -803,7 +803,7 @@
         "Use_Case": "Nylon (Polyamide)\n\n✅ Suitable for furniture and interior fit-outs that demand high strength, abrasion resistance, and durability. Ideal for engineered components, upholstery, and textiles where robust mechanical properties are essential. Its resistance to wear and tear makes it a good choice for high-traffic areas and applications requiring long-lasting performance. \n❌ Not suitable for applications where environmental sustainability is a priority, such as projects emphasizing biodegradability or low carbon footprint. Nylon 6-6 is a fossil-based thermoplastic with high emissions during production and typically lacks recycled content. It is also not ideal for catering equipment that requires food-safe, non-reactive materials unless specifically treated or coated for such purposes."
     },
     {
-        "countryOfOrigin": "Europe",
+        "countryOfOrigin": "EU",
         "materialClass": "Plastic",
         "specificMaterial": "Nylon (Polyamide)",
         "EmissionFactor": 8.57733815795991,
@@ -838,7 +838,7 @@
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Plastic",
-        "specificMaterial": "Low-Density Polyethylene (LDPE)",
+        "specificMaterial": "Low Density Polyethylene (LDPE)",
         "EmissionFactor": 3.66136651617035,
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for polyethylene terephthalate, granulate, bottle grade",
@@ -849,7 +849,7 @@
     {
         "countryOfOrigin": "RoW",
         "materialClass": "Plastic",
-        "specificMaterial": "Melamine-Formaldehyde (MF)",
+        "specificMaterial": "Melamine Formaldehyde (MF)",
         "EmissionFactor": 6.14939294333457,
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for melamine formaldehyde resin",
@@ -858,9 +858,9 @@
         "Use_Case": "Melamine-Formaldehyde (MF)\n\n✅ Suitable for applications in furniture laminates, interior coatings, and catering equipment surfaces where durability, chemical resistance, and heat tolerance are critical. Ideal for environments requiring hygienic, easy-to-clean surfaces, such as kitchens, dining areas, and high-traffic public spaces. \n❌ Not suitable for projects prioritizing sustainability through biodegradability or recycled content, as MF is a fossil-based, thermoset material with limited recyclability. Avoid in contexts where environmental impact is a primary concern, such as eco-friendly or green-certified projects, due to its energy-intensive production and curing processes."
     },
     {
-        "countryOfOrigin": "Europe",
+        "countryOfOrigin": "EU",
         "materialClass": "Plastic",
-        "specificMaterial": "Melamine-Formaldehyde (MF)",
+        "specificMaterial": "Melamine Formaldehyde (MF)",
         "EmissionFactor": 5.78284225196125,
         "EF_Source": "Ecoinvent",
         "Source_Dataset_Name": "market for melamine formaldehyde resin",
@@ -902,7 +902,7 @@
         "Use_Case": "Tempered Glass\n\n✅ Suitable for interior fit-outs, furniture, and catering equipment where transparency, smooth finish, and rigidity are desired. Ideal for applications where visibility and aesthetic appeal are priorities, such as office partitions, retail display cases, tabletops, and protective covers for catering displays.\n❌ Not suitable for thermal insulation or privacy applications, as it lacks coatings for energy performance or opacity. Additionally, not recommended for areas requiring soundproofing or where safety and impact resistance are critical without additional treatment or lamination, such as in high-traffic furniture or catering environments where durability and safety are paramount."
     },
     {
-        "countryOfOrigin": "Europe",
+        "countryOfOrigin": "EU",
         "materialClass": "Glass",
         "specificMaterial": "Tempered Glass",
         "EmissionFactor": 0.996890400443625,
@@ -946,7 +946,7 @@
         "Use_Case": "Clear Float Glass\n\n✅ Suitable for use in interior fit-outs where transparency and a smooth finish are desired, such as in office partitions, retail display panels, and decorative surfaces. Can be used in furniture design for tabletops or cabinet doors where a sleek, modern aesthetic is required. \n❌ Not suitable for coatings that enhance energy performance, making it unsuitable for applications where thermal insulation is a priority. Due to its transparency, it is not suitable for areas requiring privacy unless combined with additional treatments or materials to provide opacity. Not recommended for use in catering equipment where durability and resistance to thermal shock are critical, as it may not withstand high temperatures or impact."
     },
     {
-        "countryOfOrigin": "Europe",
+        "countryOfOrigin": "EU",
         "materialClass": "Glass",
         "specificMaterial": "Clear Float Glass",
         "EmissionFactor": 0.996890400443625,
@@ -970,7 +970,7 @@
     {
         "countryOfOrigin": "SE",
         "materialClass": "Glass",
-        "specificMaterial": "Low-Iron Glass",
+        "specificMaterial": "Low Iron Glass",
         "EmissionFactor": 1.327272727,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Low-Iron Float Glass",
@@ -992,7 +992,7 @@
     {
         "countryOfOrigin": "CA",
         "materialClass": "Glass",
-        "specificMaterial": "Acid-Etched Glass",
+        "specificMaterial": "Acid Etched Glass",
         "EmissionFactor": 0.4628099174,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Acid-etched glass in four finishes: Satinlite, Satin, Velour, Opaque.",
@@ -1067,7 +1067,7 @@
         "Use_Case": "Nylon\n\n✅ Suitable for furniture and catering equipment applications, such as handles, drawer runners, and mechanical fittings, due to its high strength, excellent wear resistance, and thermal stability. These properties ensure durability and performance in high-use environments. Can be used in non-visible structural components where strength and durability are required, such as in joint reinforcements or support brackets.\n❌ Not suitable for visible or decorative elements in interior fit-outs due to its lack of aesthetic appeal and limited design flexibility. Unsuitable for projects prioritizing sustainability, as it is derived from fossil fuels, is non-biodegradable, and typically lacks recycled content."
     },
     {
-        "countryOfOrigin": "Europe",
+        "countryOfOrigin": "EU",
         "materialClass": "Fabric",
         "specificMaterial": "Nylon",
         "EmissionFactor": 8.5784294581476,
@@ -1100,7 +1100,7 @@
         "Use_Case": "Leather (Genuine)\n\n✅ Suitable for high-end furniture and luxury interior applications where aesthetics and comfort are prioritized, such as executive office chairs, luxury sofas, and decorative wall panels. The material's soft texture and natural appearance enhance the visual and tactile experience in low-traffic, controlled environments. \n❌ Not suitable for high-traffic areas or environments prone to spills and stains, such as public waiting areas, restaurants, or cafes, due to its low stain resistance and high maintenance requirements. Catering equipment or any food-related applications, as the material is sensitive to moisture and wear, which can lead to deterioration and hygiene concerns."
     },
     {
-        "countryOfOrigin": "Italy-Europe-Central",
+        "countryOfOrigin": "Italy-Europe-Central America",
         "materialClass": "Fabric",
         "specificMaterial": "Faux Leather (PU)",
         "EmissionFactor": 10.1,
@@ -1234,7 +1234,7 @@
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Leather",
-        "specificMaterial": "Full-Grain Leather",
+        "specificMaterial": "Full Grain Leather",
         "EmissionFactor": 22,
         "EF_Source": "Journal Paper",
         "Source_Dataset_Name": "Per reviewed Joural Paper (Springer Nature-Discover Sustainability)",
@@ -1245,7 +1245,7 @@
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Leather",
-        "specificMaterial": "Top-Grain Leather",
+        "specificMaterial": "Top Grain Leather",
         "EmissionFactor": 22,
         "EF_Source": "Journal Paper",
         "Source_Dataset_Name": "Per reviewed Joural Paper (Springer Nature-Discover Sustainability)",
@@ -1300,7 +1300,7 @@
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Leather",
-        "specificMaterial": "Semi-Aniline Leather",
+        "specificMaterial": "Semi Aniline Leather",
         "EmissionFactor": 22,
         "EF_Source": "Journal Paper",
         "Source_Dataset_Name": "Per reviewed Joural Paper (Springer Nature-Discover Sustainability)",
@@ -1377,7 +1377,7 @@
     {
         "countryOfOrigin": "DE",
         "materialClass": "Laminate",
-        "specificMaterial": "High-Pressure Laminate (HPL)",
+        "specificMaterial": "High Pressure Laminate (HPL)",
         "EmissionFactor": 1.3608,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "HPL (Dekorative High Pressure Laminates)",
@@ -1388,7 +1388,7 @@
     {
         "countryOfOrigin": "DE",
         "materialClass": "Laminate",
-        "specificMaterial": "Low-Pressure Laminate (LPL)",
+        "specificMaterial": "Low Pressure Laminate (LPL)",
         "EmissionFactor": 1.3608,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Reffered: High Pressure Laminates",
@@ -1410,7 +1410,7 @@
     {
         "countryOfOrigin": "DE",
         "materialClass": "Laminate",
-        "specificMaterial": "Post-Formed Laminate",
+        "specificMaterial": "Post Formed Laminate",
         "EmissionFactor": 1.3608,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Reffered: High Pressure Laminates",
@@ -1465,7 +1465,7 @@
     {
         "countryOfOrigin": "DE",
         "materialClass": "Laminate",
-        "specificMaterial": "Fire-Retardant Laminate",
+        "specificMaterial": "Fire Retardant Laminate",
         "EmissionFactor": 1.710280374,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "High-Pressure Laminate including antimicrobial, chemical-resistant, fire-rated, and markerboard variants",
@@ -1476,7 +1476,7 @@
     {
         "countryOfOrigin": "DE",
         "materialClass": "Laminate",
-        "specificMaterial": "Fire-Retardant Laminate",
+        "specificMaterial": "Fire Retardant Laminate",
         "EmissionFactor": 1.710280374,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "High-Pressure Laminate including antimicrobial, chemical-resistant, fire-rated, and markerboard variants",
@@ -1487,7 +1487,7 @@
     {
         "countryOfOrigin": "DE",
         "materialClass": "Laminate",
-        "specificMaterial": "Chemical-Resistant Laminate",
+        "specificMaterial": "Chemical Resistant Laminate",
         "EmissionFactor": 1.710280374,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "High-Pressure Laminate including antimicrobial, chemical-resistant, fire-rated, and markerboard variants",
@@ -1520,7 +1520,7 @@
     {
         "countryOfOrigin": "DE",
         "materialClass": "Laminate",
-        "specificMaterial": "Eco-Friendly Laminate",
+        "specificMaterial": "Eco Friendly Laminate",
         "EmissionFactor": 1.3608,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Reffered: High Pressure Laminates",
@@ -1564,7 +1564,7 @@
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Mesh",
-        "specificMaterial": "PVC-Coated Mesh",
+        "specificMaterial": "PVC Coated Mesh",
         "EmissionFactor": 1.651,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Referred NYLON",
@@ -1575,7 +1575,7 @@
     {
         "countryOfOrigin": "CN",
         "materialClass": "Mesh",
-        "specificMaterial": "PVC-Coated Mesh",
+        "specificMaterial": "PVC Coated Mesh",
         "EmissionFactor": 4.529411765,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "High Tenacity Polyester Base Fabric PVC Coated]",
@@ -1696,7 +1696,7 @@
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Mesh",
-        "specificMaterial": "Micro-Mesh",
+        "specificMaterial": "Micro Mesh",
         "EmissionFactor": 1.651,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "Referred NYLON",
@@ -1751,7 +1751,7 @@
     {
         "countryOfOrigin": "BE",
         "materialClass": "Foam",
-        "specificMaterial": "High-Density Foam",
+        "specificMaterial": "High Density Foam",
         "EmissionFactor": 3.133333333,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "EPS hard foam",
@@ -1762,7 +1762,7 @@
     {
         "countryOfOrigin": "BE",
         "materialClass": "Foam",
-        "specificMaterial": "Low-Density Foam",
+        "specificMaterial": "Low Density Foam",
         "EmissionFactor": 3.133333333,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "EPS hard foam",
@@ -1773,7 +1773,7 @@
     {
         "countryOfOrigin": "BE",
         "materialClass": "Foam",
-        "specificMaterial": "Gel-Infused Foam",
+        "specificMaterial": "Gel Infused Foam",
         "EmissionFactor": 3.133333333,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "EPS hard foam",
@@ -1817,7 +1817,7 @@
     {
         "countryOfOrigin": "BE",
         "materialClass": "Foam",
-        "specificMaterial": "Open-Cell Foam",
+        "specificMaterial": "Open Cell Foam",
         "EmissionFactor": 3.133333333,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "EPS hard foam",
@@ -1828,7 +1828,7 @@
     {
         "countryOfOrigin": "BE",
         "materialClass": "Foam",
-        "specificMaterial": "Closed-Cell Foam",
+        "specificMaterial": "Closed Cell Foam",
         "EmissionFactor": 3.133333333,
         "EF_Source": "EPD",
         "Source_Dataset_Name": "EPS hard foam",
@@ -1848,7 +1848,7 @@
         "Use_Case": "Microbead Foam\n\n✅ Suitable for interior fit-outs, particularly in insulated wall panels and protective packaging. Its lightweight structure, thermal insulation, and shock-absorbing qualities make it beneficial for energy-efficient design and safeguarding delicate components during transport or installation.\n❌ Not suitable for furniture applications due to its low structural integrity, poor load-bearing capacity, and flammability, which compromise durability and safety. Also not appropriate for catering equipment, as it does not meet hygiene or heat-resistance standards and poses environmental concerns due to low recyclability."
     },
     {
-        "countryOfOrigin": "Europe",
+        "countryOfOrigin": "EU",
         "materialClass": "Foam",
         "specificMaterial": "Polyethylene Foam",
         "EmissionFactor": 3.41,
@@ -1892,7 +1892,7 @@
         "Use_Case": "Granite\n\n✅ Suitable for interior fit-outs and furniture applications where durability, heat resistance, and premium aesthetics are desired. Ideal for countertops, flooring, and wall cladding in high-traffic or high-end environments such as kitchens, bathrooms, and reception areas. Granite's natural variation and visual appeal also make it well-suited for bespoke surfaces and decorative stone features.\n❌ Not suitable for catering equipment or low-carbon design projects. Its high embodied emissions from quarrying and transport, along with its weight and rigidity, make it unsuitable for movable equipment or applications requiring lightweight, low-impact materials."
     },
     {
-        "countryOfOrigin": "EG",
+        "countryOfOrigin": "TH",
         "materialClass": "Stone",
         "specificMaterial": "Quartz",
         "EmissionFactor": 0.07666224384,
@@ -1991,7 +1991,7 @@
         "Use_Case": "Concrete\n\n✅ Suitable for fixed structural elements in interior or outdoor settings where durability and stability are prioritized over mobility or aesthetics. Concrete’s high compressive strength and ease of use make it ideal for ground-contact fixtures such as built-in seating, planters, and tables—especially when sourcing locally to reduce embodied emissions.\n❌ Not suitable for mobile furniture, decorative interior elements, or catering equipment. Its heaviness and rigid nature make it impractical for pieces that require movement or refined finishes. High embodied carbon also limits its suitability for sustainability-focused projects, and it lacks the hygiene and aesthetic qualities needed for food-contact surfaces or portable furnishings."
     },
     {
-        "countryOfOrigin": "Colombia",
+        "countryOfOrigin": "CO",
         "materialClass": "Stone",
         "specificMaterial": "Concrete",
         "EmissionFactor": 0.1119713403,
@@ -2002,7 +2002,7 @@
         "Use_Case": "Concrete\n\n✅ Suitable for fixed structural elements in interior or outdoor settings where durability and stability are prioritized over mobility or aesthetics. Concrete’s high compressive strength and ease of use make it ideal for ground-contact fixtures such as built-in seating, planters, and tables—especially when sourcing locally to reduce embodied emissions.\n❌ Not suitable for mobile furniture, decorative interior elements, or catering equipment. Its heaviness and rigid nature make it impractical for pieces that require movement or refined finishes. High embodied carbon also limits its suitability for sustainability-focused projects, and it lacks the hygiene and aesthetic qualities needed for food-contact surfaces or portable furnishings."
     },
     {
-        "countryOfOrigin": "South",
+        "countryOfOrigin": "South Africa",
         "materialClass": "Stone",
         "specificMaterial": "Concrete",
         "EmissionFactor": 0.1054091692,
@@ -2024,7 +2024,7 @@
         "Use_Case": "Concrete\n\n✅ Suitable for fixed structural elements in interior or outdoor settings where durability and stability are prioritized over mobility or aesthetics. Concrete’s high compressive strength and ease of use make it ideal for ground-contact fixtures such as built-in seating, planters, and tables—especially when sourcing locally to reduce embodied emissions.\n❌ Not suitable for mobile furniture, decorative interior elements, or catering equipment. Its heaviness and rigid nature make it impractical for pieces that require movement or refined finishes. High embodied carbon also limits its suitability for sustainability-focused projects, and it lacks the hygiene and aesthetic qualities needed for food-contact surfaces or portable furnishings."
     },
     {
-        "countryOfOrigin": "Northern",
+        "countryOfOrigin": "Northern America",
         "materialClass": "Stone",
         "specificMaterial": "Concrete",
         "EmissionFactor": 0.1072417609,

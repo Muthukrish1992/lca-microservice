@@ -171,7 +171,7 @@ function convertFileToJson() {
         return {
           "countryOfOrigin": countryOfOrigin,
           "materialClass": row['Material Category'] || '',
-          "specificMaterial": row['Material Subtype'] || '',
+          "specificMaterial": (row['Material Subtype'] || '').replace(/-/g, ' '),
           "EmissionFactor": parseFloat(row['kg CO2e']) || 0,
           "EF_Source": row['EF Source'] || '',
           "Source_Dataset_Name": row['Source Dataset Name'] || '',
