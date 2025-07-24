@@ -1,3 +1,6 @@
+// Load .env variables before anything else
+require('dotenv').config();
+
 const express = require('express');
 const cors = require('cors');
 const logger = require('./utils/logger');
@@ -22,15 +25,12 @@ app.use('/api', require('./routes/calculation.routes'));
 app.use('/api', require('./routes/home.routes'));
 app.use('/api', require('./routes/category.routes'));
 
-// API Routes currently in server.js will be moved to their respective route files
-// This is a temporary measure to maintain compatibility
-
 // Error handling middleware
 app.use(notFound);
 app.use(errorHandler);
 
 // Start server
-const PORT = config.port;
+const PORT = 5009;
 app.listen(PORT, () => {
   logger.info(`Server running in ${config.nodeEnv} mode on port ${PORT}`);
 });
