@@ -705,25 +705,13 @@ async function classifyProduct(productCode, name, description, imageUrl, req) {
     .join("\n\n");
 
   logger.info(`📝 Building classification prompt`);
-  // Prompt for classification
-  const prompt = `Classify the following product into a category and subcategory based on the provided list.
+  
+  const systemPrompt = `You are an expert product classification specialist with deep knowledge of product categories and their functional characteristics. Your task is to classify products into appropriate categories and subcategories based on their description and visual characteristics.
 
-Product Code: ${productCode}  
-Product Name: ${name}  
-Product Description: ${description}  
+AVAILABLE CATEGORIES AND SUBCATEGORIES:
+${categoriesList}
 
-If an image is provided, use it as the primary source of truth for identifying the product type, appearance, function, and context. Text information should supplement the visual analysis.
-
-Categories and Subcategories:  
-${categoriesList}  
-
-Return the result strictly in this JSON format:
-{
-  "category": "<category>",
-  "subcategory": "<subcategory>"
-}
-
-CRITICAL RULES:
+CLASSIFICATION PRINCIPLES:
 1. You MUST ONLY select a category and subcategory EXACTLY as they appear in the provided list.
 2. The category MUST be one of the following values: ${Object.keys(productCategories).join(', ')}
 3. The selected subcategory MUST belong to the selected category.
@@ -732,13 +720,33 @@ CRITICAL RULES:
 6. If an image is present, PRIORITIZE visual cues (e.g. shape, structure, materials, intended use) over text description.
 7. If no exact match is found, choose the CLOSEST possible subcategory that logically aligns with the product's function or usage.
 8. DO NOT select a subcategory based on loose associations or naming similarities—use function and actual product type as your basis.
+
+RESPONSE FORMAT:
+{
+  "category": "<category>",
+  "subcategory": "<subcategory>"
+}`;
+
+  const userPrompt = `Classify the following product into a category and subcategory based on the provided list.
+
+Product Code: ${productCode}  
+Product Name: ${name}  
+Product Description: ${description}  
+
+If an image is provided, use it as the primary source of truth for identifying the product type, appearance, function, and context. Text information should supplement the visual analysis.
+
+Return the result strictly in this JSON format:
+{
+  "category": "<category>",
+  "subcategory": "<subcategory>"
+}
 `;
 
   try {
     logger.info(`🤖 Sending request to AI model for product: ${productCode}`);
     
     // Prepare messages with text and image if available
-    const messages = [{ type: "text", text: prompt }];
+    const messages = [{ type: "text", text: userPrompt }];
 
     if (imageUrl) {
       try {
@@ -771,7 +779,10 @@ CRITICAL RULES:
     const completion = await makeOpenAIRequestWithRetry(async () => {
       return await openai.chat.completions.create({
         model: "gpt-4o", // Using full GPT-4o for better image analysis
-        messages: [{ role: "user", content: messages }],
+        messages: [
+          { role: "system", content: systemPrompt },
+          { role: "user", content: messages }
+        ],
         response_format: { type: "json_object" },
         temperature: 0,
       });
