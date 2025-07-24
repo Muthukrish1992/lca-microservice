@@ -554,7 +554,7 @@ const bulkImageUpload = async (req, res) => {
         }
 
         // Trigger AI processing after all images are processed
-        // await processProductAI(req);
+         await processProductAI(req);
         
         logger.info(`🎉 Background image processing completed`);
         
