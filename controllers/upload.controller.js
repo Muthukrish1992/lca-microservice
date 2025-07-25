@@ -281,8 +281,7 @@ const bulkUploadProducts = async (req, res) => {
 // AI Processing Function - to be called after images are uploaded
 const processProductAI = async (req) => {
   try {
-    const account = req.get("x-iviva-account");
-
+    const aiProcessingQueue = require("../utils/aiProcessingQueue");
     const Product = await productService.getProductModel(req);
     
     // Find products that are pending AI processing
@@ -290,94 +289,14 @@ const processProductAI = async (req) => {
       aiProcessingStatus: 'pending' 
     });
 
-    logger.info(`🔄 Starting AI processing for ${pendingProducts.length} products...`);
+    logger.info(`🔄 Found ${pendingProducts.length} products pending AI processing`);
 
-    // Process each product in the background with proper error handling
-    const processProductsInBackground = () => {
-      pendingProducts.forEach(async (product) => {
-      try {
-        // Update status to processing
-        await Product.updateOne(
-          { _id: product._id },
-          { $set: { aiProcessingStatus: 'processing' } }
-        );
+    if (pendingProducts.length > 0) {
+      // Add products to the AI processing queue
+      await aiProcessingQueue.addToQueue(pendingProducts, req);
+      logger.info(`🚀 Added ${pendingProducts.length} products to AI processing queue`);
+    }
 
-        // Wait for classification result
-        const classifyResult = await retry(
-          classifyProduct,
-          [product.code, product.name, product.description, null, req],
-          1
-        );
-        const classifyBOMResult = await retry(
-          classifyBOM,
-          [product.code, product.name, product.description, product.weight, null, req],
-          1
-        );
-        const classifyManufacturingProcessResult = await retry(
-          classifyManufacturingProcess,
-          [product.code, product.name, product.description, classifyBOMResult, req],
-          1
-        );
-
-        // Calculate emissions separately
-        const co2EmissionRawMaterials = productService.calculateRawMaterialEmissions(
-          classifyBOMResult,
-          product.countryOfOrigin
-        );
-        const co2EmissionFromProcesses = productService.calculateProcessEmissions(
-          classifyManufacturingProcessResult
-        );
-
-        const co2Emission = co2EmissionRawMaterials + co2EmissionFromProcesses;
-
-        // Ensure result exists before updating
-        if (classifyResult?.category && classifyResult?.subcategory) {
-          await Product.updateOne(
-            { _id: product._id },
-            {
-              $set: {
-                category: classifyResult.category,
-                subCategory: classifyResult.subcategory,
-                materials: classifyBOMResult,
-                productManufacturingProcess: classifyManufacturingProcessResult,
-                co2Emission: co2Emission,
-                co2EmissionRawMaterials: co2EmissionRawMaterials,
-                co2EmissionFromProcesses: co2EmissionFromProcesses,
-                aiProcessingStatus: 'completed',
-                modifiedDate: Date.now(),
-              },
-            }
-          );
-
-          logger.info(
-            `✅ Product ${product.code} AI processing completed with category: ${classifyResult.category}, subcategory: ${classifyResult.subcategory}`
-          );
-        } else {
-          await Product.updateOne(
-            { _id: product._id },
-            { $set: { aiProcessingStatus: 'failed' } }
-          );
-          logger.warn(
-            `⚠️ Product ${product.code} classification failed, marked as failed.`
-          );
-        }
-      } catch (error) {
-        await Product.updateOne(
-          { _id: product._id },
-          { $set: { aiProcessingStatus: 'failed' } }
-        );
-        logger.error(
-          `❌ Failed to classify and update product ${product.code}:`,
-          error.message
-        );
-      }
-      });
-    };
-
-    // Run processing in background without blocking
-    setImmediate(processProductsInBackground);
-
-    logger.info(`🚀 AI processing initiated for ${pendingProducts.length} products`);
   } catch (error) {
     logger.error("Error in processProductAI:", error);
   }

@@ -1787,4 +1787,5 @@ module.exports = {
   classifyManufacturingProcess,
   classifyManufacturingProcessBasic,
   findClosestMatch, // Export the findClosestMatch function for use in other files
+  makeOpenAIRequestWithRetry, // Export the retry function for batch processing
 };
