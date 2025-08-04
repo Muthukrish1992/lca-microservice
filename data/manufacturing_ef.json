@@ -98,11 +98,11 @@
     "EmissionFactor": 1.42
   },
   {
-    "countryOfOrigin": "RoW",
+    "countryOfOrigin": "NEW",
     "materialClass": "Plastic",
     "specificMaterial": "Polyvinyl Chloride (PVC)",
-    "Process": "Injection Moulding",
-    "EmissionFactor": 1.42
+    "Process": "A3 Process for PVC Gutters and Downpipes",
+    "EmissionFactor": 0.46
   },
   {
     "countryOfOrigin": "RoW",
@@ -119,95 +119,18 @@
     "EmissionFactor": 1.42
   },
   {
-    "countryOfOrigin": "CN",
-    "materialClass": "Plastic",
-    "specificMaterial": "Polyurethane (PU)",
-    "Process": "Whole process (proxy)",
-    "EmissionFactor": 1.136
-  },
-  {
-    "countryOfOrigin": "VN",
-    "materialClass": "Plastic",
-    "specificMaterial": "Polyurethane (PU)",
-    "Process": "Whole process (proxy)",
-    "EmissionFactor": 0.856
-  },
-  {
-    "countryOfOrigin": "GLO",
-    "materialClass": "Plastic",
-    "specificMaterial": "Polyurethane (PU)",
-    "Process": "Whole process (proxy)",
-    "EmissionFactor": 0.921
-  },
-  {
-    "countryOfOrigin": "CZ",
-    "materialClass": "Plastic",
-    "specificMaterial": "Polyurethane (PU)",
-    "Process": "Whole process (proxy)",
-    "EmissionFactor": 0.9
-  },
-  {
-    "countryOfOrigin": "FR",
-    "materialClass": "Plastic",
-    "specificMaterial": "Polyurethane (PU)",
-    "Process": "Whole process (proxy)",
-    "EmissionFactor": 0.105
-  },
-  {
-    "countryOfOrigin": "NL",
-    "materialClass": "Plastic",
-    "specificMaterial": "Polyurethane (PU)",
-    "Process": "Whole process (proxy)",
-    "EmissionFactor": 0.602
-  },
-  {
-    "countryOfOrigin": "PL",
-    "materialClass": "Plastic",
-    "specificMaterial": "Polyurethane (PU)",
-    "Process": "Whole process (proxy)",
-    "EmissionFactor": 1.306
-  },
-  {
-    "countryOfOrigin": "ES",
-    "materialClass": "Plastic",
-    "specificMaterial": "Polyurethane (PU)",
-    "Process": "Whole process (proxy)",
-    "EmissionFactor": 0.275
-  },
-  {
-    "countryOfOrigin": "TW",
-    "materialClass": "Plastic",
-    "specificMaterial": "Polyurethane (PU)",
-    "Process": "Whole process (proxy)",
-    "EmissionFactor": 1.048
-  },
-  {
-    "countryOfOrigin": "US",
-    "materialClass": "Plastic",
-    "specificMaterial": "Polyurethane (PU)",
-    "Process": "Whole process (proxy)",
-    "EmissionFactor": 0.656
-  },
-  {
-    "countryOfOrigin": "IN",
-    "materialClass": "Plastic",
-    "specificMaterial": "Polyurethane (PU)",
-    "Process": "Whole process (proxy)",
-    "EmissionFactor": 1.955
-  },
-  {
-    "countryOfOrigin": "GB",
-    "materialClass": "Plastic",
-    "specificMaterial": "Polyurethane (PU)",
-    "Process": "Whole process (proxy)",
-    "EmissionFactor": 0.381
-  },
-  {
     "countryOfOrigin": "RoW",
     "materialClass": "Plastic",
-    "specificMaterial": "Polyurethane (PU)",
-    "Process": "Whole process (proxy)",
-    "EmissionFactor": 1.4
+    "specificMaterial": "Thermoplastic Polyurethane (TPU)",
+    "Process": "Injection Moulding",
+    "EmissionFactor": 1.42
+  },
+  {
+    "countryOfOrigin": "CN",
+    "materialClass": "Plastic",
+    "specificMaterial": "Thermoplastic Polyurethane (TPU)",
+    "Process": "Core stage of TPU",
+    "EmissionFactor": 0.567
   },
   {
     "countryOfOrigin": "RoW",
@@ -231,18 +154,18 @@
     "EmissionFactor": 7.941
   },
   {
-    "countryOfOrigin": "RoW",
+    "countryOfOrigin": "SE",
     "materialClass": "Plastic",
     "specificMaterial": "Expanded Polystyrene (EPS)",
-    "Process": "Injection Moulding",
-    "EmissionFactor": 1.42
+    "Process": "The A3 process for EPS S100",
+    "EmissionFactor": 0.079
   },
   {
     "countryOfOrigin": "RoW",
     "materialClass": "Plastic",
     "specificMaterial": "Low Density Polyethylene (LDPE)",
     "Process": "Injection Moulding",
-    "EmissionFactor": 1.42
+    "EmissionFactor": 6.55
   },
   {
     "countryOfOrigin": "RoW",
@@ -255,8 +178,22 @@
     "countryOfOrigin": "RoW",
     "materialClass": "Plastic",
     "specificMaterial": "Polyvinyl Butyral (PVB)",
-    "Process": "Injection Moulding",
-    "EmissionFactor": 1.42
+    "Process": "laminating with PVB via autoclave",
+    "EmissionFactor": 0.184
+  },
+  {
+    "countryOfOrigin": "BE",
+    "materialClass": "Plastic",
+    "specificMaterial": "Polyvinyl Butyral (PVB)",
+    "Process": "SaflexTM LiteCarbonTM",
+    "EmissionFactor": 0.449
+  },
+  {
+    "countryOfOrigin": "EU",
+    "materialClass": "Plastic",
+    "specificMaterial": "Phenolic Resin",
+    "Process": "Formaldehyde-phenol resin for mineral wool",
+    "EmissionFactor": 0.134
   },
   {
     "countryOfOrigin": "RoW",
@@ -266,7 +203,7 @@
     "EmissionFactor": 1.42
   },
   {
-    "countryOfOrigin": "CH",
+    "countryOfOrigin": "Switzerland",
     "materialClass": "Stone",
     "specificMaterial": "Marble",
     "Process": "natural stone plate production polished",
@@ -280,7 +217,7 @@
     "EmissionFactor": 0.965
   },
   {
-    "countryOfOrigin": "CH",
+    "countryOfOrigin": "Switzerland",
     "materialClass": "Stone",
     "specificMaterial": "Granite",
     "Process": "natural stone plate production polished",
@@ -294,7 +231,7 @@
     "EmissionFactor": 0.965
   },
   {
-    "countryOfOrigin": "CH",
+    "countryOfOrigin": "Switzerland",
     "materialClass": "Stone",
     "specificMaterial": "Quartz",
     "Process": "natural stone plate production polished",
@@ -340,7 +277,7 @@
     "materialClass": "Stone",
     "specificMaterial": "Limestone",
     "Process": "Whole Process",
-    "EmissionFactor": 0
+    "EmissionFactor": 0.0001
   },
   {
     "countryOfOrigin": "NL",
@@ -361,7 +298,7 @@
     "materialClass": "Stone",
     "specificMaterial": "Limestone",
     "Process": "Whole Process",
-    "EmissionFactor": 0
+    "EmissionFactor": 0.0003
   },
   {
     "countryOfOrigin": "TW",
@@ -389,7 +326,7 @@
     "materialClass": "Stone",
     "specificMaterial": "Limestone",
     "Process": "Whole Process",
-    "EmissionFactor": 0
+    "EmissionFactor": 0.0005
   },
   {
     "countryOfOrigin": "RoW",
@@ -431,7 +368,7 @@
     "materialClass": "Stone",
     "specificMaterial": "Concrete",
     "Process": "Whole Process",
-    "EmissionFactor": 0
+    "EmissionFactor": 0.0001
   },
   {
     "countryOfOrigin": "NL",
@@ -452,7 +389,7 @@
     "materialClass": "Stone",
     "specificMaterial": "Concrete",
     "Process": "Whole Process",
-    "EmissionFactor": 0
+    "EmissionFactor": 0.0003
   },
   {
     "countryOfOrigin": "TW",
@@ -480,7 +417,7 @@
     "materialClass": "Stone",
     "specificMaterial": "Concrete",
     "Process": "Whole Process",
-    "EmissionFactor": 0
+    "EmissionFactor": 0.0005
   },
   {
     "countryOfOrigin": "RoW",
@@ -522,7 +459,7 @@
     "materialClass": "Stone",
     "specificMaterial": "Terrazzo",
     "Process": "Whole Process",
-    "EmissionFactor": 0
+    "EmissionFactor": 0.0001
   },
   {
     "countryOfOrigin": "NL",
@@ -543,7 +480,7 @@
     "materialClass": "Stone",
     "specificMaterial": "Terrazzo",
     "Process": "Whole Process",
-    "EmissionFactor": 0
+    "EmissionFactor": 0.0003
   },
   {
     "countryOfOrigin": "TW",
@@ -571,7 +508,7 @@
     "materialClass": "Stone",
     "specificMaterial": "Terrazzo",
     "Process": "Whole Process",
-    "EmissionFactor": 0
+    "EmissionFactor": 0.0005
   },
   {
     "countryOfOrigin": "RoW",
@@ -581,7 +518,7 @@
     "EmissionFactor": 0.002
   },
   {
-    "countryOfOrigin": "CH",
+    "countryOfOrigin": "Switzerland",
     "materialClass": "Stone",
     "specificMaterial": "Basalt",
     "Process": "natural stone plate production polished",
@@ -595,7 +532,7 @@
     "EmissionFactor": 0.965
   },
   {
-    "countryOfOrigin": "CH",
+    "countryOfOrigin": "Switzerland",
     "materialClass": "Stone",
     "specificMaterial": "Jasper",
     "Process": "natural stone plate production polished",
@@ -614,6 +551,20 @@
     "specificMaterial": "Stainless Steel",
     "Process": "metal working average for metal product manufacturing",
     "EmissionFactor": 2.39
+  },
+  {
+    "countryOfOrigin": "CN",
+    "materialClass": "Metal",
+    "specificMaterial": "Stainless Steel",
+    "Process": "A3 (manufacturing processes) contributes 5–7% especially for stainless steel which often requires energy-intensive finishing processes (e.g. welding polishing cutting).",
+    "EmissionFactor": 0.402
+  },
+  {
+    "countryOfOrigin": "IN",
+    "materialClass": "Metal",
+    "specificMaterial": "Stainless Steel",
+    "Process": "Stainless Steel Cast & Rolled Products manufactuirng process",
+    "EmissionFactor": 1.87
   },
   {
     "countryOfOrigin": "RoW",
@@ -728,109 +679,18 @@
     "EmissionFactor": 0.0168
   },
   {
-    "countryOfOrigin": "RoW",
-    "materialClass": "Metal",
-    "specificMaterial": "Hot Rolled Low Alloy Steel",
-    "Process": "Fabricated Structural Steel Sections",
-    "EmissionFactor": 0.0617
-  },
-  {
-    "countryOfOrigin": "EU",
+    "countryOfOrigin": "CN",
     "materialClass": "Metal",
     "specificMaterial": "Steel Section Bar",
-    "Process": "metal working average for metal product manufacturing",
-    "EmissionFactor": 1.818
-  },
-  {
-    "countryOfOrigin": "CN",
-    "materialClass": "Metal",
-    "specificMaterial": "Hot Rolled Low Alloy Steel",
-    "Process": "Fabricated Structural Steel Sections",
-    "EmissionFactor": 0.0501
-  },
-  {
-    "countryOfOrigin": "VN",
-    "materialClass": "Metal",
-    "specificMaterial": "Hot Rolled Low Alloy Steel",
-    "Process": "Fabricated Structural Steel Sections",
-    "EmissionFactor": 0.0377
-  },
-  {
-    "countryOfOrigin": "GLO",
-    "materialClass": "Metal",
-    "specificMaterial": "Hot Rolled Low Alloy Steel",
-    "Process": "Fabricated Structural Steel Sections",
-    "EmissionFactor": 0.0406
-  },
-  {
-    "countryOfOrigin": "CZ",
-    "materialClass": "Metal",
-    "specificMaterial": "Hot Rolled Low Alloy Steel",
-    "Process": "Fabricated Structural Steel Sections",
-    "EmissionFactor": 0.0397
-  },
-  {
-    "countryOfOrigin": "FR",
-    "materialClass": "Metal",
-    "specificMaterial": "Hot Rolled Low Alloy Steel",
-    "Process": "Fabricated Structural Steel Sections",
-    "EmissionFactor": 0.0046
-  },
-  {
-    "countryOfOrigin": "NL",
-    "materialClass": "Metal",
-    "specificMaterial": "Hot Rolled Low Alloy Steel",
-    "Process": "Fabricated Structural Steel Sections",
-    "EmissionFactor": 0.0265
-  },
-  {
-    "countryOfOrigin": "PL",
-    "materialClass": "Metal",
-    "specificMaterial": "Hot Rolled Low Alloy Steel",
-    "Process": "Fabricated Structural Steel Sections",
-    "EmissionFactor": 0.0576
-  },
-  {
-    "countryOfOrigin": "ES",
-    "materialClass": "Metal",
-    "specificMaterial": "Hot Rolled Low Alloy Steel",
-    "Process": "Fabricated Structural Steel Sections",
-    "EmissionFactor": 0.0121
-  },
-  {
-    "countryOfOrigin": "TW",
-    "materialClass": "Metal",
-    "specificMaterial": "Hot Rolled Low Alloy Steel",
-    "Process": "Fabricated Structural Steel Sections",
-    "EmissionFactor": 0.0462
-  },
-  {
-    "countryOfOrigin": "US",
-    "materialClass": "Metal",
-    "specificMaterial": "Hot Rolled Low Alloy Steel",
-    "Process": "Fabricated Structural Steel Sections",
-    "EmissionFactor": 0.0289
+    "Process": "Hot-rolled section steel",
+    "EmissionFactor": 1.095
   },
   {
     "countryOfOrigin": "IN",
     "materialClass": "Metal",
-    "specificMaterial": "Hot Rolled Low Alloy Steel",
-    "Process": "Fabricated Structural Steel Sections",
-    "EmissionFactor": 0.0862
-  },
-  {
-    "countryOfOrigin": "GB",
-    "materialClass": "Metal",
-    "specificMaterial": "Hot Rolled Low Alloy Steel",
-    "Process": "Fabricated Structural Steel Sections",
-    "EmissionFactor": 0.0168
-  },
-  {
-    "countryOfOrigin": "RoW",
-    "materialClass": "Metal",
-    "specificMaterial": "Hot Rolled Low Alloy Steel",
-    "Process": "Fabricated Structural Steel Sections",
-    "EmissionFactor": 0.0617
+    "specificMaterial": "Steel Section Bar",
+    "Process": "Steel Hot Rolled Coils",
+    "EmissionFactor": 0.798
   },
   {
     "countryOfOrigin": "EU",
@@ -873,6 +733,13 @@
     "specificMaterial": "Wrought Aluminium",
     "Process": "metal working average for aluminium product manufacturing",
     "EmissionFactor": 4.157
+  },
+  {
+    "countryOfOrigin": "CN",
+    "materialClass": "Metal",
+    "specificMaterial": "Wrought Aluminium",
+    "Process": "rought aluminum section bar production",
+    "EmissionFactor": 3.96
   },
   {
     "countryOfOrigin": "EU",
@@ -994,203 +861,28 @@
     "EmissionFactor": 0.0617
   },
   {
-    "countryOfOrigin": "EU",
+    "countryOfOrigin": "Norway",
     "materialClass": "Metal",
     "specificMaterial": "Wrought Iron",
-    "Process": "metal working average for aluminium product manufacturing",
+    "Process": "metal working average for acast iron product manufacturing",
     "EmissionFactor": 3.586
   },
   {
-    "countryOfOrigin": "CN",
-    "materialClass": "Metal",
-    "specificMaterial": "Hot Rolled Low Alloy Steel",
-    "Process": "Fabricated Structural Steel Sections",
-    "EmissionFactor": 0.0501
-  },
-  {
-    "countryOfOrigin": "VN",
-    "materialClass": "Metal",
-    "specificMaterial": "Hot Rolled Low Alloy Steel",
-    "Process": "Fabricated Structural Steel Sections",
-    "EmissionFactor": 0.0377
-  },
-  {
-    "countryOfOrigin": "GLO",
-    "materialClass": "Metal",
-    "specificMaterial": "Hot Rolled Low Alloy Steel",
-    "Process": "Fabricated Structural Steel Sections",
-    "EmissionFactor": 0.0406
-  },
-  {
-    "countryOfOrigin": "CZ",
-    "materialClass": "Metal",
-    "specificMaterial": "Hot Rolled Low Alloy Steel",
-    "Process": "Fabricated Structural Steel Sections",
-    "EmissionFactor": 0.0397
-  },
-  {
-    "countryOfOrigin": "FR",
-    "materialClass": "Metal",
-    "specificMaterial": "Hot Rolled Low Alloy Steel",
-    "Process": "Fabricated Structural Steel Sections",
-    "EmissionFactor": 0.0046
-  },
-  {
-    "countryOfOrigin": "NL",
-    "materialClass": "Metal",
-    "specificMaterial": "Hot Rolled Low Alloy Steel",
-    "Process": "Fabricated Structural Steel Sections",
-    "EmissionFactor": 0.0265
-  },
-  {
-    "countryOfOrigin": "PL",
-    "materialClass": "Metal",
-    "specificMaterial": "Hot Rolled Low Alloy Steel",
-    "Process": "Fabricated Structural Steel Sections",
-    "EmissionFactor": 0.0576
-  },
-  {
-    "countryOfOrigin": "ES",
-    "materialClass": "Metal",
-    "specificMaterial": "Hot Rolled Low Alloy Steel",
-    "Process": "Fabricated Structural Steel Sections",
-    "EmissionFactor": 0.0121
-  },
-  {
-    "countryOfOrigin": "TW",
-    "materialClass": "Metal",
-    "specificMaterial": "Hot Rolled Low Alloy Steel",
-    "Process": "Fabricated Structural Steel Sections",
-    "EmissionFactor": 0.0462
-  },
-  {
-    "countryOfOrigin": "US",
-    "materialClass": "Metal",
-    "specificMaterial": "Hot Rolled Low Alloy Steel",
-    "Process": "Fabricated Structural Steel Sections",
-    "EmissionFactor": 0.0289
-  },
-  {
-    "countryOfOrigin": "IN",
-    "materialClass": "Metal",
-    "specificMaterial": "Hot Rolled Low Alloy Steel",
-    "Process": "Fabricated Structural Steel Sections",
-    "EmissionFactor": 0.0862
-  },
-  {
-    "countryOfOrigin": "GB",
-    "materialClass": "Metal",
-    "specificMaterial": "Hot Rolled Low Alloy Steel",
-    "Process": "Fabricated Structural Steel Sections",
-    "EmissionFactor": 0.0168
-  },
-  {
-    "countryOfOrigin": "RoW",
-    "materialClass": "Metal",
-    "specificMaterial": "Hot Rolled Low Alloy Steel",
-    "Process": "Fabricated Structural Steel Sections",
-    "EmissionFactor": 0.0617
-  },
-  {
     "countryOfOrigin": "RoW",
     "materialClass": "Metal",
     "specificMaterial": "Wrought Iron",
-    "Process": "metal working average for aluminium product manufacturing",
-    "EmissionFactor": 4.157
+    "Process": "steel production converter low-alloyed + market for forging steel",
+    "EmissionFactor": 3.51
   },
   {
-    "countryOfOrigin": "CN",
+    "countryOfOrigin": "Norway",
     "materialClass": "Metal",
-    "specificMaterial": "Cast Iron",
-    "Process": "Whole process",
-    "EmissionFactor": 0.05
+    "specificMaterial": "Wrought Iron",
+    "Process": "metal working average for acast iron product manufacturing",
+    "EmissionFactor": 0.723
   },
   {
-    "countryOfOrigin": "VN",
-    "materialClass": "Metal",
-    "specificMaterial": "Cast Iron",
-    "Process": "Whole process",
-    "EmissionFactor": 0.038
-  },
-  {
-    "countryOfOrigin": "GLO",
-    "materialClass": "Metal",
-    "specificMaterial": "Cast Iron",
-    "Process": "Whole process",
-    "EmissionFactor": 0.041
-  },
-  {
-    "countryOfOrigin": "CZ",
-    "materialClass": "Metal",
-    "specificMaterial": "Cast Iron",
-    "Process": "Whole process",
-    "EmissionFactor": 0.04
-  },
-  {
-    "countryOfOrigin": "FR",
-    "materialClass": "Metal",
-    "specificMaterial": "Cast Iron",
-    "Process": "Whole process",
-    "EmissionFactor": 0.005
-  },
-  {
-    "countryOfOrigin": "NL",
-    "materialClass": "Metal",
-    "specificMaterial": "Cast Iron",
-    "Process": "Whole process",
-    "EmissionFactor": 0.027
-  },
-  {
-    "countryOfOrigin": "PL",
-    "materialClass": "Metal",
-    "specificMaterial": "Cast Iron",
-    "Process": "Whole process",
-    "EmissionFactor": 0.058
-  },
-  {
-    "countryOfOrigin": "ES",
-    "materialClass": "Metal",
-    "specificMaterial": "Cast Iron",
-    "Process": "Whole process",
-    "EmissionFactor": 0.012
-  },
-  {
-    "countryOfOrigin": "TW",
-    "materialClass": "Metal",
-    "specificMaterial": "Cast Iron",
-    "Process": "Whole process",
-    "EmissionFactor": 0.046
-  },
-  {
-    "countryOfOrigin": "US",
-    "materialClass": "Metal",
-    "specificMaterial": "Cast Iron",
-    "Process": "Whole process",
-    "EmissionFactor": 0.029
-  },
-  {
-    "countryOfOrigin": "IN",
-    "materialClass": "Metal",
-    "specificMaterial": "Cast Iron",
-    "Process": "Whole process",
-    "EmissionFactor": 0.086
-  },
-  {
-    "countryOfOrigin": "GB",
-    "materialClass": "Metal",
-    "specificMaterial": "Cast Iron",
-    "Process": "Whole process",
-    "EmissionFactor": 0.017
-  },
-  {
-    "countryOfOrigin": "RoW",
-    "materialClass": "Metal",
-    "specificMaterial": "Cast Iron",
-    "Process": "Whole process",
-    "EmissionFactor": 0.062
-  },
-  {
-    "countryOfOrigin": "CH",
+    "countryOfOrigin": "Switzerland",
     "materialClass": "Metal",
     "specificMaterial": "Brass",
     "Process": "casting brass",
@@ -1218,312 +910,53 @@
     "EmissionFactor": 3.195
   },
   {
-    "countryOfOrigin": "CN",
-    "materialClass": "Metal",
-    "specificMaterial": "Zinc",
-    "Process": "Whole process",
-    "EmissionFactor": 0.05
-  },
-  {
-    "countryOfOrigin": "VN",
-    "materialClass": "Metal",
-    "specificMaterial": "Zinc",
-    "Process": "Whole process",
-    "EmissionFactor": 0.038
-  },
-  {
-    "countryOfOrigin": "GLO",
-    "materialClass": "Metal",
-    "specificMaterial": "Zinc",
-    "Process": "Whole process",
-    "EmissionFactor": 0.041
-  },
-  {
-    "countryOfOrigin": "CZ",
-    "materialClass": "Metal",
-    "specificMaterial": "Zinc",
-    "Process": "Whole process",
-    "EmissionFactor": 0.04
-  },
-  {
-    "countryOfOrigin": "FR",
-    "materialClass": "Metal",
-    "specificMaterial": "Zinc",
-    "Process": "Whole process",
-    "EmissionFactor": 0.005
-  },
-  {
-    "countryOfOrigin": "NL",
-    "materialClass": "Metal",
-    "specificMaterial": "Zinc",
-    "Process": "Whole process",
-    "EmissionFactor": 0.027
-  },
-  {
-    "countryOfOrigin": "PL",
-    "materialClass": "Metal",
-    "specificMaterial": "Zinc",
-    "Process": "Whole process",
-    "EmissionFactor": 0.058
-  },
-  {
-    "countryOfOrigin": "ES",
-    "materialClass": "Metal",
-    "specificMaterial": "Zinc",
-    "Process": "Whole process",
-    "EmissionFactor": 0.012
-  },
-  {
-    "countryOfOrigin": "TW",
-    "materialClass": "Metal",
-    "specificMaterial": "Zinc",
-    "Process": "Whole process",
-    "EmissionFactor": 0.046
-  },
-  {
-    "countryOfOrigin": "US",
-    "materialClass": "Metal",
-    "specificMaterial": "Zinc",
-    "Process": "Whole process",
-    "EmissionFactor": 0.029
-  },
-  {
     "countryOfOrigin": "IN",
     "materialClass": "Metal",
     "specificMaterial": "Zinc",
     "Process": "Whole process",
-    "EmissionFactor": 0.086
+    "EmissionFactor": 4.64
   },
   {
-    "countryOfOrigin": "GB",
-    "materialClass": "Metal",
-    "specificMaterial": "Zinc",
-    "Process": "Whole process",
-    "EmissionFactor": 0.017
-  },
-  {
-    "countryOfOrigin": "RoW",
-    "materialClass": "Metal",
-    "specificMaterial": "Zinc",
-    "Process": "Whole process",
-    "EmissionFactor": 0.062
-  },
-  {
-    "countryOfOrigin": "CN",
+    "countryOfOrigin": "Japan",
     "materialClass": "Metal",
     "specificMaterial": "Titanium",
     "Process": "Whole process",
-    "EmissionFactor": 0.05
-  },
-  {
-    "countryOfOrigin": "VN",
-    "materialClass": "Metal",
-    "specificMaterial": "Titanium",
-    "Process": "Whole process",
-    "EmissionFactor": 0.038
-  },
-  {
-    "countryOfOrigin": "GLO",
-    "materialClass": "Metal",
-    "specificMaterial": "Titanium",
-    "Process": "Whole process",
-    "EmissionFactor": 0.041
-  },
-  {
-    "countryOfOrigin": "CZ",
-    "materialClass": "Metal",
-    "specificMaterial": "Titanium",
-    "Process": "Whole process",
-    "EmissionFactor": 0.04
-  },
-  {
-    "countryOfOrigin": "FR",
-    "materialClass": "Metal",
-    "specificMaterial": "Titanium",
-    "Process": "Whole process",
-    "EmissionFactor": 0.005
-  },
-  {
-    "countryOfOrigin": "NL",
-    "materialClass": "Metal",
-    "specificMaterial": "Titanium",
-    "Process": "Whole process",
-    "EmissionFactor": 0.027
-  },
-  {
-    "countryOfOrigin": "PL",
-    "materialClass": "Metal",
-    "specificMaterial": "Titanium",
-    "Process": "Whole process",
-    "EmissionFactor": 0.058
-  },
-  {
-    "countryOfOrigin": "ES",
-    "materialClass": "Metal",
-    "specificMaterial": "Titanium",
-    "Process": "Whole process",
-    "EmissionFactor": 0.012
-  },
-  {
-    "countryOfOrigin": "TW",
-    "materialClass": "Metal",
-    "specificMaterial": "Titanium",
-    "Process": "Whole process",
-    "EmissionFactor": 0.046
-  },
-  {
-    "countryOfOrigin": "US",
-    "materialClass": "Metal",
-    "specificMaterial": "Titanium",
-    "Process": "Whole process",
-    "EmissionFactor": 0.029
-  },
-  {
-    "countryOfOrigin": "IN",
-    "materialClass": "Metal",
-    "specificMaterial": "Titanium",
-    "Process": "Whole process",
-    "EmissionFactor": 0.086
-  },
-  {
-    "countryOfOrigin": "GB",
-    "materialClass": "Metal",
-    "specificMaterial": "Titanium",
-    "Process": "Whole process",
-    "EmissionFactor": 0.017
-  },
-  {
-    "countryOfOrigin": "RoW",
-    "materialClass": "Metal",
-    "specificMaterial": "Titanium",
-    "Process": "Whole process",
-    "EmissionFactor": 0.062
+    "EmissionFactor": 3
   },
   {
     "countryOfOrigin": "EU",
     "materialClass": "Metal",
     "specificMaterial": "Mild Steel",
-    "Process": "metal working average for aluminium product manufacturing",
-    "EmissionFactor": 3.586
-  },
-  {
-    "countryOfOrigin": "CN",
-    "materialClass": "Metal",
-    "specificMaterial": "Hot Rolled Low Alloy Steel",
-    "Process": "Fabricated Structural Steel Sections",
-    "EmissionFactor": 0.05
-  },
-  {
-    "countryOfOrigin": "VN",
-    "materialClass": "Metal",
-    "specificMaterial": "Hot Rolled Low Alloy Steel",
-    "Process": "Fabricated Structural Steel Sections",
-    "EmissionFactor": 0.038
-  },
-  {
-    "countryOfOrigin": "GLO",
-    "materialClass": "Metal",
-    "specificMaterial": "Hot Rolled Low Alloy Steel",
-    "Process": "Fabricated Structural Steel Sections",
-    "EmissionFactor": 0.041
-  },
-  {
-    "countryOfOrigin": "CZ",
-    "materialClass": "Metal",
-    "specificMaterial": "Hot Rolled Low Alloy Steel",
-    "Process": "Fabricated Structural Steel Sections",
-    "EmissionFactor": 0.04
-  },
-  {
-    "countryOfOrigin": "FR",
-    "materialClass": "Metal",
-    "specificMaterial": "Hot Rolled Low Alloy Steel",
-    "Process": "Fabricated Structural Steel Sections",
-    "EmissionFactor": 0.005
-  },
-  {
-    "countryOfOrigin": "NL",
-    "materialClass": "Metal",
-    "specificMaterial": "Hot Rolled Low Alloy Steel",
-    "Process": "Fabricated Structural Steel Sections",
-    "EmissionFactor": 0.027
-  },
-  {
-    "countryOfOrigin": "PL",
-    "materialClass": "Metal",
-    "specificMaterial": "Hot Rolled Low Alloy Steel",
-    "Process": "Fabricated Structural Steel Sections",
-    "EmissionFactor": 0.058
-  },
-  {
-    "countryOfOrigin": "ES",
-    "materialClass": "Metal",
-    "specificMaterial": "Hot Rolled Low Alloy Steel",
-    "Process": "Fabricated Structural Steel Sections",
-    "EmissionFactor": 0.012
-  },
-  {
-    "countryOfOrigin": "TW",
-    "materialClass": "Metal",
-    "specificMaterial": "Hot Rolled Low Alloy Steel",
-    "Process": "Fabricated Structural Steel Sections",
-    "EmissionFactor": 0.046
-  },
-  {
-    "countryOfOrigin": "US",
-    "materialClass": "Metal",
-    "specificMaterial": "Hot Rolled Low Alloy Steel",
-    "Process": "Fabricated Structural Steel Sections",
-    "EmissionFactor": 0.029
-  },
-  {
-    "countryOfOrigin": "IN",
-    "materialClass": "Metal",
-    "specificMaterial": "Hot Rolled Low Alloy Steel",
-    "Process": "Fabricated Structural Steel Sections",
-    "EmissionFactor": 0.086
-  },
-  {
-    "countryOfOrigin": "GB",
-    "materialClass": "Metal",
-    "specificMaterial": "Hot Rolled Low Alloy Steel",
-    "Process": "Fabricated Structural Steel Sections",
-    "EmissionFactor": 0.017
-  },
-  {
-    "countryOfOrigin": "RoW",
-    "materialClass": "Metal",
-    "specificMaterial": "Hot Rolled Low Alloy Steel",
-    "Process": "Fabricated Structural Steel Sections",
-    "EmissionFactor": 0.062
-  },
-  {
-    "countryOfOrigin": "Unknown",
-    "materialClass": "Metal",
-    "specificMaterial": "Hot Rolled Low Alloy Steel",
-    "Process": "Fabricated Structural Steel Sections",
-    "EmissionFactor": 0
+    "Process": "metal working average for steel product manufacturing",
+    "EmissionFactor": 1.659
   },
   {
     "countryOfOrigin": "RoW",
     "materialClass": "Metal",
     "specificMaterial": "Mild Steel",
-    "Process": "metal working average for aluminium product manufacturing",
-    "EmissionFactor": 4.157
+    "Process": "metal working average for steel product manufacturing",
+    "EmissionFactor": 2.257
   },
   {
     "countryOfOrigin": "EU",
     "materialClass": "Metal",
     "specificMaterial": "Galvanized Steel",
-    "Process": "metal working average for metal product manufacturing\r\nThis is delivering the service of 'zinc coat pieces'.",
+    "Process": "metal working average for metal product manufacturing\nThis is delivering the service of 'zinc coat pieces'.",
     "EmissionFactor": 7.022
   },
   {
     "countryOfOrigin": "RoW",
     "materialClass": "Metal",
     "specificMaterial": "Galvanized Steel",
-    "Process": "metal working average for metal product manufacturing\r\nThis is delivering the service of 'zinc coat pieces'.",
+    "Process": "metal working average for metal product manufacturing\nThis is delivering the service of 'zinc coat pieces'.",
     "EmissionFactor": 8.099
+  },
+  {
+    "countryOfOrigin": "CN",
+    "materialClass": "Metal",
+    "specificMaterial": "Galvanized Steel",
+    "Process": "A3 process of galvanized steel product",
+    "EmissionFactor": 0.88
   },
   {
     "countryOfOrigin": "CN",
@@ -1844,1184 +1277,85 @@
     "countryOfOrigin": "CN",
     "materialClass": "Glass",
     "specificMaterial": "Tempered Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.376
+    "Process": "Whole process",
+    "EmissionFactor": 0.947
   },
   {
-    "countryOfOrigin": "VN",
-    "materialClass": "Glass",
-    "specificMaterial": "Tempered Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.283
-  },
-  {
-    "countryOfOrigin": "GLO",
-    "materialClass": "Glass",
-    "specificMaterial": "Tempered Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.305
-  },
-  {
-    "countryOfOrigin": "CZ",
-    "materialClass": "Glass",
-    "specificMaterial": "Tempered Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.298
-  },
-  {
-    "countryOfOrigin": "FR",
-    "materialClass": "Glass",
-    "specificMaterial": "Tempered Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.035
-  },
-  {
-    "countryOfOrigin": "NL",
-    "materialClass": "Glass",
-    "specificMaterial": "Tempered Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.199
-  },
-  {
-    "countryOfOrigin": "PL",
-    "materialClass": "Glass",
-    "specificMaterial": "Tempered Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.432
-  },
-  {
-    "countryOfOrigin": "ES",
-    "materialClass": "Glass",
-    "specificMaterial": "Tempered Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.091
-  },
-  {
-    "countryOfOrigin": "TW",
-    "materialClass": "Glass",
-    "specificMaterial": "Tempered Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.347
-  },
-  {
-    "countryOfOrigin": "US",
-    "materialClass": "Glass",
-    "specificMaterial": "Tempered Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.217
-  },
-  {
-    "countryOfOrigin": "IN",
-    "materialClass": "Glass",
-    "specificMaterial": "Tempered Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.647
-  },
-  {
-    "countryOfOrigin": "GB",
-    "materialClass": "Glass",
-    "specificMaterial": "Tempered Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.126
-  },
-  {
-    "countryOfOrigin": "RoW",
-    "materialClass": "Glass",
-    "specificMaterial": "Tempered Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.463
-  },
-  {
-    "countryOfOrigin": "CN",
+    "countryOfOrigin": "Lithuania",
     "materialClass": "Glass",
     "specificMaterial": "Laminated Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.376
-  },
-  {
-    "countryOfOrigin": "VN",
-    "materialClass": "Glass",
-    "specificMaterial": "Laminated Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.283
-  },
-  {
-    "countryOfOrigin": "GLO",
-    "materialClass": "Glass",
-    "specificMaterial": "Laminated Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.305
-  },
-  {
-    "countryOfOrigin": "CZ",
-    "materialClass": "Glass",
-    "specificMaterial": "Laminated Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.298
-  },
-  {
-    "countryOfOrigin": "FR",
-    "materialClass": "Glass",
-    "specificMaterial": "Laminated Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.035
-  },
-  {
-    "countryOfOrigin": "NL",
-    "materialClass": "Glass",
-    "specificMaterial": "Laminated Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.199
-  },
-  {
-    "countryOfOrigin": "PL",
-    "materialClass": "Glass",
-    "specificMaterial": "Laminated Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.432
-  },
-  {
-    "countryOfOrigin": "ES",
-    "materialClass": "Glass",
-    "specificMaterial": "Laminated Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.091
-  },
-  {
-    "countryOfOrigin": "TW",
-    "materialClass": "Glass",
-    "specificMaterial": "Laminated Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.347
-  },
-  {
-    "countryOfOrigin": "US",
-    "materialClass": "Glass",
-    "specificMaterial": "Laminated Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.217
-  },
-  {
-    "countryOfOrigin": "IN",
-    "materialClass": "Glass",
-    "specificMaterial": "Laminated Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.647
-  },
-  {
-    "countryOfOrigin": "GB",
-    "materialClass": "Glass",
-    "specificMaterial": "Laminated Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.126
-  },
-  {
-    "countryOfOrigin": "RoW",
-    "materialClass": "Glass",
-    "specificMaterial": "Laminated Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.463
-  },
-  {
-    "countryOfOrigin": "CN",
-    "materialClass": "Glass",
-    "specificMaterial": "Frosted Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.376
-  },
-  {
-    "countryOfOrigin": "VN",
-    "materialClass": "Glass",
-    "specificMaterial": "Frosted Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.283
+    "Process": "Whole process",
+    "EmissionFactor": 0.0459
   },
   {
     "countryOfOrigin": "GLO",
     "materialClass": "Glass",
     "specificMaterial": "Frosted Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.305
+    "Process": "Whole process",
+    "EmissionFactor": 0.06
   },
   {
-    "countryOfOrigin": "CZ",
-    "materialClass": "Glass",
-    "specificMaterial": "Frosted Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.298
-  },
-  {
-    "countryOfOrigin": "FR",
-    "materialClass": "Glass",
-    "specificMaterial": "Frosted Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.035
-  },
-  {
-    "countryOfOrigin": "NL",
-    "materialClass": "Glass",
-    "specificMaterial": "Frosted Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.199
-  },
-  {
-    "countryOfOrigin": "PL",
-    "materialClass": "Glass",
-    "specificMaterial": "Frosted Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.432
-  },
-  {
-    "countryOfOrigin": "ES",
-    "materialClass": "Glass",
-    "specificMaterial": "Frosted Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.091
-  },
-  {
-    "countryOfOrigin": "TW",
-    "materialClass": "Glass",
-    "specificMaterial": "Frosted Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.347
-  },
-  {
-    "countryOfOrigin": "US",
-    "materialClass": "Glass",
-    "specificMaterial": "Frosted Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.217
-  },
-  {
-    "countryOfOrigin": "IN",
-    "materialClass": "Glass",
-    "specificMaterial": "Frosted Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.647
-  },
-  {
-    "countryOfOrigin": "GB",
-    "materialClass": "Glass",
-    "specificMaterial": "Frosted Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.126
-  },
-  {
-    "countryOfOrigin": "RoW",
-    "materialClass": "Glass",
-    "specificMaterial": "Frosted Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.463
-  },
-  {
-    "countryOfOrigin": "CN",
+    "countryOfOrigin": "EU",
     "materialClass": "Glass",
     "specificMaterial": "Clear Float Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.376
-  },
-  {
-    "countryOfOrigin": "VN",
-    "materialClass": "Glass",
-    "specificMaterial": "Clear Float Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.283
-  },
-  {
-    "countryOfOrigin": "GLO",
-    "materialClass": "Glass",
-    "specificMaterial": "Clear Float Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.305
-  },
-  {
-    "countryOfOrigin": "CZ",
-    "materialClass": "Glass",
-    "specificMaterial": "Clear Float Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.298
-  },
-  {
-    "countryOfOrigin": "FR",
-    "materialClass": "Glass",
-    "specificMaterial": "Clear Float Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.035
-  },
-  {
-    "countryOfOrigin": "NL",
-    "materialClass": "Glass",
-    "specificMaterial": "Clear Float Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.199
-  },
-  {
-    "countryOfOrigin": "PL",
-    "materialClass": "Glass",
-    "specificMaterial": "Clear Float Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.432
-  },
-  {
-    "countryOfOrigin": "ES",
-    "materialClass": "Glass",
-    "specificMaterial": "Clear Float Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.091
-  },
-  {
-    "countryOfOrigin": "TW",
-    "materialClass": "Glass",
-    "specificMaterial": "Clear Float Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.347
-  },
-  {
-    "countryOfOrigin": "US",
-    "materialClass": "Glass",
-    "specificMaterial": "Clear Float Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.217
-  },
-  {
-    "countryOfOrigin": "IN",
-    "materialClass": "Glass",
-    "specificMaterial": "Clear Float Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.647
-  },
-  {
-    "countryOfOrigin": "GB",
-    "materialClass": "Glass",
-    "specificMaterial": "Clear Float Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.126
-  },
-  {
-    "countryOfOrigin": "RoW",
-    "materialClass": "Glass",
-    "specificMaterial": "Clear Float Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.463
-  },
-  {
-    "countryOfOrigin": "CN",
-    "materialClass": "Glass",
-    "specificMaterial": "Clear Float Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.376
-  },
-  {
-    "countryOfOrigin": "VN",
-    "materialClass": "Glass",
-    "specificMaterial": "Clear Float Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.283
-  },
-  {
-    "countryOfOrigin": "GLO",
-    "materialClass": "Glass",
-    "specificMaterial": "Clear Float Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.305
-  },
-  {
-    "countryOfOrigin": "CZ",
-    "materialClass": "Glass",
-    "specificMaterial": "Clear Float Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.298
-  },
-  {
-    "countryOfOrigin": "FR",
-    "materialClass": "Glass",
-    "specificMaterial": "Clear Float Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.035
-  },
-  {
-    "countryOfOrigin": "NL",
-    "materialClass": "Glass",
-    "specificMaterial": "Clear Float Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.199
-  },
-  {
-    "countryOfOrigin": "PL",
-    "materialClass": "Glass",
-    "specificMaterial": "Clear Float Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.432
-  },
-  {
-    "countryOfOrigin": "ES",
-    "materialClass": "Glass",
-    "specificMaterial": "Clear Float Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.091
-  },
-  {
-    "countryOfOrigin": "TW",
-    "materialClass": "Glass",
-    "specificMaterial": "Clear Float Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.347
-  },
-  {
-    "countryOfOrigin": "US",
-    "materialClass": "Glass",
-    "specificMaterial": "Clear Float Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.217
-  },
-  {
-    "countryOfOrigin": "IN",
-    "materialClass": "Glass",
-    "specificMaterial": "Clear Float Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.647
-  },
-  {
-    "countryOfOrigin": "GB",
-    "materialClass": "Glass",
-    "specificMaterial": "Clear Float Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.126
-  },
-  {
-    "countryOfOrigin": "RoW",
-    "materialClass": "Glass",
-    "specificMaterial": "Clear Float Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.463
-  },
-  {
-    "countryOfOrigin": "CN",
-    "materialClass": "Glass",
-    "specificMaterial": "Tinted Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.376
-  },
-  {
-    "countryOfOrigin": "VN",
-    "materialClass": "Glass",
-    "specificMaterial": "Tinted Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.283
+    "Process": "Whole process",
+    "EmissionFactor": 0.03
   },
   {
     "countryOfOrigin": "GLO",
     "materialClass": "Glass",
     "specificMaterial": "Tinted Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.305
+    "Process": "Whole process",
+    "EmissionFactor": 0.261
   },
   {
-    "countryOfOrigin": "CZ",
-    "materialClass": "Glass",
-    "specificMaterial": "Tinted Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.298
-  },
-  {
-    "countryOfOrigin": "FR",
-    "materialClass": "Glass",
-    "specificMaterial": "Tinted Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.035
-  },
-  {
-    "countryOfOrigin": "NL",
-    "materialClass": "Glass",
-    "specificMaterial": "Tinted Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.199
-  },
-  {
-    "countryOfOrigin": "PL",
-    "materialClass": "Glass",
-    "specificMaterial": "Tinted Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.432
-  },
-  {
-    "countryOfOrigin": "ES",
-    "materialClass": "Glass",
-    "specificMaterial": "Tinted Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.091
-  },
-  {
-    "countryOfOrigin": "TW",
-    "materialClass": "Glass",
-    "specificMaterial": "Tinted Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.347
-  },
-  {
-    "countryOfOrigin": "US",
-    "materialClass": "Glass",
-    "specificMaterial": "Tinted Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.217
-  },
-  {
-    "countryOfOrigin": "IN",
-    "materialClass": "Glass",
-    "specificMaterial": "Tinted Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.647
-  },
-  {
-    "countryOfOrigin": "GB",
-    "materialClass": "Glass",
-    "specificMaterial": "Tinted Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.126
-  },
-  {
-    "countryOfOrigin": "RoW",
-    "materialClass": "Glass",
-    "specificMaterial": "Tinted Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.463
-  },
-  {
-    "countryOfOrigin": "CN",
+    "countryOfOrigin": "EU",
     "materialClass": "Glass",
     "specificMaterial": "Low Iron Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.376
+    "Process": "Whole process",
+    "EmissionFactor": 0.527
   },
   {
-    "countryOfOrigin": "VN",
-    "materialClass": "Glass",
-    "specificMaterial": "Low Iron Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.283
-  },
-  {
-    "countryOfOrigin": "GLO",
-    "materialClass": "Glass",
-    "specificMaterial": "Low Iron Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.305
-  },
-  {
-    "countryOfOrigin": "CZ",
-    "materialClass": "Glass",
-    "specificMaterial": "Low Iron Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.298
-  },
-  {
-    "countryOfOrigin": "FR",
-    "materialClass": "Glass",
-    "specificMaterial": "Low Iron Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.035
-  },
-  {
-    "countryOfOrigin": "NL",
-    "materialClass": "Glass",
-    "specificMaterial": "Low Iron Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.199
-  },
-  {
-    "countryOfOrigin": "PL",
-    "materialClass": "Glass",
-    "specificMaterial": "Low Iron Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.432
-  },
-  {
-    "countryOfOrigin": "ES",
-    "materialClass": "Glass",
-    "specificMaterial": "Low Iron Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.091
-  },
-  {
-    "countryOfOrigin": "TW",
-    "materialClass": "Glass",
-    "specificMaterial": "Low Iron Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.347
-  },
-  {
-    "countryOfOrigin": "US",
-    "materialClass": "Glass",
-    "specificMaterial": "Low Iron Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.217
-  },
-  {
-    "countryOfOrigin": "IN",
-    "materialClass": "Glass",
-    "specificMaterial": "Low Iron Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.647
-  },
-  {
-    "countryOfOrigin": "GB",
-    "materialClass": "Glass",
-    "specificMaterial": "Low Iron Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.126
-  },
-  {
-    "countryOfOrigin": "RoW",
-    "materialClass": "Glass",
-    "specificMaterial": "Low Iron Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.463
-  },
-  {
-    "countryOfOrigin": "CN",
+    "countryOfOrigin": "EU",
     "materialClass": "Glass",
     "specificMaterial": "Patterned or Textured Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.376
+    "Process": "Whole process",
+    "EmissionFactor": 0.095
   },
   {
-    "countryOfOrigin": "VN",
-    "materialClass": "Glass",
-    "specificMaterial": "Patterned or Textured Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.283
-  },
-  {
-    "countryOfOrigin": "GLO",
-    "materialClass": "Glass",
-    "specificMaterial": "Patterned or Textured Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.305
-  },
-  {
-    "countryOfOrigin": "CZ",
-    "materialClass": "Glass",
-    "specificMaterial": "Patterned or Textured Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.298
-  },
-  {
-    "countryOfOrigin": "FR",
-    "materialClass": "Glass",
-    "specificMaterial": "Patterned or Textured Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.035
-  },
-  {
-    "countryOfOrigin": "NL",
-    "materialClass": "Glass",
-    "specificMaterial": "Patterned or Textured Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.199
-  },
-  {
-    "countryOfOrigin": "PL",
-    "materialClass": "Glass",
-    "specificMaterial": "Patterned or Textured Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.432
-  },
-  {
-    "countryOfOrigin": "ES",
-    "materialClass": "Glass",
-    "specificMaterial": "Patterned or Textured Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.091
-  },
-  {
-    "countryOfOrigin": "TW",
-    "materialClass": "Glass",
-    "specificMaterial": "Patterned or Textured Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.347
-  },
-  {
-    "countryOfOrigin": "US",
-    "materialClass": "Glass",
-    "specificMaterial": "Patterned or Textured Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.217
-  },
-  {
-    "countryOfOrigin": "IN",
-    "materialClass": "Glass",
-    "specificMaterial": "Patterned or Textured Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.647
-  },
-  {
-    "countryOfOrigin": "GB",
-    "materialClass": "Glass",
-    "specificMaterial": "Patterned or Textured Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.126
-  },
-  {
-    "countryOfOrigin": "RoW",
-    "materialClass": "Glass",
-    "specificMaterial": "Patterned or Textured Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.463
-  },
-  {
-    "countryOfOrigin": "CN",
+    "countryOfOrigin": "EU",
     "materialClass": "Glass",
     "specificMaterial": "Acid Etched Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.376
+    "Process": "Whole process",
+    "EmissionFactor": 0.575
   },
   {
-    "countryOfOrigin": "VN",
-    "materialClass": "Glass",
-    "specificMaterial": "Acid Etched Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.283
-  },
-  {
-    "countryOfOrigin": "GLO",
-    "materialClass": "Glass",
-    "specificMaterial": "Acid Etched Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.305
-  },
-  {
-    "countryOfOrigin": "CZ",
-    "materialClass": "Glass",
-    "specificMaterial": "Acid Etched Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.298
-  },
-  {
-    "countryOfOrigin": "FR",
-    "materialClass": "Glass",
-    "specificMaterial": "Acid Etched Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.035
-  },
-  {
-    "countryOfOrigin": "NL",
-    "materialClass": "Glass",
-    "specificMaterial": "Acid Etched Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.199
-  },
-  {
-    "countryOfOrigin": "PL",
-    "materialClass": "Glass",
-    "specificMaterial": "Acid Etched Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.432
-  },
-  {
-    "countryOfOrigin": "ES",
-    "materialClass": "Glass",
-    "specificMaterial": "Acid Etched Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.091
-  },
-  {
-    "countryOfOrigin": "TW",
-    "materialClass": "Glass",
-    "specificMaterial": "Acid Etched Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.347
-  },
-  {
-    "countryOfOrigin": "US",
-    "materialClass": "Glass",
-    "specificMaterial": "Acid Etched Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.217
-  },
-  {
-    "countryOfOrigin": "IN",
-    "materialClass": "Glass",
-    "specificMaterial": "Acid Etched Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.647
-  },
-  {
-    "countryOfOrigin": "GB",
-    "materialClass": "Glass",
-    "specificMaterial": "Acid Etched Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.126
-  },
-  {
-    "countryOfOrigin": "RoW",
-    "materialClass": "Glass",
-    "specificMaterial": "Acid Etched Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.463
-  },
-  {
-    "countryOfOrigin": "CN",
+    "countryOfOrigin": "EU",
     "materialClass": "Glass",
     "specificMaterial": "Smart Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.376
-  },
-  {
-    "countryOfOrigin": "VN",
-    "materialClass": "Glass",
-    "specificMaterial": "Smart Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.283
-  },
-  {
-    "countryOfOrigin": "GLO",
-    "materialClass": "Glass",
-    "specificMaterial": "Smart Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.305
-  },
-  {
-    "countryOfOrigin": "CZ",
-    "materialClass": "Glass",
-    "specificMaterial": "Smart Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.298
-  },
-  {
-    "countryOfOrigin": "FR",
-    "materialClass": "Glass",
-    "specificMaterial": "Smart Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.035
-  },
-  {
-    "countryOfOrigin": "NL",
-    "materialClass": "Glass",
-    "specificMaterial": "Smart Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.199
-  },
-  {
-    "countryOfOrigin": "PL",
-    "materialClass": "Glass",
-    "specificMaterial": "Smart Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.432
-  },
-  {
-    "countryOfOrigin": "ES",
-    "materialClass": "Glass",
-    "specificMaterial": "Smart Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.091
-  },
-  {
-    "countryOfOrigin": "TW",
-    "materialClass": "Glass",
-    "specificMaterial": "Smart Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.347
-  },
-  {
-    "countryOfOrigin": "US",
-    "materialClass": "Glass",
-    "specificMaterial": "Smart Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.217
-  },
-  {
-    "countryOfOrigin": "IN",
-    "materialClass": "Glass",
-    "specificMaterial": "Smart Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.647
-  },
-  {
-    "countryOfOrigin": "GB",
-    "materialClass": "Glass",
-    "specificMaterial": "Smart Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.126
-  },
-  {
-    "countryOfOrigin": "RoW",
-    "materialClass": "Glass",
-    "specificMaterial": "Smart Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.463
-  },
-  {
-    "countryOfOrigin": "CN",
-    "materialClass": "Glass",
-    "specificMaterial": "Insulated Glass Units (IGUs)",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.376
-  },
-  {
-    "countryOfOrigin": "VN",
-    "materialClass": "Glass",
-    "specificMaterial": "Insulated Glass Units (IGUs)",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.283
+    "Process": "Whole process",
+    "EmissionFactor": 7.0988
   },
   {
     "countryOfOrigin": "GLO",
     "materialClass": "Glass",
     "specificMaterial": "Insulated Glass Units (IGUs)",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.305
+    "Process": "Whole process",
+    "EmissionFactor": 0.113
   },
   {
-    "countryOfOrigin": "CZ",
-    "materialClass": "Glass",
-    "specificMaterial": "Insulated Glass Units (IGUs)",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.298
-  },
-  {
-    "countryOfOrigin": "FR",
-    "materialClass": "Glass",
-    "specificMaterial": "Insulated Glass Units (IGUs)",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.035
-  },
-  {
-    "countryOfOrigin": "NL",
-    "materialClass": "Glass",
-    "specificMaterial": "Insulated Glass Units (IGUs)",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.199
-  },
-  {
-    "countryOfOrigin": "PL",
-    "materialClass": "Glass",
-    "specificMaterial": "Insulated Glass Units (IGUs)",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.432
-  },
-  {
-    "countryOfOrigin": "ES",
-    "materialClass": "Glass",
-    "specificMaterial": "Insulated Glass Units (IGUs)",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.091
-  },
-  {
-    "countryOfOrigin": "TW",
-    "materialClass": "Glass",
-    "specificMaterial": "Insulated Glass Units (IGUs)",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.347
-  },
-  {
-    "countryOfOrigin": "US",
-    "materialClass": "Glass",
-    "specificMaterial": "Insulated Glass Units (IGUs)",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.217
-  },
-  {
-    "countryOfOrigin": "IN",
-    "materialClass": "Glass",
-    "specificMaterial": "Insulated Glass Units (IGUs)",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.647
-  },
-  {
-    "countryOfOrigin": "GB",
-    "materialClass": "Glass",
-    "specificMaterial": "Insulated Glass Units (IGUs)",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.126
-  },
-  {
-    "countryOfOrigin": "RoW",
-    "materialClass": "Glass",
-    "specificMaterial": "Insulated Glass Units (IGUs)",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.463
-  },
-  {
-    "countryOfOrigin": "CN",
+    "countryOfOrigin": "BR",
     "materialClass": "Glass",
     "specificMaterial": "Colored Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.376
+    "Process": "Whole process",
+    "EmissionFactor": 0.063
   },
   {
-    "countryOfOrigin": "VN",
-    "materialClass": "Glass",
-    "specificMaterial": "Colored Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.283
-  },
-  {
-    "countryOfOrigin": "GLO",
-    "materialClass": "Glass",
-    "specificMaterial": "Colored Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.305
-  },
-  {
-    "countryOfOrigin": "CZ",
-    "materialClass": "Glass",
-    "specificMaterial": "Colored Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.298
-  },
-  {
-    "countryOfOrigin": "FR",
-    "materialClass": "Glass",
-    "specificMaterial": "Colored Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.035
-  },
-  {
-    "countryOfOrigin": "NL",
-    "materialClass": "Glass",
-    "specificMaterial": "Colored Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.199
-  },
-  {
-    "countryOfOrigin": "PL",
-    "materialClass": "Glass",
-    "specificMaterial": "Colored Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.432
-  },
-  {
-    "countryOfOrigin": "ES",
-    "materialClass": "Glass",
-    "specificMaterial": "Colored Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.091
-  },
-  {
-    "countryOfOrigin": "TW",
-    "materialClass": "Glass",
-    "specificMaterial": "Colored Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.347
-  },
-  {
-    "countryOfOrigin": "US",
-    "materialClass": "Glass",
-    "specificMaterial": "Colored Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.217
-  },
-  {
-    "countryOfOrigin": "IN",
-    "materialClass": "Glass",
-    "specificMaterial": "Colored Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.647
-  },
-  {
-    "countryOfOrigin": "GB",
-    "materialClass": "Glass",
-    "specificMaterial": "Colored Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.126
-  },
-  {
-    "countryOfOrigin": "RoW",
-    "materialClass": "Glass",
-    "specificMaterial": "Colored Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.463
-  },
-  {
-    "countryOfOrigin": "CN",
+    "countryOfOrigin": "TR",
     "materialClass": "Glass",
     "specificMaterial": "Mirrored Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.376
-  },
-  {
-    "countryOfOrigin": "VN",
-    "materialClass": "Glass",
-    "specificMaterial": "Mirrored Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.283
-  },
-  {
-    "countryOfOrigin": "GLO",
-    "materialClass": "Glass",
-    "specificMaterial": "Mirrored Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.305
-  },
-  {
-    "countryOfOrigin": "CZ",
-    "materialClass": "Glass",
-    "specificMaterial": "Mirrored Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.298
-  },
-  {
-    "countryOfOrigin": "FR",
-    "materialClass": "Glass",
-    "specificMaterial": "Mirrored Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.035
-  },
-  {
-    "countryOfOrigin": "NL",
-    "materialClass": "Glass",
-    "specificMaterial": "Mirrored Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.199
-  },
-  {
-    "countryOfOrigin": "PL",
-    "materialClass": "Glass",
-    "specificMaterial": "Mirrored Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.432
-  },
-  {
-    "countryOfOrigin": "ES",
-    "materialClass": "Glass",
-    "specificMaterial": "Mirrored Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.091
-  },
-  {
-    "countryOfOrigin": "TW",
-    "materialClass": "Glass",
-    "specificMaterial": "Mirrored Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.347
-  },
-  {
-    "countryOfOrigin": "US",
-    "materialClass": "Glass",
-    "specificMaterial": "Mirrored Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.217
-  },
-  {
-    "countryOfOrigin": "IN",
-    "materialClass": "Glass",
-    "specificMaterial": "Mirrored Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.647
-  },
-  {
-    "countryOfOrigin": "GB",
-    "materialClass": "Glass",
-    "specificMaterial": "Mirrored Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.126
-  },
-  {
-    "countryOfOrigin": "RoW",
-    "materialClass": "Glass",
-    "specificMaterial": "Mirrored Glass",
-    "Process": "Whole process-Flat glass",
-    "EmissionFactor": 0.463
+    "Process": "Whole process",
+    "EmissionFactor": 0.652
   },
   {
     "countryOfOrigin": "GLO",
@@ -3136,13 +1470,6 @@
     "EmissionFactor": 0.036
   },
   {
-    "countryOfOrigin": "RoW",
-    "materialClass": "Fabric",
-    "specificMaterial": "Leather (Genuine)",
-    "Process": "Whole process",
-    "EmissionFactor": 0.134
-  },
-  {
     "countryOfOrigin": "GLO",
     "materialClass": "Fabric",
     "specificMaterial": "Faux Leather (PU)",
@@ -3248,13 +1575,6 @@
     "EmissionFactor": 0.036
   },
   {
-    "countryOfOrigin": "RoW",
-    "materialClass": "Fabric",
-    "specificMaterial": "Wool",
-    "Process": "Whole process",
-    "EmissionFactor": 0.134
-  },
-  {
     "countryOfOrigin": "CN",
     "materialClass": "Fabric",
     "specificMaterial": "Cotton",
@@ -3337,13 +1657,6 @@
     "specificMaterial": "Cotton",
     "Process": "Whole process",
     "EmissionFactor": 0.036
-  },
-  {
-    "countryOfOrigin": "RoW",
-    "materialClass": "Fabric",
-    "specificMaterial": "Cotton",
-    "Process": "Whole process",
-    "EmissionFactor": 0.134
   },
   {
     "countryOfOrigin": "CN",
@@ -3430,13 +1743,6 @@
     "EmissionFactor": 0.036
   },
   {
-    "countryOfOrigin": "RoW",
-    "materialClass": "Fabric",
-    "specificMaterial": "Rayon (Viscose)",
-    "Process": "Whole process",
-    "EmissionFactor": 0.134
-  },
-  {
     "countryOfOrigin": "CN",
     "materialClass": "Fabric",
     "specificMaterial": "Linen",
@@ -3521,13 +1827,6 @@
     "EmissionFactor": 0.036
   },
   {
-    "countryOfOrigin": "RoW",
-    "materialClass": "Fabric",
-    "specificMaterial": "Linen",
-    "Process": "Whole process",
-    "EmissionFactor": 0.134
-  },
-  {
     "countryOfOrigin": "CN",
     "materialClass": "Fabric",
     "specificMaterial": "Velvet",
@@ -3610,13 +1909,6 @@
     "specificMaterial": "Velvet",
     "Process": "Whole process",
     "EmissionFactor": 0.036
-  },
-  {
-    "countryOfOrigin": "RoW",
-    "materialClass": "Fabric",
-    "specificMaterial": "Velvet",
-    "Process": "Whole process",
-    "EmissionFactor": 0.134
   },
   {
     "countryOfOrigin": "CN",
@@ -3801,11 +2093,88 @@
     "EmissionFactor": 0.036
   },
   {
-    "countryOfOrigin": "RoW",
+    "countryOfOrigin": "CN",
     "materialClass": "Fabric",
-    "specificMaterial": "Canvas",
+    "specificMaterial": "Jute",
     "Process": "Whole process",
-    "EmissionFactor": 0.134
+    "EmissionFactor": 0.109
+  },
+  {
+    "countryOfOrigin": "VN",
+    "materialClass": "Fabric",
+    "specificMaterial": "Jute",
+    "Process": "Whole process",
+    "EmissionFactor": 0.082
+  },
+  {
+    "countryOfOrigin": "GLO",
+    "materialClass": "Fabric",
+    "specificMaterial": "Jute",
+    "Process": "Whole process",
+    "EmissionFactor": 0.088
+  },
+  {
+    "countryOfOrigin": "CZ",
+    "materialClass": "Fabric",
+    "specificMaterial": "Jute",
+    "Process": "Whole process",
+    "EmissionFactor": 0.086
+  },
+  {
+    "countryOfOrigin": "FR",
+    "materialClass": "Fabric",
+    "specificMaterial": "Jute",
+    "Process": "Whole process",
+    "EmissionFactor": 0.01
+  },
+  {
+    "countryOfOrigin": "NL",
+    "materialClass": "Fabric",
+    "specificMaterial": "Jute",
+    "Process": "Whole process",
+    "EmissionFactor": 0.057
+  },
+  {
+    "countryOfOrigin": "PL",
+    "materialClass": "Fabric",
+    "specificMaterial": "Jute",
+    "Process": "Whole process",
+    "EmissionFactor": 0.125
+  },
+  {
+    "countryOfOrigin": "ES",
+    "materialClass": "Fabric",
+    "specificMaterial": "Jute",
+    "Process": "Whole process",
+    "EmissionFactor": 0.026
+  },
+  {
+    "countryOfOrigin": "TW",
+    "materialClass": "Fabric",
+    "specificMaterial": "Jute",
+    "Process": "Whole process",
+    "EmissionFactor": 0.1
+  },
+  {
+    "countryOfOrigin": "US",
+    "materialClass": "Fabric",
+    "specificMaterial": "Jute",
+    "Process": "Whole process",
+    "EmissionFactor": 0.063
+  },
+  {
+    "countryOfOrigin": "IN",
+    "materialClass": "Fabric",
+    "specificMaterial": "Jute",
+    "Process": "Whole process",
+    "EmissionFactor": 0.187
+  },
+  {
+    "countryOfOrigin": "GB",
+    "materialClass": "Fabric",
+    "specificMaterial": "Jute",
+    "Process": "Whole process",
+    "EmissionFactor": 0.036
   },
   {
     "countryOfOrigin": "CN",
@@ -3822,7 +2191,7 @@
     "EmissionFactor": 1.565
   },
   {
-    "countryOfOrigin": "GLO",
+    "countryOfOrigin": "RoW",
     "materialClass": "Leather",
     "specificMaterial": "Genuine Leather",
     "Process": "Whole process",
@@ -5086,637 +3455,637 @@
     "materialClass": "Laminate",
     "specificMaterial": "High Pressure Laminate (HPL)",
     "Process": "Whole process",
-    "EmissionFactor": 0.000299
+    "EmissionFactor": 8.424558
   },
   {
     "countryOfOrigin": "VN",
     "materialClass": "Laminate",
     "specificMaterial": "High Pressure Laminate (HPL)",
     "Process": "Whole process",
-    "EmissionFactor": 0.000225
+    "EmissionFactor": 6.345256
   },
   {
     "countryOfOrigin": "GLO",
     "materialClass": "Laminate",
     "specificMaterial": "High Pressure Laminate (HPL)",
     "Process": "Whole process",
-    "EmissionFactor": 0.000243
+    "EmissionFactor": 6.82577
   },
   {
     "countryOfOrigin": "CZ",
     "materialClass": "Laminate",
     "specificMaterial": "High Pressure Laminate (HPL)",
     "Process": "Whole process",
-    "EmissionFactor": 0.000237
+    "EmissionFactor": 6.673804
   },
   {
     "countryOfOrigin": "FR",
     "materialClass": "Laminate",
     "specificMaterial": "High Pressure Laminate (HPL)",
     "Process": "Whole process",
-    "EmissionFactor": 0.000028
+    "EmissionFactor": 0.776596
   },
   {
     "countryOfOrigin": "NL",
     "materialClass": "Laminate",
     "specificMaterial": "High Pressure Laminate (HPL)",
     "Process": "Whole process",
-    "EmissionFactor": 0.000158
+    "EmissionFactor": 4.45984
   },
   {
     "countryOfOrigin": "PL",
     "materialClass": "Laminate",
     "specificMaterial": "High Pressure Laminate (HPL)",
     "Process": "Whole process",
-    "EmissionFactor": 0.000344
+    "EmissionFactor": 9.681853
   },
   {
     "countryOfOrigin": "ES",
     "materialClass": "Laminate",
     "specificMaterial": "High Pressure Laminate (HPL)",
     "Process": "Whole process",
-    "EmissionFactor": 0.000072
+    "EmissionFactor": 2.035931
   },
   {
     "countryOfOrigin": "TW",
     "materialClass": "Laminate",
     "specificMaterial": "High Pressure Laminate (HPL)",
     "Process": "Whole process",
-    "EmissionFactor": 0.000276
+    "EmissionFactor": 7.769943
   },
   {
     "countryOfOrigin": "US",
     "materialClass": "Laminate",
     "specificMaterial": "High Pressure Laminate (HPL)",
     "Process": "Whole process",
-    "EmissionFactor": 0.000173
+    "EmissionFactor": 4.863626
   },
   {
     "countryOfOrigin": "IN",
     "materialClass": "Laminate",
     "specificMaterial": "High Pressure Laminate (HPL)",
     "Process": "Whole process",
-    "EmissionFactor": 0.000515
+    "EmissionFactor": 14.49607
   },
   {
     "countryOfOrigin": "GB",
     "materialClass": "Laminate",
     "specificMaterial": "High Pressure Laminate (HPL)",
     "Process": "Whole process",
-    "EmissionFactor": 0.000101
+    "EmissionFactor": 2.828242
   },
   {
     "countryOfOrigin": "RoW",
     "materialClass": "Laminate",
     "specificMaterial": "High Pressure Laminate (HPL)",
     "Process": "Whole process",
-    "EmissionFactor": 0.000369
+    "EmissionFactor": 10.381579
   },
   {
     "countryOfOrigin": "CN",
     "materialClass": "Laminate",
     "specificMaterial": "Low Pressure Laminate (LPL)",
     "Process": "Whole process",
-    "EmissionFactor": 0.000299
+    "EmissionFactor": 8.424558
   },
   {
     "countryOfOrigin": "VN",
     "materialClass": "Laminate",
     "specificMaterial": "Low Pressure Laminate (LPL)",
     "Process": "Whole process",
-    "EmissionFactor": 0.000225
+    "EmissionFactor": 6.345256
   },
   {
     "countryOfOrigin": "GLO",
     "materialClass": "Laminate",
     "specificMaterial": "Low Pressure Laminate (LPL)",
     "Process": "Whole process",
-    "EmissionFactor": 0.000243
+    "EmissionFactor": 6.82577
   },
   {
     "countryOfOrigin": "CZ",
     "materialClass": "Laminate",
     "specificMaterial": "Low Pressure Laminate (LPL)",
     "Process": "Whole process",
-    "EmissionFactor": 0.000237
+    "EmissionFactor": 6.673804
   },
   {
     "countryOfOrigin": "FR",
     "materialClass": "Laminate",
     "specificMaterial": "Low Pressure Laminate (LPL)",
     "Process": "Whole process",
-    "EmissionFactor": 0.000028
+    "EmissionFactor": 0.776596
   },
   {
     "countryOfOrigin": "NL",
     "materialClass": "Laminate",
     "specificMaterial": "Low Pressure Laminate (LPL)",
     "Process": "Whole process",
-    "EmissionFactor": 0.000158
+    "EmissionFactor": 4.45984
   },
   {
     "countryOfOrigin": "PL",
     "materialClass": "Laminate",
     "specificMaterial": "Low Pressure Laminate (LPL)",
     "Process": "Whole process",
-    "EmissionFactor": 0.000344
+    "EmissionFactor": 9.681853
   },
   {
     "countryOfOrigin": "ES",
     "materialClass": "Laminate",
     "specificMaterial": "Low Pressure Laminate (LPL)",
     "Process": "Whole process",
-    "EmissionFactor": 0.000072
+    "EmissionFactor": 2.035931
   },
   {
     "countryOfOrigin": "TW",
     "materialClass": "Laminate",
     "specificMaterial": "Low Pressure Laminate (LPL)",
     "Process": "Whole process",
-    "EmissionFactor": 0.000276
+    "EmissionFactor": 7.769943
   },
   {
     "countryOfOrigin": "US",
     "materialClass": "Laminate",
     "specificMaterial": "Low Pressure Laminate (LPL)",
     "Process": "Whole process",
-    "EmissionFactor": 0.000173
+    "EmissionFactor": 4.863626
   },
   {
     "countryOfOrigin": "IN",
     "materialClass": "Laminate",
     "specificMaterial": "Low Pressure Laminate (LPL)",
     "Process": "Whole process",
-    "EmissionFactor": 0.000515
+    "EmissionFactor": 14.49607
   },
   {
     "countryOfOrigin": "GB",
     "materialClass": "Laminate",
     "specificMaterial": "Low Pressure Laminate (LPL)",
     "Process": "Whole process",
-    "EmissionFactor": 0.000101
+    "EmissionFactor": 2.828242
   },
   {
     "countryOfOrigin": "RoW",
     "materialClass": "Laminate",
     "specificMaterial": "Low Pressure Laminate (LPL)",
     "Process": "Whole process",
-    "EmissionFactor": 0.000369
+    "EmissionFactor": 10.381579
   },
   {
     "countryOfOrigin": "CN",
     "materialClass": "Laminate",
     "specificMaterial": "Thermally Fused Laminate (TFL)",
     "Process": "Whole process",
-    "EmissionFactor": 0.000299
+    "EmissionFactor": 8.424558
   },
   {
     "countryOfOrigin": "VN",
     "materialClass": "Laminate",
     "specificMaterial": "Thermally Fused Laminate (TFL)",
     "Process": "Whole process",
-    "EmissionFactor": 0.000225
+    "EmissionFactor": 6.345256
   },
   {
     "countryOfOrigin": "GLO",
     "materialClass": "Laminate",
     "specificMaterial": "Thermally Fused Laminate (TFL)",
     "Process": "Whole process",
-    "EmissionFactor": 0.000243
+    "EmissionFactor": 6.82577
   },
   {
     "countryOfOrigin": "CZ",
     "materialClass": "Laminate",
     "specificMaterial": "Thermally Fused Laminate (TFL)",
     "Process": "Whole process",
-    "EmissionFactor": 0.000237
+    "EmissionFactor": 6.673804
   },
   {
     "countryOfOrigin": "FR",
     "materialClass": "Laminate",
     "specificMaterial": "Thermally Fused Laminate (TFL)",
     "Process": "Whole process",
-    "EmissionFactor": 0.000028
+    "EmissionFactor": 0.776596
   },
   {
     "countryOfOrigin": "NL",
     "materialClass": "Laminate",
     "specificMaterial": "Thermally Fused Laminate (TFL)",
     "Process": "Whole process",
-    "EmissionFactor": 0.000158
+    "EmissionFactor": 4.45984
   },
   {
     "countryOfOrigin": "PL",
     "materialClass": "Laminate",
     "specificMaterial": "Thermally Fused Laminate (TFL)",
     "Process": "Whole process",
-    "EmissionFactor": 0.000344
+    "EmissionFactor": 9.681853
   },
   {
     "countryOfOrigin": "ES",
     "materialClass": "Laminate",
     "specificMaterial": "Thermally Fused Laminate (TFL)",
     "Process": "Whole process",
-    "EmissionFactor": 0.000072
+    "EmissionFactor": 2.035931
   },
   {
     "countryOfOrigin": "TW",
     "materialClass": "Laminate",
     "specificMaterial": "Thermally Fused Laminate (TFL)",
     "Process": "Whole process",
-    "EmissionFactor": 0.000276
+    "EmissionFactor": 7.769943
   },
   {
     "countryOfOrigin": "US",
     "materialClass": "Laminate",
     "specificMaterial": "Thermally Fused Laminate (TFL)",
     "Process": "Whole process",
-    "EmissionFactor": 0.000173
+    "EmissionFactor": 4.863626
   },
   {
     "countryOfOrigin": "IN",
     "materialClass": "Laminate",
     "specificMaterial": "Thermally Fused Laminate (TFL)",
     "Process": "Whole process",
-    "EmissionFactor": 0.000515
+    "EmissionFactor": 14.49607
   },
   {
     "countryOfOrigin": "GB",
     "materialClass": "Laminate",
     "specificMaterial": "Thermally Fused Laminate (TFL)",
     "Process": "Whole process",
-    "EmissionFactor": 0.000101
+    "EmissionFactor": 2.828242
   },
   {
     "countryOfOrigin": "RoW",
     "materialClass": "Laminate",
     "specificMaterial": "Thermally Fused Laminate (TFL)",
     "Process": "Whole process",
-    "EmissionFactor": 0.000369
+    "EmissionFactor": 10.381579
   },
   {
     "countryOfOrigin": "CN",
     "materialClass": "Laminate",
     "specificMaterial": "Post Formed Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000299
+    "EmissionFactor": 8.424558
   },
   {
     "countryOfOrigin": "VN",
     "materialClass": "Laminate",
     "specificMaterial": "Post Formed Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000225
+    "EmissionFactor": 6.345256
   },
   {
     "countryOfOrigin": "GLO",
     "materialClass": "Laminate",
     "specificMaterial": "Post Formed Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000243
+    "EmissionFactor": 6.82577
   },
   {
     "countryOfOrigin": "CZ",
     "materialClass": "Laminate",
     "specificMaterial": "Post Formed Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000237
+    "EmissionFactor": 6.673804
   },
   {
     "countryOfOrigin": "FR",
     "materialClass": "Laminate",
     "specificMaterial": "Post Formed Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000028
+    "EmissionFactor": 0.776596
   },
   {
     "countryOfOrigin": "NL",
     "materialClass": "Laminate",
     "specificMaterial": "Post Formed Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000158
+    "EmissionFactor": 4.45984
   },
   {
     "countryOfOrigin": "PL",
     "materialClass": "Laminate",
     "specificMaterial": "Post Formed Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000344
+    "EmissionFactor": 9.681853
   },
   {
     "countryOfOrigin": "ES",
     "materialClass": "Laminate",
     "specificMaterial": "Post Formed Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000072
+    "EmissionFactor": 2.035931
   },
   {
     "countryOfOrigin": "TW",
     "materialClass": "Laminate",
     "specificMaterial": "Post Formed Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000276
+    "EmissionFactor": 7.769943
   },
   {
     "countryOfOrigin": "US",
     "materialClass": "Laminate",
     "specificMaterial": "Post Formed Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000173
+    "EmissionFactor": 4.863626
   },
   {
     "countryOfOrigin": "IN",
     "materialClass": "Laminate",
     "specificMaterial": "Post Formed Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000515
+    "EmissionFactor": 14.49607
   },
   {
     "countryOfOrigin": "GB",
     "materialClass": "Laminate",
     "specificMaterial": "Post Formed Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000101
+    "EmissionFactor": 2.828242
   },
   {
     "countryOfOrigin": "RoW",
     "materialClass": "Laminate",
     "specificMaterial": "Post Formed Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000369
+    "EmissionFactor": 10.381579
   },
   {
     "countryOfOrigin": "CN",
     "materialClass": "Laminate",
     "specificMaterial": "Textured Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000299
+    "EmissionFactor": 8.424558
   },
   {
     "countryOfOrigin": "VN",
     "materialClass": "Laminate",
     "specificMaterial": "Textured Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000225
+    "EmissionFactor": 6.345256
   },
   {
     "countryOfOrigin": "GLO",
     "materialClass": "Laminate",
     "specificMaterial": "Textured Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000243
+    "EmissionFactor": 6.82577
   },
   {
     "countryOfOrigin": "CZ",
     "materialClass": "Laminate",
     "specificMaterial": "Textured Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000237
+    "EmissionFactor": 6.673804
   },
   {
     "countryOfOrigin": "FR",
     "materialClass": "Laminate",
     "specificMaterial": "Textured Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000028
+    "EmissionFactor": 0.776596
   },
   {
     "countryOfOrigin": "NL",
     "materialClass": "Laminate",
     "specificMaterial": "Textured Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000158
+    "EmissionFactor": 4.45984
   },
   {
     "countryOfOrigin": "PL",
     "materialClass": "Laminate",
     "specificMaterial": "Textured Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000344
+    "EmissionFactor": 9.681853
   },
   {
     "countryOfOrigin": "ES",
     "materialClass": "Laminate",
     "specificMaterial": "Textured Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000072
+    "EmissionFactor": 2.035931
   },
   {
     "countryOfOrigin": "TW",
     "materialClass": "Laminate",
     "specificMaterial": "Textured Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000276
+    "EmissionFactor": 7.769943
   },
   {
     "countryOfOrigin": "US",
     "materialClass": "Laminate",
     "specificMaterial": "Textured Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000173
+    "EmissionFactor": 4.863626
   },
   {
     "countryOfOrigin": "IN",
     "materialClass": "Laminate",
     "specificMaterial": "Textured Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000515
+    "EmissionFactor": 14.49607
   },
   {
     "countryOfOrigin": "GB",
     "materialClass": "Laminate",
     "specificMaterial": "Textured Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000101
+    "EmissionFactor": 2.828242
   },
   {
     "countryOfOrigin": "RoW",
     "materialClass": "Laminate",
     "specificMaterial": "Textured Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000369
+    "EmissionFactor": 10.381579
   },
   {
     "countryOfOrigin": "CN",
     "materialClass": "Laminate",
     "specificMaterial": "Glossy Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000299
+    "EmissionFactor": 8.424558
   },
   {
     "countryOfOrigin": "VN",
     "materialClass": "Laminate",
     "specificMaterial": "Glossy Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000225
+    "EmissionFactor": 6.345256
   },
   {
     "countryOfOrigin": "GLO",
     "materialClass": "Laminate",
     "specificMaterial": "Glossy Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000243
+    "EmissionFactor": 6.82577
   },
   {
     "countryOfOrigin": "CZ",
     "materialClass": "Laminate",
     "specificMaterial": "Glossy Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000237
+    "EmissionFactor": 6.673804
   },
   {
     "countryOfOrigin": "FR",
     "materialClass": "Laminate",
     "specificMaterial": "Glossy Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000028
+    "EmissionFactor": 0.776596
   },
   {
     "countryOfOrigin": "NL",
     "materialClass": "Laminate",
     "specificMaterial": "Glossy Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000158
+    "EmissionFactor": 4.45984
   },
   {
     "countryOfOrigin": "PL",
     "materialClass": "Laminate",
     "specificMaterial": "Glossy Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000344
+    "EmissionFactor": 9.681853
   },
   {
     "countryOfOrigin": "ES",
     "materialClass": "Laminate",
     "specificMaterial": "Glossy Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000072
+    "EmissionFactor": 2.035931
   },
   {
     "countryOfOrigin": "TW",
     "materialClass": "Laminate",
     "specificMaterial": "Glossy Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000276
+    "EmissionFactor": 7.769943
   },
   {
     "countryOfOrigin": "US",
     "materialClass": "Laminate",
     "specificMaterial": "Glossy Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000173
+    "EmissionFactor": 4.863626
   },
   {
     "countryOfOrigin": "IN",
     "materialClass": "Laminate",
     "specificMaterial": "Glossy Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000515
+    "EmissionFactor": 14.49607
   },
   {
     "countryOfOrigin": "GB",
     "materialClass": "Laminate",
     "specificMaterial": "Glossy Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000101
+    "EmissionFactor": 2.828242
   },
   {
     "countryOfOrigin": "RoW",
     "materialClass": "Laminate",
     "specificMaterial": "Glossy Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000369
+    "EmissionFactor": 10.381579
   },
   {
     "countryOfOrigin": "CN",
     "materialClass": "Laminate",
     "specificMaterial": "Matte Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000299
+    "EmissionFactor": 8.424558
   },
   {
     "countryOfOrigin": "VN",
     "materialClass": "Laminate",
     "specificMaterial": "Matte Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000225
+    "EmissionFactor": 6.345256
   },
   {
     "countryOfOrigin": "GLO",
     "materialClass": "Laminate",
     "specificMaterial": "Matte Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000243
+    "EmissionFactor": 6.82577
   },
   {
     "countryOfOrigin": "CZ",
     "materialClass": "Laminate",
     "specificMaterial": "Matte Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000237
+    "EmissionFactor": 6.673804
   },
   {
     "countryOfOrigin": "FR",
     "materialClass": "Laminate",
     "specificMaterial": "Matte Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000028
+    "EmissionFactor": 0.776596
   },
   {
     "countryOfOrigin": "NL",
     "materialClass": "Laminate",
     "specificMaterial": "Matte Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000158
+    "EmissionFactor": 4.45984
   },
   {
     "countryOfOrigin": "PL",
     "materialClass": "Laminate",
     "specificMaterial": "Matte Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000344
+    "EmissionFactor": 9.681853
   },
   {
     "countryOfOrigin": "ES",
     "materialClass": "Laminate",
     "specificMaterial": "Matte Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000072
+    "EmissionFactor": 2.035931
   },
   {
     "countryOfOrigin": "TW",
     "materialClass": "Laminate",
     "specificMaterial": "Matte Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000276
+    "EmissionFactor": 7.769943
   },
   {
     "countryOfOrigin": "US",
     "materialClass": "Laminate",
     "specificMaterial": "Matte Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000173
+    "EmissionFactor": 4.863626
   },
   {
     "countryOfOrigin": "IN",
     "materialClass": "Laminate",
     "specificMaterial": "Matte Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000515
+    "EmissionFactor": 14.49607
   },
   {
     "countryOfOrigin": "GB",
     "materialClass": "Laminate",
     "specificMaterial": "Matte Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000101
+    "EmissionFactor": 2.828242
   },
   {
     "countryOfOrigin": "RoW",
     "materialClass": "Laminate",
     "specificMaterial": "Matte Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000369
+    "EmissionFactor": 10.381579
   },
   {
     "countryOfOrigin": "CN",
@@ -5814,546 +4183,546 @@
     "materialClass": "Laminate",
     "specificMaterial": "Antimicrobial Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000299
+    "EmissionFactor": 8.424558
   },
   {
     "countryOfOrigin": "VN",
     "materialClass": "Laminate",
     "specificMaterial": "Antimicrobial Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000225
+    "EmissionFactor": 6.345256
   },
   {
     "countryOfOrigin": "GLO",
     "materialClass": "Laminate",
     "specificMaterial": "Antimicrobial Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000243
+    "EmissionFactor": 6.82577
   },
   {
     "countryOfOrigin": "CZ",
     "materialClass": "Laminate",
     "specificMaterial": "Antimicrobial Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000237
+    "EmissionFactor": 6.673804
   },
   {
     "countryOfOrigin": "FR",
     "materialClass": "Laminate",
     "specificMaterial": "Antimicrobial Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000028
+    "EmissionFactor": 0.776596
   },
   {
     "countryOfOrigin": "NL",
     "materialClass": "Laminate",
     "specificMaterial": "Antimicrobial Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000158
+    "EmissionFactor": 4.45984
   },
   {
     "countryOfOrigin": "PL",
     "materialClass": "Laminate",
     "specificMaterial": "Antimicrobial Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000344
+    "EmissionFactor": 9.681853
   },
   {
     "countryOfOrigin": "ES",
     "materialClass": "Laminate",
     "specificMaterial": "Antimicrobial Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000072
+    "EmissionFactor": 2.035931
   },
   {
     "countryOfOrigin": "TW",
     "materialClass": "Laminate",
     "specificMaterial": "Antimicrobial Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000276
+    "EmissionFactor": 7.769943
   },
   {
     "countryOfOrigin": "US",
     "materialClass": "Laminate",
     "specificMaterial": "Antimicrobial Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000173
+    "EmissionFactor": 4.863626
   },
   {
     "countryOfOrigin": "IN",
     "materialClass": "Laminate",
     "specificMaterial": "Antimicrobial Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000515
+    "EmissionFactor": 14.49607
   },
   {
     "countryOfOrigin": "GB",
     "materialClass": "Laminate",
     "specificMaterial": "Antimicrobial Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000101
+    "EmissionFactor": 2.828242
   },
   {
     "countryOfOrigin": "RoW",
     "materialClass": "Laminate",
     "specificMaterial": "Antimicrobial Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000369
+    "EmissionFactor": 10.381579
   },
   {
     "countryOfOrigin": "CN",
     "materialClass": "Laminate",
     "specificMaterial": "Fire Retardant Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000299
+    "EmissionFactor": 8.424558
   },
   {
     "countryOfOrigin": "VN",
     "materialClass": "Laminate",
     "specificMaterial": "Fire Retardant Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000225
+    "EmissionFactor": 6.345256
   },
   {
     "countryOfOrigin": "GLO",
     "materialClass": "Laminate",
     "specificMaterial": "Fire Retardant Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000243
+    "EmissionFactor": 6.82577
   },
   {
     "countryOfOrigin": "CZ",
     "materialClass": "Laminate",
     "specificMaterial": "Fire Retardant Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000237
+    "EmissionFactor": 6.673804
   },
   {
     "countryOfOrigin": "FR",
     "materialClass": "Laminate",
     "specificMaterial": "Fire Retardant Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000028
+    "EmissionFactor": 0.776596
   },
   {
     "countryOfOrigin": "NL",
     "materialClass": "Laminate",
     "specificMaterial": "Fire Retardant Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000158
+    "EmissionFactor": 4.45984
   },
   {
     "countryOfOrigin": "PL",
     "materialClass": "Laminate",
     "specificMaterial": "Fire Retardant Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000344
+    "EmissionFactor": 9.681853
   },
   {
     "countryOfOrigin": "ES",
     "materialClass": "Laminate",
     "specificMaterial": "Fire Retardant Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000072
+    "EmissionFactor": 2.035931
   },
   {
     "countryOfOrigin": "TW",
     "materialClass": "Laminate",
     "specificMaterial": "Fire Retardant Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000276
+    "EmissionFactor": 7.769943
   },
   {
     "countryOfOrigin": "US",
     "materialClass": "Laminate",
     "specificMaterial": "Fire Retardant Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000173
+    "EmissionFactor": 4.863626
   },
   {
     "countryOfOrigin": "IN",
     "materialClass": "Laminate",
     "specificMaterial": "Fire Retardant Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000515
+    "EmissionFactor": 14.49607
   },
   {
     "countryOfOrigin": "GB",
     "materialClass": "Laminate",
     "specificMaterial": "Fire Retardant Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000101
+    "EmissionFactor": 2.828242
   },
   {
     "countryOfOrigin": "RoW",
     "materialClass": "Laminate",
     "specificMaterial": "Fire Retardant Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000369
+    "EmissionFactor": 10.381579
   },
   {
     "countryOfOrigin": "CN",
     "materialClass": "Laminate",
     "specificMaterial": "Chemical Resistant Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000299
+    "EmissionFactor": 8.424558
   },
   {
     "countryOfOrigin": "VN",
     "materialClass": "Laminate",
     "specificMaterial": "Chemical Resistant Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000225
+    "EmissionFactor": 6.345256
   },
   {
     "countryOfOrigin": "GLO",
     "materialClass": "Laminate",
     "specificMaterial": "Chemical Resistant Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000243
+    "EmissionFactor": 6.82577
   },
   {
     "countryOfOrigin": "CZ",
     "materialClass": "Laminate",
     "specificMaterial": "Chemical Resistant Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000237
+    "EmissionFactor": 6.673804
   },
   {
     "countryOfOrigin": "FR",
     "materialClass": "Laminate",
     "specificMaterial": "Chemical Resistant Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000028
+    "EmissionFactor": 0.776596
   },
   {
     "countryOfOrigin": "NL",
     "materialClass": "Laminate",
     "specificMaterial": "Chemical Resistant Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000158
+    "EmissionFactor": 4.45984
   },
   {
     "countryOfOrigin": "PL",
     "materialClass": "Laminate",
     "specificMaterial": "Chemical Resistant Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000344
+    "EmissionFactor": 9.681853
   },
   {
     "countryOfOrigin": "ES",
     "materialClass": "Laminate",
     "specificMaterial": "Chemical Resistant Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000072
+    "EmissionFactor": 2.035931
   },
   {
     "countryOfOrigin": "TW",
     "materialClass": "Laminate",
     "specificMaterial": "Chemical Resistant Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000276
+    "EmissionFactor": 7.769943
   },
   {
     "countryOfOrigin": "US",
     "materialClass": "Laminate",
     "specificMaterial": "Chemical Resistant Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000173
+    "EmissionFactor": 4.863626
   },
   {
     "countryOfOrigin": "IN",
     "materialClass": "Laminate",
     "specificMaterial": "Chemical Resistant Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000515
+    "EmissionFactor": 14.49607
   },
   {
     "countryOfOrigin": "GB",
     "materialClass": "Laminate",
     "specificMaterial": "Chemical Resistant Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000101
+    "EmissionFactor": 2.828242
   },
   {
     "countryOfOrigin": "RoW",
     "materialClass": "Laminate",
     "specificMaterial": "Chemical Resistant Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000369
+    "EmissionFactor": 10.381579
   },
   {
     "countryOfOrigin": "CN",
     "materialClass": "Laminate",
     "specificMaterial": "Writable Laminate (Markerboard)",
     "Process": "Whole process",
-    "EmissionFactor": 0.000299
+    "EmissionFactor": 8.424558
   },
   {
     "countryOfOrigin": "VN",
     "materialClass": "Laminate",
     "specificMaterial": "Writable Laminate (Markerboard)",
     "Process": "Whole process",
-    "EmissionFactor": 0.000225
+    "EmissionFactor": 6.345256
   },
   {
     "countryOfOrigin": "GLO",
     "materialClass": "Laminate",
     "specificMaterial": "Writable Laminate (Markerboard)",
     "Process": "Whole process",
-    "EmissionFactor": 0.000243
+    "EmissionFactor": 6.82577
   },
   {
     "countryOfOrigin": "CZ",
     "materialClass": "Laminate",
     "specificMaterial": "Writable Laminate (Markerboard)",
     "Process": "Whole process",
-    "EmissionFactor": 0.000237
+    "EmissionFactor": 6.673804
   },
   {
     "countryOfOrigin": "FR",
     "materialClass": "Laminate",
     "specificMaterial": "Writable Laminate (Markerboard)",
     "Process": "Whole process",
-    "EmissionFactor": 0.000028
+    "EmissionFactor": 0.776596
   },
   {
     "countryOfOrigin": "NL",
     "materialClass": "Laminate",
     "specificMaterial": "Writable Laminate (Markerboard)",
     "Process": "Whole process",
-    "EmissionFactor": 0.000158
+    "EmissionFactor": 4.45984
   },
   {
     "countryOfOrigin": "PL",
     "materialClass": "Laminate",
     "specificMaterial": "Writable Laminate (Markerboard)",
     "Process": "Whole process",
-    "EmissionFactor": 0.000344
+    "EmissionFactor": 9.681853
   },
   {
     "countryOfOrigin": "ES",
     "materialClass": "Laminate",
     "specificMaterial": "Writable Laminate (Markerboard)",
     "Process": "Whole process",
-    "EmissionFactor": 0.000072
+    "EmissionFactor": 2.035931
   },
   {
     "countryOfOrigin": "TW",
     "materialClass": "Laminate",
     "specificMaterial": "Writable Laminate (Markerboard)",
     "Process": "Whole process",
-    "EmissionFactor": 0.000276
+    "EmissionFactor": 7.769943
   },
   {
     "countryOfOrigin": "US",
     "materialClass": "Laminate",
     "specificMaterial": "Writable Laminate (Markerboard)",
     "Process": "Whole process",
-    "EmissionFactor": 0.000173
+    "EmissionFactor": 4.863626
   },
   {
     "countryOfOrigin": "IN",
     "materialClass": "Laminate",
     "specificMaterial": "Writable Laminate (Markerboard)",
     "Process": "Whole process",
-    "EmissionFactor": 0.000515
+    "EmissionFactor": 14.49607
   },
   {
     "countryOfOrigin": "GB",
     "materialClass": "Laminate",
     "specificMaterial": "Writable Laminate (Markerboard)",
     "Process": "Whole process",
-    "EmissionFactor": 0.000101
+    "EmissionFactor": 2.828242
   },
   {
     "countryOfOrigin": "RoW",
     "materialClass": "Laminate",
     "specificMaterial": "Writable Laminate (Markerboard)",
     "Process": "Whole process",
-    "EmissionFactor": 0.000369
+    "EmissionFactor": 10.381579
   },
   {
     "countryOfOrigin": "CN",
     "materialClass": "Laminate",
     "specificMaterial": "Digital Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000299
+    "EmissionFactor": 8.424558
   },
   {
     "countryOfOrigin": "VN",
     "materialClass": "Laminate",
     "specificMaterial": "Digital Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000225
+    "EmissionFactor": 6.345256
   },
   {
     "countryOfOrigin": "GLO",
     "materialClass": "Laminate",
     "specificMaterial": "Digital Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000243
+    "EmissionFactor": 6.82577
   },
   {
     "countryOfOrigin": "CZ",
     "materialClass": "Laminate",
     "specificMaterial": "Digital Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000237
+    "EmissionFactor": 6.673804
   },
   {
     "countryOfOrigin": "FR",
     "materialClass": "Laminate",
     "specificMaterial": "Digital Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000028
+    "EmissionFactor": 0.776596
   },
   {
     "countryOfOrigin": "NL",
     "materialClass": "Laminate",
     "specificMaterial": "Digital Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000158
+    "EmissionFactor": 4.45984
   },
   {
     "countryOfOrigin": "PL",
     "materialClass": "Laminate",
     "specificMaterial": "Digital Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000344
+    "EmissionFactor": 9.681853
   },
   {
     "countryOfOrigin": "ES",
     "materialClass": "Laminate",
     "specificMaterial": "Digital Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000072
+    "EmissionFactor": 2.035931
   },
   {
     "countryOfOrigin": "TW",
     "materialClass": "Laminate",
     "specificMaterial": "Digital Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000276
+    "EmissionFactor": 7.769943
   },
   {
     "countryOfOrigin": "US",
     "materialClass": "Laminate",
     "specificMaterial": "Digital Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000173
+    "EmissionFactor": 4.863626
   },
   {
     "countryOfOrigin": "IN",
     "materialClass": "Laminate",
     "specificMaterial": "Digital Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000515
+    "EmissionFactor": 14.49607
   },
   {
     "countryOfOrigin": "GB",
     "materialClass": "Laminate",
     "specificMaterial": "Digital Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000101
+    "EmissionFactor": 2.828242
   },
   {
     "countryOfOrigin": "RoW",
     "materialClass": "Laminate",
     "specificMaterial": "Digital Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000369
+    "EmissionFactor": 10.381579
   },
   {
     "countryOfOrigin": "CN",
     "materialClass": "Laminate",
     "specificMaterial": "Eco Friendly Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000299
+    "EmissionFactor": 8.424558
   },
   {
     "countryOfOrigin": "VN",
     "materialClass": "Laminate",
     "specificMaterial": "Eco Friendly Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000225
+    "EmissionFactor": 6.345256
   },
   {
     "countryOfOrigin": "GLO",
     "materialClass": "Laminate",
     "specificMaterial": "Eco Friendly Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000243
+    "EmissionFactor": 6.82577
   },
   {
     "countryOfOrigin": "CZ",
     "materialClass": "Laminate",
     "specificMaterial": "Eco Friendly Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000237
+    "EmissionFactor": 6.673804
   },
   {
     "countryOfOrigin": "FR",
     "materialClass": "Laminate",
     "specificMaterial": "Eco Friendly Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000028
+    "EmissionFactor": 0.776596
   },
   {
     "countryOfOrigin": "NL",
     "materialClass": "Laminate",
     "specificMaterial": "Eco Friendly Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000158
+    "EmissionFactor": 4.45984
   },
   {
     "countryOfOrigin": "PL",
     "materialClass": "Laminate",
     "specificMaterial": "Eco Friendly Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000344
+    "EmissionFactor": 9.681853
   },
   {
     "countryOfOrigin": "ES",
     "materialClass": "Laminate",
     "specificMaterial": "Eco Friendly Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000072
+    "EmissionFactor": 2.035931
   },
   {
     "countryOfOrigin": "TW",
     "materialClass": "Laminate",
     "specificMaterial": "Eco Friendly Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000276
+    "EmissionFactor": 7.769943
   },
   {
     "countryOfOrigin": "US",
     "materialClass": "Laminate",
     "specificMaterial": "Eco Friendly Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000173
+    "EmissionFactor": 4.863626
   },
   {
     "countryOfOrigin": "IN",
     "materialClass": "Laminate",
     "specificMaterial": "Eco Friendly Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000515
+    "EmissionFactor": 14.49607
   },
   {
     "countryOfOrigin": "GB",
     "materialClass": "Laminate",
     "specificMaterial": "Eco Friendly Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000101
+    "EmissionFactor": 2.828242
   },
   {
     "countryOfOrigin": "RoW",
     "materialClass": "Laminate",
     "specificMaterial": "Eco Friendly Laminate",
     "Process": "Whole process",
-    "EmissionFactor": 0.000369
+    "EmissionFactor": 10.381579
   },
   {
     "countryOfOrigin": "CN",
@@ -6814,92 +5183,92 @@
     "countryOfOrigin": "CN",
     "materialClass": "Mesh",
     "specificMaterial": "Metal Mesh",
-    "Process": "Whole process",
-    "EmissionFactor": 0.109
+    "Process": "Fabricated Structural Steel Sections",
+    "EmissionFactor": 0.05
   },
   {
     "countryOfOrigin": "VN",
     "materialClass": "Mesh",
     "specificMaterial": "Metal Mesh",
-    "Process": "Whole process",
-    "EmissionFactor": 0.082
+    "Process": "Fabricated Structural Steel Sections",
+    "EmissionFactor": 0.038
   },
   {
     "countryOfOrigin": "GLO",
     "materialClass": "Mesh",
     "specificMaterial": "Metal Mesh",
-    "Process": "Whole process",
-    "EmissionFactor": 0.088
+    "Process": "Fabricated Structural Steel Sections",
+    "EmissionFactor": 0.041
   },
   {
     "countryOfOrigin": "CZ",
     "materialClass": "Mesh",
     "specificMaterial": "Metal Mesh",
-    "Process": "Whole process",
-    "EmissionFactor": 0.086
+    "Process": "Fabricated Structural Steel Sections",
+    "EmissionFactor": 0.04
   },
   {
     "countryOfOrigin": "FR",
     "materialClass": "Mesh",
     "specificMaterial": "Metal Mesh",
-    "Process": "Whole process",
-    "EmissionFactor": 0.01
+    "Process": "Fabricated Structural Steel Sections",
+    "EmissionFactor": 0.005
   },
   {
     "countryOfOrigin": "NL",
     "materialClass": "Mesh",
     "specificMaterial": "Metal Mesh",
-    "Process": "Whole process",
-    "EmissionFactor": 0.057
+    "Process": "Fabricated Structural Steel Sections",
+    "EmissionFactor": 0.027
   },
   {
     "countryOfOrigin": "PL",
     "materialClass": "Mesh",
     "specificMaterial": "Metal Mesh",
-    "Process": "Whole process",
-    "EmissionFactor": 0.125
+    "Process": "Fabricated Structural Steel Sections",
+    "EmissionFactor": 0.058
   },
   {
     "countryOfOrigin": "ES",
     "materialClass": "Mesh",
     "specificMaterial": "Metal Mesh",
-    "Process": "Whole process",
-    "EmissionFactor": 0.026
+    "Process": "Fabricated Structural Steel Sections",
+    "EmissionFactor": 0.012
   },
   {
     "countryOfOrigin": "TW",
     "materialClass": "Mesh",
     "specificMaterial": "Metal Mesh",
-    "Process": "Whole process",
-    "EmissionFactor": 0.1
+    "Process": "Fabricated Structural Steel Sections",
+    "EmissionFactor": 0.046
   },
   {
     "countryOfOrigin": "US",
     "materialClass": "Mesh",
     "specificMaterial": "Metal Mesh",
-    "Process": "Whole process",
-    "EmissionFactor": 0.063
+    "Process": "Fabricated Structural Steel Sections",
+    "EmissionFactor": 0.029
   },
   {
     "countryOfOrigin": "IN",
     "materialClass": "Mesh",
     "specificMaterial": "Metal Mesh",
-    "Process": "Whole process",
-    "EmissionFactor": 0.187
+    "Process": "Fabricated Structural Steel Sections",
+    "EmissionFactor": 0.086
   },
   {
     "countryOfOrigin": "GB",
     "materialClass": "Mesh",
     "specificMaterial": "Metal Mesh",
-    "Process": "Whole process",
-    "EmissionFactor": 0.036
+    "Process": "Fabricated Structural Steel Sections",
+    "EmissionFactor": 0.017
   },
   {
     "countryOfOrigin": "RoW",
     "materialClass": "Mesh",
     "specificMaterial": "Metal Mesh",
-    "Process": "Whole process",
-    "EmissionFactor": 0.134
+    "Process": "Fabricated Structural Steel Sections",
+    "EmissionFactor": 0.062
   },
   {
     "countryOfOrigin": "CN",
@@ -7721,1369 +6090,109 @@
     "EmissionFactor": 0.134
   },
   {
-    "countryOfOrigin": "CN",
+    "countryOfOrigin": "Unknown",
     "materialClass": "Foam",
     "specificMaterial": "Polyurethane Foam",
     "Process": "Whole process",
-    "EmissionFactor": 0.003
+    "EmissionFactor": 6.1
   },
   {
-    "countryOfOrigin": "VN",
+    "countryOfOrigin": "Finland",
     "materialClass": "Foam",
     "specificMaterial": "Polyurethane Foam",
     "Process": "Whole process",
-    "EmissionFactor": 0.002
-  },
-  {
-    "countryOfOrigin": "GLO",
-    "materialClass": "Foam",
-    "specificMaterial": "Polyurethane Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "CZ",
-    "materialClass": "Foam",
-    "specificMaterial": "Polyurethane Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "FR",
-    "materialClass": "Foam",
-    "specificMaterial": "Polyurethane Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0
-  },
-  {
-    "countryOfOrigin": "NL",
-    "materialClass": "Foam",
-    "specificMaterial": "Polyurethane Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.002
-  },
-  {
-    "countryOfOrigin": "PL",
-    "materialClass": "Foam",
-    "specificMaterial": "Polyurethane Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.004
-  },
-  {
-    "countryOfOrigin": "ES",
-    "materialClass": "Foam",
-    "specificMaterial": "Polyurethane Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.001
-  },
-  {
-    "countryOfOrigin": "TW",
-    "materialClass": "Foam",
-    "specificMaterial": "Polyurethane Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "US",
-    "materialClass": "Foam",
-    "specificMaterial": "Polyurethane Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.002
-  },
-  {
-    "countryOfOrigin": "IN",
-    "materialClass": "Foam",
-    "specificMaterial": "Polyurethane Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.005
-  },
-  {
-    "countryOfOrigin": "GB",
-    "materialClass": "Foam",
-    "specificMaterial": "Polyurethane Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.001
-  },
-  {
-    "countryOfOrigin": "RoW",
-    "materialClass": "Foam",
-    "specificMaterial": "Polyurethane Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.004
-  },
-  {
-    "countryOfOrigin": "CN",
-    "materialClass": "Foam",
-    "specificMaterial": "Polyurethane Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "VN",
-    "materialClass": "Foam",
-    "specificMaterial": "Polyurethane Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.002
-  },
-  {
-    "countryOfOrigin": "GLO",
-    "materialClass": "Foam",
-    "specificMaterial": "Polyurethane Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "CZ",
-    "materialClass": "Foam",
-    "specificMaterial": "Polyurethane Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "FR",
-    "materialClass": "Foam",
-    "specificMaterial": "Polyurethane Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0
-  },
-  {
-    "countryOfOrigin": "NL",
-    "materialClass": "Foam",
-    "specificMaterial": "Polyurethane Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.002
-  },
-  {
-    "countryOfOrigin": "PL",
-    "materialClass": "Foam",
-    "specificMaterial": "Polyurethane Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.004
-  },
-  {
-    "countryOfOrigin": "ES",
-    "materialClass": "Foam",
-    "specificMaterial": "Polyurethane Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.001
-  },
-  {
-    "countryOfOrigin": "TW",
-    "materialClass": "Foam",
-    "specificMaterial": "Polyurethane Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "US",
-    "materialClass": "Foam",
-    "specificMaterial": "Polyurethane Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.002
-  },
-  {
-    "countryOfOrigin": "IN",
-    "materialClass": "Foam",
-    "specificMaterial": "Polyurethane Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.005
-  },
-  {
-    "countryOfOrigin": "GB",
-    "materialClass": "Foam",
-    "specificMaterial": "Polyurethane Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.001
-  },
-  {
-    "countryOfOrigin": "RoW",
-    "materialClass": "Foam",
-    "specificMaterial": "Polyurethane Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.004
-  },
-  {
-    "countryOfOrigin": "CN",
-    "materialClass": "Foam",
-    "specificMaterial": "Memory Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "VN",
-    "materialClass": "Foam",
-    "specificMaterial": "Memory Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.002
+    "EmissionFactor": 0.179
   },
   {
     "countryOfOrigin": "GLO",
     "materialClass": "Foam",
     "specificMaterial": "Memory Foam",
     "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "CZ",
-    "materialClass": "Foam",
-    "specificMaterial": "Memory Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "FR",
-    "materialClass": "Foam",
-    "specificMaterial": "Memory Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0
-  },
-  {
-    "countryOfOrigin": "NL",
-    "materialClass": "Foam",
-    "specificMaterial": "Memory Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.002
-  },
-  {
-    "countryOfOrigin": "PL",
-    "materialClass": "Foam",
-    "specificMaterial": "Memory Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.004
-  },
-  {
-    "countryOfOrigin": "ES",
-    "materialClass": "Foam",
-    "specificMaterial": "Memory Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.001
-  },
-  {
-    "countryOfOrigin": "TW",
-    "materialClass": "Foam",
-    "specificMaterial": "Memory Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "US",
-    "materialClass": "Foam",
-    "specificMaterial": "Memory Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.002
-  },
-  {
-    "countryOfOrigin": "IN",
-    "materialClass": "Foam",
-    "specificMaterial": "Memory Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.005
-  },
-  {
-    "countryOfOrigin": "GB",
-    "materialClass": "Foam",
-    "specificMaterial": "Memory Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.001
-  },
-  {
-    "countryOfOrigin": "RoW",
-    "materialClass": "Foam",
-    "specificMaterial": "Memory Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.004
-  },
-  {
-    "countryOfOrigin": "CN",
-    "materialClass": "Foam",
-    "specificMaterial": "Latex Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "VN",
-    "materialClass": "Foam",
-    "specificMaterial": "Latex Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.002
+    "EmissionFactor": 6.1
   },
   {
     "countryOfOrigin": "GLO",
     "materialClass": "Foam",
     "specificMaterial": "Latex Foam",
     "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "CZ",
-    "materialClass": "Foam",
-    "specificMaterial": "Latex Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "FR",
-    "materialClass": "Foam",
-    "specificMaterial": "Latex Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0
-  },
-  {
-    "countryOfOrigin": "NL",
-    "materialClass": "Foam",
-    "specificMaterial": "Latex Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.002
-  },
-  {
-    "countryOfOrigin": "PL",
-    "materialClass": "Foam",
-    "specificMaterial": "Latex Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.004
-  },
-  {
-    "countryOfOrigin": "ES",
-    "materialClass": "Foam",
-    "specificMaterial": "Latex Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.001
-  },
-  {
-    "countryOfOrigin": "TW",
-    "materialClass": "Foam",
-    "specificMaterial": "Latex Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "US",
-    "materialClass": "Foam",
-    "specificMaterial": "Latex Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.002
-  },
-  {
-    "countryOfOrigin": "IN",
-    "materialClass": "Foam",
-    "specificMaterial": "Latex Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.005
-  },
-  {
-    "countryOfOrigin": "GB",
-    "materialClass": "Foam",
-    "specificMaterial": "Latex Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.001
-  },
-  {
-    "countryOfOrigin": "RoW",
-    "materialClass": "Foam",
-    "specificMaterial": "Latex Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.004
-  },
-  {
-    "countryOfOrigin": "CN",
-    "materialClass": "Foam",
-    "specificMaterial": "High Density Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "VN",
-    "materialClass": "Foam",
-    "specificMaterial": "High Density Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.002
-  },
-  {
-    "countryOfOrigin": "GLO",
-    "materialClass": "Foam",
-    "specificMaterial": "High Density Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "CZ",
-    "materialClass": "Foam",
-    "specificMaterial": "High Density Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "FR",
-    "materialClass": "Foam",
-    "specificMaterial": "High Density Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0
-  },
-  {
-    "countryOfOrigin": "NL",
-    "materialClass": "Foam",
-    "specificMaterial": "High Density Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.002
+    "EmissionFactor": 6.1
   },
   {
     "countryOfOrigin": "PL",
     "materialClass": "Foam",
     "specificMaterial": "High Density Foam",
     "Process": "Whole process",
-    "EmissionFactor": 0.004
-  },
-  {
-    "countryOfOrigin": "ES",
-    "materialClass": "Foam",
-    "specificMaterial": "High Density Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.001
-  },
-  {
-    "countryOfOrigin": "TW",
-    "materialClass": "Foam",
-    "specificMaterial": "High Density Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "US",
-    "materialClass": "Foam",
-    "specificMaterial": "High Density Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.002
-  },
-  {
-    "countryOfOrigin": "IN",
-    "materialClass": "Foam",
-    "specificMaterial": "High Density Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.005
-  },
-  {
-    "countryOfOrigin": "GB",
-    "materialClass": "Foam",
-    "specificMaterial": "High Density Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.001
-  },
-  {
-    "countryOfOrigin": "RoW",
-    "materialClass": "Foam",
-    "specificMaterial": "High Density Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.004
-  },
-  {
-    "countryOfOrigin": "CN",
-    "materialClass": "Foam",
-    "specificMaterial": "Low Density Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "VN",
-    "materialClass": "Foam",
-    "specificMaterial": "Low Density Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.002
+    "EmissionFactor": 5.01
   },
   {
     "countryOfOrigin": "GLO",
     "materialClass": "Foam",
     "specificMaterial": "Low Density Foam",
     "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "CZ",
-    "materialClass": "Foam",
-    "specificMaterial": "Low Density Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "FR",
-    "materialClass": "Foam",
-    "specificMaterial": "Low Density Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0
-  },
-  {
-    "countryOfOrigin": "NL",
-    "materialClass": "Foam",
-    "specificMaterial": "Low Density Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.002
-  },
-  {
-    "countryOfOrigin": "PL",
-    "materialClass": "Foam",
-    "specificMaterial": "Low Density Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.004
-  },
-  {
-    "countryOfOrigin": "ES",
-    "materialClass": "Foam",
-    "specificMaterial": "Low Density Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.001
-  },
-  {
-    "countryOfOrigin": "TW",
-    "materialClass": "Foam",
-    "specificMaterial": "Low Density Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "US",
-    "materialClass": "Foam",
-    "specificMaterial": "Low Density Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.002
-  },
-  {
-    "countryOfOrigin": "IN",
-    "materialClass": "Foam",
-    "specificMaterial": "Low Density Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.005
-  },
-  {
-    "countryOfOrigin": "GB",
-    "materialClass": "Foam",
-    "specificMaterial": "Low Density Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.001
-  },
-  {
-    "countryOfOrigin": "RoW",
-    "materialClass": "Foam",
-    "specificMaterial": "Low Density Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.004
-  },
-  {
-    "countryOfOrigin": "CN",
-    "materialClass": "Foam",
-    "specificMaterial": "Gel Infused Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "VN",
-    "materialClass": "Foam",
-    "specificMaterial": "Gel Infused Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.002
+    "EmissionFactor": 5.01
   },
   {
     "countryOfOrigin": "GLO",
     "materialClass": "Foam",
     "specificMaterial": "Gel Infused Foam",
     "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "CZ",
-    "materialClass": "Foam",
-    "specificMaterial": "Gel Infused Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "FR",
-    "materialClass": "Foam",
-    "specificMaterial": "Gel Infused Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0
-  },
-  {
-    "countryOfOrigin": "NL",
-    "materialClass": "Foam",
-    "specificMaterial": "Gel Infused Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.002
-  },
-  {
-    "countryOfOrigin": "PL",
-    "materialClass": "Foam",
-    "specificMaterial": "Gel Infused Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.004
-  },
-  {
-    "countryOfOrigin": "ES",
-    "materialClass": "Foam",
-    "specificMaterial": "Gel Infused Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.001
-  },
-  {
-    "countryOfOrigin": "TW",
-    "materialClass": "Foam",
-    "specificMaterial": "Gel Infused Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "US",
-    "materialClass": "Foam",
-    "specificMaterial": "Gel Infused Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.002
-  },
-  {
-    "countryOfOrigin": "IN",
-    "materialClass": "Foam",
-    "specificMaterial": "Gel Infused Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.005
-  },
-  {
-    "countryOfOrigin": "GB",
-    "materialClass": "Foam",
-    "specificMaterial": "Gel Infused Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.001
-  },
-  {
-    "countryOfOrigin": "RoW",
-    "materialClass": "Foam",
-    "specificMaterial": "Gel Infused Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.004
-  },
-  {
-    "countryOfOrigin": "CN",
-    "materialClass": "Foam",
-    "specificMaterial": "Egg Crate Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "VN",
-    "materialClass": "Foam",
-    "specificMaterial": "Egg Crate Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.002
+    "EmissionFactor": 6.1
   },
   {
     "countryOfOrigin": "GLO",
     "materialClass": "Foam",
     "specificMaterial": "Egg Crate Foam",
     "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "CZ",
-    "materialClass": "Foam",
-    "specificMaterial": "Egg Crate Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "FR",
-    "materialClass": "Foam",
-    "specificMaterial": "Egg Crate Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0
-  },
-  {
-    "countryOfOrigin": "NL",
-    "materialClass": "Foam",
-    "specificMaterial": "Egg Crate Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.002
-  },
-  {
-    "countryOfOrigin": "PL",
-    "materialClass": "Foam",
-    "specificMaterial": "Egg Crate Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.004
-  },
-  {
-    "countryOfOrigin": "ES",
-    "materialClass": "Foam",
-    "specificMaterial": "Egg Crate Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.001
-  },
-  {
-    "countryOfOrigin": "TW",
-    "materialClass": "Foam",
-    "specificMaterial": "Egg Crate Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "US",
-    "materialClass": "Foam",
-    "specificMaterial": "Egg Crate Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.002
-  },
-  {
-    "countryOfOrigin": "IN",
-    "materialClass": "Foam",
-    "specificMaterial": "Egg Crate Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.005
-  },
-  {
-    "countryOfOrigin": "GB",
-    "materialClass": "Foam",
-    "specificMaterial": "Egg Crate Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.001
-  },
-  {
-    "countryOfOrigin": "RoW",
-    "materialClass": "Foam",
-    "specificMaterial": "Egg Crate Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.004
-  },
-  {
-    "countryOfOrigin": "CN",
-    "materialClass": "Foam",
-    "specificMaterial": "Rebond Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "VN",
-    "materialClass": "Foam",
-    "specificMaterial": "Rebond Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.002
+    "EmissionFactor": 5.01
   },
   {
     "countryOfOrigin": "GLO",
     "materialClass": "Foam",
     "specificMaterial": "Rebond Foam",
     "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "CZ",
-    "materialClass": "Foam",
-    "specificMaterial": "Rebond Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "FR",
-    "materialClass": "Foam",
-    "specificMaterial": "Rebond Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0
-  },
-  {
-    "countryOfOrigin": "NL",
-    "materialClass": "Foam",
-    "specificMaterial": "Rebond Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.002
-  },
-  {
-    "countryOfOrigin": "PL",
-    "materialClass": "Foam",
-    "specificMaterial": "Rebond Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.004
-  },
-  {
-    "countryOfOrigin": "ES",
-    "materialClass": "Foam",
-    "specificMaterial": "Rebond Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.001
-  },
-  {
-    "countryOfOrigin": "TW",
-    "materialClass": "Foam",
-    "specificMaterial": "Rebond Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "US",
-    "materialClass": "Foam",
-    "specificMaterial": "Rebond Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.002
-  },
-  {
-    "countryOfOrigin": "IN",
-    "materialClass": "Foam",
-    "specificMaterial": "Rebond Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.005
-  },
-  {
-    "countryOfOrigin": "GB",
-    "materialClass": "Foam",
-    "specificMaterial": "Rebond Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.001
-  },
-  {
-    "countryOfOrigin": "RoW",
-    "materialClass": "Foam",
-    "specificMaterial": "Rebond Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.004
-  },
-  {
-    "countryOfOrigin": "CN",
-    "materialClass": "Foam",
-    "specificMaterial": "Convoluted Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "VN",
-    "materialClass": "Foam",
-    "specificMaterial": "Convoluted Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.002
+    "EmissionFactor": 6.1
   },
   {
     "countryOfOrigin": "GLO",
     "materialClass": "Foam",
     "specificMaterial": "Convoluted Foam",
     "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "CZ",
-    "materialClass": "Foam",
-    "specificMaterial": "Convoluted Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "FR",
-    "materialClass": "Foam",
-    "specificMaterial": "Convoluted Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0
-  },
-  {
-    "countryOfOrigin": "NL",
-    "materialClass": "Foam",
-    "specificMaterial": "Convoluted Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.002
-  },
-  {
-    "countryOfOrigin": "PL",
-    "materialClass": "Foam",
-    "specificMaterial": "Convoluted Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.004
-  },
-  {
-    "countryOfOrigin": "ES",
-    "materialClass": "Foam",
-    "specificMaterial": "Convoluted Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.001
-  },
-  {
-    "countryOfOrigin": "TW",
-    "materialClass": "Foam",
-    "specificMaterial": "Convoluted Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "US",
-    "materialClass": "Foam",
-    "specificMaterial": "Convoluted Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.002
-  },
-  {
-    "countryOfOrigin": "IN",
-    "materialClass": "Foam",
-    "specificMaterial": "Convoluted Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.005
-  },
-  {
-    "countryOfOrigin": "GB",
-    "materialClass": "Foam",
-    "specificMaterial": "Convoluted Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.001
-  },
-  {
-    "countryOfOrigin": "RoW",
-    "materialClass": "Foam",
-    "specificMaterial": "Convoluted Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.004
-  },
-  {
-    "countryOfOrigin": "CN",
-    "materialClass": "Foam",
-    "specificMaterial": "Open Cell Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "VN",
-    "materialClass": "Foam",
-    "specificMaterial": "Open Cell Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.002
+    "EmissionFactor": 5.01
   },
   {
     "countryOfOrigin": "GLO",
     "materialClass": "Foam",
     "specificMaterial": "Open Cell Foam",
     "Process": "Whole process",
-    "EmissionFactor": 0.003
+    "EmissionFactor": 6.1
   },
   {
-    "countryOfOrigin": "CZ",
-    "materialClass": "Foam",
-    "specificMaterial": "Open Cell Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "FR",
-    "materialClass": "Foam",
-    "specificMaterial": "Open Cell Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0
-  },
-  {
-    "countryOfOrigin": "NL",
-    "materialClass": "Foam",
-    "specificMaterial": "Open Cell Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.002
-  },
-  {
-    "countryOfOrigin": "PL",
-    "materialClass": "Foam",
-    "specificMaterial": "Open Cell Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.004
-  },
-  {
-    "countryOfOrigin": "ES",
-    "materialClass": "Foam",
-    "specificMaterial": "Open Cell Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.001
-  },
-  {
-    "countryOfOrigin": "TW",
-    "materialClass": "Foam",
-    "specificMaterial": "Open Cell Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "US",
-    "materialClass": "Foam",
-    "specificMaterial": "Open Cell Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.002
-  },
-  {
-    "countryOfOrigin": "IN",
-    "materialClass": "Foam",
-    "specificMaterial": "Open Cell Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.005
-  },
-  {
-    "countryOfOrigin": "GB",
-    "materialClass": "Foam",
-    "specificMaterial": "Open Cell Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.001
-  },
-  {
-    "countryOfOrigin": "RoW",
-    "materialClass": "Foam",
-    "specificMaterial": "Open Cell Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.004
-  },
-  {
-    "countryOfOrigin": "CN",
+    "countryOfOrigin": "TR",
     "materialClass": "Foam",
     "specificMaterial": "Closed Cell Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "VN",
-    "materialClass": "Foam",
-    "specificMaterial": "Closed Cell Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.002
-  },
-  {
-    "countryOfOrigin": "GLO",
-    "materialClass": "Foam",
-    "specificMaterial": "Closed Cell Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "CZ",
-    "materialClass": "Foam",
-    "specificMaterial": "Closed Cell Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "FR",
-    "materialClass": "Foam",
-    "specificMaterial": "Closed Cell Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0
-  },
-  {
-    "countryOfOrigin": "NL",
-    "materialClass": "Foam",
-    "specificMaterial": "Closed Cell Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.002
-  },
-  {
-    "countryOfOrigin": "PL",
-    "materialClass": "Foam",
-    "specificMaterial": "Closed Cell Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.004
-  },
-  {
-    "countryOfOrigin": "ES",
-    "materialClass": "Foam",
-    "specificMaterial": "Closed Cell Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.001
-  },
-  {
-    "countryOfOrigin": "TW",
-    "materialClass": "Foam",
-    "specificMaterial": "Closed Cell Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "US",
-    "materialClass": "Foam",
-    "specificMaterial": "Closed Cell Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.002
-  },
-  {
-    "countryOfOrigin": "IN",
-    "materialClass": "Foam",
-    "specificMaterial": "Closed Cell Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.005
-  },
-  {
-    "countryOfOrigin": "GB",
-    "materialClass": "Foam",
-    "specificMaterial": "Closed Cell Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.001
-  },
-  {
-    "countryOfOrigin": "RoW",
-    "materialClass": "Foam",
-    "specificMaterial": "Closed Cell Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.004
-  },
-  {
-    "countryOfOrigin": "CN",
-    "materialClass": "Foam",
-    "specificMaterial": "Microbead Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "VN",
-    "materialClass": "Foam",
-    "specificMaterial": "Microbead Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.002
+    "Process": "Whole process (A3)",
+    "EmissionFactor": 0.0013
   },
   {
     "countryOfOrigin": "GLO",
     "materialClass": "Foam",
     "specificMaterial": "Microbead Foam",
     "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "CZ",
-    "materialClass": "Foam",
-    "specificMaterial": "Microbead Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "FR",
-    "materialClass": "Foam",
-    "specificMaterial": "Microbead Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0
-  },
-  {
-    "countryOfOrigin": "NL",
-    "materialClass": "Foam",
-    "specificMaterial": "Microbead Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.002
-  },
-  {
-    "countryOfOrigin": "PL",
-    "materialClass": "Foam",
-    "specificMaterial": "Microbead Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.004
-  },
-  {
-    "countryOfOrigin": "ES",
-    "materialClass": "Foam",
-    "specificMaterial": "Microbead Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.001
-  },
-  {
-    "countryOfOrigin": "TW",
-    "materialClass": "Foam",
-    "specificMaterial": "Microbead Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "US",
-    "materialClass": "Foam",
-    "specificMaterial": "Microbead Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.002
-  },
-  {
-    "countryOfOrigin": "IN",
-    "materialClass": "Foam",
-    "specificMaterial": "Microbead Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.005
-  },
-  {
-    "countryOfOrigin": "GB",
-    "materialClass": "Foam",
-    "specificMaterial": "Microbead Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.001
-  },
-  {
-    "countryOfOrigin": "RoW",
-    "materialClass": "Foam",
-    "specificMaterial": "Microbead Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.004
-  },
-  {
-    "countryOfOrigin": "CN",
-    "materialClass": "Foam",
-    "specificMaterial": "Polyethylene Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "VN",
-    "materialClass": "Foam",
-    "specificMaterial": "Polyethylene Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.002
+    "EmissionFactor": 6.1
   },
   {
     "countryOfOrigin": "GLO",
     "materialClass": "Foam",
     "specificMaterial": "Polyethylene Foam",
     "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "CZ",
-    "materialClass": "Foam",
-    "specificMaterial": "Polyethylene Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "FR",
-    "materialClass": "Foam",
-    "specificMaterial": "Polyethylene Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0
-  },
-  {
-    "countryOfOrigin": "NL",
-    "materialClass": "Foam",
-    "specificMaterial": "Polyethylene Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.002
-  },
-  {
-    "countryOfOrigin": "PL",
-    "materialClass": "Foam",
-    "specificMaterial": "Polyethylene Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.004
-  },
-  {
-    "countryOfOrigin": "ES",
-    "materialClass": "Foam",
-    "specificMaterial": "Polyethylene Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.001
-  },
-  {
-    "countryOfOrigin": "TW",
-    "materialClass": "Foam",
-    "specificMaterial": "Polyethylene Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "US",
-    "materialClass": "Foam",
-    "specificMaterial": "Polyethylene Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.002
-  },
-  {
-    "countryOfOrigin": "IN",
-    "materialClass": "Foam",
-    "specificMaterial": "Polyethylene Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.005
-  },
-  {
-    "countryOfOrigin": "GB",
-    "materialClass": "Foam",
-    "specificMaterial": "Polyethylene Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.001
-  },
-  {
-    "countryOfOrigin": "RoW",
-    "materialClass": "Foam",
-    "specificMaterial": "Polyethylene Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.004
-  },
-  {
-    "countryOfOrigin": "CN",
-    "materialClass": "Foam",
-    "specificMaterial": "Sculpted Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "VN",
-    "materialClass": "Foam",
-    "specificMaterial": "Sculpted Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.002
+    "EmissionFactor": 5.01
   },
   {
     "countryOfOrigin": "GLO",
     "materialClass": "Foam",
     "specificMaterial": "Sculpted Foam",
     "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "CZ",
-    "materialClass": "Foam",
-    "specificMaterial": "Sculpted Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "FR",
-    "materialClass": "Foam",
-    "specificMaterial": "Sculpted Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0
-  },
-  {
-    "countryOfOrigin": "NL",
-    "materialClass": "Foam",
-    "specificMaterial": "Sculpted Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.002
-  },
-  {
-    "countryOfOrigin": "PL",
-    "materialClass": "Foam",
-    "specificMaterial": "Sculpted Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.004
-  },
-  {
-    "countryOfOrigin": "ES",
-    "materialClass": "Foam",
-    "specificMaterial": "Sculpted Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.001
-  },
-  {
-    "countryOfOrigin": "TW",
-    "materialClass": "Foam",
-    "specificMaterial": "Sculpted Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.003
-  },
-  {
-    "countryOfOrigin": "US",
-    "materialClass": "Foam",
-    "specificMaterial": "Sculpted Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.002
-  },
-  {
-    "countryOfOrigin": "IN",
-    "materialClass": "Foam",
-    "specificMaterial": "Sculpted Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.005
-  },
-  {
-    "countryOfOrigin": "GB",
-    "materialClass": "Foam",
-    "specificMaterial": "Sculpted Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.001
-  },
-  {
-    "countryOfOrigin": "RoW",
-    "materialClass": "Foam",
-    "specificMaterial": "Sculpted Foam",
-    "Process": "Whole process",
-    "EmissionFactor": 0.004
+    "EmissionFactor": 6.1
   },
   {
     "countryOfOrigin": "CN",
@@ -9175,5 +6284,103 @@
     "specificMaterial": "Whole process",
     "Process": "Whole process",
     "EmissionFactor": 2.729
+  },
+  {
+    "countryOfOrigin": "CN",
+    "materialClass": "Rubber",
+    "specificMaterial": "Silicone",
+    "Process": "Whole process",
+    "EmissionFactor": 1.705798913
+  },
+  {
+    "countryOfOrigin": "VN",
+    "materialClass": "Rubber",
+    "specificMaterial": "Silicone",
+    "Process": "Whole process",
+    "EmissionFactor": 1.284783349
+  },
+  {
+    "countryOfOrigin": "GLO",
+    "materialClass": "Rubber",
+    "specificMaterial": "Silicone",
+    "Process": "Whole process",
+    "EmissionFactor": 1.382077375
+  },
+  {
+    "countryOfOrigin": "CZ",
+    "materialClass": "Rubber",
+    "specificMaterial": "Silicone",
+    "Process": "Whole process",
+    "EmissionFactor": 1.351307415
+  },
+  {
+    "countryOfOrigin": "FR",
+    "materialClass": "Rubber",
+    "specificMaterial": "Silicone",
+    "Process": "Whole process",
+    "EmissionFactor": 0.1572446814
+  },
+  {
+    "countryOfOrigin": "NL",
+    "materialClass": "Rubber",
+    "specificMaterial": "Silicone",
+    "Process": "Whole process",
+    "EmissionFactor": 0.9030254022
+  },
+  {
+    "countryOfOrigin": "PL",
+    "materialClass": "Rubber",
+    "specificMaterial": "Silicone",
+    "Process": "Whole process",
+    "EmissionFactor": 1.960375221
+  },
+  {
+    "countryOfOrigin": "ES",
+    "materialClass": "Rubber",
+    "specificMaterial": "Silicone",
+    "Process": "Whole process",
+    "EmissionFactor": 0.4122339066
+  },
+  {
+    "countryOfOrigin": "TW",
+    "materialClass": "Rubber",
+    "specificMaterial": "Silicone",
+    "Process": "Whole process",
+    "EmissionFactor": 1.573252959
+  },
+  {
+    "countryOfOrigin": "US",
+    "materialClass": "Rubber",
+    "specificMaterial": "Silicone",
+    "Process": "Whole process",
+    "EmissionFactor": 0.9847838535
+  },
+  {
+    "countryOfOrigin": "IN",
+    "materialClass": "Rubber",
+    "specificMaterial": "Silicone",
+    "Process": "Whole process",
+    "EmissionFactor": 2.935154688
+  },
+  {
+    "countryOfOrigin": "GB",
+    "materialClass": "Rubber",
+    "specificMaterial": "Silicone",
+    "Process": "Whole process",
+    "EmissionFactor": 0.5726606541
+  },
+  {
+    "countryOfOrigin": "Suadi Arabia",
+    "materialClass": "Rubber",
+    "specificMaterial": "Synthetic Rubber",
+    "Process": "Whole process",
+    "EmissionFactor": 0.453
+  },
+  {
+    "countryOfOrigin": "GLO",
+    "materialClass": "Composite",
+    "specificMaterial": "Fiberglass",
+    "Process": "Whole process",
+    "EmissionFactor": 3.82
   }
 ]

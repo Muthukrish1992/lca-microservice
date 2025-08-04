@@ -30,7 +30,7 @@ function convertManufacturingEfToJson() {
     
     // Target columns: A-D and K
     // A: Country/Region, B: Material Class, C: Material Type, D: Process, K: EF (kgCO2) per 1 kg
-    const targetColumns = [0, 1, 2, 3, 10]; // A=0, B=1, C=2, D=3, K=10
+    const targetColumns = [0, 1, 2, 3, 11]; // A=0, B=1, C=2, D=3, K=10
     const targetHeaders = ['countryOfOrigin', 'materialClass', 'specificMaterial', 'Process', 'EmissionFactor'];
     
     const jsonData = [];
