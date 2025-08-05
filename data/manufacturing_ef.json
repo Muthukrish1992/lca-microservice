@@ -749,7 +749,7 @@
     "EmissionFactor": 3.586
   },
   {
-    "countryOfOrigin": "EU",
+    "countryOfOrigin": "RoW",
     "materialClass": "Metal",
     "specificMaterial": "Aluminium Section Bar",
     "Process": "metal working average for aluminium product manufacturing",
@@ -1362,28 +1362,28 @@
     "materialClass": "Fabric",
     "specificMaterial": "Polyester",
     "Process": "weaving of synthetic fibre for industrial use",
-    "EmissionFactor": 40.21
+    "EmissionFactor": 0.568
   },
   {
     "countryOfOrigin": "GLO",
     "materialClass": "Fabric",
     "specificMaterial": "Nylon",
     "Process": "weaving of synthetic fibre for industrial use",
-    "EmissionFactor": 40.21
+    "EmissionFactor": 0.568
   },
   {
     "countryOfOrigin": "GLO",
     "materialClass": "Fabric",
     "specificMaterial": "Nylon",
     "Process": "weaving of synthetic fibre for industrial use",
-    "EmissionFactor": 40.21
+    "EmissionFactor": 0.568
   },
   {
     "countryOfOrigin": "GLO",
     "materialClass": "Fabric",
     "specificMaterial": "Mesh (Polyester)",
     "Process": "weaving of synthetic fibre for industrial use",
-    "EmissionFactor": 40.21
+    "EmissionFactor": 0.568
   },
   {
     "countryOfOrigin": "CN",
@@ -1474,21 +1474,21 @@
     "materialClass": "Fabric",
     "specificMaterial": "Faux Leather (PU)",
     "Process": "weaving of synthetic fibre for industrial use",
-    "EmissionFactor": 40.21
+    "EmissionFactor": 0.568
   },
   {
     "countryOfOrigin": "GLO",
     "materialClass": "Fabric",
     "specificMaterial": "Vinyl",
     "Process": "weaving of synthetic fibre for industrial use",
-    "EmissionFactor": 40.21
+    "EmissionFactor": 0.568
   },
   {
     "countryOfOrigin": "GLO",
     "materialClass": "Fabric",
     "specificMaterial": "Acrylic",
     "Process": "weaving of synthetic fibre for industrial use",
-    "EmissionFactor": 40.21
+    "EmissionFactor": 0.568
   },
   {
     "countryOfOrigin": "CN",
@@ -6090,7 +6090,7 @@
     "EmissionFactor": 0.134
   },
   {
-    "countryOfOrigin": "Unknown",
+    "countryOfOrigin": "GLO",
     "materialClass": "Foam",
     "specificMaterial": "Polyurethane Foam",
     "Process": "Whole process",
