@@ -196,13 +196,6 @@
     "EmissionFactor": 0.134
   },
   {
-    "countryOfOrigin": "RoW",
-    "materialClass": "Plastic",
-    "specificMaterial": "Thermoplastic Elastomers (TPE)",
-    "Process": "Injection Moulding",
-    "EmissionFactor": 1.42
-  },
-  {
     "countryOfOrigin": "Switzerland",
     "materialClass": "Stone",
     "specificMaterial": "Marble",

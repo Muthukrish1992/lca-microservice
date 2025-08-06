@@ -747,28 +747,7 @@
         "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material.",
         "Use_Case": "High-Density Polyethylene (HDPE)\n\n✅ Suitable for furniture, interior fit-outs, and catering equipment applications where lightweight, durable, and moisture-resistant materials are essential. Ideal for products such as food containers, trays, protective covers, outdoor furniture, and interior components due to its excellent chemical resistance, toughness, and ease of cleaning. HDPE's ability to withstand harsh environments makes it a practical choice for both indoor and outdoor settings.\n❌ Not suitable for applications where environmental sustainability is a priority, such as projects requiring biodegradable materials or those with a focus on reducing carbon footprint. HDPE is derived from fossil fuels, typically lacks recycled content, and its production and disposal can contribute to environmental pollution. Consider alternatives like bioplastics or recycled materials for eco-conscious projects."
     },
-    {
-        "countryOfOrigin": "RoW",
-        "materialClass": "Plastic",
-        "specificMaterial": "Polyurethane (PU)",
-        "EmissionFactor": "6.23",
-        "EF_Source": "Ecoinvent",
-        "Source_Dataset_Name": "market for polyurethane, rigid foam",
-        "EF_Type": "Direct",
-        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material.",
-        "Use_Case": "Polyurethane (PU)\n\n✅ Suitable for interior fit-outs and catering equipment applications that demand high thermal insulation and mechanical load-bearing capabilities, such as refrigerated units, insulated panels, and cold storage facilities. Its excellent insulating properties and structural strength make it ideal for maintaining temperature control and supporting heavy loads.\n❌ Not suitable for furniture applications where environmental sustainability, biodegradability, or recyclability are priorities. Due to its fossil fuel origin, lack of recycled content, and thermoset nature, polyurethane rigid foam poses challenges in terms of environmental impact and end-of-life disposal. Consider alternative materials if reducing ecological footprint is a key concern."
-    },
-    {
-        "countryOfOrigin": "EU",
-        "materialClass": "Plastic",
-        "specificMaterial": "Polyurethane (PU)",
-        "EmissionFactor": "4.38",
-        "EF_Source": "Ecoinvent",
-        "Source_Dataset_Name": "market for polyurethane, rigid foam",
-        "EF_Type": "Direct",
-        "Type_Rationale": "A specific emission factor was applied based on a direct match to the selected material.",
-        "Use_Case": "Polyurethane (PU)\n\n✅ Suitable for interior fit-outs and catering equipment applications that demand high thermal insulation and mechanical load-bearing capabilities, such as refrigerated units, insulated panels, and cold storage facilities. Its excellent insulating properties and structural strength make it ideal for maintaining temperature control and supporting heavy loads.\n❌ Not suitable for furniture applications where environmental sustainability, biodegradability, or recyclability are priorities. Due to its fossil fuel origin, lack of recycled content, and thermoset nature, polyurethane rigid foam poses challenges in terms of environmental impact and end-of-life disposal. Consider alternative materials if reducing ecological footprint is a key concern."
-    },
+
     {
         "countryOfOrigin": "RoW",
         "materialClass": "Plastic",
@@ -879,17 +858,7 @@
         "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date",
         "Use_Case": "Polyvinyl Butyral (PVB)\n\n✅ Suitable for applications in furniture and interior fit-outs where cushioning and sealing are required, thanks to its flexibility, impact resistance, and strong adhesion properties. In catering equipment, PVB can be used effectively for hygienic sealants and protective packaging due to its ability to form a tight seal and resist moisture. \n❌ Not suitable for applications demanding high structural strength, such as load-bearing furniture components, due to its limited rigidity. Additionally, PVB is not ideal for projects with strict sustainability goals, as it is derived from fossil fuels, is not biodegradable, and has a relatively high environmental impact during production. Consider alternative materials with lower environmental footprints for sustainable projects."
     },
-    {
-        "countryOfOrigin": "GLO",
-        "materialClass": "Plastic",
-        "specificMaterial": "Thermoplastic Elastomers (TPE)",
-        "EmissionFactor": "3.49",
-        "EF_Source": "Ecoinvent",
-        "Source_Dataset_Name": "market for ethylene vinyl acetate copolymer",
-        "EF_Type": "Proxy",
-        "Type_Rationale": "An emission factor of a similar material was used as a proxy where a direct emission factor for the specified material could not be identified to date",
-        "Use_Case": "Thermoplastic Elastomers (TPE)\n\n✅ Suitable for applications in furniture and interiors where cushioning and sealing are required, thanks to their flexibility, impact resistance, and good adhesion properties. In the catering industry, TPE is valuable for hygienic sealants and flexible packaging due to its non-toxic nature and ease of cleaning. \n❌ Not suitable for applications that demand high structural strength or long-term sustainability goals. Its fossil fuel origin and lack of biodegradability contribute to a higher environmental impact during production and disposal, making it less ideal for eco-conscious projects."
-    },
+
     {
         "countryOfOrigin": "GLO",
         "materialClass": "Glass",
