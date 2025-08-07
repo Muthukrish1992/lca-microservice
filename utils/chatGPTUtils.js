@@ -833,6 +833,7 @@ CLASSIFICATION PRINCIPLES:
 6. If an image is present, PRIORITIZE visual cues (e.g. shape, structure, materials, intended use) over text description.
 7. If no exact match is found, choose the CLOSEST possible subcategory that logically aligns with the product's function or usage.
 8. DO NOT select a subcategory based on loose associations or naming similarities—use function and actual product type as your basis.
+9. If a product has both decorative and functional elements (e.g., a planter cabinet, acoustic furniture, or design-led partitions), classify it based on its primary structural design or intended physical use, not on surface-level styling or decorative features.
 
 RESPONSE FORMAT:
 {
