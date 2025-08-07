@@ -186,7 +186,7 @@ const calculateProcessEmissions = (productManufacturingProcess, countryOfOrigin 
   });
   
   // Get the appropriate country name for lookup
-  const fullCountry = isoToCountry[countryOfOrigin] || countryOfOrigin;
+  const fullCountry = countryOfOrigin;
   
   logger.debug(`Calculating process emissions for country: ${fullCountry}`);
   
