@@ -833,7 +833,15 @@ CLASSIFICATION PRINCIPLES:
 6. If an image is present, PRIORITIZE visual cues (e.g. shape, structure, materials, intended use) over text description.
 7. If no exact match is found, choose the CLOSEST possible subcategory that logically aligns with the product's function or usage.
 8. DO NOT select a subcategory based on loose associations or naming similarities—use function and actual product type as your basis.
-9. If a product has both decorative and functional elements (e.g., a planter cabinet, acoustic furniture, or design-led partitions), classify it based on its primary structural design or intended physical use, not on surface-level styling or decorative features.
+9. Classify by the product’s PRIMARY INTENDED USE—how it is normally interacted with—rather than by appearance alone. 
+10. If a product mixes decorative and functional elements, classify according to its DOMINANT STRUCTURAL OR FUNCTIONAL PURPOSE, not its styling. 
+11. For hybrid pieces, apply this PRIORITY ORDER when deciding dominance: 
+  1) Storage 2) Seating / Work-surface 3) Decorative / Acoustic / Lighting (unless the description clearly states otherwise). 
+12. ITEMS FOR SERVING food or drink → choose “Serving & Barware”; items for PREPARATION or cooking → choose Cookware, Bakeware, or Preparation Utensils as appropriate. 
+13. Built-in or fixed components (e.g., wall panels, countertops) go under Interior Fixtures & Finishes; freestanding pieces go under Furniture or another movable category. 
+14. Use material and design cues to decide INDOOR vs OUTDOOR subcategories when relevant. 
+15. CONSIDER SCALE: handheld or disposable items (e.g., earplugs) belong in PPE or consumables, not furniture or heavy equipment. 
+16. If two valid categories remain equally plausible, default to the one that reflects the product’s MOST COMMON REAL-WORLD USE in commercial or industrial settings.
 
 RESPONSE FORMAT:
 {
