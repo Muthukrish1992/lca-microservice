@@ -108,7 +108,7 @@ class AIProcessingQueue {
     const productsWithoutImages = [];
 
     for (const item of batchItems) {
-      if (item.product.imageUrl) {
+      if (item.product.images) {
         productsWithImages.push(item);
       } else {
         productsWithoutImages.push(item);
@@ -327,7 +327,7 @@ class AIProcessingQueue {
         item.product.code,
         item.product.name,
         item.product.description,
-        item.product.imageUrl,
+        item.product.images[0],
         item.req
       );
 
@@ -336,7 +336,7 @@ class AIProcessingQueue {
         item.product.name,
         item.product.description,
         item.product.weight,
-        item.product.imageUrl,
+        item.product.images[0],
         item.req
       );
 
@@ -365,9 +365,9 @@ class AIProcessingQueue {
         {
           $set: {
             category: classifyResult.category,
-            subcategory: classifyResult.subcategory,
-            bom: classifyBOMResult,
-            manufacturingProcesses: classifyManufacturingProcessResult,
+            subCategory: classifyResult.subcategory,
+            materials: classifyBOMResult,
+            productManufacturingProcess: classifyManufacturingProcessResult,
             co2Emission,
             co2EmissionRawMaterials,
             co2EmissionFromProcesses,
