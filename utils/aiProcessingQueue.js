@@ -255,7 +255,8 @@ class AIProcessingQueue {
             item.product.countryOfOrigin
           );
           const co2EmissionFromProcesses = productService.calculateProcessEmissions(
-            manufacturing.processes
+            manufacturing.processes,
+            item.product.countryOfOrigin
           );
 
           const co2Emission = co2EmissionRawMaterials + co2EmissionFromProcesses;
@@ -354,7 +355,8 @@ class AIProcessingQueue {
         item.product.countryOfOrigin
       );
       const co2EmissionFromProcesses = productService.calculateProcessEmissions(
-        classifyManufacturingProcessResult
+        classifyManufacturingProcessResult,
+        item.product.countryOfOrigin
       );
 
       const co2Emission = co2EmissionRawMaterials + co2EmissionFromProcesses;
