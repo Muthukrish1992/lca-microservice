@@ -109,7 +109,7 @@ const normalize = str => str?.trim().toLowerCase();
 const calculateRawMaterialEmissions = (materials, countryOfOrigin) => {
   console.log('executing RawMaterialEmissions', materials, countryOfOrigin);
 
-  const fullCountry = isoToCountry[countryOfOrigin] || countryOfOrigin;
+  const fullCountry =  countryOfOrigin;
 
   // Create normalized map for fast lookup
   const emissionMap = new Map(
