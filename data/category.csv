@@ -1,88 +1,151 @@
-Category,Sub Category
-Furniture,Workshop Furniture
-Furniture,Outdoor Furniture
-Furniture,Decorative Storage Furniture
-Furniture,Cafeteria & Dining Furniture
-Furniture,Hotel Furniture
-Furniture,Storage & Shelving
-Furniture,Office Chairs
-Furniture,Plastic Chairs
-Furniture,Stools
-Furniture,Sofas
-Furniture,Office Desks
-Furniture,Coffee Tables
-Furniture,Meeting Tables
-Furniture,Bar Tables & Chairs
-Furniture,Table & Seating Sets
-Furniture,Lockers & Cabinets
-Furniture,Media & TV Stands
-Furniture,Meeting Pods & Booths
-Furniture,Picnic Tables & Benches
-Industrial Equipment & Supplies,Trolleys & Carts
-Industrial Equipment & Supplies,Lifting Equipment
-Industrial Equipment & Supplies,Pallet Trucks
-Industrial Equipment & Supplies,Ladders
-Industrial Equipment & Supplies,Shelving & Racking Systems
-Industrial Equipment & Supplies,Storage & Organization
-Industrial Equipment & Supplies,Fasteners & Hardware
-Industrial Equipment & Supplies,Adhesives & Sealants
-Industrial Equipment & Supplies,Lubricants
-Industrial Equipment & Supplies,Electrical Supplies
-Industrial Equipment & Supplies,Lighting Supplies
-Industrial Equipment & Supplies,Plumbing Supplies
-Industrial Equipment & Supplies,Packaging Materials
-Tools,Hand Tools
-Tools,Power Tools
-Tools,Cutting Tools
-Tools,Measuring Tools
-Tools,Testing Instruments
-Tools,Welding Equipment
-Tools,Tool Storage
-Health & Safety,Personal Protective Equipment
-Health & Safety,First Aid Supplies
-Health & Safety,Fire Safety Equipment
-Health & Safety,Spill Control Supplies
-Health & Safety,Hazardous Storage Units
-Health & Safety,Safety Signage
-Health & Safety,Safety Barriers
-Health & Safety,Hygiene Supplies
-Health & Safety,Safety Mats & Flooring
-Kitchen & Food Service,Cookware
-Kitchen & Food Service,Bakeware
-Kitchen & Food Service,Preparation Utensils
-Kitchen & Food Service,Cutlery
-Kitchen & Food Service,Serving & Barware
-Kitchen & Food Service,Catering Equipment
-Kitchen & Food Service,Dishwashing Supplies
-Kitchen & Food Service,Food Storage Containers
-Kitchen & Food Service,Food Packaging
-Kitchen & Food Service,Kitchen Islands
-Kitchen & Food Service,Kitchen Trolleys
-Food Service Consumables,Disposable Service Items
-Food Service Consumables,Compostable Packaging
-Food Service Consumables,Table Linen
-Hospitality Consumables,Disposable Slippers
-Hospitality Consumables,Robes
-Hospitality Consumables,Bed Linen & Towels
-Hospitality Consumables,Hangers
-Interior Fixtures & Finishes,Cabinetry Components
-Interior Fixtures & Finishes,Doors
-Interior Fixtures & Finishes,Wall Coverings & Panels
-Interior Fixtures & Finishes,Handles & Knobs
-Interior Fixtures & Finishes,Hinges
-Interior Fixtures & Finishes,Drawer Systems
-Interior Fixtures & Finishes,Shelving Units
-Interior Fixtures & Finishes,Countertops
-Interior Fixtures & Finishes,Acoustic Panels & Partition Systems
-Interior Fixtures & Finishes,Flooring
-Interior Fixtures & Finishes,Writing Panels
-Interior Fixtures & Finishes,Bathroom Fixtures
-Facilities Management,Cleaning Equipment
-Facilities Management,Janitorial Supplies
-Facilities Management,Vending Equipment
-Facilities Management,Outdoor Maintenance Equipment
-Facilities Management,Waste Management Systems
-Facilities Management,Recycling Systems
-Facilities Management,Climate Control Equipment
-Facilities Management,Outdoor Storage
-Office Supplies,Office Supplies
+Category,Sub Category,Use Case,
+Furniture,Cafeteria & Dining Furniture,"✅ Suitable for dining tables, dining chairs, or complete sets intended for group dining in cafeterias, restaurants, or communal eating spaces.
+❌ Not suitable for picnic tables with attached benches or meeting tables used for office settings.",
+Furniture,Hotel Furniture,,
+Furniture,Storage & Shelving,"✅ Suitable for cabinets, shelving units, and storage furniture designed to hold, organize, or display items in offices, workshops, or public spaces.
+❌ Not suitable for built-in wall shelving or industrial racking systems.",
+Furniture,Office Chairs,"✅ Suitable for chairs designed for office or workstation use, with features for comfort, adjustability, or ergonomics.
+❌ Not suitable for meeting room chairs without ergonomic features or dining chairs.",
+Furniture,Plastic Chairs,"✅ Suitable for standalone seating primarily made from plastic, for indoor or outdoor use, in various settings such as events, waiting areas, or casual seating.
+❌ Not suitable for plastic office chairs with ergonomic features or plastic stools.",
+Furniture,Stools,"✅ Suitable for upholstered seating designed for comfort, including multi-seat options with or without backrests, intended for lounge, reception, or residential use.
+❌ Not suitable for wooden or metal benches used for dining or outdoor settings.",
+Furniture,Sofas,"✅ Suitable for upholstered seating designed for one or more people, intended for comfort in lounges, receptions, or living areas.
+❌ Not suitable for upholstered benches without backrests.",
+Furniture,Office Desks,"✅ Suitable for desks designed for office or workstation use, with surfaces for computers, paperwork, or office equipment.
+❌ Not suitable for dining tables, coffee tables, or meeting tables.",
+Furniture,Coffee Tables,"✅ Suitable for low tables designed for placement in front of sofas or seating areas, typically for holding drinks, books, or decorative items.
+❌ Not suitable for dining tables, side tables, or work desks.",
+Furniture,Meeting Tables & Chairs,"✅ Suitable for standalone meeting tables, standalone meeting chairs, or coordinated sets intended for office or conference environments.
+❌ Not suitable for dining furniture, picnic tables, or bar-height furniture.",
+Furniture,Bar Tables & Chairs,"✅ Suitable for standalone bar tables, standalone bar stools/chairs, or coordinated bar-height sets used in hospitality, dining, or entertainment spaces.
+❌ Not suitable for standard-height dining furniture, meeting tables, or coffee tables.",
+Furniture,Table & Seating Sets,"✅ Suitable for packaged sets where a table is sold together with matching chairs or benches, intended for coordinated use in dining, meeting, or outdoor settings.
+❌ Not suitable for standalone tables or seating sold separately.",
+Furniture,Lockers & Cabinets,"✅ Suitable for personal or office storage furniture including lockers, filing cabinets, and wardrobe-style cabinets, typically used in offices, schools, gyms, and hospitality.
+❌ Not suitable for industrial tool cabinets, heavy-duty workshop storage, or modular warehouse storage systems.",
+Furniture,Media & TV Stands,"✅ Suitable for units specifically designed to support and organize TVs, media players, and related electronics, including storage for cables and accessories.
+❌ Not suitable for general storage cabinets, office desks, or wall-mounted media panels.",
+Furniture,Meeting Pods & Booths,"✅ Suitable for enclosed or semi-enclosed seating/work units designed to provide privacy or acoustic isolation for meetings or focused work.
+❌ Not suitable for open meeting tables, standard office desks, or individual office cubicles without enclosed seating.",
+Furniture,Picnic Tables & Benches,"✅ Suitable for standalone picnic tables, standalone picnic benches, or coordinated picnic-style sets intended for outdoor or casual communal dining.
+❌ Not suitable for regular dining furniture, cafeteria sets, or decorative benches not intended for dining use.",
+Furniture,Beds & Mattresses,"✅ Suitable for all types of sleeping furniture, including bed frames, divan beds, platform beds, and mattresses of any size.
+❌ Not suitable for sofa beds, daybeds, or fold-out sleeping surfaces designed primarily as seating.",NEW
+Furniture,Bedside Tables,"✅ Suitable for small tables or cabinets positioned beside beds, typically with drawers or shelves for personal items.
+❌ Not suitable for coffee tables, side tables, or other occasional tables used in living or communal spaces.",NEW
+Furniture,Wardrobes & Dressers,"✅ Suitable for storage furniture designed for clothing and accessories, including wardrobes, armoires, chests of drawers, and dressers.
+❌ Not suitable for filing cabinets, tool storage, or industrial lockers.",NEW
+Industrial Equipment & Supplies,Trolleys & Carts,"✅ Suitable for wheeled platforms or carts designed to transport goods, materials, or tools in commercial, industrial, or hospitality environments.
+❌ Not suitable for pallet trucks, wheelbarrows, or hand trucks without flat platforms.",
+Industrial Equipment & Supplies,Lifting Equipment,"✅ Suitable for devices or machinery designed to raise, lower, or move heavy loads, such as hoists, cranes, or lift tables.
+❌ Not suitable for pallet trucks, ladders, or non-mechanical storage systems.",
+Industrial Equipment & Supplies,Pallet Trucks,"✅ Suitable for wheeled devices designed to lift and move palletized goods, including manual and powered pallet jacks.
+❌ Not suitable for trolleys, carts, or lifting equipment without pallet-specific forks.",
+Industrial Equipment & Supplies,Ladders,"✅ Suitable for portable or fixed climbing structures with rungs or steps, designed for accessing elevated areas.
+❌ Not suitable for step stools, scaffolding, or purely decorative ladder-like furniture.",
+Industrial Equipment & Supplies,Shelving & Racking Systems,"✅ Suitable for heavy-duty, freestanding or fixed structures designed for organized storage of goods in warehouses, workshops, or retail spaces.
+❌ Not suitable for light household shelving units, display cabinets, or office bookcases.",
+Industrial Equipment & Supplies,Storage & Organization,"✅ Suitable for industrial or workshop storage solutions, including tool cabinets, parts organizers, and storage systems designed for heavy-duty use.
+❌ Not suitable for personal lockers, office cabinets, or wardrobe-style cabinets intended for commercial or hospitality interiors.",
+Industrial Equipment & Supplies,Fasteners & Hardware,"✅ Suitable for mechanical components such as screws, bolts, nuts, washers, hinges, and other fittings used to join, secure, or assemble materials.
+❌ Not suitable for adhesives, sealants, or structural parts like beams and panels.",
+Industrial Equipment & Supplies,Adhesives & Sealants,"✅ Suitable for substances used to bond, seal, or fill gaps between surfaces, including glues, epoxies, silicones, and caulks.
+❌ Not suitable for mechanical fasteners, lubricants, or paints.",
+Industrial Equipment & Supplies,Lubricants,"✅ Suitable for oils, greases, and other substances used to reduce friction, wear, or heat in machinery or tools.
+❌ Not suitable for cleaning chemicals, adhesives, or fuel products.",
+Industrial Equipment & Supplies,Electrical Supplies,"✅ Suitable for electrical components, wiring, connectors, outlets, switches, and accessories used in electrical installations or maintenance.
+❌ Not suitable for lighting fixtures, electronic devices, or plumbing parts.",
+Industrial Equipment & Supplies,Lighting Supplies,"✅ Suitable for light fixtures, bulbs, ballasts, and components designed to provide illumination in commercial, industrial, or residential spaces.
+❌ Not suitable for decorative-only lighting items or electrical wiring without a lighting function.",
+Industrial Equipment & Supplies,Plumbing Supplies,"✅ Suitable for pipes, fittings, valves, faucets, and other components used in water, gas, or waste systems.
+❌ Not suitable for bathroom furniture, heating systems, or electrical supplies.",
+Industrial Equipment & Supplies,Packaging Materials,"✅ Suitable for products used to protect, contain, or transport goods, such as boxes, bubble wrap, tape, straps, and pallets.
+❌ Not suitable for storage furniture, display units, or luggage.",
+Tools,Hand Tools,"✅ Suitable for manually operated tools such as hammers, screwdrivers, pliers, wrenches, and hand saws.
+❌ Not suitable for power-driven tools, measuring instruments, or welding equipment.",
+Tools,Power Tools,"✅ Suitable for electrically, battery, or pneumatically powered tools such as drills, sanders, saws, grinders, and nail guns.
+❌ Not suitable for manual hand tools, stationary industrial machines, or measuring devices.",
+Tools,Cutting Tools,"✅ Suitable for tools designed specifically for cutting materials, such as blades, knives, cutters, saw blades, and shears.
+❌ Not suitable for general hand tools without a cutting function or for industrial cutting machinery.",
+Tools,Measuring Tools,"✅ Suitable for instruments that measure dimensions, angles, weight, temperature, or other physical properties, such as tape measures, calipers, and levels.
+❌ Not suitable for testing instruments, power tools, or calibration equipment.",
+Tools,Testing Instruments,"✅ Suitable for devices that assess performance, quality, or safety, such as multimeters, pressure testers, and diagnostic tools.
+❌ Not suitable for simple measuring tools, monitoring systems, or lab equipment.",
+Tools,Welding Equipment,"✅ Suitable for equipment used in welding processes, including welding machines, torches, protective gear, and welding accessories.
+❌ Not suitable for soldering tools, cutting tools, or general hand tools.",
+Tools,Tool Storage,"✅ Suitable for storage solutions for tools, such as toolboxes, tool chests, tool bags, and wall-mounted tool racks.
+❌ Not suitable for general storage furniture, shelving units, or workbenches without tool-specific features.",
+Health & Safety,Personal Protective Equipment,"✅ Suitable for wearable safety gear such as helmets, gloves, earplugs, goggles, respirators, and protective clothing.
+❌ Not suitable for first aid kits, fire extinguishers, or fixed safety barriers.",
+Health & Safety,First Aid Supplies,"✅ Suitable for medical supplies used for treating injuries and emergencies, such as bandages, antiseptics, splints, and first aid kits.
+❌ Not suitable for PPE, hygiene products, or fire safety equipment.",
+Health & Safety,Fire Safety Equipment,"✅ Suitable for items designed to detect, suppress, or control fires, such as fire extinguishers, fire blankets, smoke detectors, and sprinkler systems.
+❌ Not suitable for PPE, spill control products, or general safety signage.",
+Health & Safety,Spill Control Supplies,"✅ Suitable for products used to contain, absorb, or clean up hazardous or non-hazardous liquid spills, such as absorbent pads, booms, and spill kits.
+❌ Not suitable for general cleaning supplies, hazardous storage cabinets, or PPE.",
+Health & Safety,Hazardous Storage Units,"✅ Suitable for specialized storage cabinets and containers designed for hazardous substances, chemicals, or flammable materials.
+❌ Not suitable for general storage furniture, shelving, or lockers.",
+Health & Safety,Safety Signage,"✅ Suitable for signs that communicate safety instructions, hazards, or regulatory information in workplaces or public areas.
+❌ Not suitable for decorative signs, electronic displays, or advertising boards.",
+Health & Safety,Safety Barriers,"✅ Suitable for physical barriers used to restrict access or protect people from hazards, such as guardrails, bollards, and crowd control barriers.
+❌ Not suitable for safety signage, mats, or fencing for decorative purposes.",
+Health & Safety,Hygiene Supplies,"✅ Suitable for products used to maintain cleanliness and hygiene, such as soap dispensers, sanitizers, paper towels, and waste bins.
+❌ Not suitable for PPE, first aid supplies, or spill control products.",
+Health & Safety,Safety Mats & Flooring,"✅ Suitable for mats and flooring designed to improve safety, reduce slips, or provide anti-fatigue benefits in workplaces.
+❌ Not suitable for general carpets, decorative rugs, or standard flooring without safety features.",
+Kitchen & Food Service,Cookware,"✅ Suitable for pots, pans, and other equipment used to cook food on stovetops or ovens.
+❌ Not suitable for bakeware, serving dishes, or preparation utensils.",
+Kitchen & Food Service,Bakeware,"✅ Suitable for trays, tins, moulds, and dishes designed for baking in an oven.
+❌ Not suitable for cookware, serving ware, or food storage containers.",
+Kitchen & Food Service,Preparation Utensils,"✅ Suitable for tools used in food preparation such as peelers, graters, mixing bowls, and spatulas.
+❌ Not suitable for cookware, bakeware, or serving ware.",
+Kitchen & Food Service,Cutlery,"✅ Suitable for knives, forks, spoons, and related utensils used for eating or food preparation.
+❌ Not suitable for cooking utensils, serving ware, or food packaging.",
+Kitchen & Food Service,Serving & Barware,"✅ Suitable for plates, bowls, glasses, jugs, and bar accessories used to serve food and drinks.
+❌ Not suitable for cookware, bakeware, or preparation utensils.",
+Kitchen & Food Service,Catering Equipment,"✅ Suitable for large-scale cooking and serving appliances used in commercial catering, such as chafing dishes, hot plates, and beverage dispensers.
+❌ Not suitable for home cookware, bakeware, or small kitchen utensils.",
+Kitchen & Food Service,Dishwashing Supplies,"✅ Suitable for items used in manual or machine dishwashing, such as racks, brushes, and detergents.
+❌ Not suitable for cooking equipment, food storage, or hygiene supplies not related to dishwashing.",
+Kitchen & Food Service,Food Storage Containers,"✅ Suitable for containers used to store raw or cooked food, such as plastic tubs, glass jars, and sealed boxes.
+❌ Not suitable for cookware, serving ware, or food packaging.",
+Kitchen & Food Service,Food Packaging,"✅ Suitable for disposable or reusable materials used to package food for transport or sale, such as paper wraps, takeaway boxes, and foil containers.
+❌ Not suitable for permanent food storage containers, serving ware, or table linen.",
+Kitchen & Food Service,Kitchen Islands,"✅ Suitable for freestanding kitchen workstations with storage or preparation surfaces.
+❌ Not suitable for catering trolleys, dining tables, or stationary countertops built into kitchens.",
+Kitchen & Food Service,Kitchen Trolleys,"✅ Suitable for mobile trolleys used for food preparation, storage, or serving within kitchens or dining areas.
+❌ Not suitable for catering carts designed specifically for large-scale service or general utility carts outside of kitchen use.",
+Food Service Consumables,Disposable Service Items,"✅ Suitable for single-use cups, plates, cutlery, straws, and takeaway containers intended for serving food or drinks.
+❌ Not suitable for compostable-only packaging, reusable serving ware, or long-term storage containers.",
+Food Service Consumables,Compostable Packaging,"✅ Suitable for packaging made from biodegradable or compostable materials designed for food transport or takeaway, such as compostable cups, clamshell boxes, and wraps.
+❌ Not suitable for standard disposable service items made from non-compostable plastics or paper, or for long-term reusable containers.",
+Food Service Consumables,Table Linen,"✅ Suitable for cloth or disposable tablecloths, napkins, and placemats used in dining setups.
+❌ Not suitable for bed linen, towels, or other textiles not intended for dining tables.",
+Hospitality Consumables,Disposable Slippers,"✅ Suitable for single-use slippers provided in hotels, spas, or guest accommodations.
+❌ Not suitable for reusable or fashion footwear, or protective footwear used for safety purposes",
+Hospitality Consumables,Robes,"✅ Suitable for bathrobes or spa robes provided in hotels, spas, or hospitality settings, whether reusable or single-use.
+❌ Not suitable for jackets, coats, or robes intended for ceremonial, religious, or costume purposes.",
+Hospitality Consumables,Bed Linen & Towels,"✅ Suitable for sheets, pillowcases, duvets, blankets, and towels intended for hospitality or guest use.
+❌ Not suitable for table linens, cleaning rags, or decorative throws not intended for guest bedding or bathing.",
+Hospitality Consumables,Hangers,"✅ Suitable for garment hangers provided in hotel rooms, wardrobes, or hospitality settings.
+❌ Not suitable for display racks, shelving units, or hooks not designed to hang clothing.",
+Interior Fixtures & Finishes,Doors,,
+Interior Fixtures & Finishes,Wall Coverings & Panels,,
+Interior Fixtures & Finishes,Handles & Knobs,,
+Interior Fixtures & Finishes,Hinges,,
+Interior Fixtures & Finishes,Drawer Systems,,
+Interior Fixtures & Finishes,Countertops,,
+Interior Fixtures & Finishes,Acoustic Panels & Partition Systems,,
+Interior Fixtures & Finishes,Flooring,,
+Interior Fixtures & Finishes,Writing Panels,,
+Interior Fixtures & Finishes,Bathroom Fixtures,,
+Facilities Management,Cleaning Equipment,,
+Facilities Management,Janitorial Supplies,,
+Facilities Management,Vending Equipment,,
+Facilities Management,Outdoor Maintenance Equipment,,
+Facilities Management,Waste Management Systems,,
+Facilities Management,Recycling Systems,,
+Facilities Management,Climate Control Equipment,,
+Facilities Management,Outdoor Storage,,
+Office Supplies,Office Supplies,,

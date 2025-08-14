@@ -59,7 +59,7 @@ try {
       console.log(`Row ${i}:`, columns);
     }
     
-    if (columns.length < 2) {
+    if (columns.length < 3) {
       console.warn(`Skipping row ${i}: insufficient columns (${columns.length})`);
       continue;
     }
@@ -67,6 +67,7 @@ try {
     // Clean up quotes and whitespace
     let category = columns[0].replace(/^"|"$/g, '').trim(); // Remove surrounding quotes only
     let subCategory = columns[1].replace(/^"|"$/g, '').trim();
+    let useCase = columns[2].replace(/^"|"$/g, '').trim();
     
     // Skip empty values or header rows
     if (!category || !subCategory || 
@@ -76,17 +77,34 @@ try {
       continue;
     }
     
-    // Add to categories
+    // Initialize category structure if it doesn't exist
     if (!categories[category]) {
-      categories[category] = new Set();
+      categories[category] = {};
     }
-    categories[category].add(subCategory);
+    
+    // Initialize subcategory structure if it doesn't exist
+    if (!categories[category][subCategory]) {
+      categories[category][subCategory] = {
+        useCases: new Set()
+      };
+    }
+    
+    // Add use case if it exists and is not empty
+    if (useCase) {
+      categories[category][subCategory].useCases.add(useCase);
+    }
   }
 
-  // Convert Sets to Arrays
+  // Convert Sets to Arrays and create final structure
   const result = {};
-  for (const [key, values] of Object.entries(categories)) {
-    result[key] = Array.from(values).sort();
+  for (const [categoryName, subCategories] of Object.entries(categories)) {
+    result[categoryName] = {};
+    
+    for (const [subCategoryName, subCategoryData] of Object.entries(subCategories)) {
+      result[categoryName][subCategoryName] = {
+        useCases: Array.from(subCategoryData.useCases).sort()
+      };
+    }
   }
 
   // Ensure output directory exists
@@ -98,13 +116,24 @@ try {
   // Write to JSON file
   fs.writeFileSync(outputFilePath, JSON.stringify(result, null, 2));
 
-  console.log(`✅ Successfully processed ${Object.keys(result).length} categories with a total of ${Object.values(result).flat().length} subcategories.`);
+  // Calculate statistics
+  const totalCategories = Object.keys(result).length;
+  const totalSubCategories = Object.values(result).reduce((acc, cat) => acc + Object.keys(cat).length, 0);
+  const totalUseCases = Object.values(result).reduce((acc, cat) => {
+    return acc + Object.values(cat).reduce((subAcc, subCat) => subAcc + subCat.useCases.length, 0);
+  }, 0);
+
+  console.log(`✅ Successfully processed ${totalCategories} categories with ${totalSubCategories} subcategories and ${totalUseCases} use cases.`);
   console.log(`Output written to: ${outputFilePath}`);
   
   // Show sample of the result
-  console.log('\nSample categories:');
-  Object.keys(result).slice(0, 3).forEach(cat => {
-    console.log(`${cat}: ${result[cat].slice(0, 3).join(', ')}${result[cat].length > 3 ? '...' : ''}`);
+  console.log('\nSample structure:');
+  Object.keys(result).slice(0, 2).forEach(catName => {
+    console.log(`\n${catName}:`);
+    Object.keys(result[catName]).slice(0, 2).forEach(subCatName => {
+      const useCases = result[catName][subCatName].useCases;
+      console.log(`  ${subCatName}: [${useCases.slice(0, 2).join(', ')}${useCases.length > 2 ? ', ...' : ''}] (${useCases.length} use cases)`);
+    });
   });
 
 } catch (error) {
