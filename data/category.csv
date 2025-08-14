@@ -1,7 +1,10 @@
 Category,Sub Category,Use Case,
+Furniture,Workshop Table,"✅ Suitable for heavy-duty tables, benches, and storage units designed for industrial, craft, or repair work environments, often featuring durable surfaces, tool storage, or integrated vices.
+❌ Not suitable for standard office desks, dining tables, or decorative work surfaces.",
+Furniture,Decorative Furniture,"✅ Suitable for items primarily intended to enhance the aesthetic of a space, including ornamental furniture, decorative display units, accent tables, rugs, mats, and other non-functional or lightly functional decor pieces.
+❌ Not suitable for fully functional furniture like desks, beds, or heavy-duty storage units.",DELETED 'Storage' from sub category
 Furniture,Cafeteria & Dining Furniture,"✅ Suitable for dining tables, dining chairs, or complete sets intended for group dining in cafeterias, restaurants, or communal eating spaces.
 ❌ Not suitable for picnic tables with attached benches or meeting tables used for office settings.",
-Furniture,Hotel Furniture,,
 Furniture,Storage & Shelving,"✅ Suitable for cabinets, shelving units, and storage furniture designed to hold, organize, or display items in offices, workshops, or public spaces.
 ❌ Not suitable for built-in wall shelving or industrial racking systems.",
 Furniture,Office Chairs,"✅ Suitable for chairs designed for office or workstation use, with features for comfort, adjustability, or ergonomics.
@@ -36,6 +39,8 @@ Furniture,Bedside Tables,"✅ Suitable for small tables or cabinets positioned b
 ❌ Not suitable for coffee tables, side tables, or other occasional tables used in living or communal spaces.",NEW
 Furniture,Wardrobes & Dressers,"✅ Suitable for storage furniture designed for clothing and accessories, including wardrobes, armoires, chests of drawers, and dressers.
 ❌ Not suitable for filing cabinets, tool storage, or industrial lockers.",NEW
+Furniture,Reception Desks,"✅ Suitable for counters or desks designed for greeting visitors and facilitating front-of-house activities in offices, hotels, or public buildings.
+❌ Not suitable for standard office desks, cashier counters, or kitchen islands.",NEW
 Industrial Equipment & Supplies,Trolleys & Carts,"✅ Suitable for wheeled platforms or carts designed to transport goods, materials, or tools in commercial, industrial, or hospitality environments.
 ❌ Not suitable for pallet trucks, wheelbarrows, or hand trucks without flat platforms.",
 Industrial Equipment & Supplies,Lifting Equipment,"✅ Suitable for devices or machinery designed to raise, lower, or move heavy loads, such as hoists, cranes, or lift tables.
@@ -130,22 +135,41 @@ Hospitality Consumables,Bed Linen & Towels,"✅ Suitable for sheets, pillowcases
 ❌ Not suitable for table linens, cleaning rags, or decorative throws not intended for guest bedding or bathing.",
 Hospitality Consumables,Hangers,"✅ Suitable for garment hangers provided in hotel rooms, wardrobes, or hospitality settings.
 ❌ Not suitable for display racks, shelving units, or hooks not designed to hang clothing.",
-Interior Fixtures & Finishes,Doors,,
-Interior Fixtures & Finishes,Wall Coverings & Panels,,
-Interior Fixtures & Finishes,Handles & Knobs,,
-Interior Fixtures & Finishes,Hinges,,
-Interior Fixtures & Finishes,Drawer Systems,,
-Interior Fixtures & Finishes,Countertops,,
-Interior Fixtures & Finishes,Acoustic Panels & Partition Systems,,
-Interior Fixtures & Finishes,Flooring,,
-Interior Fixtures & Finishes,Writing Panels,,
-Interior Fixtures & Finishes,Bathroom Fixtures,,
-Facilities Management,Cleaning Equipment,,
-Facilities Management,Janitorial Supplies,,
-Facilities Management,Vending Equipment,,
-Facilities Management,Outdoor Maintenance Equipment,,
-Facilities Management,Waste Management Systems,,
-Facilities Management,Recycling Systems,,
-Facilities Management,Climate Control Equipment,,
-Facilities Management,Outdoor Storage,,
-Office Supplies,Office Supplies,,
+Interior Fixtures & Finishes,Doors,"✅ Suitable for hinged, sliding, folding, or pivot doors intended for permanent installation in interior or exterior spaces.
+❌ Not suitable for cabinet doors, shower doors, or decorative panels without door functionality.",
+Interior Fixtures & Finishes,Wall Coverings & Panels,"✅ Suitable for decorative or protective wall materials such as cladding, wallpaper, or surface laminates.
+❌ Not suitable for acoustic panels, partition systems, flooring, or furniture panels.",
+Interior Fixtures & Finishes,Handles & Knobs,"✅ Suitable for hardware used to open or close doors, drawers, or cabinets.
+❌ Not suitable for faucet handles, machine levers, or unrelated mechanical components.",
+Interior Fixtures & Finishes,Hinges,"✅ Suitable for mechanical pivoting devices used in doors, cabinets, or furniture for controlled movement.
+❌ Not suitable for decorative brackets, joints, or non-hinge fasteners.",
+Interior Fixtures & Finishes,Drawer Systems,"✅ Suitable for complete drawer assemblies or mechanisms designed for furniture or cabinetry.
+❌ Not suitable for standalone storage boxes or containers without integrated sliding mechanisms.",
+Interior Fixtures & Finishes,Countertops,"✅ Suitable for horizontal work surfaces permanently installed in kitchens, bathrooms, or workspaces.
+❌ Not suitable for freestanding tables, desks, or movable worktops.",
+Interior Fixtures & Finishes,Acoustic Panels & Partition Systems,"✅ Suitable for sound-absorbing panels or fixed partition walls used for acoustic control in interiors.
+❌ Not suitable for freestanding screens, curtains, or purely decorative wall art.",
+Interior Fixtures & Finishes,Flooring,"✅ Suitable for materials or systems intended for permanent floor installation, such as tiles, hardwood, laminate, or carpet rolls.
+❌ Not suitable for rugs, mats, or temporary floor coverings.",
+Interior Fixtures & Finishes,Writing Panels,"✅ Suitable for fixed whiteboards, chalkboards, or glass writing surfaces intended for wall mounting.
+❌ Not suitable for portable clipboards, notepads, or handheld boards.",
+Interior Fixtures & Finishes,Bathroom Fixtures,"✅ Suitable for sound-absorbing panels or fixed partition walls used for acoustic control in interiors.
+❌ Not suitable for freestanding screens, curtains, or purely decorative wall art.",
+Facilities Management,Cleaning Equipment,"✅ Suitable for powered or manual machines used for cleaning surfaces, floors, or facilities (e.g., floor scrubbers, vacuum cleaners, pressure washers).
+❌ Not suitable for cleaning consumables like detergents or mops without mechanical components.",
+Facilities Management,Janitorial Supplies,"✅ Suitable for consumable cleaning products and manual cleaning tools (e.g., mops, brooms, buckets, detergents).
+❌ Not suitable for powered cleaning machines or large automated equipment.",
+Facilities Management,Vending Equipment,"✅ Suitable for machines that dispense food, beverages, or other goods in self-service settings.
+❌ Not suitable for coffee machines, refrigerators, or storage cabinets that are not coin- or card-operated.",
+Facilities Management,Outdoor Maintenance Equipment,"✅ Suitable for tools and machinery for outdoor facility upkeep (e.g., leaf blowers, snow removal machines, lawn mowers).
+❌ Not suitable for purely decorative outdoor furniture or interior cleaning equipment.",
+Facilities Management,Waste Management Systems,"✅ Suitable for bins, compactors, and systems designed for the collection and containment of waste.
+❌ Not suitable for recycling-specific bins or systems.",
+Facilities Management,Recycling Systems,"✅ Suitable for bins, sorters, or machines specifically designed for recycling waste streams.
+❌ Not suitable for general waste bins without recycling functionality.",
+Facilities Management,Climate Control Equipment,"✅ Suitable for systems or devices that regulate temperature, humidity, or air quality (e.g., heaters, air conditioners, fans, dehumidifiers).
+❌ Not suitable for fixed HVAC infrastructure components like ducting or vents.",
+Facilities Management,Outdoor Storage,"✅ Suitable for weather-resistant storage units or sheds designed for outdoor use.
+❌ Not suitable for indoor cabinets or storage furniture.",
+Office Supplies,Office Supplies,"✅ Suitable for general consumables and tools used in office work (e.g., pens, paper, staplers, folders).
+❌ Not suitable for office furniture or large office equipment like printers or desks.",

@@ -1,12 +1,19 @@
 {
   "Furniture": {
+    "Workshop Table": {
+      "useCases": [
+        "✅ Suitable for heavy-duty tables, benches, and storage units designed for industrial, craft, or repair work environments, often featuring durable surfaces, tool storage, or integrated vices."
+      ]
+    },
+    "Decorative Furniture": {
+      "useCases": [
+        "✅ Suitable for items primarily intended to enhance the aesthetic of a space, including ornamental furniture, decorative display units, accent tables, rugs, mats, and other non-functional or lightly functional decor pieces."
+      ]
+    },
     "Cafeteria & Dining Furniture": {
       "useCases": [
         "✅ Suitable for dining tables, dining chairs, or complete sets intended for group dining in cafeterias, restaurants, or communal eating spaces."
       ]
-    },
-    "Hotel Furniture": {
-      "useCases": []
     },
     "Storage & Shelving": {
       "useCases": [
@@ -91,6 +98,30 @@
     "Wardrobes & Dressers": {
       "useCases": [
         "✅ Suitable for storage furniture designed for clothing and accessories, including wardrobes, armoires, chests of drawers, and dressers."
+      ]
+    },
+    "Reception Desks": {
+      "useCases": [
+        "✅ Suitable for counters or desks designed for greeting visitors and facilitating front-of-house activities in offices, hotels, or public buildings."
+      ]
+    }
+  },
+  "❌ Not suitable for standard office desks": {
+    "dining tables": {
+      "useCases": [
+        "or decorative work surfaces.,"
+      ]
+    },
+    "cashier counters": {
+      "useCases": [
+        "or kitchen islands.,NEW"
+      ]
+    }
+  },
+  "❌ Not suitable for fully functional furniture like desks": {
+    "beds": {
+      "useCases": [
+        "or heavy-duty storage units.,DELETED 'Storage' from sub category"
       ]
     }
   },
@@ -690,65 +721,166 @@
   },
   "Interior Fixtures & Finishes": {
     "Doors": {
-      "useCases": []
+      "useCases": [
+        "✅ Suitable for hinged, sliding, folding, or pivot doors intended for permanent installation in interior or exterior spaces."
+      ]
     },
     "Wall Coverings & Panels": {
-      "useCases": []
+      "useCases": [
+        "✅ Suitable for decorative or protective wall materials such as cladding, wallpaper, or surface laminates."
+      ]
     },
     "Handles & Knobs": {
-      "useCases": []
+      "useCases": [
+        "✅ Suitable for hardware used to open or close doors, drawers, or cabinets."
+      ]
     },
     "Hinges": {
-      "useCases": []
+      "useCases": [
+        "✅ Suitable for mechanical pivoting devices used in doors, cabinets, or furniture for controlled movement."
+      ]
     },
     "Drawer Systems": {
-      "useCases": []
+      "useCases": [
+        "✅ Suitable for complete drawer assemblies or mechanisms designed for furniture or cabinetry."
+      ]
     },
     "Countertops": {
-      "useCases": []
+      "useCases": [
+        "✅ Suitable for horizontal work surfaces permanently installed in kitchens, bathrooms, or workspaces."
+      ]
     },
     "Acoustic Panels & Partition Systems": {
-      "useCases": []
+      "useCases": [
+        "✅ Suitable for sound-absorbing panels or fixed partition walls used for acoustic control in interiors."
+      ]
     },
     "Flooring": {
-      "useCases": []
+      "useCases": [
+        "✅ Suitable for materials or systems intended for permanent floor installation, such as tiles, hardwood, laminate, or carpet rolls."
+      ]
     },
     "Writing Panels": {
-      "useCases": []
+      "useCases": [
+        "✅ Suitable for fixed whiteboards, chalkboards, or glass writing surfaces intended for wall mounting."
+      ]
     },
     "Bathroom Fixtures": {
-      "useCases": []
+      "useCases": [
+        "✅ Suitable for sound-absorbing panels or fixed partition walls used for acoustic control in interiors."
+      ]
+    }
+  },
+  "❌ Not suitable for cabinet doors": {
+    "shower doors": {
+      "useCases": [
+        "or decorative panels without door functionality.,"
+      ]
+    }
+  },
+  "❌ Not suitable for acoustic panels": {
+    "partition systems": {
+      "useCases": [
+        "flooring"
+      ]
+    }
+  },
+  "❌ Not suitable for faucet handles": {
+    "machine levers": {
+      "useCases": [
+        "or unrelated mechanical components.,"
+      ]
+    }
+  },
+  "❌ Not suitable for decorative brackets": {
+    "joints": {
+      "useCases": [
+        "or non-hinge fasteners.,"
+      ]
+    }
+  },
+  "❌ Not suitable for freestanding tables": {
+    "desks": {
+      "useCases": [
+        "or movable worktops.,"
+      ]
+    }
+  },
+  "❌ Not suitable for freestanding screens": {
+    "curtains": {
+      "useCases": [
+        "or purely decorative wall art.,"
+      ]
+    }
+  },
+  "❌ Not suitable for rugs": {
+    "mats": {
+      "useCases": [
+        "or temporary floor coverings.,"
+      ]
+    }
+  },
+  "❌ Not suitable for portable clipboards": {
+    "notepads": {
+      "useCases": [
+        "or handheld boards.,"
+      ]
     }
   },
   "Facilities Management": {
     "Cleaning Equipment": {
-      "useCases": []
+      "useCases": [
+        "✅ Suitable for powered or manual machines used for cleaning surfaces, floors, or facilities (e.g., floor scrubbers, vacuum cleaners, pressure washers)."
+      ]
     },
     "Janitorial Supplies": {
-      "useCases": []
+      "useCases": [
+        "✅ Suitable for consumable cleaning products and manual cleaning tools (e.g., mops, brooms, buckets, detergents)."
+      ]
     },
     "Vending Equipment": {
-      "useCases": []
+      "useCases": [
+        "✅ Suitable for machines that dispense food, beverages, or other goods in self-service settings."
+      ]
     },
     "Outdoor Maintenance Equipment": {
-      "useCases": []
+      "useCases": [
+        "✅ Suitable for tools and machinery for outdoor facility upkeep (e.g., leaf blowers, snow removal machines, lawn mowers)."
+      ]
     },
     "Waste Management Systems": {
-      "useCases": []
+      "useCases": [
+        "✅ Suitable for bins, compactors, and systems designed for the collection and containment of waste."
+      ]
     },
     "Recycling Systems": {
-      "useCases": []
+      "useCases": [
+        "✅ Suitable for bins, sorters, or machines specifically designed for recycling waste streams."
+      ]
     },
     "Climate Control Equipment": {
-      "useCases": []
+      "useCases": [
+        "✅ Suitable for systems or devices that regulate temperature, humidity, or air quality (e.g., heaters, air conditioners, fans, dehumidifiers)."
+      ]
     },
     "Outdoor Storage": {
-      "useCases": []
+      "useCases": [
+        "✅ Suitable for weather-resistant storage units or sheds designed for outdoor use."
+      ]
+    }
+  },
+  "❌ Not suitable for coffee machines": {
+    "refrigerators": {
+      "useCases": [
+        "or storage cabinets that are not coin- or card-operated.,"
+      ]
     }
   },
   "Office Supplies": {
     "Office Supplies": {
-      "useCases": []
+      "useCases": [
+        "✅ Suitable for general consumables and tools used in office work (e.g., pens, paper, staplers, folders)."
+      ]
     }
   }
 }
