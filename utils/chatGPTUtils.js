@@ -1436,10 +1436,12 @@ Return the result **strictly as a valid JSON array** in the specified format. Do
       });
     });
 
-    let result;
     logger.info(
-        `✅ Received AI bill of materials response row: ${result}`
+        `✅ Received AI bill of materials response row: ${response}`
       );
+
+    let result;
+    
     try {
       result = JSON.parse(response.choices[0].message.content).bom;
       logger.info(
