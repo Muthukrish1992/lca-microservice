@@ -29,9 +29,9 @@ class AIProcessingQueue {
   constructor() {
     this.queue = [];
     this.processing = false;
-    this.batchSize = 500; // Safety margin under 5000 RPM limit
+    this.batchSize = 50; // Safety margin under 50 RPM limit
     this.batchDelayMs = 60000; // 1 minute delay between batches
-    this.maxConcurrentRequests = 10; // Concurrent requests within a batch
+    this.maxConcurrentRequests = 5; // Concurrent requests within a batch
     this.processedCount = 0;
     this.failedCount = 0;
     this.currentBatchStartTime = null;
@@ -47,7 +47,7 @@ class AIProcessingQueue {
       product,
       req,
       attempts: 0,
-      maxAttempts: 3,
+      maxAttempts: 5,
       addedAt: new Date()
     }));
 
@@ -144,7 +144,7 @@ class AIProcessingQueue {
       weight: item.product.weight
     }));
 
-    const optimalBatchSize = calculateOptimalBatchSize(products, 80000); // Conservative token limit
+    const optimalBatchSize = calculateOptimalBatchSize(products, 40000); // Conservative token limit
     logger.info(`📊 Using optimal batch size of ${optimalBatchSize} products per batch`);
 
     // Split into optimally sized groups
@@ -435,7 +435,7 @@ class AIProcessingQueue {
       
       // Small delay between concurrent batches
       if (i + concurrencyLimit < promises.length) {
-        await this.sleep(1000); // 1 second delay
+        await this.sleep(2000); // 2 second delay
       }
     }
     
