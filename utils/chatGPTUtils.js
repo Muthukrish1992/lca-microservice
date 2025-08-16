@@ -1437,7 +1437,7 @@ Return the result **strictly as a valid JSON array** in the specified format. Do
     });
 
     logger.info(
-        `✅ Received AI bill of materials response: ${JSON.stringify(result)}`
+        `✅ Received AI bill of materials response: ${JSON.stringify(response)}`
       );
     let result;
     
