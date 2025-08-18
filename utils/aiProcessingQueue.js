@@ -8,7 +8,7 @@ const {
   calculateOptimalBatchSize 
 } = require("./batchAIProcessor");
 const productCategories = require("../data/productCategories.json");
-const materialsDatabaseEnhanced = require("../data/esgnow.json");
+const materialsDatabaseEnhanced = require("../data/materials_database.json");
 const manufacturingProcesses = require("../data/manufacturing_ef.json");
 
 /**
