@@ -2,7 +2,7 @@ const axios = require("axios");
 require("dotenv").config();
 
 const productCategories = require("../data/productCategories.json");
-const materialsDatabaseEnhanced = require("../data/esgnow.json");
+const materialsDatabaseEnhanced = require("../data/materials_database.json");
 const manufacturingProcesses = require("../data/manufacturing_ef.json");
 const materialsDatabaseBasic = require("../data/materials_database_basic.json");
 const manufacturingProcessesBasic = require("../data/manufacturingProcesses_basic.json");
@@ -818,40 +818,70 @@ async function classifyProduct(productCode, name, description, imageUrl, req) {
     throw new Error("Product code, name, and description are required.");
   }
 
-  logger.info(`📝 Building classification prompt`);
+  logger.info(`📝 Building classification prompt with use cases`);
 
-  const systemPrompt = `You are an expert product classification specialist with deep knowledge of product categories and their functional characteristics. Your task is to classify products into appropriate categories and subcategories based on their description and visual characteristics.
+  // Build category and subcategory information with use cases
+  const categoryInfo = Object.entries(productCategories)
+    .map(([category, subcategories]) => {
+      const subcategoryDetails = Object.entries(subcategories)
+        .map(([subcat, data]) => {
+          const useCases =
+            data.useCases && data.useCases.length > 0
+              ? data.useCases.join(" ")
+              : "No specific use cases defined";
+          return `    - ${subcat}: ${useCases}`;
+        })
+        .join("\n");
+
+      return `${category}:\n${subcategoryDetails}`;
+    })
+    .join("\n\n");
+
+  const systemPrompt = `You are an expert product classification specialist with deep knowledge of product categories and their functional characteristics. Your task is to classify products into appropriate categories and subcategories based on their description, visual characteristics, and the specific use cases defined for each subcategory.
+
+AVAILABLE CATEGORIES AND SUBCATEGORIES WITH USE CASES:
+${categoryInfo}
 
 CLASSIFICATION PRINCIPLES:
-1. You MUST ONLY select a category and subcategory EXACTLY as they appear in the provided list.
-2. The category MUST be one of the following values: ${Object.keys(
-    productCategories
-  ).join(", ")}
-3. The selected subcategory MUST belong to the selected category.
-4. DO NOT invent, modify, or generalize any category or subcategory values.
-5. DO NOT add any descriptive or extra terms to the output.
-6. If an image is present, PRIORITIZE visual cues (e.g. shape, structure, materials, intended use) over text description.
-7. If no exact match is found, choose the CLOSEST possible subcategory that logically aligns with the product's function or usage.
-8. DO NOT select a subcategory based on loose associations or naming similarities—use function and actual product type as your basis.
+1. You MUST ONLY select a category and subcategory EXACTLY as they appear in the provided list above.
+2. CAREFULLY READ the use cases for each subcategory to understand what products are suitable for that classification.
+3. Match the product's description and visual characteristics against the specific use cases provided.
+4. If an image is present, PRIORITIZE visual cues (e.g. shape, structure, materials, intended use) over text description.
+5. Choose the subcategory whose use cases BEST MATCH the product's actual function and intended purpose.
+6. Pay special attention to exclusion criteria (marked with ❌) to avoid incorrect classifications.
+7. If no exact match is found, choose the subcategory with use cases that most closely align with the product's primary function.
+8. DO NOT invent, modify, or generalize any category or subcategory values.
+9. DO NOT add any descriptive or extra terms to the output.
+10. Classify by the product's PRIMARY INTENDED USE as described in the use cases, not just appearance.
+11. For products that could fit multiple categories, choose the one whose use cases most specifically describe the product's main function.
+12. Consider the scale and context mentioned in use cases (e.g., commercial vs. residential, indoor vs. outdoor).
+13. Use the use cases to distinguish between similar subcategories within the same category.
 
 RESPONSE FORMAT:
 {
   "category": "<category>",
-  "subcategory": "<subcategory>"
+  "subcategory": "<subcategory>",
+  "reasoning": "<brief explanation of why this classification matches the use cases>"
 }`;
 
-  const userPrompt = `Classify the following product into a category and subcategory based on the provided list.
+  const userPrompt = `Classify the following product into a category and subcategory based on the provided list and use cases.
 
 Product Code: ${productCode}  
 Product Name: ${name}  
 Product Description: ${description}  
 
-If an image is provided, use it as the primary source of truth for identifying the product type, appearance, function, and context. Text information should supplement the visual analysis.
+CLASSIFICATION INSTRUCTIONS:
+1. Analyze the product's primary function and intended use
+2. Compare against the use cases provided for each subcategory
+3. Select the subcategory whose use cases best describe this product
+4. Avoid subcategories with exclusion criteria (❌) that clearly don't apply to this product
+5. If an image is provided, use it as the primary source of truth for identifying the product type, appearance, function, and context
 
 Return the result strictly in this JSON format:
 {
   "category": "<category>",
-  "subcategory": "<subcategory>"
+  "subcategory": "<subcategory>",
+  "reasoning": "<brief explanation of why this classification matches the use cases>"
 }
 `;
 
@@ -918,6 +948,11 @@ Return the result strictly in this JSON format:
       logger.info(
         `✅ Received AI classification response: ${JSON.stringify(result)}`
       );
+
+      // Log the reasoning for debugging purposes
+      if (result.reasoning) {
+        logger.info(`🧠 Classification reasoning: ${result.reasoning}`);
+      }
     } catch (parseError) {
       logger.error(
         `❌ Failed to parse classification response: ${parseError.message}`
@@ -931,11 +966,9 @@ Return the result strictly in this JSON format:
     }
 
     updateAITokens(req, completion.usage);
-    logger.info(
-      `📊 Updated token usage: ${completion.usage} tokens`
-    );
+    logger.info(`📊 Updated token usage: ${completion.usage} tokens`);
 
-    // Validate the category and subcategory
+    // Validate the category exists
     if (!productCategories[result.category]) {
       logger.warn(
         `⚠️ Invalid category "${result.category}". Finding closest match...`
@@ -963,14 +996,18 @@ Return the result strictly in this JSON format:
       }
     }
 
-    if (!productCategories[result.category].includes(result.subcategory)) {
+    // Validate the subcategory exists within the category
+    const availableSubcategories = Object.keys(
+      productCategories[result.category] || {}
+    );
+    if (!availableSubcategories.includes(result.subcategory)) {
       logger.warn(
         `⚠️ Invalid subcategory "${result.subcategory}" for category "${result.category}". Finding closest match...`
       );
 
       const subcategoryMatch = findClosestMatch(
         result.subcategory,
-        productCategories[result.category],
+        availableSubcategories,
         { threshold: 0.3, minScore: 0.2, returnDetails: true }
       );
 
@@ -1002,10 +1039,24 @@ Return the result strictly in this JSON format:
       }
     }
 
+    // Log the use cases for the final classification for verification
+    const finalUseCases =
+      productCategories[result.category]?.[result.subcategory]?.useCases;
+    if (finalUseCases && finalUseCases.length > 0) {
+      logger.info(
+        `📋 Final classification use cases: ${finalUseCases.join(" ")}`
+      );
+    }
+
     logger.info(
       `✅ Final classification for ${productCode}: Category=${result.category}, Subcategory=${result.subcategory}`
     );
-    return result;
+
+    // Return result without reasoning in the final output (keeping it for internal logging only)
+    return {
+      category: result.category,
+      subcategory: result.subcategory,
+    };
   } catch (error) {
     logger.error(
       `❌ Classification failed for ${productCode}: ${error.message}`
@@ -1385,12 +1436,14 @@ Return the result **strictly as a valid JSON array** in the specified format. Do
       });
     });
 
+    logger.info(
+        `✅ Received AI bill of materials response: ${JSON.stringify(response)}`
+      );
     let result;
+    
     try {
       result = JSON.parse(response.choices[0].message.content).bom;
-      logger.info(
-        `✅ Received AI bill of materials response: ${JSON.stringify(result)}`
-      );
+      
     } catch (parseError) {
       logger.error(`❌ Failed to parse BOM response: ${parseError.message}`);
       logger.error(`Response content: ${response.choices[0].message.content}`);
@@ -1572,6 +1625,45 @@ const classifyManufacturingProcess = async (
 ) => {
   const formattedProcesses = formatFilteredManufacturingProcesses(bom);
 
+  // Parse formattedProcesses string into a usable map
+  const categoryToProcesses = {};
+  formattedProcesses.split("\n").forEach((line) => {
+    const [category, processesStr] = line.split(":").map((s) => s.trim());
+    if (!category || !processesStr) return;
+
+    const processes = processesStr
+      .split(",")
+      .map((p) => p.trim())
+      .filter((p) => p.length > 0);
+
+    categoryToProcesses[category] = processes;
+  });
+
+  // Check if each BoM item maps to a category with only 1 process
+  const canBypassAI = bom.every((item) => {
+    const processes = categoryToProcesses[item.materialClass];
+    return processes && processes.length === 1;
+  });
+
+  if (canBypassAI) {
+    const result = bom.map((item) => {
+      const singleProcess = categoryToProcesses[item.materialClass];
+      return {
+        materialClass: item.materialClass,
+        specificMaterial: item.specificMaterial,
+        weight: item.weight,
+        manufacturingProcesses: [
+          {
+            category: item.materialClass,
+            processes: singleProcess,
+          },
+        ],
+      };
+    });
+
+    return result;
+  }
+
   const formattedBoM = bom
     .map(
       (item) =>
@@ -1579,41 +1671,17 @@ const classifyManufacturingProcess = async (
     )
     .join("\n");
 
-  const systemPrompt = `You are an expert manufacturing process specialist with deep expertise in industrial production methods and material processing technologies. Your task is to classify products into manufacturing processes based on their Bill of Materials (BoM).
+  const systemPrompt = `You are an expert manufacturing process specialist. Your task is to map materials in the Bill of Materials (BoM) to manufacturing processes.
 
-CLASSIFICATION PRINCIPLES:
-1. Every material in the BoM MUST be included in the response EXACTLY as provided, without modifications.
-2. You MUST ONLY use the exact materialClass and specificMaterial values from the BoM — DO NOT modify them in any way.
-3. Each material must have at least one manufacturing process.
-4. You MUST ONLY use manufacturing categories and processes from the list above.
-5. You MUST NOT invent new materials, processes, or categories that aren't in the provided list.
-6. The manufacturing processes selected for each material MUST BE RELEVANT to the materialClass — for example:
-   - Metal materials must only be assigned metal-related processes.
-   - Plastic materials must only be assigned plastic-related processes.
-   - Wood materials must only be assigned wood-related processes.
-   - Do NOT assign manufacturing processes from an unrelated category (e.g., don't assign wood processes to plastic materials).
-7. You must follow industrial and logical manufacturing norms when mapping processes to material classes.
-8. The output MUST be valid JSON only — no comments, no extra text.
+STRICT RULES YOU MUST FOLLOW:
+1. Use ONLY the processes exactly as listed in the "AVAILABLE MANUFACTURING CATEGORIES AND PROCESSES" section.
+2. DO NOT invent or add any process that is not explicitly mentioned in the list.
+3. Each material must be mapped using only the manufacturing processes allowed for its category.
+4. If a category only contains one process, use only that process.
+5. You MUST NOT modify or alter the materialClass or specificMaterial names — use them exactly as provided.
+6. The output MUST be a valid JSON object and include all materials in the BoM.
 
-CRITICAL RULES:
-1. Every material in the BoM MUST be included in the response EXACTLY as provided, without modifications.
-2. You MUST ONLY use the exact materialClass and specificMaterial values from the BoM — DO NOT modify them in any way.
-3. Each material must have at least one manufacturing process.
-4. You MUST ONLY use manufacturing categories and processes from the list above.
-5. You MUST NOT invent new materials, processes, or categories that aren't in the provided list.
-6. The manufacturing processes selected for each material MUST BE RELEVANT to the materialClass — for example:
-   - Metal materials must only be assigned metal-related processes.
-   - Plastic materials must only be assigned plastic-related processes.
-   - Wood materials must only be assigned wood-related processes.
-   - Do NOT assign manufacturing processes from an unrelated category (e.g., don't assign wood processes to plastic materials).
-7. You must follow industrial and logical manufacturing norms when mapping processes to material classes.
-8. The output MUST be valid JSON only — no comments, no extra text.
-
-IMPORTANT:
-- Output ONLY a valid JSON object.
-- Ensure strict adherence to the rules and format above.
-
-RESPONSE FORMAT:
+FORMAT:
 {
   "processes": [
     {
@@ -1622,7 +1690,7 @@ RESPONSE FORMAT:
       "weight": <weight>,
       "manufacturingProcesses": [
         {
-          "category": "<category1>",
+          "category": "<category>",
           "processes": ["<process1>", "..."]
         }
       ]

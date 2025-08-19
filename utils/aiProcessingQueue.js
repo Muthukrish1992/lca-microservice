@@ -8,7 +8,7 @@ const {
   calculateOptimalBatchSize 
 } = require("./batchAIProcessor");
 const productCategories = require("../data/productCategories.json");
-const materialsDatabaseEnhanced = require("../data/esgnow.json");
+const materialsDatabaseEnhanced = require("../data/materials_database.json");
 const manufacturingProcesses = require("../data/manufacturing_ef.json");
 
 /**
@@ -29,9 +29,9 @@ class AIProcessingQueue {
   constructor() {
     this.queue = [];
     this.processing = false;
-    this.batchSize = 500; // Safety margin under 5000 RPM limit
+    this.batchSize = 50; // Safety margin under 50 RPM limit
     this.batchDelayMs = 60000; // 1 minute delay between batches
-    this.maxConcurrentRequests = 10; // Concurrent requests within a batch
+    this.maxConcurrentRequests = 5; // Concurrent requests within a batch
     this.processedCount = 0;
     this.failedCount = 0;
     this.currentBatchStartTime = null;
@@ -47,7 +47,7 @@ class AIProcessingQueue {
       product,
       req,
       attempts: 0,
-      maxAttempts: 3,
+      maxAttempts: 5,
       addedAt: new Date()
     }));
 
@@ -108,7 +108,7 @@ class AIProcessingQueue {
     const productsWithoutImages = [];
 
     for (const item of batchItems) {
-      if (item.product.imageUrl) {
+      if (item.product.images) {
         productsWithImages.push(item);
       } else {
         productsWithoutImages.push(item);
@@ -144,7 +144,7 @@ class AIProcessingQueue {
       weight: item.product.weight
     }));
 
-    const optimalBatchSize = calculateOptimalBatchSize(products, 80000); // Conservative token limit
+    const optimalBatchSize = calculateOptimalBatchSize(products, 40000); // Conservative token limit
     logger.info(`📊 Using optimal batch size of ${optimalBatchSize} products per batch`);
 
     // Split into optimally sized groups
@@ -255,7 +255,8 @@ class AIProcessingQueue {
             item.product.countryOfOrigin
           );
           const co2EmissionFromProcesses = productService.calculateProcessEmissions(
-            manufacturing.processes
+            manufacturing.processes,
+            item.product.countryOfOrigin
           );
 
           const co2Emission = co2EmissionRawMaterials + co2EmissionFromProcesses;
@@ -327,7 +328,7 @@ class AIProcessingQueue {
         item.product.code,
         item.product.name,
         item.product.description,
-        item.product.imageUrl,
+        item.product.images[0],
         item.req
       );
 
@@ -336,7 +337,7 @@ class AIProcessingQueue {
         item.product.name,
         item.product.description,
         item.product.weight,
-        item.product.imageUrl,
+        item.product.images[0],
         item.req
       );
 
@@ -354,7 +355,8 @@ class AIProcessingQueue {
         item.product.countryOfOrigin
       );
       const co2EmissionFromProcesses = productService.calculateProcessEmissions(
-        classifyManufacturingProcessResult
+        classifyManufacturingProcessResult,
+        item.product.countryOfOrigin
       );
 
       const co2Emission = co2EmissionRawMaterials + co2EmissionFromProcesses;
@@ -365,9 +367,9 @@ class AIProcessingQueue {
         {
           $set: {
             category: classifyResult.category,
-            subcategory: classifyResult.subcategory,
-            bom: classifyBOMResult,
-            manufacturingProcesses: classifyManufacturingProcessResult,
+            subCategory: classifyResult.subcategory,
+            materials: classifyBOMResult,
+            productManufacturingProcess: classifyManufacturingProcessResult,
             co2Emission,
             co2EmissionRawMaterials,
             co2EmissionFromProcesses,
@@ -433,7 +435,7 @@ class AIProcessingQueue {
       
       // Small delay between concurrent batches
       if (i + concurrencyLimit < promises.length) {
-        await this.sleep(1000); // 1 second delay
+        await this.sleep(2000); // 2 second delay
       }
     }
     

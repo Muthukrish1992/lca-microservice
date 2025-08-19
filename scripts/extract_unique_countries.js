@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Path to the JSON file
-const jsonPath = path.join(__dirname, '..', 'data', 'eco_solutise_materials.json');
+const jsonPath = path.join(__dirname, '..', 'data', 'materials_database.json');
 
 // Read and parse the JSON file
 try {
