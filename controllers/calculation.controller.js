@@ -395,7 +395,7 @@ const calculateTransportEmission = (req, res) => {
     if (totalRoadFreightKm > 0) {
       calculationMetadata.totalRoadFreightKm = totalRoadFreightKm;
       calculationMetadata.roadFreightMultiplier = ROAD_FREIGHT_MULTIPLIER;
-      calculationMetadata.roadFreightEmission = parseFloat(roadFreightEmission.toFixed(2));
+      calculationMetadata.roadFreightEmission = roadFreightEmission;
       
       // Include breakdown of road distances if using new implementation
       if (warehouseToOriginDistance || destinationToWarehouseDistance) {
@@ -413,7 +413,7 @@ const calculateTransportEmission = (req, res) => {
 
     return res.status(HTTP_STATUS.OK).json(
       formatResponse(true, {
-        transportEmissions: parseFloat(totalEmission.toFixed(2)),
+        transportEmissions: totalEmission,
         unit: "kg CO₂eq/unit",
         calculationMetadata,
       })
