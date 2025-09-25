@@ -247,13 +247,13 @@ const calculateProcessEmissions = (
             const specificKey = `${materialClass}-${specificMaterial}-${process}-${country}`;
 
             // Try global fallback
-            const globalKey = `${materialClass}-${specificMaterial}-${process}-GLO`;
+            const globalKey = `${materialClass}-${specificMaterial}-${process}-glo`;
 
-            // Try with different material combinations
-            const materialOnlyKey = `${materialClass}-${specificMaterial}-${process}`;
+            // Try RoW fallback
+            const rowKey = `${materialClass}-${specificMaterial}-${process}-row`;
 
             emissionFactor =
-              processMap.get(specificKey) || processMap.get(globalKey) || 0;
+              processMap.get(specificKey) || processMap.get(globalKey) || processMap.get(rowKey) || 0;
 
             // If still not found, try to find any matching process for this material class
             if (emissionFactor === 0) {

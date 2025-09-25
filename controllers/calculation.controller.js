@@ -313,13 +313,22 @@ const getDistance = async (req, res) => {
 const calculateTransportEmission = (req, res) => {
   const EMISSION_FACTORS = {
     SeaFreight: 0.1187026394094,
-    RoadFreight: 0.16,
     RailFreight: 0.056,
     AirFreight: 0.801,
   };
 
+  const ROAD_FREIGHT_MULTIPLIER = 0.000104;
+
   try {
-    const { weightKg, transportMode, transportKm } = req.body;
+    const { 
+      weightKg, 
+      transportMode, 
+      transportKm, 
+      warehouseToOriginDistance, 
+      destinationToWarehouseDistance,
+      // Backward compatibility - keep roadFreightKm for existing implementations
+      roadFreightKm 
+    } = req.body;
 
     // Input validation
     if (!weightKg || !transportMode || !transportKm) {
@@ -351,20 +360,62 @@ const calculateTransportEmission = (req, res) => {
     // Convert weight to tons
     const weightTon = weightKg / 1000;
 
-    // Calculate emission
+    // Calculate base emission
     const emissionFactor = EMISSION_FACTORS[transportMode];
-    const totalEmission = weightTon * transportKm * emissionFactor;
+    let totalEmission = weightTon * transportKm * emissionFactor;
+
+    // Calculate total road freight distance
+    let totalRoadFreightKm = 0;
+    
+    // New implementation - use separate warehouse distances
+    if (warehouseToOriginDistance || destinationToWarehouseDistance) {
+      totalRoadFreightKm = (warehouseToOriginDistance || 0) + (destinationToWarehouseDistance || 0);
+    }
+    // Backward compatibility - use roadFreightKm if provided and new fields are not
+    else if (roadFreightKm) {
+      totalRoadFreightKm = roadFreightKm;
+    }
+
+    // Add road freight emission if there's any road freight distance
+    let roadFreightEmission = 0;
+    if (totalRoadFreightKm > 0) {
+      roadFreightEmission = weightTon * totalRoadFreightKm * ROAD_FREIGHT_MULTIPLIER;
+      totalEmission += roadFreightEmission;
+    }
+
+    const calculationMetadata = {
+      weightTon,
+      transportMode,
+      transportKm,
+      emissionFactor,
+      baseTransportEmission: parseFloat((weightTon * transportKm * emissionFactor).toFixed(2)),
+    };
+
+    // Add road freight metadata if applicable
+    if (totalRoadFreightKm > 0) {
+      calculationMetadata.totalRoadFreightKm = totalRoadFreightKm;
+      calculationMetadata.roadFreightMultiplier = ROAD_FREIGHT_MULTIPLIER;
+      calculationMetadata.roadFreightEmission = roadFreightEmission;
+      
+      // Include breakdown of road distances if using new implementation
+      if (warehouseToOriginDistance || destinationToWarehouseDistance) {
+        calculationMetadata.roadDistanceBreakdown = {
+          warehouseToOriginDistance: warehouseToOriginDistance || 0,
+          destinationToWarehouseDistance: destinationToWarehouseDistance || 0
+        };
+      }
+      
+      // Include legacy field if using backward compatibility
+      if (roadFreightKm && !warehouseToOriginDistance && !destinationToWarehouseDistance) {
+        calculationMetadata.roadFreightKm = roadFreightKm;
+      }
+    }
 
     return res.status(HTTP_STATUS.OK).json(
       formatResponse(true, {
-        transportEmissions: parseFloat(totalEmission.toFixed(2)),
+        transportEmissions: totalEmission,
         unit: "kg CO₂eq/unit",
-        calculationMetadata: {
-          weightTon,
-          transportMode,
-          transportKm,
-          emissionFactor,
-        },
+        calculationMetadata,
       })
     );
   } catch (error) {

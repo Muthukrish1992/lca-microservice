@@ -703,14 +703,14 @@
     "countryOfOrigin": "EU",
     "materialClass": "Metal",
     "specificMaterial": "Powdercoat Steel",
-    "Process": "metal working average for metal product manufacturing+powder coating steel",
+    "Process": "metal working average for metal product manufacturing",
     "EmissionFactor": 1.818
   },
   {
     "countryOfOrigin": "RoW",
     "materialClass": "Metal",
     "specificMaterial": "Powdercoat Steel",
-    "Process": "metal working average for metal product manufacturing+powder coating steel",
+    "Process": "metal working average for metal product manufacturing",
     "EmissionFactor": 2.39
   },
   {
@@ -864,7 +864,7 @@
     "countryOfOrigin": "RoW",
     "materialClass": "Metal",
     "specificMaterial": "Wrought Iron",
-    "Process": "steel production converter low-alloyed + market for forging steel",
+    "Process": "steel production converter low-alloyed  market for forging steel",
     "EmissionFactor": 3.51
   },
   {
